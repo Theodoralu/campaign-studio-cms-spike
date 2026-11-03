@@ -1,0 +1,229 @@
+{
+ "id": "doors-v2-fixture",
+ "stage": "ready",
+ "input": {
+  "url": "https://tw.buy.yahoo.com/search/product?p=%E8%8A%AD%E8%95%BE%E9%9E%8B",
+  "scenario": "",
+  "theme": "",
+  "ownerEmail": "qa@example.com",
+  "ownerDept": "UED",
+  "activeFrom": "",
+  "activeUntil": "",
+  "engine": "auto",
+  "productRefresh": "none",
+  "themeRefresh": "none",
+  "themeColor": "",
+  "themeMode": "light",
+  "kvVariant": "layout-005",
+  "proposalPack": {
+   "version": 1,
+   "generatedAt": "2026-09-07",
+   "layout": "layout-005",
+   "background": "bg-028",
+   "font": "font-001",
+   "motion": "static",
+   "layoutDetail": {
+    "name": "攻略・銀棚",
+    "family": "特輯封面式",
+    "devices": [
+     "1440",
+     "768",
+     "375"
+    ]
+   },
+   "backgroundDetail": {
+    "name": "白磁磚小方格（合成・四方連續）",
+    "mode": "image",
+    "bridgeColor": "#EFF1F3",
+    "license": "A",
+    "inPool": true
+   },
+   "fontDetail": {
+    "note": "跟字風走（預設 Noto 系）",
+    "styleKey": "css-f1"
+   },
+   "titleStyleThemed": true,
+   "motionDetail": {
+    "mode": "static"
+   },
+   "products": [],
+   "colors": {
+    "mainColorSource": "mood",
+    "cardBadge": "#BC9F77",
+    "titleBadge": "#BC9F77",
+    "latticeLine": "#BC9F77",
+    "brandColor": "#D9AB42",
+    "brand": "#D9AB42",
+    "brandSoft": "#D8B462",
+    "brandNeon": "#FFE9B8",
+    "paletteSource": "nippon",
+    "nipponPalette": "kuchiba_seasonal",
+    "nipponCategory": "tech",
+    "harmonyRule": null,
+    "brandExtensionRule": null,
+    "nipponReference": {
+     "brand": {
+      "name": "朽葉",
+      "romaji": "KUCHIBA",
+      "hex": "#D9AB42",
+      "note": "主色，建立活動頁的色彩記憶點"
+     },
+     "hero": {
+      "name": "鳥之子",
+      "romaji": "TORINOKO",
+      "hex": "#DAC9A6",
+      "note": "轉成高明度 Hero 背景，保留色感但降低壓迫"
+     },
+     "headline": {
+      "name": "檜皮",
+      "romaji": "HIWADA",
+      "hex": "#854836",
+      "note": "標題文字色，優先確保可讀性"
+     },
+     "price": {
+      "name": "紅鳶",
+      "romaji": "BENITOBI",
+      "hex": "#994639",
+      "note": "價格或促購資訊，用少量暖色形成行動提醒"
+     },
+     "accent": {
+      "name": "白茶",
+      "romaji": "SHIRACHA",
+      "hex": "#BC9F77",
+      "note": "輔助點綴色，銜接情緒與視覺層次"
+     }
+    },
+    "strategy": "tech",
+    "strategyLabel": "朽葉秋季",
+    "themeMode": "light",
+    "mood": "bright",
+    "suggestedHueFamily": "gold-bronze",
+    "suggestedColorTheme": "gold-bronze-light",
+    "saturationAdjust": 0,
+    "lightnessAdjust": 0,
+    "contrastAdjust": 0,
+    "titleStyle": "css-f1",
+    "heroCopy": {
+     "titleText": "PUMA x ROSÉ \n聯名鞋款開賣",
+     "subtitleText": "測試文案 ppp",
+     "eventTimeNote": "活動時間標題與日期為示意文案，正式檔期由來源實抓（真值鐵律）"
+    },
+    "typography": {
+     "title": {
+      "style": "css-f1",
+      "sizePx": 90,
+      "trackingPercent": 0,
+      "leading": 1.33,
+      "align": "center"
+     },
+     "subtitle": {
+      "font": "sans",
+      "fontFamilyCss": "'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",
+      "weightCss": 900,
+      "sizePx": 24,
+      "trackingPercent": 10,
+      "leading": 1.2
+     }
+    },
+    "componentColors": {
+     "title": "#854836",
+     "subtitle": "#854836",
+     "eventLabel": "#854836",
+     "eventDate": "#854836",
+     "cardText": "#854836",
+     "price": "#994639"
+    },
+    "designerOverrides": {
+     "colorOverrides": {},
+     "moduleMapping": {
+      "page": "page",
+      "hero": "hero",
+      "section": "section",
+      "card": "card",
+      "product": "product",
+      "eyebrow": "accent",
+      "cta": "cta",
+      "price": "price",
+      "title": "headline",
+      "subtitle": "text",
+      "eventLabel": "text",
+      "eventDate": "headline",
+      "cardBadge": "accent",
+      "titleBadge": "accent",
+      "latticeLine": "accent"
+     }
+    },
+    "backgroundModules": [
+     {
+      "key": "page",
+      "label": "Page / 活動頁底色",
+      "token": "campaign/page-bg",
+      "hex": "#F2EAD9",
+      "usage": "整頁最底層背景"
+     },
+     {
+      "key": "hero",
+      "label": "Hero / 主視覺背景",
+      "token": "campaign/hero-bg",
+      "hex": "#F5F0E5",
+      "usage": "首屏主視覺底色"
+     },
+     {
+      "key": "section",
+      "label": "Section / 區塊背景",
+      "token": "campaign/section-bg",
+      "hex": "#F7F2E9",
+      "usage": "活動內容分段底色"
+     },
+     {
+      "key": "card",
+      "label": "Card / 內容卡片",
+      "token": "campaign/card-bg",
+      "hex": "#FAF8F4",
+      "usage": "商品卡與資訊容器"
+     },
+     {
+      "key": "product",
+      "label": "Product / 商品展示底",
+      "token": "campaign/product-bg",
+      "hex": "#ECE3D7",
+      "usage": "商品圖、賣點區塊襯底"
+     }
+    ],
+    "qaStatus": "needs-review"
+   },
+   "qaStatus": "needs-review",
+   "warnings": [
+    "字風「F1 疊影錯位」尚未審查通過（待審查）——工具可以預覽，但這份包不帶字風、CMS 會用版式原本的字；請負責人在字風登記簿審查通過後重新打包"
+   ],
+   "registrySources": {
+    "layouts": "0.7.12",
+    "backgrounds": "0.10.0",
+    "fonts": "0.3.0",
+    "motion": "0.5.0",
+    "typestyles": "0.5.2"
+   },
+   "usage": "兩條路都通：①貼到 CMS 編修頁「版型與配色 → 貼組合提案包」＝版式＋背景＋主題一次帶入；②貼回 Claude Code 說「讀提案包」＝組 Figma 工作頁。素材授權 C 級僅內部預覽",
+   "subtitleFont": {
+    "fontId": "font-001",
+    "weight": 900
+   }
+  },
+  "packDeviated": false,
+  "packWarnings": [
+   "這份包的字風「css-f1」寫在舊位置（colors 裡）且尚未審查通過，CMS 不會套用——請用新版色彩工具重新打包（字風要放在 titleStyle 一等欄，且須審查通過）",
+   "qaStatus=needs-review＝黃燈帶入（組合未過試搭 QA，工作台需顯示提醒）"
+  ],
+  "layoutChoice": {
+   "by": "pack",
+   "reason": "手選版式「攻略・銀棚」（layout-005）",
+   "reasonDisplay": "照設計師提案包，這檔用「攻略・銀棚」版面。之後在編修頁隨時可以換。",
+   "engineNote": null,
+   "decidedAt": "2026-09-07T03:48:30.814Z"
+  }
+ },
+ "engine": "auto",
+ "createdAt": "2026-09-07T03:48:30.816Z",
+ "updatedAt": "2026-09-07T03:49:08.867Z",
+ "engineUsed": "auto"
+}

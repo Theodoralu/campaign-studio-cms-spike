@@ -1,0 +1,1028 @@
+{
+ "meta": {
+  "name": "背景素材資料庫",
+  "version": "0.11.0",
+  "spec": "2026-AI自動化活動頁生成規劃/45_背景系統與DesignToken重組規劃_v0.md §3",
+  "createdAt": "2026-08-20",
+  "note": "首批＝現役 hero 板背景目錄登記；file=null 者待匯出批補檔。第二批（2026-08-21，48 號裁決）＝S12 兩板補登（Q5）＋中性背景候選池 11 景組級收編（Q4＝A：B・E 組入攝影棚系、F 組入左標右品；A 組暫留庫不登）。池關係單向記在 layouts 登記簿 backgroundPool，本簿不記適用版式（治理裁定：對照只存一處）。第三批（2026-08-24 背景庫存清點 D6 裁決）＝舊庫存 41 檔全數實測正 2:1 免重裁；19 景由重製版取代退役（原檔保留 hero-backgrounds/ 當歷史備份）；獨有 3 景入庫 bg-023〜025（license C＝生成平台待補證）；磚紋雙套併一（tile 套 2 檔刪除、seamless 套＝bg-022）",
+  "exportNote": "2026-08-24 板底圖匯出批：bg-001〜004、006、007 自 Figma 原圖 hash 匯出（Q1 裁決＝C 級內網展示帶警語；bg-004 為四方連續磚源圖、tileable 待實測）；bg-005 為純變數規格非圖檔維持 null",
+  "bridgeColorNote": "第二批候選景的 bridgeColor＝機算候選（圖底緣 8% 高度帶平均色），採用前設計師驗色；正式定稿板的 bridgeColor 仍為設計裁定值",
+  "reviewNote2026_08_24": "B 級複查批（使用者委任）：bg-008〜018 十一張目檢＋銜接色機驗 11/11 全中（底緣 8% 均色重算零誤差）。判定＝pass×6、pass-with-note×3、conditional×2（bg-012 漂浮光斑/bg-013 燈板歪斜＝池內保留不得任預設）。預設背景替換案（C→B 五版式）另呈裁決未執行；商用條款查證待平台名",
+  "d5bNote": "2026-08-24 D5b 裁決＝未入池四張補審入池（bg-019〜022，A 組暫留庫的 48 號 Q4 裁決由本批更新）",
+  "reviewNote2026_08_25": "bg-001/bg-004 使用者本人審核放行（C→B pass；CMS 版型上架批）——九版式預設背景全數過灰度門票",
+  "termsVerification": {
+   "platform": "ChatGPT／DALL·E（OpenAI）",
+   "verifiedDate": "2026-08-25",
+   "basis": "OpenAI Terms of Use／Services Agreement：「you (a) retain your ownership rights in Input and (b) own the Output. We hereby assign to you all our right, title, and interest, if any, in and to Output.」",
+   "points": [
+    "輸出權利讓與用戶（own the Output）",
+    "可商用（含銷售與行銷素材）",
+    "免署名",
+    "免費層亦適用"
+   ],
+   "caveats": [
+    "輸出非專屬——他人可能生成相似圖",
+    "純 AI 產物之著作權保護有限（美國現行實務）",
+    "仍受使用政策約束；上線前逐張複查 AI 痕跡（B 級黃燈本義）"
+   ],
+   "appliesTo": "bg-008〜bg-025（背景生圖兩批：hero-catalog 重製批＋hero-backgrounds 08-07/08-10 庫存批）",
+   "note": "2026-08-25 更正批：原掛此處的 Higgsfield 查證塊屬影片素材，已搬至 motion 登記簿"
+  },
+  "bgClassNote2026_08_25": "bgClass 三分類（使用者裁決＝51 §7.1 v2 分類跟背景走）：scene=情境圖(漸層帶+bridgeColor 頁底)/seamless=四方連續(無帶、原寸平鋪)/pattern=綁變數底紋(隨主題變色)。c9 線初分類（bg-004/022=seamless、bg-005/026=pattern、其餘照片類=scene），設計線覆核歸屬；分類 26 筆 2026-08-25 設計線覆核全數通過（bg-001 bridgeColor=#212949 已在庫＝非待補）",
+  "bridgeColorNote2026_08_25b": "bridgeColor 定義覆核（渲染端接線批）：銜接色＝板「銜接漸層帶」終點色（bg-001 #212949 更正案先例；51 §7.1 v2＝帶終點色與頁底色同一值）。四筆照板更正：bg-008 #D5D5D6→#F2F2F2、bg-009 #D6D6D7→#E8EAEE、bg-017 #E5E4E6→#F2F2F2、bg-018 #DBDBDD→#F2F2F2（原值疑為圖底邊取樣色）。已知會設計線覆核。",
+  "fullBleedNote2026_08_25": "desktop 滿版制（使用者裁決 B 案）：scene 類逐張標 fullBleed；有展台的封閉構圖（右置舞台×2、置中舞台×3）＝retiredFromPool 退場（bg-017~021），其中 bg-017/018 為 layout-008/009 預設＝版式自帶烘底照舊出貨、僅停止進池供其他版式挑選；兩款要真滿版需設計線補繪或換預設（已知會）。",
+  "updatedAt": "2026-09-10",
+  "canvasSpec2026_08_28": "**hero 背景畫布規範（2026-08-28 使用者裁決；起因＝中秋案 bg-027 的月亮在 2560 以上螢幕消失）**\n① 機制：hero 容器＝視窗寬 × 舞台高（高度固定、寬度流動），背景以 cover 置中填滿。視窗越寬容器越扁，裁切一律從上下往中間收——這是結構造成的，換張圖救不了。\n② 分界不在「滿版與否」，在「**有沒有必見主體**」：\n   ・**有必見主體**（主題象徵、品牌識別、特定圖形）＝二選一：主體**不進背景圖**改放舞台層（永不被裁，首選）；或背景畫布改用 **3440×867**（最大螢幕寬 × 舞台高上限）且主體置於**中央 1600 安全區**。\n   ・**材質／空間／抽象類**（無非看到不可的元素）＝維持 2.00 比例即可，不需改。\n③ **特徵一律置中，不要放上方**——這是本次三張抽查（bg-009/011/015）的共同病因：構圖特徵在上方，而上方正是最先被裁的區域。新生成或新繪製的背景，構圖時把識別特徵放進垂直中段。\n④ 既有 18 張滿版背景**不重製**（2026-08-28 裁決）：多為材質／空間類、無必見主體，裁切不損失關鍵元素；有風險的三張已逐筆加 wideScreenNote 標註。\n⑤ 各螢幕可見比例（1264 舞台基準）：1440→89%／1920→74%／2560→55%／3440→41%。以 1440 舞台基準（如 layout-011）＝1440→100%／1920→86%／2560→62%／3440→47%。",
+  "nightCityNote2026_08_28": "夜城天際線批（2026-08-28 設計線）＝bg-029 深藍／bg-030 紫粉兩款自繪向量城市夜景入庫，使用者比對牆圈選「先留：深藍夜城、紫粉霓夜」。同批第三款「櫻花夜城」（插畫線稿・透視樓體＋櫻花枝／彎月／遠山／鐵塔）本次未收，檔案以「候選-」字首留在同目錄待裁。待裁例外題：櫻花夜城採「場景類背景窄裝置縮放」（手機約 0.62／平板約 0.86）以免手機只見三四棟樓，與現行 G11「紋樣原寸不縮放」牴觸——bg-029／030 未用該做法、照 G11 原寸切片，本題不影響本批入庫。",
+  "techNote2026_08_28": "科技感批（2026-08-28 設計線）＝bg-031 霓虹光框・葉影夜入庫（使用者裁決「依你建議入庫」＝採推薦款）。同批第二款『賽博走廊』（兩側光牆＋地面透視格線收向消失點）未收，檔案以「候選-」字首留在同目錄待裁；該款無寬螢幕裁切問題（重點在垂直正中與左右邊），若日後要補收可直接續號。",
+  "heroKitNote2026_08_30": "hero-kit 四張（bg-032〜035）＝使用者網路原圖經確定性腳本擴幅重製；C 級入庫（僅內部預覽、bg-map 不收、CMS 不出選單、出貨閘擋）；轉正＝補來源查證條款升 B；圖庫頁卡片與 layout 池歸屬＝轉正批一併補",
+  "weightGate": {
+   "白話": "首屏重量閘（2026-09-04 立；執行 09-01 議題 2 已裁項）：量『手機實際會下載的那張』（有 deviceFiles.375 用它、沒有就吃主圖），超過 maxKB 就擋。掃描器＝pipeline/tools/motion_perf_scan.js，本欄是它唯一的門檻真源。",
+   "maxKB": 400,
+   "maxKBNote": "09-01 初擬值；2026-09-04 用真分布驗過：做過手機版的 8 張落在 127～428KB、沒做的主圖 725～4364KB，中間有天然的溝，400 站得住。改門檻＝裁決題，改這裡一處即全線生效。",
+   "legacyIds": [
+    "bg-001",
+    "bg-002",
+    "bg-003",
+    "bg-006",
+    "bg-007",
+    "bg-008",
+    "bg-009",
+    "bg-010",
+    "bg-011",
+    "bg-012",
+    "bg-013",
+    "bg-014",
+    "bg-015",
+    "bg-016",
+    "bg-022",
+    "bg-023",
+    "bg-024",
+    "bg-025",
+    "bg-027",
+    "bg-031"
+   ],
+   "legacyNote": "存量基線（2026-09-04 首跑當日超線的 20 張）＝🟡 不擋，不是免死金牌：哪一張補了 375 版、實測 ≤ maxKB，掃描器自動判 ✅，不必手動從名單移除。名單只會變短不會變長——新進背景一律不得加入本名單。"
+  },
+  "neonNightMarketNote2026_09_10": "bg-036 霓虹夜市（2026-09-10 路①走查站 3-B）＝第二張自繪向量背景，做法承 bg-027 中秋案：產出是檔案（三 SVG 源檔＋三 PNG@2x）不是 Figma 節點，另附確定性產生器 build.mjs 與檢查腳本 verify.mjs，改設計＝改參數重跑。**領號注意**：走查當日曾誤取 bg-032（已被 8/30 冷藍格線廊佔用），改用當時最大號 bg-035 的下一號 bg-036——新增背景一律先讀本檔確認號碼沒被佔走。 **舞台高**：本款＝1440×560／768×460／375×620，跟著版型走不照抄 layout-011（2026-09-10 使用者裁；條文寫死三個尺寸＝路①走查發現 11）。"
+ },
+ "assets": [
+  {
+   "id": "bg-001",
+   "type": 2,
+   "name": "深藍夜紙材質（S10 聯名・深藍夜）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/board-bg/bg-001.png",
+   "bridgeColor": "#212949",
+   "license": "B",
+   "source": "使用者 2026-08-20 定稿板背景（Figma imageHash 在 hero／S10 特輯封面式・深藍夜變體）",
+   "themeFit": [],
+   "tags": [
+    "深色",
+    "紙紋",
+    "聯名"
+   ],
+   "qaStatus": "pass",
+   "reviewDate": "2026-08-25",
+   "reviewedBy": "使用者本人審核放行（2026-08-25 CMS 版型上架批；比照 2026-08-24 B 級複查批制度）；素材＝使用者 2026-08-20 定稿板 AI 繪製背景；生成平台商用條款＝簿級 meta.termsVerification 已查證",
+   "reviewNote": "原 C 級＝未走審核流程的暫記，非素材本身問題",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "retiredFromPool": true,
+   "retiredNote": "2026-10-07 使用者指示：背景下拉選單移除「深藍夜紙材質（S10 聯名・深藍夜）」；檔案與授權紀錄保留、既有活動用到照舊容忍出聲，重新啟用＝拿掉本旗標"
+  },
+  {
+   "id": "bg-002",
+   "type": 2,
+   "name": "攝影棚白（S10 攝影棚×2）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/board-bg/bg-002.png",
+   "bridgeColor": "#f2f2f2",
+   "license": "B",
+   "source": "同上（攝影棚／攝影棚促銷變體）；2026-08-27 使用者認定＝自產",
+   "themeFit": [],
+   "tags": [
+    "亮色",
+    "攝影棚"
+   ],
+   "bgClass": "scene",
+   "fullBleed": true,
+   "qaStatus": "pass-with-note",
+   "reviewDate": "2026-08-27",
+   "reviewedBy": "使用者本人 2026-08-27 審核牆認定自產＝放行（license C→B；Figma 板自製輸出、原始出處補認定）"
+  },
+  {
+   "id": "bg-003",
+   "type": 2,
+   "name": "銀棚（S10 攻略・銀棚）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/board-bg/bg-003.png",
+   "bridgeColor": "#e8eaee",
+   "license": "B",
+   "source": "同上（攻略・銀棚變體）；2026-08-27 使用者認定＝自產",
+   "themeFit": [],
+   "tags": [
+    "亮色",
+    "金屬感"
+   ],
+   "bgClass": "scene",
+   "fullBleed": true,
+   "qaStatus": "pass-with-note",
+   "reviewDate": "2026-08-27",
+   "reviewedBy": "使用者本人 2026-08-27 審核牆認定自產＝放行（license C→B；Figma 板自製輸出、原始出處補認定）"
+  },
+  {
+   "id": "bg-004",
+   "type": 3,
+   "name": "粉格紋磚（S10 攻略・粉格紋）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/board-bg/bg-004.png",
+   "tileable": null,
+   "license": "B",
+   "source": "同上（攻略・粉格紋變體）；tileable 待 2×2 拼貼實測後填 true/false",
+   "themeFit": [],
+   "tags": [
+    "格紋",
+    "粉彩"
+   ],
+   "bridgeColor": "#F2E6E6",
+   "qaStatus": "pass",
+   "reviewDate": "2026-08-25",
+   "reviewedBy": "使用者本人審核放行（2026-08-25 CMS 版型上架批；比照 2026-08-24 B 級複查批制度）；素材＝使用者 2026-08-20 定稿板 AI 繪製背景；生成平台商用條款＝簿級 meta.termsVerification 已查證",
+   "reviewNote": "原 C 級＝未走審核流程的暫記，非素材本身問題",
+   "bgClass": "seamless"
+  },
+  {
+   "id": "bg-005",
+   "type": 1,
+   "name": "灰底幾何裝飾（S11 格紋選品目錄）",
+   "file": null,
+   "license": "A",
+   "source": "純變數規格非圖檔——底綁 surface/商品圖底、裝飾綁 brand/輔助藍（Figma S11 板＝權威）",
+   "themeFit": [
+    "default",
+    "green-light",
+    "green-dark",
+    "gold-light",
+    "gold-dark",
+    "blue-light",
+    "blue-dark",
+    "japanese",
+    "clash-light",
+    "clash-dark"
+   ],
+   "tags": [
+    "幾何",
+    "隨主題"
+   ],
+   "bgClass": "pattern"
+  },
+  {
+   "id": "bg-006",
+   "type": 2,
+   "name": "S12 引言色塊型背景",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/board-bg/bg-006.png",
+   "bridgeColor": "#f2f2f2",
+   "license": "B",
+   "source": "Q5 補登（2026-08-21 使用者確認）；Figma S12 板級集 587:9555 引言色塊型變體；bridgeColor＝示範頁實證（tracker §8 2026-08-20 銜接底色延伸制行）；2026-08-27 使用者認定＝自產",
+   "themeFit": [],
+   "tags": [
+    "亮色",
+    "左標右品"
+   ],
+   "bgClass": "scene",
+   "bgClassNote": "初分類未覆蓋＝暫歸 scene，設計線覆核",
+   "fullBleed": true,
+   "qaStatus": "pass-with-note",
+   "reviewDate": "2026-08-27",
+   "reviewedBy": "使用者本人 2026-08-27 審核牆認定自產＝放行（license C→B；Figma 板自製輸出、原始出處補認定）"
+  },
+  {
+   "id": "bg-007",
+   "type": 2,
+   "name": "S12 聯名促銷型背景",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/board-bg/bg-007.png",
+   "bridgeColor": "#f2f2f2",
+   "license": "B",
+   "source": "Q5 補登（2026-08-21）；Figma S12 板級集 587:9555 聯名促銷型變體；2026-08-24 晨檢 Figma 複驗＝與 bg-006 不同張（imageHash 8e4b46d8≠66e0d6ee，目視：引言型＝天花燈格白棚、聯名型＝弧形雕塑白廳），兩本各自成立；bridgeColor #f2f2f2 實證＝兩變體銜接漸層帶端點色同 #F2F2F2（透明→實色）；2026-08-27 使用者認定＝自產",
+   "themeFit": [],
+   "tags": [
+    "亮色",
+    "左標右品"
+   ],
+   "bgClass": "scene",
+   "bgClassNote": "初分類未覆蓋＝暫歸 scene，設計線覆核",
+   "fullBleed": true,
+   "qaStatus": "pass-with-note",
+   "reviewDate": "2026-08-27",
+   "reviewedBy": "使用者本人 2026-08-27 審核牆認定自產＝放行（license C→B；Figma 板自製輸出、原始出處補認定）"
+  },
+  {
+   "id": "bg-008",
+   "type": 2,
+   "name": "玻璃簾幕弧形白廳",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B1.png",
+   "bridgeColor": "#F2F2F2",
+   "license": "B",
+   "source": "自產 AI 生圖（2026-08-14 收錄批，圖庫頁 B1）；bridgeColor＝機算候選；上線前逐張複查 AI 痕跡警語",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "目檢乾淨；右緣玻璃板間距微不齊（極輕）。沿用「對比極低、文字需深色」使用注記",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-009",
+   "type": 2,
+   "name": "環形燈圈科技白廳",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B2.png",
+   "bridgeColor": "#E8EAEE",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B2，3840×1920）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池",
+    "3C"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "天花點陣左右密度微差（極輕）；環圈接縫乾淨",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "wideScreenNote": "**特徵位於畫面上方，超寬螢幕會衰減**（2026-08-28 抽查實測）：hero 容器高度固定、寬度隨視窗流動，視窗越寬容器越扁，cover 從上下往中間裁——1440 可見 89%、1920 74%、2560 55%、3440 僅 41%。本張的識別特徵落在被裁區，超寬螢幕上會退成一片白牆。**判定＝品質衰減非故障**（不破版、不遮內容、不影響可讀性），2026-08-28 使用者裁決「接受現狀、標註即可」，不重製。 此張為 layout-005（攻略・銀棚）**預設背景**，影響面最大；曾評估「裁成 4.85:1 保住燈圈」，實測否決＝該裁法在主流 1440 螢幕會放大成天花板特寫、失去展間空間感，等於犧牲多數救少數。"
+  },
+  {
+   "id": "bg-010",
+   "type": 2,
+   "name": "格磚白盒展間",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B3.png",
+   "bridgeColor": "#E6E6E7",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B3）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "天花燈條左右亮度略異（輕）；牆面格線整齊",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-011",
+   "type": 2,
+   "name": "圓頂天窗柱列廳",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B4.png",
+   "bridgeColor": "#D7D7D9",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B4）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass-with-note",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "圓頂天窗輻條間距不均（右側較密）＝抬頭可辨的 AI 痕跡；hero 裁切避上緣即可",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "wideScreenNote": "**特徵位於畫面上方，超寬螢幕會衰減**（2026-08-28 抽查實測）：hero 容器高度固定、寬度隨視窗流動，視窗越寬容器越扁，cover 從上下往中間裁——1440 可見 89%、1920 74%、2560 55%、3440 僅 41%。本張的識別特徵落在被裁區，超寬螢幕上會退成一片白牆。**判定＝品質衰減非故障**（不破版、不遮內容、不影響可讀性），2026-08-28 使用者裁決「接受現狀、標註即可」，不重製。 天窗在上方會失去，但柱列位於中段仍在，畫面仍成立＝三張中衝擊最小。"
+  },
+  {
+   "id": "bg-012",
+   "type": 2,
+   "name": "霧面點陣光牆",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B5.png",
+   "bridgeColor": "#D9D7D8",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B5）；bridgeColor＝機算候選；⚠ 漂浮光斑 AI 痕跡警語",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass-with-note",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）；使用者本人 2026-08-27 審核牆複查放行（qaStatus conditional→pass-with-note；條件備註保留供選用參考）",
+   "reviewDate": "2026-08-27",
+   "reviewNote": "確認既有警語：中景漂浮光斑數處＝明顯 AI 痕跡；池內保留但不得任預設、選用時修圖或避開光斑區",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-013",
+   "type": 2,
+   "name": "過曝浮光燈板空間",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B6.png",
+   "bridgeColor": "#D6D6D6",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B6，3840×1920）；bridgeColor＝機算候選；⚠ 燈板透視不規則警語",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass-with-note",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）；使用者本人 2026-08-27 審核牆複查放行（qaStatus conditional→pass-with-note；條件備註保留供選用參考）",
+   "reviewDate": "2026-08-27",
+   "reviewNote": "確認既有警語：燈板透視多塊歪斜＋整體過曝；池內保留但不得任預設",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-014",
+   "type": 2,
+   "name": "燈帶白盒展間",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B7.png",
+   "bridgeColor": "#EAEAEB",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B7，3840×1920）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "燈帶對稱、格線輕微不等寬（極輕）",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-015",
+   "type": 2,
+   "name": "同心圓漣漪白廳",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-B8.png",
+   "bridgeColor": "#D4D3D3",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 B8，3840×1920）；bridgeColor＝機算候選；⚠ 天花接縫不對稱警語",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass-with-note",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "確認既有警語：同心圓圓心微偏、左弧較厚（輕）；hero 裁切多在環下緣，可用",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "wideScreenNote": "**特徵位於畫面上方，超寬螢幕會衰減**（2026-08-28 抽查實測）：hero 容器高度固定、寬度隨視窗流動，視窗越寬容器越扁，cover 從上下往中間裁——1440 可見 89%、1920 74%、2560 55%、3440 僅 41%。本張的識別特徵落在被裁區，超寬螢幕上會退成一片白牆。**判定＝品質衰減非故障**（不破版、不遮內容、不影響可讀性），2026-08-28 使用者裁決「接受現狀、標註即可」，不重製。 同心圓漣漪大半被裁，退成垂直細紋牆。僅在 layout-002/003/005 可換池，非任何版式預設。"
+  },
+  {
+   "id": "bg-016",
+   "type": 2,
+   "name": "純白方塊牆空景",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-non-stage-E1.png",
+   "bridgeColor": "#E7E4E1",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 E1，3840×1920）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "滿版空間",
+    "候選池"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "方塊牆錯位縫寬不一屬設計語彙本身，非破綻",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-017",
+   "type": 2,
+   "name": "右置舞台・雙弧光帶",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-stage-right-F1.png",
+   "bridgeColor": "#F2F2F2",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 F1）；bridgeColor＝機算候選；⚠ 光暈不均警語；構圖＝標題左商品右",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "右置舞台",
+    "候選池"
+   ],
+   "qaStatus": "pass-with-note",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "確認既有警語：左弧光帶上段暈開較糊（輕）；舞台區乾淨",
+   "bgClass": "scene",
+   "fullBleed": false,
+   "retiredFromPool": true,
+   "retiredNote": "2026-08-25 使用者裁決：desktop 滿版走 B 案，有「舞台」構圖的背景先退場不採用（重繪後可回鍋）"
+  },
+  {
+   "id": "bg-018",
+   "type": 2,
+   "name": "右置舞台・直線V形光",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-stage-right-F2.png",
+   "bridgeColor": "#F2F2F2",
+   "license": "B",
+   "source": "自產 AI 生圖（圖庫頁 F2）；bridgeColor＝機算候選；構圖＝標題左商品右",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "右置舞台",
+    "候選池"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "V 形光帶與圓台羅紋乾淨",
+   "bgClass": "scene",
+   "fullBleed": false,
+   "retiredFromPool": true,
+   "retiredNote": "2026-08-25 使用者裁決：desktop 滿版走 B 案，有「舞台」構圖的背景先退場不採用（重繪後可回鍋）"
+  },
+  {
+   "id": "bg-019",
+   "type": 2,
+   "name": "置中舞台・V形光圓柱台",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-stage-centered-A1.png",
+   "bridgeColor": "#E4E4E6",
+   "license": "B",
+   "source": "使用者 AI 重製圖；D5b 裁決 2026-08-24 補審入池；未派任何版式池（池外選用亮黃燈）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "置中舞台"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "目檢過：光帶利落、圓柱台羅紋清楚；左光帶近地微糊（極輕）",
+   "bgClass": "scene",
+   "fullBleed": false,
+   "retiredFromPool": true,
+   "retiredNote": "2026-08-25 使用者裁決：desktop 滿版走 B 案，有「舞台」構圖的背景先退場不採用（重繪後可回鍋）"
+  },
+  {
+   "id": "bg-020",
+   "type": 2,
+   "name": "置中舞台・薄圓盤台",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-stage-centered-A2.png",
+   "bridgeColor": "#E5E5E7",
+   "license": "B",
+   "source": "使用者 AI 重製圖；D5b 裁決 2026-08-24 補審入池；未派任何版式池（池外選用亮黃燈）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "置中舞台"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "目檢過：V 光對稱乾淨；台面薄、放大型商品顯懸浮＝使用注記",
+   "bgClass": "scene",
+   "fullBleed": false,
+   "retiredFromPool": true,
+   "retiredNote": "2026-08-25 使用者裁決：desktop 滿版走 B 案，有「舞台」構圖的背景先退場不採用（重繪後可回鍋）"
+  },
+  {
+   "id": "bg-021",
+   "type": 2,
+   "name": "置中舞台・穹頂環燈圓廳",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-catalog/hero-img/Hero-img-stage-centered-A3.png",
+   "bridgeColor": "#E3E2E4",
+   "license": "B",
+   "source": "使用者 AI 重製圖；D5b 裁決 2026-08-24 補審入池；未派任何版式池（池外選用亮黃燈）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "中性亮棚",
+    "置中舞台"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "目檢過：環帶與結構柱對稱；窄版裁切留意左右柱",
+   "bgClass": "scene",
+   "fullBleed": false,
+   "retiredFromPool": true,
+   "retiredNote": "2026-08-25 使用者裁決：desktop 滿版走 B 案，有「舞台」構圖的背景先退場不採用（重繪後可回鍋）"
+  },
+  {
+   "id": "bg-022",
+   "type": 3,
+   "name": "整頁無縫方磚牆",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/ecommerce-bg-neutral-square-wall-seamless-2048.png",
+   "tileable": true,
+   "bridgeColor": "#F1EEEC",
+   "license": "B",
+   "source": "使用者 AI 重製圖；D5b 裁決 2026-08-24 補審入池；未派任何版式池（池外選用亮黃燈）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "整頁背景",
+    "四方連續"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "Claude 代審（使用者 2026-08-24 委任）；生成平台＝ChatGPT／DALL·E（使用者 2026-08-25 更正：8/24「Higgsfield」答案屬影片、背景誤記）；OpenAI 條款查證＝輸出權利歸用戶・可商用・免署名 → 放行（輸出非專屬，上線前逐張複查照舊）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "目檢過：2×2 拼貼預覽接縫連續＝tileable 實證",
+   "bgClass": "seamless"
+  },
+  {
+   "id": "bg-023",
+   "type": 2,
+   "name": "抽象幾何霧（平面幾何系）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/ecommerce-hero-neutral-abstract-geometric-haze-3840x1920.png",
+   "bridgeColor": "#E9E7E7",
+   "license": "B",
+   "source": "08-07/08-10 自產既有庫存批（背景庫存清點 D6 裁決 2026-08-24 入庫）；生成平台＝ChatGPT／DALL·E（2026-08-25 使用者補證，升 B）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "平面幾何",
+    "偏暖",
+    "含4K定版"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "8 組視覺審核 workflow＋2 組新舊配對＋Claude 彙整；使用者 2026-08-24 D6 圈選；平台補證 2026-08-25＝ChatGPT／DALL·E（OpenAI 條款查證放行）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "D6-1 入庫。圖面乾淨、含 3840×1920 定版；風格＝平面插畫、色溫偏暖，與白棚系並用會跳批——池外選用亮黃燈即為此保險。",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-024",
+   "type": 2,
+   "name": "柔光抽象裝飾（暖調平面）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/ecommerce-hero-neutral-soft-abstract-lights-original.png",
+   "bridgeColor": "#E7E4E4",
+   "license": "B",
+   "source": "08-07/08-10 自產既有庫存批（背景庫存清點 D6 裁決 2026-08-24 入庫）；生成平台＝ChatGPT／DALL·E（2026-08-25 使用者補證，升 B）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "平面裝飾",
+    "偏暖",
+    "僅原生1774"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "8 組視覺審核 workflow＋2 組新舊配對＋Claude 彙整；使用者 2026-08-24 D6 圈選；平台補證 2026-08-25＝ChatGPT／DALL·E（OpenAI 條款查證放行）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "D6-2 入庫試用附警語：右上裝飾密——該側勿疊字疊卡；斜線紋理圓遠看似雜訊、上線前逐案確認；僅原生 1774×887、定版放大待補。",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-025",
+   "type": 2,
+   "name": "柔光光束（抽象漸層・無展台）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/ecommerce-hero-neutral-soft-light-beams-original.png",
+   "bridgeColor": "#E7E6E6",
+   "license": "B",
+   "source": "08-07/08-10 自產既有庫存批（背景庫存清點 D6 裁決 2026-08-24 入庫）；生成平台＝ChatGPT／DALL·E（2026-08-25 使用者補證，升 B）；bridgeColor＝機算候選",
+   "themeFit": [],
+   "tags": [
+    "抽象光束",
+    "無展台・商品卡懸浮式",
+    "僅原生1774"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "8 組視覺審核 workflow＋2 組新舊配對＋Claude 彙整；使用者 2026-08-24 D6 圈選；平台補證 2026-08-25＝ChatGPT／DALL·E（OpenAI 條款查證放行）",
+   "reviewDate": "2026-08-24",
+   "reviewNote": "D6-3 入庫。無地板空間感——商品卡為懸浮式用法；色溫微暖；僅原生 1774×887、定版放大待補。",
+   "bgClass": "scene",
+   "fullBleed": true
+  },
+  {
+   "id": "bg-026",
+   "type": 1,
+   "name": "斜紋帶（特輯封面式）",
+   "file": null,
+   "license": "A",
+   "source": "純變數規格非圖檔——上下兩條斜線交叉紋帶＋白底，紋線色綁主色淡階（Figma 板 4:249 權威；元件底紋＝可隨 Light/Dark 主題變色）",
+   "themeFit": [
+    "default",
+    "green-light",
+    "green-dark",
+    "gold-light",
+    "gold-dark",
+    "blue-light",
+    "blue-dark",
+    "japanese",
+    "clash-light",
+    "clash-dark"
+   ],
+   "tags": [
+    "底紋",
+    "隨主題"
+   ],
+   "patternKey": "lattice-cross",
+   "bgClass": "pattern"
+  },
+  {
+   "id": "bg-027",
+   "type": 2,
+   "name": "中秋・東方紋樣月夜（自繪向量，三裝置）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-1440@2x.png",
+   "bridgeColor": "#E5D7C4",
+   "license": "A",
+   "source": "**自繪向量**（2026-08-28 設計線本批繪製，非外部素材）：依使用者提供的四張中秋節慶版面參考，抽出共同語彙重畫＝深墨綠底＋茶棕金紋、四角出血紋理圓（四葉花格／七寶紋／青海波／菱格，四種不重複）、大圓月＋柔光暈、祥雲兩型（長勾／S 形轉折）、青海波小雲、四角星、規律波浪底紋。SVG 為可版控源檔、PNG 為 2x 匯出產物，兩者同目錄；三裝置各自配置構圖（紋樣單元原寸不縮放，窄了裁切＝G11 紋理尺度制）。**取代原 Unsplash 滿月樹影照片**——使用者 2026-08-28 指出照片有版權疑慮，改為自繪後授權歸零，升 license A。",
+   "themeFit": [],
+   "tags": [
+    "東方紋樣",
+    "中秋節慶",
+    "滿版出血",
+    "自繪向量",
+    "三裝置"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪素材無外部授權疑慮（license A）；設計面經使用者多輪圈選定案（配色墨綠金／紋樣濃度六成／紋樣單元放大／底紋改規律波浪／漣漪圓縮小調淡）",
+   "reviewDate": "2026-08-28",
+   "reviewNote": "三裝置對比實測全綠（眉標 6.5〜8.1、主標 8.0〜8.1、副標 6.6〜8.1、檔期章 7.3〜8.4、氛圍文案 6.7〜8.4；門檻正文 4.5／大字 3.0）。源檔＝2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-{1440,768,375}.svg，改色改構圖直接改 SVG 重匯出即可。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-027-mid-autumn/bg-027-mid-autumn-1440.svg"
+   }
+  },
+  {
+   "id": "bg-028",
+   "type": 3,
+   "name": "白磁磚小方格（合成・四方連續）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-tile-white-square-128.png",
+   "tileable": true,
+   "bridgeColor": "#EFF1F3",
+   "license": "A",
+   "source": "Claude 程式合成（SVG 向量繪製、非生成平台）：材質色域取自 bg-009 白廳照；128px 磚＝64px 一格；起因＝使用者病例「bg-009 天花嵌燈在手機 cover 裁切被放大成巨格」→ 2026-08-28 兩案打樣使用者圈 B 案",
+   "themeFit": [],
+   "tags": [
+    "四方連續",
+    "白磁磚",
+    "小格紋",
+    "整頁背景"
+   ],
+   "qaStatus": "pass",
+   "bgClass": "seamless",
+   "reviewedBy": "使用者本人打樣圈選放行（2026-08-28 背景打樣牆 B 案；A 案照片實裁＝嵌燈點陣品質不佳未採）",
+   "reviewDate": "2026-08-28",
+   "reviewNote": "自製合成＝license A；磚類走單一背景制（原寸平鋪、舞台透明、零接縫）"
+  },
+  {
+   "id": "bg-029",
+   "type": 2,
+   "name": "深藍夜城天際線",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-1440@2x.png",
+   "bridgeColor": "#071525",
+   "license": "A",
+   "source": "**自繪向量**（2026-08-28 設計線繪製，非外部素材）：依使用者提供的六張城市夜景參考抽出共同語彙重畫＝漸層夜空＋星點＋地平線輝光＋雲帶＋三層建築剪影（遠淡近深・大氣透視）＋成串暖窗光。SVG 為可版控源檔、PNG 為 2x 匯出產物，同目錄併存；三裝置各自配置——建築寬度與窗格尺寸跨裝置維持原寸，窄裝置＝取同一座城市的較窄切片（G11 紋理尺度制）。生成器＝同目錄 bg-029-030-gen.js（確定性亂數，重跑 byte-identical；改色＝換色盤常數即可）。",
+   "themeFit": [],
+   "tags": [
+    "城市夜景",
+    "天際線",
+    "滿版出血",
+    "自繪向量",
+    "三裝置",
+    "冷調",
+    "百搭"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪素材無外部授權疑慮（license A）；設計面經使用者 2026-08-28 比對牆圈選定案（「先留：深藍夜城、紫粉霓夜」）",
+   "reviewDate": "2026-08-28",
+   "reviewNote": "寬螢幕裁切實測：天際線稜線置於畫布垂直 52%，1440／1920／2560／3440 四種寬度稜線皆落在可視帶（畫布規範 ③ 特徵置中；本款無往上長的必見主體，故四寬度全綠）。畫面上半為安靜夜空可壓標題；底色深＝標題用白字。源檔＝2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-{1440,768,375}.svg。｜**v2 視覺簡化重出（2026-08-30 使用者指示，參考極簡紫調天際線插畫）**：雲帶全移除、遠景熄燈溶進霧裡、中近景窗光密度大減（點燈狀態機根治＝v1 翻轉寫死使亮窗恆四成）、星點減 2/3 調柔、樓距拉開棟數變少、輝光與貼地光暈減弱；天空漸層、稜線 52%、三裝置切片幾何皆不變——四寬度複驗全綠、標題區白字對比 7.53〜10.41:1（六檔實測）。生成器 v2＝同目錄 bg-029-030-gen.js。｜**v2.1 層次咬合修正（2026-08-30 使用者回饋「三層像排列不像重疊」）**：近景樓高 150〜320（樓頂插進中景身體、消除中近景間的水平亮帶）、各層縫隙收窄、近景 landmark 關閉防戳進上半夜空；對比複驗 6.99〜10.26:1 全過正文級。｜**v2.2 樓身落底（2026-08-30 使用者回饋）**：中遠景樓身向下延伸到畫面底、藏進近景後方——底邊不懸空、三層全幅交疊城市連續一片；頂部形狀與稜線不動，對比複驗同 v2.1 全過。｜**v2.3 天際線整體下沉定版（2026-08-30 使用者三度回饋收斂）**：遠中景基線再下移（+68/+84）＝二三層直接從近景樓後方探頭、三層緊貼交疊；最高稜線 ≈ 畫布 50%（G18 帶內）、上半夜空更開闊；對比複驗 7.53〜10.41:1 全過。｜**v2.4 街廓底座定版（2026-08-30 使用者四修收斂）**：近景加全寬實心底座（下緣起 132px）——中遠景樓身底部被第一層完全遮蔽、只露探頭上半身；對比不變全過。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-029-blue-1440.svg"
+   }
+  },
+  {
+   "id": "bg-030",
+   "type": 2,
+   "name": "紫粉霓夜天際線",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-1440@2x.png",
+   "bridgeColor": "#180D2C",
+   "license": "A",
+   "source": "**自繪向量**（2026-08-28 設計線繪製，非外部素材）：依使用者提供的六張城市夜景參考抽出共同語彙重畫＝漸層夜空（紫→粉地平線）＋星點＋地平線輝光＋雲帶＋三層建築剪影（遠淡近深・大氣透視）＋成串暖窗光。SVG 為可版控源檔、PNG 為 2x 匯出產物，同目錄併存；三裝置各自配置——建築寬度與窗格尺寸跨裝置維持原寸，窄裝置＝取同一座城市的較窄切片（G11 紋理尺度制）。生成器＝同目錄 bg-029-030-gen.js（確定性亂數，重跑 byte-identical；改色＝換色盤常數即可）。",
+   "themeFit": [],
+   "tags": [
+    "城市夜景",
+    "天際線",
+    "滿版出血",
+    "自繪向量",
+    "三裝置",
+    "紫粉調",
+    "節慶情緒"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪素材無外部授權疑慮（license A）；設計面經使用者 2026-08-28 比對牆圈選定案（「先留：深藍夜城、紫粉霓夜」）",
+   "reviewDate": "2026-08-28",
+   "reviewNote": "寬螢幕裁切實測：天際線稜線置於畫布垂直 52%，1440／1920／2560／3440 四種寬度稜線皆落在可視帶（畫布規範 ③ 特徵置中；本款無往上長的必見主體，故四寬度全綠）。畫面上半為安靜夜空可壓標題；底色深＝標題用白字。源檔＝2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-{1440,768,375}.svg。 選用提醒：紫粉底會影響商品照觀感，色系雜的選品建議改用 bg-029。｜**v2 視覺簡化重出（2026-08-30 使用者指示，參考極簡紫調天際線插畫）**：雲帶全移除、遠景熄燈溶進霧裡、中近景窗光密度大減（點燈狀態機根治＝v1 翻轉寫死使亮窗恆四成）、星點減 2/3 調柔、樓距拉開棟數變少、輝光與貼地光暈減弱；天空漸層、稜線 52%、三裝置切片幾何皆不變——四寬度複驗全綠、標題區白字對比 7.53〜10.41:1（六檔實測）。生成器 v2＝同目錄 bg-029-030-gen.js。｜**v2.1 層次咬合修正（2026-08-30 使用者回饋「三層像排列不像重疊」）**：近景樓高 150〜320（樓頂插進中景身體、消除中近景間的水平亮帶）、各層縫隙收窄、近景 landmark 關閉防戳進上半夜空；對比複驗 6.99〜10.26:1 全過正文級。｜**v2.2 樓身落底（2026-08-30 使用者回饋）**：中遠景樓身向下延伸到畫面底、藏進近景後方——底邊不懸空、三層全幅交疊城市連續一片；頂部形狀與稜線不動，對比複驗同 v2.1 全過。｜**v2.3 天際線整體下沉定版（2026-08-30 使用者三度回饋收斂）**：遠中景基線再下移（+68/+84）＝二三層直接從近景樓後方探頭、三層緊貼交疊；最高稜線 ≈ 畫布 50%（G18 帶內）、上半夜空更開闊；對比複驗 7.53〜10.41:1 全過。｜**v2.4 街廓底座定版（2026-08-30 使用者四修收斂）**：近景加全寬實心底座（下緣起 132px）——中遠景樓身底部被第一層完全遮蔽、只露探頭上半身；對比不變全過。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/night-city/bg-030-purple-1440.svg"
+   }
+  },
+  {
+   "id": "bg-031",
+   "type": 2,
+   "name": "霓虹光框・葉影夜",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-1440@2x.png",
+   "bridgeColor": "#050D22",
+   "license": "A",
+   "source": "**自繪向量**（2026-08-28 設計線繪製，非外部素材）：依使用者提供的四張科技感參考抽出共同語彙重畫＝深色底＋四周發光＋中央留空。構成＝深藍徑向底、三層深淺熱帶葉片自四邊入畫（羽狀棕櫚／闊葉帶葉脈／細長尖葉；最前層帶邊緣受光）、中央四層疊光的青藍霓虹方框（外散光／中暈／亮線／白核＋虛線）、微光粒子。SVG 為可版控源檔、PNG 為 2x 匯出產物，同目錄併存；生成器＝同目錄 tech-gen.js（確定性亂數，重跑 byte-identical；同檔另含未入庫的『賽博走廊』候選款）。",
+   "themeFit": [],
+   "tags": [
+    "科技感",
+    "霓虹光框",
+    "葉影",
+    "中央留空",
+    "滿版出血",
+    "自繪向量",
+    "三裝置",
+    "冷調"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪素材無外部授權疑慮（license A）；設計面經使用者 2026-08-28 比對牆裁決「依建議入庫」採用本款",
+   "reviewDate": "2026-08-28",
+   "reviewNote": "標題區白字對比實測：平均 13.17、第 99 百分位 8.84（門檻 4.5）——中央大面積淨空可直接壓標題與商品。寬螢幕裁切實測：光框垂直置於畫布 31.5%〜68.5%，1440／1920／2560 三種寬度整框皆完整；3440 超寬會裁掉框的上下橫邊、僅剩左右兩道光柱（設計取捨＝再縮框會過扁，2026-08-28 已知並接受）。源檔＝2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-{1440,768,375}.svg。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/tech/bg-031-neon-frame-1440.svg"
+   }
+  },
+  {
+   "id": "bg-032",
+   "type": 2,
+   "name": "冷藍格線廊",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-a-desktop-1440x780@2x.jpg",
+   "bridgeColor": "#3A4867",
+   "license": "C",
+   "source": "網路來源（原圖出處待補＝使用者 2026-08-30 自答「網路找的／不確定」）；三裝置＋超寬版＝2026-08-30 由確定性腳本自原圖等比擴幅重製（herokit.py／build_all.py 隨批存放、換原檔可重出），細節與已知限制＝同資料夾 README.md",
+   "themeFit": [],
+   "tags": [
+    "格線",
+    "空間",
+    "冷調",
+    "滿版出血",
+    "三裝置"
+   ],
+   "qaStatus": "unreviewed",
+   "reviewedBy": "C 級＝僅內部預覽：不入 bg-map（FrameTest／CMS 預覽與出貨頁同引擎、一律不上）、CMS 選單不出現、出貨閘擋；轉正路＝補原圖來源→查證商用條款→升 B 過票（2026-08-27 六張生成背景先例）",
+   "reviewDate": null,
+   "reviewNote": "四寬度模擬頁隨批（同資料夾 四寬度模擬預覽.html＝1440/1920/2560/3440 實際裁切）；原圖 2133×1200 畫質充足、四尺寸置中裁切；無必見主體",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-a-mobile-375x740@2x.jpg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-a-tablet-768x560@2x.jpg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-a-desktop-1440x780@2x.jpg"
+   },
+   "extraFiles": {
+    "ultrawide3440x867": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-a-ultrawide-3440x867.jpg",
+    "webp": "同名 .webp 隨批（上線建議優先用、引擎接線待轉正批）"
+   }
+  },
+  {
+   "id": "bg-033",
+   "type": 2,
+   "name": "藍斜紋雲霧",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-b-desktop-1440x780@2x.jpg",
+   "bridgeColor": "#7591A5",
+   "license": "C",
+   "source": "網路來源（原圖出處待補＝使用者 2026-08-30 自答「網路找的／不確定」）；三裝置＋超寬版＝2026-08-30 由確定性腳本自原圖等比擴幅重製（herokit.py／build_all.py 隨批存放、換原檔可重出），細節與已知限制＝同資料夾 README.md",
+   "themeFit": [],
+   "tags": [
+    "雲霧",
+    "斜紋",
+    "冷調",
+    "滿版出血",
+    "三裝置"
+   ],
+   "qaStatus": "unreviewed",
+   "reviewedBy": "C 級＝僅內部預覽：不入 bg-map（FrameTest／CMS 預覽與出貨頁同引擎、一律不上）、CMS 選單不出現、出貨閘擋；轉正路＝補原圖來源→查證商用條款→升 B 過票（2026-08-27 六張生成背景先例）",
+   "reviewDate": null,
+   "reviewNote": "四寬度模擬頁隨批（同資料夾 四寬度模擬預覽.html＝1440/1920/2560/3440 實際裁切）；無必見主體；wideScreenNote：原圖僅 1000px 寬、@2x 靠網點重建撐出（洗網點→放大→重印網點）——大結構 OK 但無真三倍細節；要當主視覺建議補更大原檔重跑",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-b-mobile-375x740@2x.jpg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-b-tablet-768x560@2x.jpg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-b-desktop-1440x780@2x.jpg"
+   },
+   "extraFiles": {
+    "ultrawide3440x867": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-b-ultrawide-3440x867.jpg",
+    "webp": "同名 .webp 隨批（上線建議優先用、引擎接線待轉正批）"
+   }
+  },
+  {
+   "id": "bg-034",
+   "type": 2,
+   "name": "紅牆聖誕樹",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-c-desktop-1440x780@2x.jpg",
+   "bridgeColor": "#7F3C23",
+   "license": "C",
+   "source": "網路來源（原圖出處待補＝使用者 2026-08-30 自答「網路找的／不確定」）；三裝置＋超寬版＝2026-08-30 由確定性腳本自原圖等比擴幅重製（herokit.py／build_all.py 隨批存放、換原檔可重出），細節與已知限制＝同資料夾 README.md",
+   "themeFit": [],
+   "tags": [
+    "聖誕",
+    "節慶",
+    "暖調",
+    "滿版出血",
+    "三裝置",
+    "超寬另檔"
+   ],
+   "qaStatus": "unreviewed",
+   "reviewedBy": "C 級＝僅內部預覽：不入 bg-map（FrameTest／CMS 預覽與出貨頁同引擎、一律不上）、CMS 選單不出現、出貨閘擋；轉正路＝補原圖來源→查證商用條款→升 B 過票（2026-08-27 六張生成背景先例）",
+   "reviewDate": null,
+   "reviewNote": "四寬度模擬頁隨批（同資料夾 四寬度模擬預覽.html＝1440/1920/2560/3440 實際裁切）；有必見主體（星星＋樹）＝各尺寸已補畫紅牆保留白、超寬 3440×867 主體進中央 1600 安全區（畫布規範 A2 路）；另有 ultrawide 檔隨批存放（引擎現僅吃三裝置檔）；wideScreenNote：原圖僅 734px 寬（放大 3.9 倍、針葉偏軟）；超寬版右側接縫有輕微漸層帶——正式上線前建議補更大原檔",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-c-mobile-375x740@2x.jpg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-c-tablet-768x560@2x.jpg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-c-desktop-1440x780@2x.jpg"
+   },
+   "extraFiles": {
+    "ultrawide3440x867": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-c-ultrawide-3440x867.jpg",
+    "webp": "同名 .webp 隨批（上線建議優先用、引擎接線待轉正批）"
+   }
+  },
+  {
+   "id": "bg-035",
+   "type": 2,
+   "name": "扁平雪景",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-d-desktop-1440x780@2x.jpg",
+   "bridgeColor": "#D4D4D4",
+   "license": "C",
+   "source": "網路來源（原圖出處待補＝使用者 2026-08-30 自答「網路找的／不確定」）；三裝置＋超寬版＝2026-08-30 由確定性腳本自原圖等比擴幅重製（herokit.py／build_all.py 隨批存放、換原檔可重出），細節與已知限制＝同資料夾 README.md",
+   "themeFit": [],
+   "tags": [
+    "雪景",
+    "扁平插畫",
+    "亮調",
+    "滿版出血",
+    "三裝置"
+   ],
+   "qaStatus": "unreviewed",
+   "reviewedBy": "C 級＝僅內部預覽：不入 bg-map（FrameTest／CMS 預覽與出貨頁同引擎、一律不上）、CMS 選單不出現、出貨閘擋；轉正路＝補原圖來源→查證商用條款→升 B 過票（2026-08-27 六張生成背景先例）",
+   "reviewDate": null,
+   "reviewNote": "四寬度模擬頁隨批（同資料夾 四寬度模擬預覽.html＝1440/1920/2560/3440 實際裁切）；手機版天空往上續畫 653px 供標題區；超寬版下壓裁切保雪丘小樹",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-d-mobile-375x740@2x.jpg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-d-tablet-768x560@2x.jpg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-d-desktop-1440x780@2x.jpg"
+   },
+   "extraFiles": {
+    "ultrawide3440x867": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/hero-kit-2026-08-30/hero-d-ultrawide-3440x867.jpg",
+    "webp": "同名 .webp 隨批（上線建議優先用、引擎接線待轉正批）"
+   }
+  },
+  {
+   "id": "bg-036",
+   "type": 2,
+   "name": "霓虹夜市（自繪向量，三裝置）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-1440@2x.png",
+   "bridgeColor": "#FFFFFF",
+   "license": "A",
+   "source": "**自繪向量**（2026-09-10 路①走查站 3-B 繪製，非外部素材）：設計定案於 2026-09-09 使用者走查當下——夜空漸層＋遠景霓虹招牌置中帶＋輔助藍透視地面＋淡螢光光柱＋底部溶進頁面白底。色彩取自「活動頁色彩」預設主題（輔助藍 #657AF2／主色藍 #3E5BFD／玫瑰粉 #F26591／螢光黃綠 #EBFB3E）；螢光黃綠在背景只用於垂掛燈泡與光柱底端的極小面積，促購焦點才是它的主場（承 09-09 可讀性發現：同一高彩度色用在五個地方＝沒有層級）。SVG 為可版控源檔、PNG 為 2x 匯出產物，同目錄另附確定性產生器 build.mjs（改設計＝改參數重跑，不手改 SVG）。三裝置各自配置構圖，招牌與地面格線的單元尺寸三裝置同一組像素值、窄畫布只是擺得下比較少個（G11 紋樣原寸制）。",
+   "themeFit": [],
+   "tags": [
+    "霓虹",
+    "夜市",
+    "夜景",
+    "透視地面",
+    "滿版出血",
+    "自繪向量",
+    "三裝置"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪素材無外部授權疑慮（license A）；站 3-B 第 4 步兩項檢查由機器實跑留證（四寬度模擬＋底色亮度量測），設計面待站 5 檢查板圈選",
+   "reviewDate": "2026-09-10",
+   "reviewNote": "① 三裝置尺寸＝**本款版型自己的舞台高**（2026-09-10 使用者裁）：1440×560／768×460／375×620。條文原寫死「1440×780／768×560／375×740」，實查引擎後確認那是中秋 layout-011 一款的舞台高，其餘九款桌機 1264×560、平板 322〜340、手機 424〜692——每款各有各的，不是通用值。本款依站 3 已排好的桌機 hero（1440×560）定案，平板手機取落在引擎現有區間內、且讓招牌帶正好落在畫面垂直中心的數值。② 多螢幕模擬（G18③）：1440／1920／2560／3440 四寬度實際裁切輸出，招牌帶四寬度全部留在畫面內（可見比例 100%／75%／56%／42%），模擬圖＝同目錄 四寬度模擬-{寬}.png。③ 底色亮度量測：畫面切 10 條水平帶量平均色換算對比——0〜448px 白字 10.60〜18.78（遠高於正文門檻 4.5）；448〜504px 是銜接過渡帶（白字 7.50、深字 2.34），深色文字不要落在這一帶；504〜560px 已是白底，深字 10.92。量測腳本＝同目錄 verify.mjs，報告＝verify-report.json。④ 首屏重量：375 的 PNG@2x＝127KB，門檻 400KB，過。⑤ 無必見主體（空間／氛圍類），畫布不需 3440 特規。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "wideScreenNote": "3440 寬時可見比例 42%（原圖 y 163〜397），招牌帶（y 171〜389）完整留在畫面內，但**上下各只剩 8px 餘裕**。據實記給後人：這款的舞台高若日後再調矮，招牌帶會是第一個被切到的東西——調高度時請重跑同目錄 verify.mjs 複驗，不要只看 1440。",
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-036-neon-night-market/bg-036-neon-night-market-1440.svg"
+   }
+  },
+  {
+   "id": "bg-037",
+   "type": 2,
+   "name": "暖光餐桌・美食（自繪向量，三裝置）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-1440@2x.png",
+   "bridgeColor": "#F2ECE6",
+   "license": "A",
+   "source": "**自繪向量**（2026-09-26 情境 A 統一鮮拾開館慶繪製，非外部素材）：奶油色窗光＋遠景暖色光斑＋淺木紋餐桌，食材（迷迭香、檸檬、辣椒、蒜頭、九層塔、胡椒粒、八角）只放四周。SVG 為源檔、PNG 為 2x 匯出；同目錄 build.mjs 為確定性產生器。",
+   "themeFit": [],
+   "tags": [
+    "美食",
+    "暖調",
+    "餐桌",
+    "食材插畫",
+    "滿版出血",
+    "自繪向量",
+    "三裝置"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪向量素材無外部授權疑慮（license A）；文字與商品可讀性由對比量測腳本實跑（同目錄），設計面待使用者目檢",
+   "reviewDate": "2026-09-27",
+   "reviewNote": "給 layout-002 攝影棚（左右商品卡・中間標題）用；畫布依 2026-09-26 匯出檔實量的舞台尺寸各畫一張：1440×560／768×360／375×440（含上下出血）。中央主標區與品名、價格位置不放插畫；主標磚紅 #B03C14、品名深字、紅色價格在各裝置最差對比見同目錄報告。底緣收到頁面淡出色，bridgeColor＝底緣 8% 帶均色機算。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-037-warm-food-table/bg-037-warm-food-table-1440.svg"
+   }
+  },
+  {
+   "id": "bg-038",
+   "type": 2,
+   "name": "暖色插畫美食桌（自繪向量，三裝置）",
+   "file": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-1440@2x.png",
+   "bridgeColor": "#F4ECE4",
+   "license": "A",
+   "source": "**自繪向量**（2026-09-26 情境 A 統一鮮拾開館慶繪製，非外部素材；使用者指定參考「扁平插畫、食物畫大當景、深色影子底座、短波浪線」的手法，改暖色、構圖與物件自畫）：插畫圍在主標左右與下方（蒸籠／全魚大盤／砂鍋），商品卡兩側只留小點綴。SVG 為源檔、PNG 為 2x 匯出；同目錄 build.mjs 為確定性產生器、verify-contrast.py 為對比量測。",
+   "themeFit": [],
+   "tags": [
+    "美食",
+    "暖調",
+    "扁平插畫",
+    "食材插畫",
+    "滿版出血",
+    "自繪向量",
+    "三裝置"
+   ],
+   "qaStatus": "pass",
+   "reviewedBy": "自繪向量素材無外部授權疑慮（license A）；文字與商品可讀性由對比量測腳本實跑（同目錄），設計面待使用者目檢",
+   "reviewDate": "2026-09-27",
+   "reviewNote": "給 layout-002 攝影棚（左右商品卡・中間標題）用；畫布依 2026-09-26 匯出檔實量的舞台尺寸各畫一張：1440×560／768×360／375×440（含上下出血）。中央主標區與品名、價格位置不放插畫；主標磚紅 #B03C14、品名深字、紅色價格在各裝置最差對比見同目錄報告。底緣收到頁面淡出色，bridgeColor＝底緣 8% 帶均色機算。",
+   "bgClass": "scene",
+   "fullBleed": true,
+   "deviceFiles": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-375@2x.png",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-768@2x.png",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-1440@2x.png"
+   },
+   "svgSource": {
+    "375": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-375.svg",
+    "768": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-768.svg",
+    "1440": "2026-AI自動化活動頁生成規劃/deliverables/hero-backgrounds/bg-038-warm-food-illust/bg-038-warm-food-illust-1440.svg"
+   }
+  }
+ ],
+ "version": "0.8.0"
+}

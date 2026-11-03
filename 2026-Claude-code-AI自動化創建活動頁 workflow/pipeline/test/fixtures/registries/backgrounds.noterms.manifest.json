@@ -1,0 +1,10 @@
+{
+  "_fixture": "同 backgrounds.manifest.json 但 meta 缺 termsVerification 欄——專測 CP-27「B 級商用條款查證紀錄缺席＝Blocking」分支。",
+  "meta": { "name": "背景素材資料庫（測試複本・無商用條款查證）", "version": "0.0.0-fixture" },
+  "assets": [
+    { "id": "bg-001", "name": "聯名深藍夜底", "license": "C" },
+    { "id": "bg-005", "name": "灰底幾何裝飾（純變數規格）", "license": "A" },
+    { "id": "bg-008", "name": "玻璃簾幕弧形白廳", "license": "B", "qaStatus": "pass", "reviewDate": "2026-08-24" },
+    { "id": "bg-012", "name": "霧面點陣光牆", "license": "B", "qaStatus": "conditional", "reviewDate": "2026-08-24" }
+  ]
+}

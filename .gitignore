@@ -1,0 +1,52 @@
+# Campaign Studio — D1 基線（2026-10-30）
+# 原則：密鑰、日誌、每檔活動的產出資料、相依套件、使用者上傳的素材都不進版控。
+# 原工作包的 pipeline/.gitignore 保留在原位；這份是 repo 根層的總表。
+
+# ── 密鑰／權杖（絕不進版控；洩漏＝需輪替）──
+**/.google-config.json
+**/.google-token.json
+**/.wb-pass
+**/.wb-bind
+.env
+.env.*
+*.pem
+*.key
+
+# ── 相依套件 ──
+node_modules/
+
+# ── 日誌 ──
+*.log
+**/.wb.log
+**/fatal.log
+
+# ── 每檔活動的產出資料（S3 之後才有家；本機開發放這裡）──
+**/runs/
+**/live-drafts/
+**/price_qa_report.json
+**/workbench/online-url.txt
+**/workbench/VERSION
+**/workbench/.wb-dev-schedules
+
+# ── 使用者上傳的背景與待審素材（資料，不是程式；pending.json 登記簿留著）──
+2026-AI自動化活動頁生成規劃/deploy-site/活動版型待審背景/*
+!2026-AI自動化活動頁生成規劃/deploy-site/活動版型待審背景/pending.json
+2026-AI自動化活動頁生成規劃/deploy-site/活動自備背景/
+
+# ── 測試與 QA 的暫存輸出 ──
+**/test/browser/.shots/
+**/dist/aem-test/
+**/dist/aem-shared/versions/
+**/dist/aem-shared/dam/
+coverage/
+playwright-report/
+test-results/
+
+# ── 部署／工具狀態 ──
+.netlify
+.wrangler/
+
+# ── 編輯器與系統 ──
+.DS_Store
+.vscode/
+.idea/

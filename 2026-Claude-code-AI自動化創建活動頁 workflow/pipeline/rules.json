@@ -1,0 +1,893 @@
+{
+  "version": "1.12.0",
+  "generatedAt": "2026-10-05T07:50:18.383Z",
+  "sources": {
+    "gateRules": "pipeline/gate.js（機器閘 v2 抽頂常數 N-16；v3 entryChecks＝U1–U5、v4 CP-10＝U8、v5 moduleChecks＝U10–U15、v6 entryCount＝U17⑰（CP-15 入口數量 3~4）、v7 categoryWallCount＝U18⑱（CP-16 品類牆數量 3~5）、v8 typeHomogeneity＝U19⑲（CP-17 選品單一來源制取代 R2）——皆 2026-07-20 裁決，規則數 17 → 32；v9（2026-07-21 落地 07-20 裁決㉒㉓㉗㉘）＝CP-18 全頁互斥＋CP-20 主從一致＋CP-21 牆件數 4 倍數＋CP-22 看更多，規則數 32 → 40、enums 增 wallProductCount/moreLinkToggle；v10（2026-07-22 裁決）＝tagSource 增 manual＝標籤 v6；v11（2026-07-23 收斂會裁決 23-1）＝CP-18 同樓層 scene×卡互斥，規則數 40 → 41；v12（2026-07-23 ②③定案）＝explore/editorial 檢查補課，規則數 41 → 45；v13（2026-07-23 四題裁決）＝本期活動 manual 通道（promoSourceMode+manual/entrySource 豁免與降級語意）＋商品型入口 gdid 兩式修，規則數 45 → 46；v15（2026-08-24 51 號 W1-E 裁決批）＝heroLayoutChecks 三閘＝CP-25 版式值域＋CP-26 佔位殘留＋CP-27 素材授權（含灰度門票／動畫欄），規則數 46 → 51；v15.1（2026-08-25 使用者實測批）＝CP-25 增引擎完工閘：kvVariant=layout-* 而真樣式未完工（不在 lib/layout_choice ENGINE_SUPPORTED 完工名單）＝FAIL 擋出貨，完工一款解鎖一款；v15.2（2026-08-25 CO-20260825-01）＝CP-28 主視覺真值連動：kv.cornerProducts 逐筆 gdid 必填（名稱/網址主檔帶出杜絕漂移），51 → 52；v16（2026-08-26 使用者裁決）＝CP-15 入口數量上限 4→12（規則數不變、規則值改：下限 3 不變、恰 3 等比放大語意保留；>3 全裝置左右滑動列＝渲染端互動另批；CP 登記表 v1.10＋14 號 §2.4 升版註記）",
+    "charLimitsMobile": "03_GoogleSheets_Schema_v1.md §8.1 mobile 字元上限建議表（v1.2 提案，2026-07-19）"
+  },
+  "charLimits": {
+    "widthModel": {
+      "space": 0.3,
+      "halfwidth": 0.55,
+      "fullwidth": 1,
+      "unit": "em",
+      "note": "近似模型：全形1em／半形0.55em／空格0.3em；極端字符（emoji 等）不在模型內"
+    },
+    "pxBudgets": {
+      "productTag": {
+        "budgetPx": 102,
+        "fontPx": 14,
+        "code": "CP-03",
+        "level": "FAIL",
+        "note": "P2 商品標籤（G6）"
+      },
+      "kvShortName": {
+        "budgetPx": 188,
+        "fontPx": 12,
+        "code": "CP-03",
+        "level": "FAIL",
+        "note": "KV 主打縮寫名"
+      },
+      "heroName": {
+        "budgetPx": 760,
+        "fontPx": 16,
+        "code": "CP-03",
+        "level": "FAIL",
+        "note": "主視覺商品顯示名（人工可編；兩行）"
+      }
+    },
+    "mobile": {
+      "kvTitleLineNoBadge": {
+        "field": "KV titleLine（無起徽行）",
+        "maxFullwidthChars": 5,
+        "overflow": "不截斷、字級遞減：5字=23px、6字=19px⚠、7字=16px、8字=14px（<20px 記 warning 不硬夾）"
+      },
+      "kvTitleLineWithBadge": {
+        "field": "KV titleLine（帶起徽行）",
+        "maxFullwidthChars": 4,
+        "overflow": "4字=22px、5字=17px⚠、6字=14px（兩行統一字級＝取小者）"
+      },
+      "kvEyebrow": {
+        "field": "KV 眉標 eyebrowLatin＋Cn 合計",
+        "maxFullwidthChars": 8,
+        "approx": true,
+        "overflow": "超出尾端 ellipsis（Q1b 裁決＝以縮短文案為正解）",
+        "note": "12px 不折行、103px 內"
+      },
+      "productOfferTag": {
+        "field": "商品卡 offer 標籤",
+        "maxFullwidthChars": 9,
+        "overflow": "超出尾端 ellipsis",
+        "note": "mobile 14px 單行；寬度語意 v5"
+      },
+      "stickerThemeLine": {
+        "field": "貼紙堆疊主題句",
+        "maxFullwidthChars": 9,
+        "maxLines": 2,
+        "overflow": "超出 clamp 截斷",
+        "note": "14px 最多兩行 clamp（每行 ≈9 全形）"
+      },
+      "mechanicCtaText_info-gift-rows": {
+        "field": "活動資訊卡 搶購鈕文字（滿額贈雙列）",
+        "maxFullwidthChars": 3,
+        "overflow": "鈕變寬會擠壓左邊的滿額字（平板 410／手機 343 卡寬先出事）",
+        "note": "預設「搶購去」＝3 字剛好"
+      },
+      "mechanicCtaText_info-gift-rush": {
+        "field": "活動資訊卡 搶購鈕文字（好禮列搶購）",
+        "maxFullwidthChars": 6,
+        "overflow": "同上；贈品小圖較窄故可到 6 字",
+        "note": "同上算法"
+      }
+    },
+    "curationDuty": "策展初稿 mobile 文案一律依 mobile 表預檢，超限者 AI 先行潤飾——保留原意、不添油加醋（04 §6.4）"
+  },
+  "promoWordPatterns": [
+    {
+      "id": "discountClaim",
+      "pattern": "(\\d+)\\s*折",
+      "flags": "g",
+      "usage": "找出折數宣稱（capture=折數 n；需驗真值：促銷文本邊界比對或實算折數，n<10 僅允許整十縮寫）"
+    },
+    {
+      "id": "priceClaim",
+      "pattern": "([\\d,]+)\\s*元",
+      "flags": "g",
+      "usage": "找出元價宣稱（capture=金額；需驗真值：等於池內現價或促銷文本逐字）"
+    },
+    {
+      "id": "discountBoundary",
+      "template": "(^|\\D){n}\\s*折",
+      "flags": "",
+      "usage": "折數 {n} 於促銷文本的邊界比對（97折 不得證 7折）；以 String.replace('{n}', n) 還原後 new RegExp"
+    },
+    {
+      "id": "priceSemantic",
+      "pattern": "\\d\\s*折|優惠|特價",
+      "flags": "",
+      "usage": "起字鐵律：showSuffix=是 時標題第二行需命中本式"
+    },
+    {
+      "id": "discountChar",
+      "pattern": "折",
+      "flags": "",
+      "usage": "市價比 <0.4 異常時，標籤命中本式＝禁用（FAIL）"
+    },
+    {
+      "id": "kvTitleDiscount",
+      "pattern": "\\d+\\s*折",
+      "flags": "",
+      "usage": "KV 標題兩行命中本式（或有檔期）→ 必填主軸 actid"
+    },
+    {
+      "id": "fullwidthDigits",
+      "pattern": "[０-９]",
+      "flags": "g",
+      "usage": "全形數字正規化：所有比對前先 replace 為半形（-0xfee0）"
+    },
+    {
+      "id": "productEntryPromoBan",
+      "pattern": "\\d+\\s*折|[\\d,]+\\s*元|優惠|特價|滿\\s*\\d|買\\s*就\\s*送|加贈|贈品|贈點|折價|下殺|出清|回饋|免運",
+      "flags": "",
+      "usage": "U5（2026-07-20）商品型入口 chip/文案優惠詞掃描：命中＝FAIL CP-09（僅限單品詞，禁優惠與檔期詞彙）"
+    },
+    {
+      "id": "productEntryPeriodBan",
+      "pattern": "檔期|限時|限定|快閃|夜殺|倒數|本檔|今日|最後\\s*一?\\s*天|\\d{1,2}\\s*[/.月]\\s*\\d{1,2}",
+      "flags": "",
+      "usage": "U5（2026-07-20）商品型入口 chip/文案檔期詞掃描：命中＝FAIL CP-09（僅限單品詞，禁優惠與檔期詞彙）"
+    },
+    {
+      "id": "engineeringCopy",
+      "pattern": "search\\s*p=|[?&]p=|actid=|https?://",
+      "flags": "i",
+      "usage": "U13⑬（2026-07-20）全 ✍️ 文案欄工程字串掃描：命中＝FAIL CP-13（URL/query 參數不得直出文案——分流邏輯保留，文案改用使用者能理解的語言）"
+    },
+    {
+      "id": "promoTitleTruth",
+      "pattern": "^\\s*本期活動|\\d+\\s*折|[\\d,]+\\s*元|特價|優惠",
+      "flags": "",
+      "usage": "U19⑲＋U16（2026-07-20）promoModuleTitle promo-truth 訊號（「本期活動」前綴或優惠數字詞）：entries 全商品型而標題命中＝FAIL CP-17（純商品內容＝ai-curated 策展命名、「本期活動」四字消失）；對正規化文本"
+    }
+  ],
+  "entryChecks": {
+    "dupEntry": {
+      "code": "CP-06",
+      "level": "FAIL",
+      "scope": "page.promoEntries",
+      "keys": [
+        "actid",
+        "url（正規化：host 小寫＋pathname＋query 依 key/value 排序，忽略 query 順序）"
+      ],
+      "note": "U1（2026-07-20）：「同一模組內不得出現同一活動 actid/同一 URL＝Blocking（0 容忍，Q3 定案：warning 級距取消）」；⚠ U1 原「跨模組引用（editorial.circles refEntry）屬設計語意、允許保留」已被同日 U11⑪ 推翻——跨模組去重見 moduleChecks.crossModuleDup"
+    },
+    "expiry": {
+      "code": "CP-07",
+      "level": "FAIL",
+      "basis": "snapshot promo.endTs；無 endTs → dateValue 尾日 23:59 台北時間容差判定（並 WARN 標註來源不精確）",
+      "tailPattern": "(\\d{4})\\.(\\d{1,2})\\.(\\d{1,2})\\s*~\\s*(?:(\\d{4})\\.)?(\\d{1,2})\\.(\\d{1,2})\\s*$",
+      "tzOffsetMin": 480,
+      "note": "U3（2026-07-20）：「活動過期＝內容失效，須更新為在線活動」；結束時刻早於建置時刻（執行當下）＝FAIL，訊息載明到期時間"
+    },
+    "entryImage": {
+      "code": "CP-08",
+      "level": "FAIL",
+      "default": "活動型＝該 actid 商品池首件商品 imgs[0]（imageSet[0][0]）；商品型＝該 gdid 商品 imgs[0]",
+      "overridePath": "assets.moduleImages.promoEntryN",
+      "overrideLevel": "INFO",
+      "note": "U2（2026-07-20）：「活動入口圖預設＝該活動 URL 商品池第一件商品的第一張商品圖；活動 banner 降為人工覆寫級」——banner 不再是合法預設（不符＝FAIL）；覆寫命中＝放行記 INFO"
+    },
+    "productEntry": {
+      "code": "CP-09",
+      "level": "FAIL",
+      "urlPathPattern": "^/gdsale/",
+      "idPattern": "-(\\d+)\\.html?$",
+      "rules": [
+        "gdid 可自 url 抽出（gdsale id 對映商品池 url）且存在於 products[]（否則 FAIL）",
+        "dateValue 必須為空（U5：無檔期列，空＝隱藏；非空＝FAIL）",
+        "chip/copy 過 productEntryPromoBan＋productEntryPeriodBan 掃描（命中＝FAIL，單品詞義務）",
+        "img＝該 gdid 商品 imgs[0]（或 assets.moduleImages.promoEntryN 覆寫）"
+      ],
+      "note": "U5（2026-07-20）：「商品型入口：連商品頁（Q4 定案＝允許、僅限單品詞）」——分流後不查 promoOf(actid)"
+    },
+    "typeHomogeneity": {
+      "code": "CP-17",
+      "level": "FAIL",
+      "scope": "page.promoEntries（＋page.promoModuleTitle 標題同型連動）",
+      "categories": {
+        "activity": [
+          "promo-activity"
+        ],
+        "product": [
+          "brand-recommend",
+          "product-fallback"
+        ]
+      },
+      "layerMin": 3,
+      "titleTruthPattern": "^\\s*本期活動|\\d+\\s*折|[\\d,]+\\s*元|特價|優惠",
+      "rules": [
+        "模組內容必須單一型別：活動型與商品型（含品牌推薦型）入口混用＝FAIL（純活動或純商品＝PASS）",
+        "降層義務：同一層資料可湊滿 ≥3 則（U17 下限）才採用該層——在線契合活動 <3 → 整組降到第 2 層品牌商品推薦、仍 <3 → 整組第 3 層商品替補；不跨層補位",
+        "標題同型（U19+U16 連動，輕量）：entries 全商品型而 promoModuleTitle 命中 promoTitleTruth 詞型（「本期活動」前綴或優惠數字詞）＝FAIL——純活動＝promo-truth 優惠真值標題、純商品/品牌推薦＝ai-curated 策展命名（「本期活動」四字消失）；欄位缺席＝略過"
+      ],
+      "note": "U19⑲（2026-07-20，接續同日 U1~U18）：選品邏輯不得混用（單一來源制）——「本期活動」標題喊優惠、格內卻商品推薦＝標題與模組商品相關性連結不起來；取代原 R2 混填排序 WARN（修訂 U5 混填制／U8 auto 混填語意／U17 補位語意）；U17 的 3 則等比版型＝單一來源制自然配套（該層恰 3 則時用 3 則版型，不用湊第 4 格）"
+    },
+    "entrySourceMode": {
+      "code": "CP-10",
+      "level": "FAIL（強制單一模式不符/枚舉非法/溯源不符）；WARN（快照無推薦清單＝不可溯源／auto 下入口全商品型但在線契合活動 ≥3＝應採更高優先層）",
+      "field": "page.promoSourceMode",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "promo-activity",
+        "brand-recommend",
+        "product-fallback",
+        "manual"
+      ],
+      "typeOrder": [
+        "promo-activity",
+        "brand-recommend",
+        "product-fallback"
+      ],
+      "brandRecommendKeys": [
+        "hotSales",
+        "hits"
+      ],
+      "rules": [
+        "缺值視為 auto；auto 語意（U19⑲ 修訂）＝「取可滿足 ≥3 則的最高優先層」——不再混填；auto 下 entries 全商品型且快照可判定在線契合活動 ≥3＝WARN 應採更高優先層（無商品池/無到期依據之活動＝不可判定不計、略過不誤殺）",
+        "promo-activity|brand-recommend|product-fallback＝強制單一來源：全部入口同型否則 FAIL（U19 語意不變——原本就單一來源）",
+        "入口型別判定：destinationType 宣告優先；缺宣告時 url 分流（gdsale＝product-fallback、其餘＝promo-activity）",
+        "brand-recommend 型須可溯源品牌頁推薦清單：快照有 hotSales/hits 時比對 gdid（不符＝FAIL）、無清單＝WARN 記不可溯源"
+      ],
+      "note": "U8（2026-07-20 裁決⑧）：「本期活動」來源三層優先序＝1.優惠活動（ec_promotions/onsale）→2.品牌商品推薦（品牌頁 hotSales/hits）→3.商品替補（商品池主題關鍵商品）；E0 欄（Sheets P1 表尾）供選擇；U19⑲（同日）修訂 auto＝單一來源制（型別混用改由 CP-17 FAIL 把關）"
+    },
+    "entryCount": {
+      "code": "CP-15",
+      "level": "FAIL（<3 或 >12）；INFO（恰 3 則＝3 則版型記錄／欄位缺席＝略過）",
+      "scope": "page.promoEntries",
+      "min": 3,
+      "max": 12,
+      "validity": "有效項＝具 url 或 actid 之入口物件；promoEntries 欄位缺席＝04 §7 第 3 層整模組隱藏語意（商品池不足編組）＝略過不誤殺",
+      "rules": [
+        "有效入口 <3＝FAIL——訊息載明遞補義務：依 U8 三層優先序（1.優惠活動→2.品牌商品推薦→3.商品替補）遞補補滿、遞補後仍不足才 FAIL",
+        "有效入口 >12＝FAIL（至多 12 則，不得超編；2026-08-26 使用者裁決＝上限 4→12）",
+        "恰 3 則＝INFO 記 3 則版型：保持內容間距不變、「圓形圖模組的圖片」與「標題模組的背景寬度」等比放大、活動標題字級不變——只有 module 內容寬度等比放寬（渲染側 09 §2.10）；mobile 2×2 流式 2+1 尺寸不變＝預設（09 §4.2 G-C10 開放項）"
+      ],
+      "note": "U17⑰（2026-07-20，接續同日 U1~U16）：「本期活動」內容數量原＝至多 4 則、不得少於 3 則；2026-08-26 使用者裁決＝上限放寬 4→12（「本期活動模組可以開放給用戶最多可以增加到 12 個內容入口」；下限 3 不變、恰 3 等比放大語意保留；>3 則＝全裝置左右滑動列＝渲染端互動另批）；3 則版型＝規則預備態——需可被資料驅動觸發＋自測可模擬驗證；U19⑲（2026-07-20）修訂補位語意：不跨層補位——3 則等比版型＝單一來源制自然配套（該層恰 3 則時用 3 則版型，不用湊第 4 格）"
+    }
+  },
+  "moduleChecks": {
+    "crossModuleDup": {
+      "code": "CP-06",
+      "level": "FAIL",
+      "scope": "editorial.circles|items × page.promoEntries（跨模組）",
+      "keys": [
+        "actid",
+        "url（正規化比對同 entryChecks.dupEntry）"
+      ],
+      "editorialCircleKeys": [
+        "circles",
+        "items"
+      ],
+      "note": "U11⑪（2026-07-20）：跨模組去重擴及「編輯精選 × 本期活動」——editorial 圓形項 actid/url 與 promoEntries 現用項重複＝FAIL；重複時依內容讀取順序（U8 三層優先序）取「本期活動未使用」的下一批項目、且須符合 AI 策展主題模組（推翻同日 U1「跨模組 refEntry 引用屬設計語意、允許保留」）；模組缺席＝略過不誤殺"
+    },
+    "kvImageSource": {
+      "code": "CP-11",
+      "level": "圖庫內任一張＝放行（不作為檢查項目）；FAIL（KV 圖不在該主打商品圖庫＝真值違反）；INFO（人工覆寫放行）",
+      "default": "page.kv.images[i]＝該主打商品圖庫任一張（AI 策展預設 imgs[1] 第二張白底；使用者可自選前 5 張）",
+      "overridePath": "assets.moduleImages.kvImageN",
+      "overrideLevel": "INFO",
+      "note": "2026-07-25 使用者裁決（二次放寬）：KV 圖不作為檢查項目——AI 預設第二張白底、使用者可自由選商品圖庫任一張（介面開放前 5 張）；僅保留真值保護＝KV 圖須取自該商品圖庫（不在圖庫＝FAIL）。原 U10⑩「一律第二張」語意撤除。"
+    },
+    "floorUrlUnique": {
+      "code": "CP-12",
+      "level": "FAIL（同模組重複）；WARN（與 promoEntries/editorial 跨模組重複）",
+      "field": "page.floors[].sceneCard.url（等價 sceneUrl；欄位缺席＝略過不誤殺）",
+      "note": "U12⑫（2026-07-20）：策展要把握每一個主題流量——策展入口 URL 不得重複；同模組（樓層間）URL 必唯一（鈦案「鈦划算／鈦好喝」兩樓層同連一 URL＝違例）"
+    },
+    "engineeringCopy": {
+      "code": "CP-13",
+      "level": "FAIL",
+      "pattern": "search\\s*p=|[?&]p=|actid=|https?://",
+      "flags": "i",
+      "fields": "全 ✍️ 文案欄：商品標籤/KV 縮寫名/KV 眉標＋標題兩行/CTA/頁尾標題/入口 chip＋copy/編輯精選圓形項/樓層牆標題副標＋情境卡",
+      "editorialCopyKeys": [
+        "label",
+        "copy",
+        "title",
+        "sub",
+        "name",
+        "chip"
+      ],
+      "note": "U13⑬（2026-07-20）：延伸探索分流邏輯保留，但文案不得出現「search p=鈦鍋」等工程字串（URL/query 參數直出）——改用使用者能理解的語言"
+    },
+    "themeFitGate": {
+      "code": "CP-14",
+      "level": "FAIL（命中率＜門檻）；WARN（快照無該活動商品池＝不可溯源）",
+      "scope": "活動型入口（promo-activity）",
+      "basis": "該 actid 商品池品名對 curationTheme 主題關鍵詞命中率 ≥ 門檻才可入選；只在契合池內以折數深度排序（排序屬策展側，閘門驗契合）",
+      "default": {
+        "keywords": [
+          "鈦",
+          "純鈦",
+          "鈦金屬",
+          "鈦鍋",
+          "鈦杯",
+          "鈦碗",
+          "鈦餐具",
+          "鈦筷"
+        ],
+        "threshold": 0.3,
+        "source": "gate.js 抽頂預設（2026-07-20 鈦案關鍵詞組＋30% 門檻）"
+      },
+      "patchChannel": {
+        "env": "GATE_THEME_FIT_PATCH",
+        "field": "themeFitRule{keywords[], threshold: number｜{B_poolHitRate}}",
+        "sessionPath": "/private/tmp/claude-503/-Users-tofu-Documents-Codex-2026-06-15-------------W-Yu-ting--/3bb4a5bf-8481-45f8-abe5-f6993182a64f/scratchpad/curation-20260720/feedback_patch.json",
+        "rule": "策展 agent 校準值（feedback_patch.json themeFitRule）讀得到就以它為準；讀不到＝走抽頂預設（缺檔不誤殺）；keywords 斜線別名展開＋英文不分大小寫（keywordNote）；threshold 物件形取 B_poolHitRate（閘門實作訊號 B＝商品池品名命中率）"
+      },
+      "note": "U14⑭（2026-07-20）：出現在來源頁活動列表≠主題契合——不契合一律不入選（鈦案 772695 nile 戶外＝選錯品類錯誤示範、立即撤換）；契合活動不足額依 U8 三層混填；⚠ 主題詞＋門檻待 curationTheme 詞庫欄位化後改資料驅動"
+    },
+    "categoryWallCount": {
+      "code": "CP-16",
+      "level": "FAIL（牆數 <3 或 >5／數量宣告與實有不一致）；WARN（牆標題與樓層/其他牆同名＝dock 錨點撞名）；INFO（欄位缺席＝略過）",
+      "scope": "page.walls|categorySections（等價欄位；掃 page／draft 頂層）",
+      "min": 1,
+      "max": 3,
+      "default": 3,
+      "wallContainerKeys": [
+        "walls",
+        "categorySections"
+      ],
+      "countFields": [
+        "categoryWallCount",
+        "wallCount"
+      ],
+      "rules": [
+        "實有品類牆 <1 或 >3＝FAIL（U18：由 2 組更新為預設 3 組；活動頁預設至少曝光 1 組、至多 3 組）",
+        "數量宣告欄（categoryWallCount/wallCount，Sheets 數量選擇欄）非空且 ≠ 實有牆數＝FAIL；宣告欄缺席＝略過不誤殺",
+        "牆標題與樓層/其他牆同名（正規化＋trim 後比對）＝WARN——dock 錨點撞名（dock 錨點隨牆數 6→7、已有橫滑 rail 機制，錨點標題須可辨識）",
+        "品類牆容器欄位缺席＝INFO 略過不誤殺（沿 CP-15 promoEntries 缺席慣例）"
+      ],
+      "note": "U18⑱（2026-07-20，接續同日 U1~U17）：「編輯精選」下方以分類為切入點的模組（品類牆 CategoryGroup/categorySections）目前 2 組 → 預設 3 組；Google Sheets 可選擇出現模組的數量；連動（閘門外）：Schema P1 BE/BF（牆4/5 標題，樓層編號連續制：樓層1-3＝主打、牆4/5＝品類牆1/2）擴至牆6~8＋新增數量選擇欄、P2 模組位置枚舉 wall-1/wall-2 擴至 wall-5、14 號契約 walls[]「恰 2」改 3~5"
+    },
+    "wallProductCount": {
+      "code": "CP-21",
+      "level": "WARN（件數 ∉ {4,8,12}＝湊滿提醒；2026-10-05 使用者裁「照樓層模式」）／FAIL（宣告 ≠ 實數）；略過（欄位缺席＝不誤殺，沿 CP-15/16 慣例）",
+      "scope": "page.walls[]（等價 categorySections[]）每牆商品列",
+      "enum": [
+        4,
+        8,
+        12
+      ],
+      "rules": [
+        "每牆有效商品數 ∉ {4|8|12}＝WARN 湊滿提醒（2026-10-05 使用者裁「照樓層模式」：原 FAIL 使逐件加品必經非法值＝規範與功能衝突；最後一排留空位不擋出貨）",
+        "宣告欄 walls[].wallProductCount（等價 Sheets 牆N商品數 per-wall 欄）非空且 ≠ 該牆實數＝FAIL；缺席＝略過"
+      ],
+      "note": "U27㉗（2026-07-20 裁決／2026-07-21 落地）：品類牆商品數＝4 的倍數；落地現況五集第三牆 4/4/4/4/8（鈦牆3 補漏勺 11555799＋湯漏勺組 8325549）；CSS desktop flex→grid repeat(4,1fr)＝渲染側配套（09 §2.11）"
+    },
+    "pageDedup": {
+      "code": "CP-18",
+      "level": "FAIL（同識別子曝光於兩個不同模組／同一樓層 scene 卡與商品卡同商品）；WARN（主視覺×下方＝2026-10-05 裁決提醒不阻擋；人工入稿入口＝2026-07-23 同款）",
+      "dimensions": [
+        "gdid（gdsale 兩式正規化）",
+        "actid",
+        "正規化 URL（normalizeUrl＝CP-06 同款）"
+      ],
+      "boundary": "KV 主打（kv.keyProductGdids）＋新版主視覺槽（page.hero[*].gdids，2026-09-26 起）／本期活動入口／樓層 scene 卡＋全部商品卡（2026-09-25 起每張都算曝光位；樓層各自成模組）／品類牆全卡／編輯精選圓（有建模時）",
+      "excluded": [
+        "position ∈ {editorial-wall}（編輯精選商品牆＝設計語意、U20/U22 邊界明文排除；納管＝第四次擴圈候補）",
+        "moreLink（U28 由 CP-22 管）",
+        "探索分流入口（搜尋/品牌/分類/活動頁；單品頁連結才計入）"
+      ],
+      "rules": [
+        "同識別子曝光於兩個不同模組＝FAIL（模組層聚合；同模組內重複由 CP-06/CP-12 管）",
+        "同一樓層 scene 卡（代表品）與商品卡同商品＝FAIL（2026-07-23 收斂會擴充 v11：代表品不入卡列、含備位不限曝光位——模組層聚合盲區補檢；07-22 AI 稿三樓層卡 1 全與情境卡同品同圖實證）",
+        "排除清單＝實作過濾（v12：walls claim 過濾 position ∈ 排除清單；編輯精選圓 actid-only 亦計入互斥＝逃逸修）"
+      ],
+      "note": "U22㉒（2026-07-20 裁決／2026-07-21 落地）：推薦模組內容全頁互斥（U1 同模組→U11 編輯精選×入口→U22 全頁 第三次擴圈）；讓位序 KV＞入口＞樓層＞牆——低順位模組依自身選品規則取次一未曝光候選（U15 品牌圓＝列表次一件、樓層卡＝分組次一未曝光、入口＝tier 讀取順序次一、牆＝回源補抓）；同樓層 scene×卡擴充＝2026-07-23 收斂會裁決（引擎端 curate_auto 結構＋prompt 硬化為第一防線、本檢為 gate 防呆第二防線）"
+    },
+    "exploreChecks": {
+      "code": "CP-02／CP-04／CP-12／CP-13（explore 作用域＝v12，2026-07-23 ②③定案）",
+      "scope": "page.explore＝{moreUrl, ctaText, items[]{label,sub,img,url}}（14 §8 待審③定案後入契約）",
+      "rules": [
+        "items[].label/sub＋ctaText＝✍️ 文案欄：工程字串（CP-13）＋折數/元價真值（CP-02）照掃",
+        "items[].url＋moreUrl＝CP-04 網域白名單；items 同模組 URL 唯一（CP-12 語意）；缺 URL＝WARN",
+        "CP-18 維持排除（分流入口設計語意）；目的地＝真值 URL 限定（來源頁/在線活動；引擎不機造搜尋 query）"
+      ],
+      "note": "2026-07-23 使用者指示開放 explore 編修＝待審③定案；loader 缺鍵＝整區隱藏降級（原「維持現值」廢止）"
+    },
+    "editorialChecks": {
+      "code": "CP-02／CP-13／CP-21（editorial 作用域＝v12，2026-07-23 ②③定案）",
+      "scope": "page.editorial＝{title[3], circles[]{tag,copy,date,img,url}}＋products[].position=editorial-wall 牆列",
+      "rules": [
+        "title 三行＝✍️：CP-13＋CP-02 照掃；圓文案（tag/copy 等六鍵）補 CP-02 真值（原僅 CP-13）",
+        "編輯精選牆件數＝U27 等價、2026-10-05 起同降 WARN 湊滿提醒（4|8|12 最整齊；0 件＝未啟用合法＝loader 隱藏降級）；牆列真值/池存在性＝products[] 迴圈既有覆蓋",
+        "圓＝CP-18 計入（url 或 actid 維度）；牆列＝CP-18 排除（設計語意，位次第四次擴圈候補）"
+      ],
+      "note": "2026-07-23 使用者指示開放 editorial 編修＝待審②定案；圓選品/牆選品＝未曝光池（引擎/enrich 端點同規則）"
+    },
+    "moduleCoherence": {
+      "code": "CP-20",
+      "level": "FAIL（BaseHit 未命中／修飾語 >50% 反證／標籤型別≠目的地型別）；WARN（SubHit 弱契合）；INFO（詞庫不可推導＝略過）",
+      "judgment": "MODULE_COHERENT(m) := BaseHit(m) ∧ DestOK(m) ∧ CopyOK(m)（U23 cp20Proposal 判定式）",
+      "lexicons": {
+        "baseSynonyms": {
+          "鈦": [
+            "鈦"
+          ],
+          "法式餐廚": [
+            "le creuset",
+            "creuset",
+            "鑄鐵",
+            "琺瑯",
+            "法式"
+          ],
+          "露營": [
+            "kazmi",
+            "kzm",
+            "露營",
+            "戶外",
+            "帳",
+            "營"
+          ],
+          "鍵盤": [
+            "鍵盤",
+            "keys",
+            "keyboard",
+            "鍵鼠"
+          ],
+          "女裝": [
+            "en-suey",
+            "銀穗",
+            "洋裝",
+            "上衣",
+            "褲",
+            "裙",
+            "衫",
+            "背心"
+          ]
+        },
+        "categoryNouns": [
+          "杯",
+          "碗",
+          "盤",
+          "鍋",
+          "筷",
+          "匙",
+          "勺",
+          "吸管",
+          "壺",
+          "杯蓋",
+          "砧板",
+          "餐具",
+          "餐盤",
+          "湯鍋",
+          "炒鍋",
+          "燉鍋",
+          "烤盅",
+          "烤盤",
+          "茶壺",
+          "馬克杯",
+          "帳篷",
+          "帳",
+          "天幕",
+          "椅",
+          "桌",
+          "爐",
+          "收納",
+          "打包",
+          "保冷",
+          "床墊",
+          "拖車",
+          "手拉車",
+          "廚房",
+          "鍵盤",
+          "滑鼠",
+          "數字",
+          "機械",
+          "無線",
+          "有線",
+          "藍牙",
+          "電競",
+          "辦公",
+          "復古",
+          "洋裝",
+          "長裙",
+          "短裙",
+          "裙",
+          "上衣",
+          "襯衫",
+          "背心",
+          "短褲",
+          "長褲",
+          "九分褲",
+          "針織",
+          "刺繡",
+          "印花",
+          "蕾絲"
+        ],
+        "modifierConflicts": [
+          {
+            "claim": "純鈦",
+            "conflictPattern": "鈦合金|塗層|鍍鈦|複合|鈦晶|鈦金(?!屬)"
+          },
+          {
+            "claim": "無線",
+            "conflictPattern": "有線"
+          },
+          {
+            "claim": "涼感",
+            "conflictPattern": "(?!)"
+          }
+        ],
+        "stopPattern": "\\d+\\s*折|滿\\s*\\d+|\\d+\\s*元起?|GUIDE\\s*\\d+|[「」『』（）()！!？?、，。・．\\s\"'：:；;－—-]"
+      },
+      "rules": [
+        "BaseHit【Blocking】：模組內每一曝光商品名（正規化後）須命中 ≥1 資料集基底詞（curationTheme × 同義表）；「划算」等優惠語境不豁免基底",
+        "SubHit【WARN】：商品名未命中模組子類詞（tokenize(模組 title＋情境卡文案) − 停用形 ∩ 品類名詞詞典）＝弱契合列人工 QA",
+        "CopyOK【Blocking】：模組標題修飾語宣稱被 >50% 曝光商品名之衝突形反證＝FAIL（V3「純鈦鍋具」型）",
+        "DestOK【Blocking】：標籤/副標稱「分類/分館」→ 目的地必須為 category URL（V5 型）；activity 型主題契合沿 CP-14 雙訊號；search 型詞交集空＝WARN",
+        "人工 QA 清單（機器不可驗）：推薦脈絡可讀性／landing 首屏第三訊號／弱契合 triage／圖與主題視覺契合／修飾語詞典外創意文案／同款異色視覺重複（U23 manualQaItems）"
+      ],
+      "note": "U23㉓（2026-07-20 裁決／2026-07-21 落地）：模組主題（主）與商品/連結/文案（從）符合主題邏輯；詞庫自動推導路徑見 04 §2.2 後新節（基底詞＝curationTheme 分詞＋來源 URL 型別詞＋人工同義表；子類詞＝模組文案分詞 − 停用詞 ∩ 品類名詞詞典）；772695 一體兩面（titanium FAIL／camping PASS）＝「主題契合是 curationTheme 的函數」例證"
+    },
+    "moreLink": {
+      "code": "CP-22",
+      "level": "FAIL（唯一性違反／enabled 枚舉非法／on 無 url／GET 無結果或 404）；WARN（詞交集空＝弱契合／品牌頁型／lowHits／與商品卡 URL 重複）；INFO（缺欄＝退全域 moreUrl／off＝合法／分類・活動型記錄／GATE_SKIP_HTTP 未驗）",
+      "scope": "page.floors[].moreLink／page.walls[].moreLink＝{enabled:on|off, url}",
+      "enum": [
+        "on",
+        "off"
+      ],
+      "rules": [
+        "唯一性【Blocking】：on 之 url 以 normalizeUrl 比對——＝自身 scene 卡 url（U28b①）／與同集其他 moreLink 重複／與 scene 卡・promoEntries・編輯精選・探索・全域 moreUrl 任一重複＝FAIL；與 KV 三圓/商品卡 URL 重複＝WARN（非 U28 明列五類）",
+        "主題切合：search 型 query 詞 ∩ 模組詞庫 ≠ ∅ 且 GET totalhitcount>0 非全模糊回填＝PASS；詞交集空＝WARN；GET 無結果/4xx＝FAIL；5xx 重試後仍失敗＝WARN 不可驗（站台 search 端點間歇 500＝U23 GET 履歷既載；驗證出壞目的地才 FAIL）；hits<5＝lowHits WARN（題詞逐字＋純度達標可維持 on＝U28 先例）",
+        "策展優先序（04 §6）：p=詞 ＞ brandIds ＞ 品類/分類頁 ＞ 品牌頁（最後手段＝WARN）；activity 型沿 CP-14；off＝該位置不渲染（url 留值備用合法＝U28b②）",
+        "缺欄＝INFO 退全域 moreUrl 舊行為（向下相容不誤殺）"
+      ],
+      "note": "U28㉘/U28b（2026-07-20 裁決／2026-07-21 落地）：看更多 per 模組主題化＋全頁唯一；落地現況 30 位置全 on（鍵盤樓層1 因 W7 探索分流落檔撞 URL 改 p=電競機械鍵盤＝CP-22 讓位首例）；Sheets F7.n/F8.n per 位置雙欄（03 §2.6）"
+    }
+  },
+  "heroLayoutChecks": {
+    "layoutValueDomain": {
+      "code": "CP-25",
+      "level": "FAIL（值域外貨號／有版式欄但登記簿讀不到）；INFO（舊拼法正規化／rollout=trial 試用徽章／rollout=closed 停接新案）；略過（欄位缺席＝舊 draft legacy 態，51 §2.8）",
+      "field": "page.kvVariant",
+      "normalize": "kv-new→new、kv-legacy→legacy（51 §2.6 讀入正規化；寫出端一律裸值）",
+      "valueSource": "modules.json hero variants[]（runtime 讀＝lib/proposal_pack loadRegistries；本表不鏡像 id 清單＝R5 枚舉鏡像防範；測試注入＝GATE_REGISTRY_OVERRIDES env）",
+      "layoutVariantPattern": "^layout-\\d{3}$",
+      "note": "51 號七題裁決（2026-08-24）＋批判前置致命三「閘面全盲」——gate 原況零識別版式欄；正 fixture＝layout-006、負 fixture＝未知貨號（掛 gate 三閘測試）"
+    },
+    "placeholderResidue": {
+      "code": "CP-26",
+      "level": "FAIL（出貨 draft 任一字串欄命中佔位型）",
+      "pattern": "[$＄]\\s*--|(?<!\\d)00\\.00\\s*[–—~〜-]\\s*00\\.00(?!\\d)",
+      "flags": "",
+      "excludedPaths": [
+        "meta",
+        "page.heroSlotStash",
+        "page.mechanic.rowStash"
+      ],
+      "rules": [
+        "「滿 $-- 折 $--」型示意佔位永不出貨（51 §2.10）——抓不到折扣真值＝折扣開關灰化出 base 版，不出佔位",
+        "排除子樹＝meta／page.heroSlotStash／page.mechanic.rowStash——僅契約正位路徑、深層同名鍵照掃（review F3）（meta 不進渲染＝14 §2.12；heroSlotStash 不渲染不出貨＝14 §2.13，換回還原時強制重驗另有專責）",
+        "編輯態不擋＝gate 只跑出貨鏈（部署/匯出全檢）——條文天然滿足，工作台編輯中可暫存佔位"
+      ],
+      "note": "51 號 §5 對接摘要＋§2.10 折扣資料源條款；39 號 §6-3 原「實作時提案」就此配號（CP 登記表 v1.8）"
+    },
+    "contentModuleCompleteness": {
+      "code": "CP-31",
+      "level": "FAIL（模組在場但必填空）／WARN（主打選品右欄只 1 件）",
+      "scope": "page.mechanic（每列 thresholdText＋rewardText；banner imgs/img/titleLine1 至少一）／page.spotlight（heroCard.gdid＋title；productRefs ≥1）／page.promoCards[]（每張 gdid；舊形 promoCard 單物件同掃）",
+      "rules": [
+        "模組加了就要填完——節點在場、必填全空＝引擎渲染虛線佔位框；CP-26 只認 $-- 型樣板字、空字串漏網（70 號 §4 發現②）",
+        "鍵缺席＝模組不在頁上＝略過（舊稿零誤殺）；編輯態不擋＝gate 只跑出貨鏈",
+        "訊息白話講第幾列／哪張卡沒填並指路（移除模組／換列數較少的排版／挑商品）"
+      ],
+      "note": "70 號 §6 QA 使用者裁「新開檢查號」（CP-28 已用於主視覺真值連動，取 31）；CP 登記表 v1.18；CMS 示範態灰字純顯示不進 draft＝畫面上看得到空格，本閘＝出貨時擋得住空格"
+    },
+    "assetLicense": {
+      "code": "CP-27",
+      "level": "FAIL（license C／B 級無複查或審核值非法／conditional 任預設／簿級 termsVerification 缺席／值域外貨號／灰度門票不符／字風未審・查無・主字型無戶口或非 A／副標字體不可選或非 A）；WARN（conditional 明選黃燈／motionFlag 非 static 未綁素材）；略過（kvVariant 非 layout-*＝§2.13 欄休眠）",
+      "scope": "page.backgroundId（缺欄＝版式 defaultBackground）＋page.motionFlag 綁定素材（page.motionId）＋page.titleStyle（字風簿 approved＋主字型戶口）＋page.subtitleFont.fontId（字體簿 pickable＋A）——後兩欄 v17（2026-09-08）納管",
+      "recordSource": "design-assets backgrounds/motion/typestyles/fonts manifest（runtime 讀＝loadRegistries backgroundRecords/motionRecords/backgroundsMeta/typestyleRecords+typestyleIds/fontRecords）",
+      "bgReviewField": "qaStatus",
+      "bgReviewPass": [
+        "pass",
+        "pass-with-note"
+      ],
+      "fontReviewField": "qaStatus（字體 B 級複查欄沿背景同名，v17）",
+      "rules": [
+        "背景 license C＝FAIL（未過正式授權；51 附錄 §5 修復路線圖＝B 級複查批＋背景重製批處理）",
+        "背景 license B＝須複查紀錄 qaStatus ∈ {pass|pass-with-note}＋reviewDate 在場；缺欄、值外或缺日期＝FAIL；conditional＝不得任版式預設（FAIL）、明選＝黃燈 WARN 照複查註記處置",
+        "背景 license B＝另需 backgrounds manifest meta.termsVerification（生成平台商用條款書面查證；2026-08-24 Higgsfield ToU §4.4 入簿 v0.5.1）——欄缺席＝FAIL",
+        "灰度門票（51 §6）：rollout=trial 版式出貨背景 license 必為 A 或已複查 B（pass/pass-with-note＋reviewDate；判定＝lib/proposal_pack backgroundEligible 單一來源、與表單 grayTicket 同函式）——不符＝FAIL；停新案開關＝modules.json 逐變體 rollout:\"closed\"（欄缺席＝開放；closed＝值域保留、歷史頁照舊渲染、工作台停供新選）",
+        "動畫（E7）：motionFlag 缺席＝容忍；static＝略過；值限 static|sway|flip；sway/flip 綁定素材 license C＝FAIL（試作素材＝僅內部預覽・未過授權；出貨動畫定調＝當檔商品照現生另批）、未綁素材＝WARN 出聲",
+        "字風（v17，2026-09-08）：page.titleStyle 缺席＝版式原字略過；查無＝FAIL；字風簿 review.status≠approved＝FAIL（未審不出貨）；已審但 fontId 缺／字體簿查無＝FAIL；主字型 license A＝過、B 須 qaStatus ∈ {pass|pass-with-note}＋reviewDate、C／非 A-B-C＝FAIL——寫入端兩道門（proposal_pack／hero_combo）原本已擋，gate 為出貨前最後一道（手改 draft／事後退審）",
+        "副標字體（v17，2026-09-08）：page.subtitleFont 缺席＝略過；形狀非 { fontId, weight }＝FAIL；fontId 查無＝FAIL；pickable≠true（字風配方專用／引擎內建／未達 A）＝FAIL；license 判法同字風"
+      ],
+      "note": "51 附錄批判前置致命一＋§5 修復路線圖；48 號 §1.2 素材授權硬閘機器化（原僅紙上條文）；B 級動畫複查制＝現簿無 B 級素材、未配號（素材入簿時隨批補）"
+    }
+  },
+  "requiredFields": [
+    {
+      "field": "products[].gdid",
+      "note": "須存在於 snapshot 且不得重複"
+    },
+    {
+      "field": "products[].name",
+      "note": "🔒 逐字＝來源"
+    },
+    {
+      "field": "products[].heroName",
+      "note": "✍️ 主視覺商品顯示名（人工可編、選填；空＝顯示 name 真值。只驗寬度與文案工程字串，不做真值比對——沿 kvShortName 前例，2026-08-30 使用者裁決）"
+    },
+    {
+      "field": "products[].price",
+      "note": "🔒 ＝來源現價"
+    },
+    {
+      "field": "products[].url",
+      "note": "🔒 逐字＝來源；網域白名單"
+    },
+    {
+      "field": "products[].tagSource",
+      "when": "tag 非空",
+      "note": "值限 enums.tagSource"
+    },
+    {
+      "field": "products[].tagOriginal",
+      "when": "tagSource=feature",
+      "note": "改寫必留原文；tag 須為原文有序子序列"
+    },
+    {
+      "field": "page.kv.actid",
+      "when": "KV 含折數或檔期",
+      "note": "折數＋檔期綁同一活動（禁跨活動拼裝）"
+    },
+    {
+      "field": "page.kv.keyProductGdids",
+      "when": "恆常",
+      "note": "應為 3 件且皆在 P2（不足＝WARN）"
+    },
+    {
+      "field": "page.kv.images",
+      "note": "U10（2026-07-20）：三張＝各主打商品池 imgs[1]（商品頁商品圖第二張＝白底語意）；池僅 1 張圖容 imgs[0]＋WARN；人工主題素材覆寫走 assets.moduleImages.kvImageN"
+    },
+    {
+      "field": "page.promoEntries",
+      "note": "U17⑰（2026-07-20）：有效入口（具 url/actid）數量 3~12——<3 依 U8 三層優先序遞補、遞補後仍不足＝FAIL CP-15；恰 3 則＝版型等比放大（間距不變、圓圖與標題背景寬度等比、字級不變＝09 §2.10）；欄位缺席＝第 3 層整模組隱藏語意、略過；2026-08-26 使用者裁決＝上限 4→12（>3 全裝置滑動列＝渲染另批）"
+    },
+    {
+      "field": "page.promoEntries[].img",
+      "note": "U2（2026-07-20）：預設＝活動型該 actid 商品池首件 imgs[0]／商品型該 gdid imgs[0]；人工覆寫走 assets.moduleImages.promoEntryN（banner 不再是合法預設）"
+    },
+    {
+      "field": "page.promoEntries[].dateValue",
+      "when": "商品型入口（gdsale url）",
+      "note": "必須為空（U5 2026-07-20：無檔期列，dateValue 空＝隱藏）"
+    },
+    {
+      "field": "page.promoSourceMode",
+      "when": "缺值視為 auto",
+      "note": "E0（U8 2026-07-20；U19⑲ 修訂 auto 語意）：值限 auto|promo-activity|brand-recommend|product-fallback|manual；auto＝取可滿足 ≥3 則的最高優先層（U19 單一來源制——不再混填）、其餘值＝強制單一來源（全部入口同型）"
+    },
+    {
+      "field": "page.promoModuleTitle",
+      "when": "非空",
+      "note": "U19⑲＋U16（2026-07-20）：標題與內容同型——純活動＝promo-truth 優惠真值標題；純商品/品牌推薦＝ai-curated 策展命名（「本期活動」四字消失、禁優惠數字詞）；entries 全商品型而標題命中 promoTitleTruth 詞型＝FAIL CP-17；欄位缺席＝略過"
+    },
+    {
+      "field": "page.walls",
+      "note": "U18⑱（2026-07-20 原 3~5）／2026-08-27 模組批升版：品類牆（等價 categorySections）數量 1~3（預設 3 組、可刪至 1 面）——超出＝FAIL CP-16；欄位缺席＝略過；牆標題不得與樓層/其他牆同名（dock 錨點撞名＝WARN）"
+    },
+    {
+      "field": "page.categoryWallCount",
+      "when": "非空",
+      "note": "U18⑱（2026-07-20）：Sheets 數量選擇欄——宣告值須＝實有牆數（不一致＝FAIL CP-16）；等價欄位 categoryWallCount/wallCount"
+    },
+    {
+      "field": "page.walls[].wallProductCount",
+      "when": "非空",
+      "note": "U27㉗（2026-07-20）：牆N商品數 Sheets 欄——值 ∈ {4|8|12} 且須＝該牆商品列實數（不一致＝FAIL CP-21）；欄位缺席＝略過；每牆實數本身 ∉ {4|8|12}＝FAIL CP-21（03 R1 牆 4~12 warning 語意廢止升 Blocking）"
+    },
+    {
+      "field": "page.floors[].moreLink / page.walls[].moreLink",
+      "when": "非空",
+      "note": "U28㉘/U28b（2026-07-20）：per 位置看更多 {enabled:on|off, url}——on 之 url 全頁唯一（＝自身 scene 卡/其他 moreLink/入口/編輯精選/探索/全域 moreUrl 任一＝FAIL CP-22）＋主題切合（search 型 query 詞 ∩ 模組詞庫＋GET hits>0）；off＝該位置不渲染（url 留值備用合法）；欄位缺席＝INFO 退全域 moreUrl 舊行為"
+    },
+    {
+      "field": "page.kvVariant",
+      "when": "非空",
+      "note": "W1-E（2026-08-24）：版式貨號欄——值域＝modules.json hero variants（runtime 讀登記簿，不在此鏡像清單＝R5 防範）；kv-new/kv-legacy 舊拼法讀入正規化（51 §2.6）；值域外＝FAIL CP-25；欄位缺席＝舊 draft legacy 態略過（51 §2.8）"
+    },
+    {
+      "field": "page.backgroundId",
+      "when": "kvVariant=layout-*",
+      "note": "W1-E（2026-08-24）：出貨背景貨號——缺欄＝取版式 defaultBackground；license C＝FAIL CP-27、B 級須複查 pass/pass-with-note（conditional 不得任預設、明選黃燈）、B 級另需簿級 meta.termsVerification；trial 版式過灰度門票（license A 或已複查 B）"
+    },
+    {
+      "field": "page.motionFlag",
+      "when": "非空",
+      "note": "W1-E（2026-08-24）：值限 static|sway|flip（14 §2.13）；缺席＝容忍；sway/flip 綁定素材（page.motionId）license C＝FAIL CP-27、未綁素材＝WARN（第一波動畫素材鏈未接＝當檔商品照現生另批）"
+    },
+    {
+      "field": "page.titleStyle",
+      "when": "非空（kvVariant=layout-*）",
+      "note": "v17（2026-09-08 CP 登記表 v1.17）：字風貨號——值域＝字風登記簿 review.status=approved；查無／未審／主字型缺戶口或 license 非 A（B 須 pass/pass-with-note＋reviewDate）＝FAIL CP-27；缺席＝版式原字"
+    },
+    {
+      "field": "page.subtitleFont",
+      "when": "非空（kvVariant=layout-*）",
+      "note": "v17（2026-09-08 CP 登記表 v1.17）：{ fontId, weight }——fontId 須在字體簿且 pickable:true、license A（B 須複查欄同上）；否則 FAIL CP-27；缺席＝版式原字"
+    }
+  ],
+  "enums": {
+    "tagSource": [
+      "offer",
+      "feature",
+      "manual"
+    ],
+    "imgDomains": [
+      "img.yec.tw",
+      "s.yimg.com",
+      "sp.yimg.com"
+    ],
+    "linkDomainPattern": "(^|\\.)tw\\.(buy|promo)\\.yahoo\\.com$",
+    "kvKeyProductCount": 3,
+    "zoneProductRange": {
+      "floors": {
+        "label": "樓層",
+        "min": 3,
+        "max": 15
+      },
+      "walls": {
+        "label": "品類牆",
+        "min": 4,
+        "max": 12
+      }
+    },
+    "promoSourceMode": [
+      "auto",
+      "promo-activity",
+      "brand-recommend",
+      "product-fallback",
+      "manual"
+    ],
+    "wallProductCount": [
+      4,
+      8,
+      12
+    ],
+    "moreLinkToggle": [
+      "on",
+      "off"
+    ],
+    "motionFlag": [
+      "static",
+      "sway",
+      "flip"
+    ],
+    "bgReviewPass": [
+      "pass",
+      "pass-with-note"
+    ],
+    "linkWhitelistForms": [
+      {
+        "id": "brandFilter",
+        "pathPattern": "^/search/product/?$",
+        "requiredQuery": [
+          "brandIds"
+        ],
+        "example": "https://tw.buy.yahoo.com/search/product?brandIds=41166510&p=鈦杯 鈦餐具",
+        "note": "U15 品牌維度編輯精選導流：brandIds 品牌篩選 URL＝合法形態（品牌 ID 自搜尋頁品牌篩選資料取得）；圓形圖＝該篩選 URL 商品列表首件代表品之商品圖第二張＋品牌語彙文案（選品側規則）；閘門命中記 INFO（CP-06 段）、天然滿足 U11 不重複"
+      }
+    ]
+  },
+  "contentModules": {
+    "wallProductCountEnum": [
+      4,
+      8,
+      12
+    ],
+    "promoCardsMax": 20,
+    "mechanicRows": {
+      "info-offer-rows": 3,
+      "info-gift-rows": 2,
+      "info-gift-gallery": 3,
+      "info-gift-rush": 3
+    },
+    "mechanicRowFields": {
+      "info-offer-rows": [
+        "label",
+        "brandName",
+        "offerText",
+        "thresholdText",
+        "rewardText",
+        "ctaUrl"
+      ],
+      "info-gift-rows": [
+        "label",
+        "thresholdText",
+        "rewardText",
+        "rewardImgs",
+        "ctaText",
+        "ctaUrl"
+      ],
+      "info-gift-gallery": [
+        "label",
+        "thresholdText",
+        "rewardText",
+        "rewardImgs",
+        "ctaUrl"
+      ],
+      "info-gift-rush": [
+        "label",
+        "thresholdText",
+        "rewardText",
+        "rewardImgs",
+        "ctaText",
+        "ctaUrl"
+      ]
+    },
+    "mechanicRewardImgs": {
+      "info-offer-rows": 0,
+      "info-gift-rows": 1,
+      "info-gift-gallery": 2,
+      "info-gift-rush": 1
+    },
+    "mechanicRowFieldLabels": {
+      "label": "列標籤",
+      "brandName": "店家名",
+      "offerText": "活動文案",
+      "thresholdText": "滿額門檻",
+      "rewardText": "折抵或贈品",
+      "rewardImgs": "贈品圖",
+      "ctaText": "搶購鈕文字",
+      "ctaUrl": "搶購連結"
+    },
+    "promoVariantFields": {
+      "entry-circles": {
+        "page": [
+          "promoModuleTitle",
+          "dockPromoLabel"
+        ],
+        "entry": [
+          "img",
+          "chip",
+          "copy",
+          "dateValue",
+          "url"
+        ],
+        "maxEntries": null
+      },
+      "spotlight-stage": {
+        "page": [
+          "promoModuleTitle",
+          "dockPromoLabel",
+          "promoSpotSubtitle",
+          "promoSpotDiagonal"
+        ],
+        "entry": [
+          "img",
+          "chip",
+          "copy",
+          "url"
+        ],
+        "maxEntries": 3
+      }
+    },
+    "promoFieldLabels": {
+      "promoSpotSubtitle": "右欄副標",
+      "promoSpotDiagonal": "大卡斜帶字",
+      "dateValue": "檔期",
+      "chip": "標籤",
+      "copy": "文案",
+      "img": "圖",
+      "url": "連結"
+    },
+    "rowFieldsNote": "活動資訊卡各版面會畫的列欄位＝lib INFO_ROW_FIELDS_BY_VARIANT（2026-09-09 使用者裁：CMS 只顯示對應欄位、換版面清不重疊資料並先確認）",
+    "note": "促銷卡張數上限＝pipeline lib/content_modules.js PROMO_CARDS_MAX（2026-09-09 使用者裁 4→20）；CMS 面板 promoCardsMax() 讀這裡、引擎 CMPC_MAX 鏡像由 test/unit/promo_cards_max.test.js 對帳"
+  }
+}

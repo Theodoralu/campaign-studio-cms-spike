@@ -1,0 +1,777 @@
+{
+ "meta": {
+  "name": "待審背景暫存簿（訪客名冊）",
+  "spec": "2026-AI自動化活動頁生成規劃/63_待審背景浮水印制_2026-08-31裁決批.md",
+  "createdAt": "2026-08-31",
+  "note": "設計師自帶背景的臨時戶口（裁決 Q3=A 獨立 pending-NNNN 號段／Q4=A 獨立待審簿）。在簿＝可掛「背景版權待審核」浮水印上線（內網展示限定），不等於可正式出貨——轉正（核准後搬入正式登記簿 manifest.json 配 bg-NNN 貨號）才過出貨閘。開戶＝工具「帶著走」上傳當下由工作台伺服器寫入；review 欄就地更新；轉正後該筆標記 promoted 留軌跡不刪。usedIn 欄＝轉正時照 runs/ 實掃回填（磁碟真相為準，不靠簿記同步）。",
+  "fileHome": "2026-AI自動化活動頁生成規劃/deploy-site/活動版型待審背景/（比照去背商品圖庫＝deploy-site 內原生資料夾、sync 不清）",
+  "watermark": "掛牌條件＝backgroundId 指向本簿、或正式簿 license C——渲染端讀簿現算，不存旗標欄（衍生態不落欄＝無同步漂移；63 號實作決策的旗標語意由此承接）",
+  "lastReview": "2026-09-14 清場批：30 筆去重成 8 張真圖（23 筆標 merged 指回代表號、仍解析得開）；代表筆逐一裁決＝5 張走查替身退場、3 張 AI 生成圖尺寸退回（授權經使用者確認無虞）。（0001／0002 於 2026-08-31 已退回、圖檔當時即清除，本批不動其紀錄。）判準與做法＝甲-1（先鬆綁再合併）：build_bg_map 改成「審過仍留地圖、標 retired 不供挑選」，值域把關留在 proposal_pack；絆線＝test/unit/bg_map_resolves_used_backgrounds.test.js。"
+ },
+ "entries": [
+  {
+   "id": "pending-0001",
+   "file": "活動版型待審背景/pending-0001-聖誕紅牆測試圖.jpg",
+   "name": "聖誕紅牆測試圖.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T05:59:14.836Z",
+   "licenseAnswers": {
+    "source": "旅程走查測試（網路找的聖誕圖替身）",
+    "commercial": "不確定",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-08-31",
+    "reason": "旅程走查測試筆（63 號建置批驗收用、非真素材）——圖檔已清"
+   }
+  },
+  {
+   "id": "pending-0002",
+   "file": "活動版型待審背景/pending-0002-聖誕紅牆流程確認.jpg",
+   "name": "聖誕紅牆流程確認.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T06:22:23.571Z",
+   "licenseAnswers": {
+    "source": "流程邏輯確認（bg-034 替身）",
+    "commercial": "不確定",
+    "link": null
+   },
+   "sizeCheck": null,
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-08-31",
+    "reason": "流程確認測試筆（applyCombo 洞＋預覽複本洞追修驗收用）——圖檔已清"
+   }
+  },
+  {
+   "id": "pending-0003",
+   "file": "活動版型待審背景/pending-0003-hero-c-desktop-1440x780-2x.jpg",
+   "name": "hero-c-desktop-1440x780@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T06:41:36.449Z",
+   "licenseAnswers": {
+    "source": "網路素材",
+    "commercial": "不能，展示用",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "走查測試用的網路替身圖，不是正式素材（上傳時自填「不能商用／展示用」）——退場，不進正式素材池。"
+   }
+  },
+  {
+   "id": "pending-0004",
+   "file": "活動版型待審背景/pending-0004-hero-c-desktop-1440x780-2x.jpg",
+   "name": "hero-c-desktop-1440x780@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T07:00:40.683Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能商用，展示使用",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0003 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0003 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0003"
+  },
+  {
+   "id": "pending-0005",
+   "file": "活動版型待審背景/pending-0005-hero-c-desktop-1440x780-2x.jpg",
+   "name": "hero-c-desktop-1440x780@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T07:08:38.960Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能，展示用",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0003 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0003 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0003"
+  },
+  {
+   "id": "pending-0006",
+   "file": "活動版型待審背景/pending-0006-hero-b-desktop-1440x780-2x.jpg",
+   "name": "hero-b-desktop-1440x780@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T07:11:35.247Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "走查測試用的網路替身圖，不是正式素材（上傳時自填「不能商用／展示用」）——退場，不進正式素材池。"
+   }
+  },
+  {
+   "id": "pending-0007",
+   "file": "活動版型待審背景/pending-0007-hero-d-desktop-1440x780-2x.jpg",
+   "name": "hero-d-desktop-1440x780@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T07:27:35.165Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "走查測試用的網路替身圖，不是正式素材（上傳時自填「不能商用／展示用」）——退場，不進正式素材池。"
+   }
+  },
+  {
+   "id": "pending-0008",
+   "file": "活動版型待審背景/pending-0008-hero-c-desktop-1440x780-2x.jpg",
+   "name": "hero-c-desktop-1440x780@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T07:28:04.160Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1560,
+    "pass": true
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0003 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0003 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0003"
+  },
+  {
+   "id": "pending-0009",
+   "file": "活動版型待審背景/pending-0009-hero-d-tablet-768x560-2x.jpg",
+   "name": "hero-d-tablet-768x560@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-08-31T07:50:15.427Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1536,
+    "h": 1120,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "走查測試用的網路替身圖，不是正式素材（上傳時自填「不能商用／展示用」）——退場，不進正式素材池。"
+   }
+  },
+  {
+   "id": "pending-0010",
+   "file": "活動版型待審背景/pending-0010-hero-c-tablet-768x560-2x.jpg",
+   "name": "hero-c-tablet-768x560@2x.jpg",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-01T02:31:23.490Z",
+   "licenseAnswers": {
+    "source": "網路",
+    "commercial": "不能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1536,
+    "h": 1120,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "走查測試用的網路替身圖，不是正式素材（上傳時自填「不能商用／展示用」）——退場，不進正式素材池。"
+   }
+  },
+  {
+   "id": "pending-0011",
+   "file": "活動版型待審背景/pending-0011-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-03T06:48:58.592Z",
+   "licenseAnswers": {
+    "source": "figma weave 生圖片",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "尺寸不足：1774×887，活動頁主視覺要 1440 寬的兩倍圖（2880×1560），放上去會糊。授權沒問題（使用者 2026-09-14 確認可商用），純粹是尺寸退回——重出大尺寸版可重新上傳。"
+   }
+  },
+  {
+   "id": "pending-0012",
+   "file": "活動版型待審背景/pending-0012-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-03T07:10:17.285Z",
+   "licenseAnswers": {
+    "source": "figma ai 生圖",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0013",
+   "file": "活動版型待審背景/pending-0013-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-03T07:19:48.377Z",
+   "licenseAnswers": {
+    "source": "figma",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0014",
+   "file": "活動版型待審背景/pending-0014-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-03T07:51:05.415Z",
+   "licenseAnswers": {
+    "source": "figma",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0015",
+   "file": "活動版型待審背景/pending-0015-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-03T13:35:33.699Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0016",
+   "file": "活動版型待審背景/pending-0016-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-04T09:48:17.004Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0017",
+   "file": "活動版型待審背景/pending-0017-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-04T10:30:03.067Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0018",
+   "file": "活動版型待審背景/pending-0018-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-04T10:44:34.261Z",
+   "licenseAnswers": {
+    "source": "Figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0019",
+   "file": "活動版型待審背景/pending-0019-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-04T11:36:37.434Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0020",
+   "file": "活動版型待審背景/pending-0020-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-04T11:55:57.012Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0021",
+   "file": "活動版型待審背景/pending-0021-2026-08-15---ai-活動頁背景圖調整_ChatGPT-Images-.png",
+   "name": "2026.08.15 - ai 活動頁背景圖調整_ChatGPT Images 2.0_2026-09-03_06-30-40.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-04T15:16:27.790Z",
+   "licenseAnswers": {
+    "source": "figma weav",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1774,
+    "h": 887,
+    "pass": false
+   },
+   "bridgeColor": "#080D3F",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0011 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0011 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0011"
+  },
+  {
+   "id": "pending-0022",
+   "file": "活動版型待審背景/pending-0022-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.pn",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-07T05:54:59.004Z",
+   "licenseAnswers": {
+    "source": "Figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "尺寸不足：1456×720，活動頁主視覺要 1440 寬的兩倍圖（2880×1560），放上去會糊。授權沒問題（使用者 2026-09-14 確認可商用），純粹是尺寸退回——重出大尺寸版可重新上傳。"
+   }
+  },
+  {
+   "id": "pending-0023",
+   "file": "活動版型待審背景/pending-0023-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-39.pn",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-07T06:17:19.265Z",
+   "licenseAnswers": {
+    "source": "Figma weave ai 生成",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#4D3F4D",
+   "usedIn": [],
+   "review": {
+    "status": "rejected",
+    "date": "2026-09-14",
+    "reason": "尺寸不足：1456×720，活動頁主視覺要 1440 寬的兩倍圖（2880×1560），放上去會糊。授權沒問題（使用者 2026-09-14 確認可商用），純粹是尺寸退回——重出大尺寸版可重新上傳。"
+   }
+  },
+  {
+   "id": "pending-0024",
+   "file": "活動版型待審背景/pending-0024-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.pn",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-07T07:17:23.112Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0025",
+   "file": "活動版型待審背景/pending-0025-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.pn",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-07T07:19:54.178Z",
+   "licenseAnswers": {
+    "source": "figma",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0026",
+   "file": "活動版型待審背景/pending-0026-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.pn",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-08T05:47:04.145Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0027",
+   "file": "活動版型待審背景/pending-0027-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.pn",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-08T06:58:46.295Z",
+   "licenseAnswers": {
+    "source": "Figma",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0028",
+   "file": "活動版型待審背景/pending-0028-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-08T07:27:57.564Z",
+   "licenseAnswers": {
+    "source": "Figma",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0029",
+   "file": "活動版型待審背景/pending-0029-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-08T07:58:27.698Z",
+   "licenseAnswers": {
+    "source": "figma",
+    "commercial": "能",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0030",
+   "file": "活動版型待審背景/pending-0030-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-11T06:34:06.063Z",
+   "licenseAnswers": {
+    "source": "figma weave",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "merged",
+    "date": "2026-09-14",
+    "reason": "與 pending-0022 是同一份檔案（內容逐位元相同）＝重複上傳；審核看 pending-0022 那一列即可。仍留在背景地圖＝已經用了這個號碼的活動照常顯示。"
+   },
+   "mergedInto": "pending-0022"
+  },
+  {
+   "id": "pending-0031",
+   "file": "活動版型待審背景/pending-0031-2026-0-07-阿虎主題HeroBanner_Gemini-3-1-Flas.png",
+   "name": "2026.0.07-阿虎主題HeroBanner_Gemini 3.1 Flash (Nano Banana 2)_2026-09-07_05-38-46.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-18T06:39:07.551Z",
+   "licenseAnswers": {
+    "source": "AI 生成",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 1456,
+    "h": 720,
+    "pass": false
+   },
+   "bridgeColor": "#A16C69",
+   "usedIn": [],
+   "review": {
+    "status": "pending",
+    "date": null,
+    "reason": null
+   }
+  },
+  {
+   "id": "pending-0032",
+   "file": "活動版型待審背景/pending-0032-bg-038-warm-food-illust-1440-2x.png",
+   "name": "bg-038-warm-food-illust-1440@2x.png",
+   "uploadedBy": null,
+   "uploadedAt": "2026-09-26T12:12:39.355Z",
+   "licenseAnswers": {
+    "source": "AI 生成",
+    "commercial": "可以",
+    "link": null
+   },
+   "sizeCheck": {
+    "w": 2880,
+    "h": 1120,
+    "pass": false
+   },
+   "bridgeColor": "#F4EDE4",
+   "usedIn": [],
+   "review": {
+    "status": "pending",
+    "date": null,
+    "reason": null
+   }
+  }
+ ]
+}

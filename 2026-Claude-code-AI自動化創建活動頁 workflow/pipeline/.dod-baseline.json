@@ -1,0 +1,41 @@
+{
+ "_note": "守門 ratchet 基線。空 catch 與 draft.json 寫入點『只准降不准升』——升＝新增了同類根因（靜默失敗／未登錄的核可失效寫入點），需先處理，或在充分理由下手動調此基線並在 commit 訊息說明。",
+ "_draftWritersNote": "2026-09-22 使用者裁 Q3 丙：draftWriters 這個數字自己也被守著（G6）——改它必須同批改 scripts/draft-writers.allow，調高還要真的多出一筆登記。原因＝G3 是數量閘，數量閘的逃生口就是改數量（舊紅燈訊息還親口教人「把基線調為 N」），等於『請確認新入口有讓舊章失效』那句請人確認的話可以一個字都不看就繞過，而它守的是消費者看到的頁面。同日順手收緊 16→15＝實際只有 15 處，多的那一格是白給的逃生空間。註：15 是原始碼字面命中數，登記檔 22 筆是邏輯寫入點，兩者本來就不相等（變數組路徑正規式看不見），別硬湊。真正的網（每個入口逐一驗章的 table-driven 測試）＝Q3 甲，排 10 月初，行事曆 APPROVAL-NET-TEST。",
+ "emptyCatchMax": 33,
+ "draftWriters": 18,
+ "productPaths": [
+  "runs/",
+  "live-drafts/",
+  "deploy-site/",
+  "deploy-site-public/"
+ ],
+ "secretPaths": [
+  "workbench/.wb-pass",
+  ".google-config.json",
+  ".google-token.json",
+  "workbench/.google-config.json",
+  "workbench/.google-token.json"
+ ],
+ "frameTestCandidates": [
+  "../../2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html"
+ ],
+ "_reviewNote": "G5：改到這些檔＝同一批 commit 裡要有 docs/reviews/ 或 docs/design-qa/ 的 .md，否則 pre-commit 紅燈。2026-09-21 使用者裁「寫成規則、建立流程」；病例＝打包機改 7 次只有 1 次 review 落檔。守門自己（dod-guards／本檔／.githooks）也列入，否則可先放寬基線關掉這道門再改打包機。名單以結尾斜線代表整個目錄。",
+ "_reviewScopeNote": "為什麼是這個範圍（2026-09-21 使用者裁「分層納入」）：量過近 30 天改動頻率才定的。納入＝出貨線（打包機 8 次／憑證斷言 5 次／守門自己 1 次）＋低頻高風險的抓價兩支（price_qa 3 次／fetch_parse 2 次）——加門幾乎無感。刻意不納入＝gate.js（20 次）與 rules.json（15 次），每月共 35 次要落檔會變成日常摩擦，兩週內就會開始用 --no-verify 繞過，那時守門看起來在、其實不在，比沒有更危險。錢閘真正缺的是可重跑測試（近 30 天 20 次改動、零專屬測試檔），已裁排 9/30 後補（行事曆 GATE-RULES-TESTS），那件事寫 review 記錄擋不住。",
+ "reviewRequiredPaths": [
+  "tools/pack-editor.sh",
+  "tools/pack_assert.js",
+  "tools/build_pack_whatsnew.js",
+  "tools/pack-root/",
+  "test/browser/pack-smoke.js",
+  "tools/dod-guards.js",
+  ".dod-baseline.json",
+  ".githooks/",
+  "price_qa.js",
+  "fetch_parse.js",
+  "tools/pack-unmerged-guard.sh"
+ ],
+ "reviewRecordDirs": [
+  "docs/reviews/",
+  "docs/design-qa/"
+ ]
+}

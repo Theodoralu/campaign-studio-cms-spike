@@ -1,0 +1,12 @@
+{
+  "_fixture": "hermetic 最小 layouts 登記簿（W1-E 測試專用）。defaultBackground 鏡射真簿：layout-001→bg-001(C)、layout-002→bg-008(B/pass)、layout-006→bg-005(A)；layout-014/015/016 虛構＝測試情境專用。",
+  "meta": { "name": "版式資料庫（測試複本）", "version": "0.0.0-fixture" },
+  "assets": [
+    { "id": "layout-001", "name": "聯名・深藍夜", "defaultBackground": "bg-001", "backgroundPool": [] },
+    { "id": "layout-002", "name": "攝影棚", "defaultBackground": "bg-008", "backgroundPool": ["bg-009", "bg-010", "bg-012"] },
+    { "id": "layout-006", "name": "新品（中間標題・多品環列）", "defaultBackground": "bg-005", "backgroundPool": [] },
+    { "id": "layout-014", "name": "（虛構）正式版式", "defaultBackground": "bg-005", "backgroundPool": ["bg-012"] },
+    { "id": "layout-015", "name": "（虛構）conditional 任預設錯簿案", "defaultBackground": "bg-012", "backgroundPool": [] },
+    { "id": "layout-016", "name": "（虛構）已停接新案", "defaultBackground": "bg-005", "backgroundPool": [] }
+  ]
+}

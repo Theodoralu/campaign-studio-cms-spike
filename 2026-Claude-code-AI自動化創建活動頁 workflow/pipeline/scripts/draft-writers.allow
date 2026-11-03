@@ -1,0 +1,128 @@
+# draft.json 寫入點登記（核可不變式絆線）
+# ─────────────────────────────────────────────────────────────
+# 規則：任何「寫入 run 的 draft.json 內容」的新程式點，都必須：
+#   (1) 呼叫 invalidateApproval(id)（內容變了＝原核可失效），並回傳 approvalInvalidated；
+#   (2) 前端動作走 afterDraftMutation(r)（gateStale＋清 approvedAt＋刷新徽章）；
+#   (3) 在下方登記一行。
+# dod-guards.js G3 以全庫追蹤中 .js 的 draft.json 寫入點「總數」對比 .dod-baseline.json.draftWriters；
+#   數量上升＝出現未登錄的新寫入點＝守門 FAIL，逼開發者補上 (1)(2)(3)。
+#
+# ⚠ 2026-09-22 起，改 .dod-baseline.json 的 draftWriters 必須同批改本檔（G6）——
+#   調高還必須真的多出一筆登記。原因：G3 是數量閘，而數量閘的逃生口就是改數量，
+#   它舊版的紅燈訊息還親口教人「把基線調為 N」，等於請人確認的那句話可以一個字都不看就繞過。
+#   本檔登記的「筆數」＝行首非空白且非 # 的行數（續行縮排、註解不算）；絆線＝test/unit/dod_guards_baseline_gate.test.js。
+#
+# 註：本檔登記的是「邏輯寫入點」（22 筆），G3 數的是「原始碼字面命中」（15 處）——兩者本來就不會相等，
+#   因為有些寫入點經由 draftPath 之類的變數組路徑、正規式看不見。別把兩個數字硬湊成一樣。
+#
+# 分類：CONTENT＝改 run 內容（必須 invalidateApproval）；BACKUP＝落版備份（copyFileSync draft.vN，非內容變更）；
+#       PUBLISH＝部署複製到 live-drafts（發佈動作，核可在其前置閘把關）。
+# ─────────────────────────────────────────────────────────────
+
+# CREATE（策展初次建立 draft.json；草稿誕生、當下無核可可失效）
+curate-initial       workbench/curate_auto.js  writeFileSync draft.json（初建，無需 invalidateApproval）
+create-layout-write  lib/layout_choice.js  writeLayoutChoiceIntoDraft（createRun 建立期後處理呼叫；2026-08-24 review 中3
+                     自 server.js dPath 寫入塊抽出＝獨立 try＋失敗 throw：page.kvVariant 裸值＋meta.layoutChoice 理由行
+                     ＋meta.proposalPack；51 號 W1-C 2026-08-24。寫入失敗＝meta.layoutChoiceWriteError→status/列表回應
+                     layoutChoiceError 白話警告（不准畫面稱成功）。建立期無核可可失效＝無需 invalidateApproval；
+                     G3 計數不變（writeFileSync 經 draftPath 變數）。
+                     編修期換版式／折扣開關／提案包帶入＝已由 W1-D combo-apply 收（2026-08-25，見下方 CONTENT 區）
+create-theme-bridge  workbench/curate_auto.js  bridgeThemeForV2IntoDraft（createRun 建立期後處理、緊接 create-layout-write
+                     之後；2026-08-26 病例 214311 根治＝建立選的色到不了新版型：layout-* 頁把建立所選色落
+                     page.themeId（token 十主題 slug）或 page.colors.themeDraft（自訂 hex／pink·mono 等 token 沒有的
+                     家族＝campaign/accent 家族代表色，推導＝lib/theme_draft deriveThemeDraft 單一真源）＋meta.themeBridge
+                     履歷；legacy/new 頁與已有 themeId/themeDraft＝no-op 不寫檔（零波及、不覆蓋提案包）。建立期無核可
+                     可失效＝無需 invalidateApproval；G3 計數不變（writeFileSync 經 draftPath 變數）。失敗＝throw→
+                     server 記 meta.themeBridgeError＋wb.log 出聲（沿 layoutChoiceWriteError 模式）。
+create-price-truth   workbench/server.js  finishDraftAfterCurate 收尾「建立期價格對真」（2026-09-27 使用者裁丙-甲；story
+                     docs/stories/first-draft-no-red.md）：productCheck 逐品實抓商品頁 → lib/price_truth.js applyPriceTruth 把有變價的列
+                     套進 snapshot.json（patchSnapshotPrice＝快照稽核行）與 draft.json products[].price/marketPrice，兩檔同批落盤＋
+                     每件一行 wb.log＋meta.priceTruth 子狀態。只在機器稿：建立＝當下無核可；照策略檔重做＝redo-draft 端點已先
+                     invalidateApproval（本段在其後執行）。離線／連不上＝不改、出聲、不擋建立。價格來源只有商品頁實抓那條路。
+                     G3 計數不變（writeFileSync 經 dPathP 變數＝沿 create-layout-write 前例）。
+combo-apply          lib/hero_combo.js  writeComboIntoDraft   invalidateApproval ✓（編修組合面板＝51 號 W1-D 2026-08-25：
+                     換版式/折扣開關(kinRef 對換)/改背景主題/貼提案包 四路徑單一寫入口（POST /api/runs/:id/hero-combo）。
+                     lib 內寫檔＝獨立 try＋失敗 throw（page.kvVariant/hero/heroSlotStash/backgroundId/themeId/heroQaStatus
+                     ＋meta.layoutChoice 履歷＋落版備份 draft.vN）；server 端點於寫入成功後呼叫 invalidateApproval、
+                     前端走 afterDraftMutation。G3 計數不變（writeFileSync 經 draftPath 變數＝沿 create-layout-write 前例）。
+                     換回還原＝meta.heroRestoreRecheck 旗＋自動重驗；未驗完 approve 409 擋）
+combo-apply-backup   lib/hero_combo.js  copyFileSync draft.vN.json（組合變更前落版備份；同上批）
+content-modules-apply lib/content_modules.js  writeContentModuleIntoDraft   invalidateApproval ✓（編修頁「頁面組成」面板
+                     ＝W2 內文模組第一批 2026-08-25（story=content-modules-wave2）：加入/移除/換版式三動作單一寫入口
+                     （POST /api/runs/:id/content-modules）——三節點 page.mechanic/page.spotlight/page.promoCard、
+                     每型至多一實例；值域 runtime 讀 modules.json（CP-25 讀簿模式）、非法＝400 不落盤。
+                     lib 內寫檔＝獨立 try＋失敗 throw＋落版備份 draft.vN；server 端點於寫入成功後呼叫
+                     invalidateApproval、前端走 afterDraftMutation。內容欄編修＝走既有 PUT-draft(saveDraft) 路
+                     （該路寫入點既登錄在案；本批在 PUT 前加同套 validateContentModules 值域檢＝兩路同閘）。
+                     G3 計數不變（writeFileSync 經 draftPath 變數＝沿 combo-apply 前例）。
+                     W2 第二批 2026-08-26 擴：move 動作（page.composeOrder 9 鍵排列＝14 §2.14 規則 6——kv 恆首＋
+                     固定鍵序不可變、等於預設序＝刪鍵、碰界＝零變更不寫檔）＋kind=promo/editorial 僅開放 remove
+                     （前端 data-cm-remove-fixed；delete 鍵制——CP-15 對鍵缺席＝略過、對 []＝FAIL，絕不可寫空陣列；
+                     promoModuleTitle/dockPromoLabel/editorial-wall 商品不隨移除清）。同端點同寫入口＝G3 計數不變。
+                     主打選品貼稿批 2026-08-26 擴：pick 動作（kind=spotlight、slot=hero|ref1|ref2）——貼商品
+                     網址/賣場編號帶入選品位：真值鏈＝伺服器實抓（workbench/product_fetch.js productFetch＝
+                     fetch_parse fetchPage＋price_qa classifyProductLiveness 三態，非 online 白話拒收）→
+                     snapshot 池 upsert（CP-02 池存在性、R3:spotlight-pick 稽核；池「真值同步」即使 draft
+                     零變更也 invalidateApproval＝沿 r3-add 治理裁決）→ lib pick 寫入（dedupe by gdid：已在
+                     活動裡＝直接引用不重複加；新品追加 products[] 標 position:"spotlight-pick"）。
+                     同端點同寫入口＝G3 計數不變（snapshot.json 寫入不在 G3 範圍）；14 §2.14 配套規則 8 登錄待審。
+                     促銷卡多卡＋牆/樓層加商品批 2026-08-26 下午擴（14 §2.14 促銷卡多卡段＋規則 8/9 登錄待審）：
+                     ①促銷卡掛點升級 page.promoCards[]（1~4 張；「每型至多一實例」限促銷卡翻案）——add＝加卡
+                     （滿 4 擋）、remove 帶 index＝單卡移除（移到 0 張＝整節點 delete 鍵）、舊形 page.promoCard
+                     單物件＝讀取相容視為一張、寫入動作就地升級陣列並刪舊鍵（雙鍵並存＝驗證器擋）；
+                     ②pick 擴 kind=promoCard（slot=card-1~card-4；新品 position:"promo-card-pick"、
+                     R3:promo-card-pick 稽核）＝引用式選品位、不互斥（同 spotlight）；
+                     ③pick 擴 kind=wall|floor（index=第幾面牆/第幾層）——全頁互斥曝光面：manual＝productFetch
+                     帶 pageGdids（pageExposedGdids 抽出共用＝editorial-add/enrich-ee 同一段三處併一）前置擋
+                     「整頁只能放一次」＋lib gdidUsedOnPage 結構檢；auto:true＝AI 自動補一件（autoPickFromPool
+                     抽出共用＝editorial-add AC-16 同邏輯：未曝光池、折數最佳、逐一實抓驗證最多 10 名）；
+                     新品 position:"category-N"/"featured-N"（大體檢 CT-3 修＝跟 posPrefix/重編器同調；原誤寫 wall-N）＋R3:wall-pick/R3:floor-pick 稽核；
+                     件數規則＝牆滿 12 擋（CP-21 值域上限）、樓層滿 15 擋（14 §1 一層 3~5、勿套四倍數）。
+                     同端點同寫入口＝G3 計數不變；驗證器同步 promoCards 1~4＋每卡 gdid ∈ products[]＋卡間禁重複。
+content-modules-backup lib/content_modules.js  copyFileSync draft.vN.json（頁面組成變更前落版備份；同上批）
+explore-fix          server.js  writeFileSync draft.json   invalidateApproval ✓（探索卡單卡修復：AI 換在檔內容/人工改連結，2026-07-27）
+editorial-add        server.js  writeFileSync draft.json   invalidateApproval ✓（editorial-add 端點）
+promo-recompose      server.js  writeFileSync draft.json   invalidateApproval ✓（promo-recompose 端點）
+PUT-draft(saveDraft) server.js  writeFileSync draft.json   invalidateApproval ✓（saveDraft：版本不同才失效）
+rollback-restore     server.js  copyFileSync  draft.json   invalidateApproval ✓（還原到非核可版才失效）
+
+# BACKUP（落版備份 draft.vN.json，非內容變更，不需 invalidateApproval）
+explore-fix-backup     server.js  copyFileSync draft.vN.json（2026-07-27）
+editorial-add-backup   server.js  copyFileSync draft.vN.json
+promo-recompose-backup server.js  copyFileSync draft.vN.json
+saveDraft-backup       server.js  copyFileSync draft.vN.json
+rollback-backup        server.js  copyFileSync draft.vN.json
+
+# PUBLISH（部署複製到 live-drafts；核可由部署前置閘 approvedAt/gate 把關，非內容變更）
+deploy-copy-internal   server.js  copyFileSync draft.json → live-drafts/{id}.json
+deploy-copy-public     server.js  copyFileSync draft.json → PUBLIC_SITE_DIR/live-drafts/{id}.json
+
+# CONTENT（63 號直通車轉正批 2026-08-31）
+promote-pending-bg   design-assets/tools/promote-pending-bg.mjs  writeFileSync draft.json（待審背景轉正＝runs 實掃
+                     把 backgroundId 由 pending-NNNN 換正式 bg-NNN；CLI 離線直寫＝核可失效照 wb_meta 同欄位辦
+                     （approvedAt→null＋approvalInvalidatedAt），CMS 重檢自動要求重新核可；前端無涉＝無 afterDraftMutation 面）
+
+# QA（測試專用寫入；不是編修寫入、無核可可失效；G3 計數 +1＝基線 14→15，2026-09-09）
+qa-seed-clone        test/browser/w2-placeholders-shots.js  cloneSeed() 把 QA 種子 2026-08-25-wb-cm1 複製成暫存 run
+                     2026-09-09-wb-ghostqa-tmp（改 page.id、清三內文模組），走查在暫存檔上跑、process exit 整個刪掉；
+                     源起＝2026-09-09 病例：走查直接用種子、收尾清模組，使用者同時手測同一檔被擋「頁面上還沒有」。
+                     沿 design-qa 文件「種子建法」（複製 run 目錄）；不走 server、不動任何真實活動。
+
+# REDO（2026-09-15 C 批，牆第 3 題甲④）
+redo-draft           workbench/server.js  POST /api/runs/:id/redo-draft → runNode curate_auto（同批商品重排）→ finishDraftAfterCurate
+                     （建立收尾同一支：詞組校準／自訂色／版式與提案包／主題橋接／策略檔套用）→ runGate 快檢。
+                     invalidateApproval ✓（重做前呼叫，跟手改一樣核可失效）；重做前先 copyFileSync draft.vN 備份（BACKUP）；
+                     忙碌中（fetching/curating/gating、發佈中、製作 AEM 中）409 不動草稿。
+                     前端 afterDraftMutation：C 批介面段接「照策略檔重做」鈕時走 openRun 重載＋刷新任務條（介面文案過目後施工）。
+                     G3 計數 15→16（本行登記；.dod-baseline.json 同批調 16）。
+
+# CONTENT（名稱兩式死鎖根治 2026-10-05；判定單一真源＝lib/content_modules.alignDraftRowTruth）
+pool-rebuild-align   workbench/server.js  pool-rebuild 端點：重建來源紀錄原本只寫池那半邊（修復鈕修一半＝按幾次都紅）；
+                     現同批把草稿列名稱收斂成商品頁真值（系統帶入欄）。invalidateApproval ✓（草稿或池任一變）；
+                     前端 rebuildPool 以 r.draftAligned 同步本地列名稱後走 afterDraftMutation（diskConsistent 成立）。
+                     同族接線（不開新寫入點）：編輯精選挑品／Excel 帶入＝入池後、既有落盤前對齊；
+                     牆/樓層/選品 pick＝lib writeContentModuleIntoDraft 寫入口自動對齊（change.product＝伺服器實抓真值）。
+pool-rebuild-backup  workbench/server.js  copyFileSync draft.vN.json（草稿收斂前落版備份；同上批）
+explore-remove       workbench/server.js  writeFileSync draft.json（移除一張探索卡：至少留一張守門＋draft.vN 落版備份＋invalidateApproval ✓；
+                     前端 exploreRemove 走 afterDraftMutation（diskConsistent 成立）。2026-10-08 審查高-2 補登記——
+                     原寫法用變數路徑＝G3 字面絆線看不見，已同批改字面路徑、基線 17→18。）

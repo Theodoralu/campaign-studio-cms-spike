@@ -1,0 +1,58 @@
+/* ============================================================
+   SHP 換膚覆蓋層（2026-08-18）——CMS 策展工作台
+   規則：零 JS／零 HTML 結構改動，只在 </head> 前掛兩行 <link>
+   （shp-tokens.css → 本檔），本檔排在原 <style> 之後＝同權重時覆蓋贏。
+   回滾＝把 index.html 那兩行 <link> 移除即可。
+   保守原則：狀態語意色不動、看不準的 UI 不蓋、不用 !important。
+   ============================================================ */
+
+/* ── 1. 變數橋接：原 :root 變數改由 SHP token 供值（值本來就對齊，
+       這裡把「寫死的色碼」換成「跟著 tokens 走」；fallback＝原值＝tokens 缺檔也不變樣） */
+:root{
+  --ink:var(--grey-850,#1D2228);
+  --body:var(--grey-800,#232A31);
+  --sub:var(--grey-600,#5B636A);
+  --bg:var(--grey-50,#F5F8FA);
+  --card:#fff;
+  --line:var(--grey-150,#E0E4E9);
+  --line2:var(--grey-200,#C7CDD2);
+  --accent:var(--purple-500,#7759FF);
+  --accent-dk:var(--purple-600,#5F47CC);
+  --accent-bg:var(--purple-50,#F1EEFF);
+  --ok:var(--green-700,#008751);
+  --warn:var(--orange-600,#CC6D0E);
+  --fail:var(--red-500,#EB0F29);
+}
+
+/* ── 2. 字體：SHP COMMON 字族（原本只有 PingFang TC） */
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
+
+/* ── 3. 按鈕：行高收到 1.5＝一般鈕實高 ~36（SHP M 階）；圓角 8 原本就對 */
+button{line-height:1.5}
+/* 破壞性確認鈕（只有 dialog 的「確定刪除」這一顆）＝SHP critical 紅填色；
+   其他掛 .danger 的（選單項／列表 hover 小字動作）維持原紅字樣式不動 */
+#dlg-btns button.danger{background:var(--fail);border-color:var(--fail);color:#fff;font-weight:700}
+#dlg-btns button.danger:hover{background:var(--red-750,#80292c);border-color:var(--red-750,#80292c)}
+
+/* ── 4. 輸入框：高度收到 ~36（SHP 階）、focus 換 SHP 紫框＋淡紫光暈 */
+input[type=text],input[type=search],select,textarea{padding:7px 10px;line-height:1.5}
+input[type=text]:focus,input[type=search]:focus,select:focus,textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--theme-purple-overlay20,rgba(119,89,255,.2));
+}
+
+/* ── 5. 狀態 chips：SHP 膠囊形（語意底色與文字色全部不動） */
+.chip{border-radius:999px;padding:1px 9px}
+.chip.mute{background:var(--grey-100,#f0f3f5)}
+
+/* ── 6. 面板卡與圓角階：卡面 12、一般容器 8（SHP md）——只動圓角不動陰影與間距 */
+.card,fieldset{border-radius:12px}
+.next-step,.engine-card,.recipe-card,#more-menu,.adv-set,#toast{border-radius:8px}
+
+/* ── 7. 字重規範：SHP 只用 400/500/600/700——原 800 一律收到 700 */
+#side-brand,#work-title,#list-empty .big,.fg-title,.fg-no,.gf-chip,#inline-editor .ttl,
+legend,#probe-report .pi,#sec-nav a.err,#sec-nav a.pc-err{font-weight:700}
+
+/* ── 8. 淡灰面統一到 SHP grey-100（原 #eef2f5 與 #f0f3f5 混用；hover／active 態原規則權重較高不受影響） */
+#list-table th,#view-note,.chip.mute,#view-tabs .vt .n,.idtag{background:var(--grey-100,#f0f3f5)}

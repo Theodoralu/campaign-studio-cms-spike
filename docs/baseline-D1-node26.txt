@@ -1,0 +1,1894 @@
+
+> pipeline@1.0.0 test
+> node tools/dod-guards.js && (find test -name '*.test.js' 2>/dev/null | grep -q . && node --test || echo 'ⓘ 尚無 test/（Phase 2 補）')
+
+
+dod-guards（full）：
+  ✅ G2 空 catch ratchet — 33 個（基線上限 33；只准降）
+  ✅ G3 draft 寫入點 ratchet — 18 個（基線 18）
+  ✅ G4 tokenizer — SKIP：找不到 FrameTest 源（不在本 repo，屬跨目錄）——部署級 dod-check.sh full 會實跑
+
+✓ dod-guards 全過。
+
+aem-flow-journey：手動旅程走查（需 Chrome＋活 server＋外網），node --test 下跳過
+✔ test/browser/aem-flow-journey.js (86.633959ms)
+brief-flow-journey：手動旅程走查（需 Chrome＋現役 8787），node --test 下跳過
+✔ test/browser/brief-flow-journey.js (282.33075ms)
+brief-journey：手動旅程走查（需 Chrome＋活 server＋外網），node --test 下跳過
+✔ test/browser/brief-journey.js (128.575917ms)
+brief-selection-journey：手動旅程走查（需 Chrome＋活 server＋外網），node --test 下跳過
+✔ test/browser/brief-selection-journey.js (299.070667ms)
+caps-journey：手動旅程走查（需 Chrome＋現役 8787），node --test 下跳過
+✔ test/browser/caps-journey.js (118.507833ms)
+✔ test/browser/doors-known-gaps.js (111.922875ms)
+種子已寫入 runs/： {
+ "v2": {
+  "id": "2026-09-08-wb-doors1",
+  "cases": {
+   "hero": "12010102",
+   "floorCard": "12029035",
+   "scene": "11957540",
+   "wall": "12217385",
+   "edWall": "11804197",
+   "promo": "11804199",
+   "promoFail": "11879781",
+   "circle": "10604943"
+  }
+ },
+ "legacy": {
+  "id": "2026-09-08-wb-doors2",
+  "cases": {
+   "kv": "11426208"
+  }
+ }
+}
+✔ test/browser/doors-seed.js (99.20075ms)
+doors-sweep：入口全掃（需 Chrome＋自起測試 server），node --test 下跳過——手動跑：node test/browser/doors-sweep.js
+✔ test/browser/doors-sweep.js (178.386875ms)
+l012-journey：手動旅程走查腳本（需 Chrome＋活 server＋外網），node --test 下跳過
+✔ test/browser/l012-journey.js (274.15625ms)
+l012-shots：手動 design QA 實拍腳本（需 Chrome），node --test 下跳過——手動跑：node test/browser/l012-shots.js [outDir]
+✔ test/browser/l012-shots.js (143.022333ms)
+pack-smoke：手動（需 zip），node --test 下跳過
+✔ test/browser/pack-smoke.js (216.129208ms)
+unapproved-banner-journey：手動旅程走查（需 Chrome），node --test 下跳過——手動跑：node test/browser/unapproved-banner-journey.js
+✔ test/browser/unapproved-banner-journey.js (198.335833ms)
+w1b-l006-shots：手動 design QA 實拍腳本（需 Chrome），node --test 下跳過——手動跑：node test/browser/w1b-l006-shots.js [outDir]
+✔ test/browser/w1b-l006-shots.js (186.309959ms)
+w1c-cdp-shots：手動 UI 驗收腳本（需 Chrome＋活 server），node --test 下跳過——手動跑：node test/browser/w1c-cdp-shots.js <serverPort> <outDir>
+✔ test/browser/w1c-cdp-shots.js (197.5645ms)
+w1d-combo-shots：手動 UI 驗收腳本（需 Chrome＋活 server），node --test 下跳過——手動跑：node test/browser/w1d-combo-shots.js <serverPort> <outDir>
+✔ test/browser/w1d-combo-shots.js (173.353542ms)
+w2-content-modules-shots：手動 UI 驗收腳本（需 Chrome＋活 server），node --test 下跳過——手動跑：node test/browser/w2-content-modules-shots.js <serverPort> <outDir>
+✔ test/browser/w2-content-modules-shots.js (180.918459ms)
+w2-placeholders-shots：手動 UI 驗收腳本（需 Chrome＋活 server），node --test 下跳過
+✔ test/browser/w2-placeholders-shots.js (160.114417ms)
+✔ layout-002：新建完成當下 gate 零商品類 FAIL（CP-18／CP-03 主視覺）、主視覺商品槽放滿、沒有一件跟樓層／牆撞 (952.093625ms)
+✔ layout-003：新建完成當下 gate 零商品類 FAIL（CP-18／CP-03 主視覺）、主視覺商品槽放滿、沒有一件跟樓層／牆撞 (776.438875ms)
+✔ layout-005：新建完成當下 gate 零商品類 FAIL（CP-18／CP-03 主視覺）、主視覺商品槽放滿、沒有一件跟樓層／牆撞 (804.690875ms)
+✔ layout-004：新建完成當下 gate 零商品類 FAIL（CP-18／CP-03 主視覺）、主視覺商品槽放滿、沒有一件跟樓層／牆撞 (841.653792ms)
+✔ layout-006：新建完成當下 gate 零商品類 FAIL（CP-18／CP-03 主視覺）、主視覺商品槽放滿、沒有一件跟樓層／牆撞 (841.451167ms)
+✔ 對照組：舊式（照順序切、不避曝光）預填打同一批商品＝CP-18 必紅——證明上面的測試會咬人 (777.530875ms)
+✔ 同一件商品、兩種網址寫法＝等價不誤殺：草稿 p- 式 vs 快照 asp 式→零「連結與來源不符」 (206.907625ms)
+✔ 事發形狀重演（快照側被換式）：快照 p- 式 vs 草稿 asp 式→同樣不誤殺 (164.367041ms)
+✔ 負向控制：草稿 url 指到別的賣場編號＝照樣 FAIL（等價判定不是放水） (204.285792ms)
+✔ 入口連結同病同修：活動網址（解不出賣場編號）仍走字串逐字＝行為不變 (268.4105ms)
+✔ 正向 fixture：manual 入口 12 則（新上限）→ exit 0、PASS、無任何 FAIL 行 (192.515833ms)
+✔ 負向 fixture：manual 入口 13 則（超編一則）→ exit 1、[FAIL] CP-15、訊息載明超過上限 12 (163.4305ms)
+✔ 語意保留：恰 3 則 → exit 0＋INFO 記 3 則版型（等比放大＝渲染側 09 §2.10 既有） (215.297958ms)
+✔ 原樣 fixture 仍全綠——樓層各自成模組不會製造假紅 (198.487667ms)
+✔ 第 2 題甲｜跨樓層：樓層 1 的商品卡 × 樓層 3 的情境大圖同一件＝要叫（白蘭病例的形狀） (147.958875ms)
+✔ 第 1 題甲｜第 4 張以後也算曝光：樓層 1 第 4 張卡 × 樓層 3 第 1 張卡同一件＝要叫（原本前 3 張以外看不見） (287.795458ms)
+✔ 第 3 題乙｜同一層兩張卡同商品＝刻意不加門（0 病例、加商品那道門已擋；記待辦） (270.201334ms)
+✔ 口徑不動｜品類牆跨牆同商品：維持「所有牆＝一個模組」，不因樓層改法而連動 (151.819208ms)
+✔ 正向：已知會過的 run（wb-220414）→ exit 0、判 PASS、無任何 FAIL 行 (186.278208ms)
+✔ 負向：draft 商品現價竄改 → exit 1、判 FAIL、命中 CP-02 真值閘 (137.622125ms)
+✔ golden 不變量：負向 fixture 僅在 products[0].price 一處異於正向（單點破壞） (0.942417ms)
+✔ E1 正向：layout-006（檢入 fixture）＝值域內、預設背景 bg-005 license A → PASS＋trial 試用 INFO (187.371041ms)
+✔ E1 負向：未知貨號 layout-999（檢入 fixture）→ exit 1＋FAIL CP-25 帶原值與值域來源＋CP-27 授權未驗 (146.648958ms)
+✔ E1 檢入 fixture 不變量：正負兩件皆＝gate_pass_draft 僅 page.kvVariant 單點注入 (1.170292ms)
+✔ CP-25 舊拼法 kv-new＝讀入正規化為 new（值域內）→ PASS＋INFO 記正規化 (363.638917ms)
+✔ CP-25 欄位缺席＝舊 draft legacy 態略過（沿既有 pass fixture＝零波及） (244.62025ms)
+✔ CP-25 登記簿讀取失敗而 draft 有版式欄＝FAIL 出聲（不裝懂、不靜默略過） (152.962125ms)
+✔ F1 override 生效＝WARN 出聲＋report.registrySource 記注入來源（inline／路徑兩形） (301.48375ms)
+✔ F1 不設 env＝report.registrySource 記預設值「registries」、stdout 無注入 WARN (143.072458ms)
+✔ E2 負向：hero 槽殘留「滿 $-- 折 $--」→ FAIL CP-26 帶欄位路徑與原值 (150.620125ms)
+✔ E2 負向：00.00–00.00 型佔位（檔期／價帶）也命中 CP-26 (155.70475ms)
+✔ E2 正向：佔位收在 heroSlotStash／meta（不渲染不出貨）＝不擋；真實日期 2026.07.03 不誤殺 (167.622791ms)
+✔ F3 排除僅契約正位：深層模組下掛名 meta 的子欄含佔位＝FAIL 照抓（不再任意深度跳過） (146.211791ms)
+✔ F5 CP-26 佔位正則表格：真實價格/檔期/價帶/CSS 變數＝不命中；$--／00.00〜00.00 型佔位＝必中 (19.450833ms)
+✔ E3 制度升版：layout-001 預設背景 bg-001＝license C → INFO 掛牌放行（63 號浮水印制 2026-08-31；原 FAIL 斷言隨裁決退場） (202.84025ms)
+✔ E3 負向：B 級背景無複查紀錄（bg-010 明選）→ FAIL CP-27 (134.165542ms)
+✔ E3 正向：B 級已複查（layout-002 預設 bg-008＝pass、簿有 termsVerification）→ PASS＋灰度門票綠 (171.155334ms)
+✔ E3 負向：conditional 任版式預設（layout-015→bg-012）＝FAIL 不得任預設 (150.052083ms)
+✔ E6 灰度門票：trial 版式明選 conditional 背景（layout-002＋bg-012）＝黃燈 WARN＋門票 FAIL (127.6135ms)
+✔ E6 對照：非 trial 版式明選 conditional（layout-014＋bg-012）＝僅黃燈 WARN、無門票 FAIL → exit 0 (147.997ms)
+✔ E6 legacy 停新案開關：rollout=closed（layout-016）＝INFO 出聲、歷史頁照舊出貨 → exit 0 (142.463459ms)
+✔ E3 負向：B 級商用條款＝backgrounds manifest meta.termsVerification 缺席 → FAIL（A 級不受此欄限制） (314.842ms)
+✔ E7 動畫：motionFlag=sway 綁 C 級素材（motion-002）＝FAIL；綁 A 級（motion-901）＝過 (287.915667ms)
+✔ E7 動畫：motionFlag 缺席＝容忍；static＝略過；sway 未綁素材＝WARN 出聲不擋；非法值＝FAIL 帶原值 (677.755916ms)
+✔ CP-25 引擎完工閘：未完工版式（fixture 貨號 layout-014＝永不入真名單）＝FAIL 出聲；layout-006（完工名單內）不受影響 (334.304583ms)
+✔ 優惠文案人工欄（2026-09-03 放寬）：折數或自由文案 ≤6 字＝INFO 揭示人工填寫；超過 6 字＝FAIL 白話擋；留白＝零聲量 (675.134166ms)
+✔ CP-28：cornerProducts 缺 gdid＝FAIL 白話擋；帶 gdid＝過；欄缺席＝零聲量 (305.761958ms)
+✔ CP-02 檔期人工欄：layout-* 填 dateValue 無主軸＝INFO 人工揭示不擋；legacy 同況＝照舊 FAIL (201.874875ms)
+✔ E8 正向：approved 字風（css-t1→font-001 A）＋pickable A 副標字體 → PASS、零字型類 CP-27 (104.134458ms)
+✔ E8 負向：pending 字風（css-t2）→ FAIL CP-27 尚未審查通過（手改 draft 也擋得住） (98.072166ms)
+✔ E8 負向：查無字風（css-999）→ FAIL CP-27 不在字風登記簿 (101.677791ms)
+✔ E8 負向：approved 字風主字型 B 級無複查（css-t3→font-002）→ FAIL；B 級已複查（css-t4→font-004）→ PASS (195.175875ms)
+✔ E8 負向：approved 字風缺 fontId（css-t5）→ FAIL 沒有主字型戶口 (94.608083ms)
+✔ E8 負向：副標字體 C 級／A 級不可選／查無／形狀壞 → 各自 FAIL 出聲 (391.50675ms)
+✔ E8 休眠：legacy 頁（無 kvVariant）帶 titleStyle＝§2.13 欄休眠、不驗不誤殺 (95.668166ms)
+✔ E9 負向：活動資訊卡加了但三列全空＋banner 空 → FAIL CP-31 帶列號白話 (97.748416ms)
+✔ E9 正向：活動資訊卡三列填滿＋banner 有第一行標題 → 零 CP-31 (97.838208ms)
+✔ E9 負向：主打選品沒挑主打商品、沒大標題、右欄 0 件 → FAIL CP-31 ×2＋右欄 FAIL (97.688833ms)
+✔ E9 負向：促銷卡第 2 張沒挑商品 → FAIL CP-31 講第 2 張；舊形單物件 promoCard 也照掃 (198.938083ms)
+✔ E9 邊界：三模組都不在頁上（鍵缺席）＝零 CP-31（不誤殺舊稿） (99.988917ms)
+✔ v2 頁：休眠 kv 商品槽與圓圖不驗（壞圖不紅、出聲 INFO）；legacy 頁照樣紅 (194.9095ms)
+✔ 原樣 fixture 仍全綠（新登記不製造假紅） (188.53375ms)
+✔ 門③｜新版主視覺槽的商品同時是樓層 1 的商品卡＝CP-18 提醒要叫（2026-10-05 裁決：主視覺可重複＝WARN 不阻擋） (180.913375ms)
+✔ 門③｜主視覺槽 × 樓層 3 情境卡（sceneUrl）同一件＝也要提醒（WARN 不阻擋） (274.722833ms)
+✔ 門③反例｜同一件只在主視覺兩個槽（同模組）＝CP-18 不叫（槽內重複由編輯器擋） (212.814291ms)
+✔ 門③反例｜舊 KV 欄與新版主視覺槽同時列同一批商品（layout-0NN 草稿的常態鏡像）＝CP-18 不叫（run 150126 實測抓到的假紅） (147.230958ms)
+✔ 門①｜heroName 殘值（商品已不在主視覺槽）＝不再 FAIL，改 INFO 出聲 (170.261416ms)
+✔ 門①對照｜同一段長標題、商品還在主視覺槽裡＝照舊 FAIL（沒把真問題一起放掉） (141.779792ms)
+✔ 門④｜草稿檔名不是 draft.json＝拒跑、exit 2、輸入檔一個位元組都不動、不產報告（09-26 實踩：備份 draft.v33 被報告蓋掉） (149.106417ms)
+✔ CP-02 商品圖：同一件商品的圖（尾碼相同、不在快照）＝放行 (195.534584ms)
+✔ CP-02 商品圖：別件商品的圖（尾碼不同）＝照擋 (118.290291ms)
+✔ 上限常數＝131072（工程師瘦身工具 2026-09-17 截圖；改動要有新證據） (0.404208ms)
+✔ measureAemBudget：中文一字 9、標籤符號一字 3、安全英數一字 1 (0.101625ms)
+✔ measureAemBudget：fits／remaining／ratio 一致；剛好等於上限算過、多一字算超 (2.472792ms)
+✔ measureAemBudget：bytes 記原始大小，兩者不同（尺量的不是 bytes） (0.063875ms)
+✔ ccVarMapFromTemplate：從模板 set("--campaign-*", hex(cc.*)) 讀出槽→變數；找不到＝throw (0.986417ms)
+﹣ 真模板：對應表含折數三支、價格、標題（引擎源檔在時才驗） (0.099791ms) # 引擎源檔不在（同事包情境）
+✔ campaignVarsStyle：只送真的有給的槽、壞值略過、沒配色＝空字串、選擇器 body.shell-v2 不會被 bake 修剪名單命中 (0.276417ms)
+✔ campaignVarsStyle：來源優先序同引擎——page.colors.themeDraft ＞ 未偏離的提案包；偏離過的包不吃 (0.099375ms)
+✔ stripJs：剝 // 與 /* */，但字串、正規表示式、樣板字串裡的斜線不動；換行數保留 (2.406917ms)
+✔ stripJs：不刪換行＝不製造 ASI 風險（每個原始語句仍各自一行） (0.162667ms)
+✔ stripCss：剝註解、保留字串內容與 url() (0.121458ms)
+✔ parseCssRules／filterCss：巢狀 @media 遞迴、容器空了整塊丟；黏在規則前的註解不算 prelude (0.361833ms)
+✔ selectorListKeeper：逗號清單只剪掉不要的那幾段（括號內逗號不切） (0.120792ms)
+✔ stageSkeletons／kinLayouts：從舞台元素讀骨架 class；同骨架＝親戚 (0.569291ms)
+✔ layoutRuleKeeper：別款版型／別套骨架的段丟、共用段留；親戚（008）的 CSS 也丟（CSS 各寫各的） (0.572375ms)
+✔ removeUnusedStages：平衡配對移除其餘舞台；找不到＝throw (0.924833ms)
+✔ otherLayoutFnPredicate：他款版型函式 true；本款與親戚 false；他套骨架 true (0.248916ms)
+✔ stubFunctionsByName／jsBlockEnd：主體換 {}、簽名保留；巢狀括號、字串與 regex 內的大括號不干擾 (0.380917ms)
+✔ nullDataConsts：陣列／物件／字串常數置 null（含字串裡的括號）；其他表達式不動 (0.225875ms)
+✔ dropJsRegions＋auditDroppedSymbols：切掉區段、被引用的函式補空殼；切到命脈函式＝throw；變數被引用＝throw (0.445458ms)
+✔ shrinkScaffold：面板換空殼、只留引擎會 getElementById 的 id；沒面板＝throw (0.300125ms)
+✔ filterTypestyles：只留這頁字風＋共用底；@import／@font-face 只留真用到的字族；清單只剪別款那幾段 (0.758042ms)
+✔ extractAssigned／shrinkBgMap：bg-map.js 有兩段（__BG_MAP__＋__BG_DEFAULTS__）也解得開；只留用到的條目與本款預設 (0.184458ms)
+✔ resolveTitleStyle：page.titleStyle ＞ colors.themeDraft.titleStyle ＞ typography.title.style；非 css-* 一律 null (0.1035ms)
+✔ DEVICE_INLINE_SCRIPT／launcherScript：不含空 catch（dod G2）、啟動器只在乾淨網址啟動、失敗出聲文案是白話 (2.461084ms)
+✔ 尺只有一把：aem_probe 的量法＝產品端匯出器的 measureAemBudget，上限同一個常數 (0.550417ms)
+✔ 三裝置定義只有一份：對板閘 aem_verify.js 讀的就是這裡（桌機無觸控、平板與手機有觸控） (0.544292ms)
+✔ 拆桶：三桶相加＝總數；內嵌圖片是交叉項（已含在前三桶裡，不可相加） (2.232375ms)
+✔ 圖片外連：內嵌 base64 換成真實 AEM 素材庫網址的長度（不是猜一個短網址） (0.22625ms)
+✔ 可見 DOM 的取法是一個可傳進瀏覽器的純函式（對板閘與量尺共用同一段邏輯） (0.279208ms)
+✔ 瘦身後估計：常數是對著 2026-10-07 工程師三檔實測校準的，不是猜的 (0.136709ms)
+✔ 瘦身後估計：兩把尺分開用——提早出聲看安全邊際，斷言不會過只看中位估計 (0.281667ms)
+✔ 瘦身後估計：四級判定的分界（寬鬆／偏緊／貼著線／超標） (0.257208ms)
+✔ isEditorOnly：後台面板／預覽／自測／開機遮罩選擇器＝true；:not() 裡提到的不算；一般版型與模組＝false (0.713334ms)
+✔ buildMainCss：tokens 進、後台規則剝（整條與清單裡的那一段）、@media 內的後台規則剝但容器留、字風不在、版本＝日期＋雜湊且可重現 (7.112208ms)
+✔ 素材路徵：assetRefs 只列相對路徵（外連／data／#／%23／樣板不算）；rewriteAssetUrls 改寫＝版本跟著變 (1.265375ms)
+✔ buildMainCss：模板無 <style>／tokens 空／某款舞台在 CSS 裡零規則＝throw（失敗要出聲） (0.892041ms)
+✔ coverageCheck：頁上模板來源的規則逐條都在＝ok；字風塊略過、後台專用段略過、url() 內嵌 vs 相對路徵視為同值；外來規則或本體不同＝缺 (2.697334ms)
+✔ 版本＝內容：同一份 CSS 隔天重產不換名字（沿用原版本號），塞不符雜湊的版本要丟錯 (0.750458ms)
+✔ versionHash：只認結尾那八碼十六進位，其餘回 null (0.078792ms)
+✔ judgeLive：只看狀態碼會被「回 200 加一頁登入表單」騙——型別與大小都要對 (0.161292ms)
+✔ 上線確認一律不跟隨轉址：第一跳就是答案（跟隨到底會把登入頁看成 200 假綠燈） (1.388167ms)
+✔ ① 單品套價 applyLivePrice：明寫 diskConsistent:false (0.819125ms)
+✔ ② 一鍵套用全部 applyAllLivePrices：明寫 diskConsistent:false (0.300791ms)
+✔ ③ 整類絆線：afterDraftMutation 的下一行才 setDirty(true) 的呼叫，一律要明寫 diskConsistent (1.202625ms)
+✔ ④ 偵測器自我驗證：對「壞形狀」必須抓得到（防本檔空綠） (0.794167ms)
+✔ ⑤ 語意：afterDraftMutation 的磁碟一致性判定，明確傳 false 必須壓得住（不能被 || 短路掉） (0.549167ms)
+✖ 每一檔已完成活動用到的背景，背景地圖都還解析得開 (0.41725ms)
+✖ 審核過的待審背景仍留在地圖，但標成不供挑選 (0.092708ms)
+✔ splitWords：頓號／逗號／斜線／空白都能切，去重去空 (1.633458ms)
+✔ nameHits：整詞比對、不分大小寫；沒有字＝不命中 (0.298041ms)
+✔ ④沒有策略檔內容＝池原樣不動（舊行為的前提） (0.596792ms)
+✔ ①避開：整頁不放、帳對、排掉再多都照排（不放回去） (0.306917ms)
+✔ ①避開零命中＝出聲教他寫商品字 (0.10375ms)
+✔ ②多放：排最前、群內維持原順序、其餘不動；零命中出聲 (0.118417ms)
+✔ ③每層照字挑：對到的排第 1 件、不夠機器補、帳＝層件數；沒寫字的層＝機器 (0.325875ms)
+✔ 主打不偷沒餘量的層要的（2026-09-24）：只有一層寫瓦斯爐（3 台、要 4）＝主打繞過三台爐；一層字都沒寫＝池頂前 3 不變 (0.148167ms)
+✔ categoryWords：從真實商品名擷取品類詞——品牌不當品類、規格括號不算、尾端的品類詞優先、子片段不重複收；空的回 [] (12.079875ms)
+✔ selectionNotices：零命中的層／牆掛了 autoTitle＝講「照底下實際商品改成「X」」；沒掛＝照舊講「先用系統預設」 (0.249458ms)
+✔ ③零命中的層：4 件全是機器補的＝出聲並教改字 (0.137ms)
+✔ 「優先」寫了照樣進帳（不生效）但這裡不出聲——那句住 parseBrief，AI 路也聽得到 (0.072541ms)
+✔ 伺服器三個叫選品引擎的地方都帶策略檔（快速草稿路＋AI 逾時降級路＋照策略檔重做；2026-09-15 C 批加第三處） (1.626417ms)
+✔ pickGroups：牆跟樓層同一把——件數由呼叫端給（4/8）、對到的排前、補的不偷下一面要的、零命中出聲 (1.173ms)
+✔ md 記號清光：不留星號、反引號、井號（給同事看的是純文字） (2.295333ms)
+✔ 排版：大標底線用＝、小標底線用－、列點用・，小標與內容之間不留空行 (0.221125ms)
+✔ 版本註記插在大標底下——同事回報問題時要能講出手上是哪一版 (0.132333ms)
+✔ 長行會斷行，且標點不落在行首 (0.754375ms)
+✔ 開引號不留在行尾（引號跟它包住的字不被拆開） (0.210833ms)
+✔ 表格轉成「・欄一：欄二」，分隔列不留下來 (0.263667ms)
+✔ 版本配對：精準命中 v<日期-hash>.md (0.524083ms)
+✔ 版本配對：hash 對不上但同一天有＝用同日最新，並標記非精準（說明常常是 commit 前就寫好的） (0.357083ms)
+✔ 版本配對：同一天一份都沒有＝紅燈，訊息要指出該去寫哪個檔（發版必附說明） (0.475ms)
+✔ 端到端：有說明＝exit 0、檔案產出來、印出來源檔名 (294.402958ms)
+✔ 端到端：沒有當天的說明＝exit 1、不產半成品（寧可不出包，也不出一份沒說明的包） (128.314833ms)
+✔ 端到端：只有一行標題的說明＝exit 1（有檔不等於有內容） (124.175667ms)
+✔ 端到端：hash 對不上時走同日退路，但要在畫面上講明兩邊版本（不准靜靜冒充） (122.527375ms)
+✔ 退路啟動時，包裡那份 txt 自己要寫明「說明內容取自哪一版」 (105.407667ms)
+✔ 精準命中時不加那句贅字（正常情況畫面要乾淨） (130.611459ms)
+✔ 端到端：少給參數＝exit 2（用法錯不假裝紅燈也不假裝綠燈） (97.501458ms)
+✔ 同一天有多份說明、又沒一份對得上這包＝紅燈，不猜（列出候選與兩種修法） (2.056791ms)
+✔ 端到端：同日多份＝exit 1 且不留半成品 (128.426958ms)
+✔ --notes 明示指定＝放行（打的人講出自己知道在用哪一份），並在 txt 上寫明取自哪一版 (116.937333ms)
+✔ --notes 指到不存在的檔＝紅（明示也不放過錯字） (116.048ms)
+✔ 只有標題、沒有內文＝紅（用真實長度的標題，不用短 fixture 讓門看起來有效） (132.058125ms)
+✔ 缺開頭那句「值不值得換：」＝紅，並把格式教給寫的人 (118.086208ms)
+✔ 沒有大標的說明，版本註記也要在（77 號只要求第一行回答值不值得換，沒要求大標） (147.045709ms)
+✔ 負責人機、全部探針過＝三項都有 (1.811917ms)
+✔ claude 裝了但沒登入＝ai:false，說明講得出「還沒登入」（介面橫幅用這句） (0.132959ms)
+✔ claude 沒裝＝ai:false、不跑登入探針（同事機常態，不能因為沒裝就慢 15 秒） (0.087208ms)
+✔ 編修模式＝publish／vendorSheet 一律 false，探針說有也不算（旗標蓋探針＝安全層） (0.607709ms)
+✔ 負責人機缺鏡像＝publish:false 並講缺什麼 (0.103167ms)
+✔ CAMPAIGN_CAPS 覆寫：關掉 ai 與 publish 給 hermetic 測試用；被覆寫的項不跑真探針（測試不會真的去叫 Claude） (0.321542ms)
+✔ CAMPAIGN_CAPS 壞字面＝略過並回報，不炸、不影響其他項 (0.108292ms)
+✔ KEYS 就是介面 data-needs 的合法值域（前端只准用這三個字） (0.052625ms)
+✔ ① 六道門：渲染出來的門牌都有接線、接線的都有門牌（門牌名單＝doors-known-gaps.js DOORS） (2.794417ms)
+✔ ② 補抓那條路（ensure*Imgs）：沒有的門 ＝ 已知缺口名單（逐鍵對帳） (7.655417ms)
+✔ ② 沒圖可選那一格：沒有接到共用 imgSelNoOpts 的門 ＝ 已知缺口名單 (6.103167ms)
+✔ ② 共用那一格自己要講得出兩種狀態（抓圖中＝取圖中…／抓不到＝單圖），且只有這一份 (0.612958ms)
+✔ ② 補抓只有一個核心（三個薄接口共用），不是各寫一份 (1.068833ms)
+✔ ② 換圖後重繪列（onchange 裡有 renderEditor）：沒有的門 ＝ 已知缺口名單 (9.374417ms)
+✔ ② 已知缺口名單只准列六道門×四種檢查（鍵格式守門） (0.092959ms)
+✔ ③ 提案包寫入的每一道門都處理「被擋」：server.js 的 writeComboIntoDraft 呼叫點剛好 2 個（建立／編修），各自 12 行內看得到 blocked 或把 info 回給前端 (1.462125ms)
+✔ cms-hints 產物存在且形狀完整（modules／variants／fields／images） (1.442167ms)
+﹣ 保鮮：真源可達＝產物逐字等於現算（改真源要重跑生成器） (0.101792ms) # 規劃 repo 不在（同事包情境）＝沿用 commit 產物
+✔ 顯示文案禁詞：CMS 會印的字不含貨號／文件編號／治理行話／程式鍵名 (0.360584ms)
+✔ 每個人工欄都有輸入提示；實抓欄有佔位卡的話 (0.17675ms)
+✔ 真值鐵律：示範句純顯示——三模組空形每個字串葉子仍是空字串 (0.227833ms)
+✖ ① 源頭工具頁有環境格且留空（環境中立） (1.0655ms)
+✖ ② injectEnv：填得進、讀得回、冪等、找不到格出聲 (0.090459ms)
+✖ ③ CLI 就地改寫（部署腳本走的那條路） (0.222333ms)
+✖ ④ 工具頁不得再寫死 localhost:8787 的 API 呼叫 (0.073292ms)
+✔ normalizeLinkUrl：gdsale.asp 與 p-N.html 兩式正規化相等；一般 URL 去尾斜線 (1.388292ms)
+✔ pickLivePromo：只挑在檔且未用過；過期/未開檔/已用/外站全跳過 (0.31675ms)
+✔ isShellPage：首頁通用標題＋無商品無檔期＝殼頁；真結束活動（有自身標題或商品）非殼頁 (0.080375ms)
+✔ gdidOfUrl：gdsale.asp 與 p-N.html 兩型都認得 (0.069583ms)
+✔ classifyLinkTarget：商品／活動／搜尋／站內其他／外站／非法 (0.274625ms)
+✔ classifySearchLiveness：認得商品＝online；200 但認不出＝unverified（非 empty）；非 200＝dead (0.224792ms)
+✔ SEARCH_PRODUCT_LINK_RE：認得第三型 /gdsale/<商品名>-<編號>.html（2026-09-25 實測病例） (0.079458ms)
+✔ collectPageLinks：延伸探索 items＋看更多、圓卡、本期活動；缺席模組＝空 (0.426916ms)
+✔ syncPoolEntry：price 必須同步（原只刷 imgs＝CP-02 死循環） (0.153875ms)
+✔ syncPoolEntry：實抓無原價＝marketPrice/disc 清空（同 patchSnapshotPrice 語意） (0.115709ms)
+✔ syncPoolEntry：原價不高於現價＝視同無原價（禁偽折數） (0.058208ms)
+✔ syncPoolEntry：完全一致＝回空陣列（免寫檔、不誤失效核可） (0.049125ms)
+✔ upsertPoolEntry：不在池＝add（R3 慣例欄位）；既有＝sync (0.097834ms)
+✔ 值域（M1/M5）：白名單＝buildSelectable:true——資訊卡四版式在列、grid/banner 排除；featured 收 spotlight/promo-card (2.272ms)
+✔ 登記簿缺 mechanic/featured/promo＝throw（值域真源缺席不裝乾淨） (2.307792ms)
+✔ 加入資訊卡＝預設版式＋定值列數（3 列空欄）；重複加入＝throw（每型至多一實例） (2.369459ms)
+✔ 換版式（2026-09-09 使用者裁、翻 08-30 暫存制）：多出的列刪掉、新版面不畫的欄位清掉、贈品圖截到張數；每項出聲；同值＝零變更；未知版式＝throw (0.984833ms)
+✔ featured 未登錄 spotlight/promo-card＝加入 throw（讀簿把關、零硬編） (0.884834ms)
+✔ A→加→編→刪→A：page 深度 diff=0（三模組各驗；M4 核心不變式） (0.751041ms)
+✔ 移除不存在的區塊＝changed:false（不寫檔、不炸） (0.367292ms)
+✔ 機器閘負向（M5）：列數×版式不一致／URL 非站內／gdid 懸空／productRefs>2／rewardImgs>2＝throw (0.501708ms)
+✔ 寫入紀律（M4）：writeContentModuleIntoDraft＝落版備份＋寫回；零變更＝不寫檔；寫入失敗＝throw 出聲 (2.571833ms)
+✔ 驗證器對缺節點頁面＝零波及（舊 draft 不受影響） (0.832958ms)
+✔ banner 輪播（2026-08-26）：預設形＝imgs 三空格＋img 舊欄保留；1 張/3 張/含空格＝合法 (0.537792ms)
+✔ banner 輪播負向：4 張擋／非陣列擋／格內非字串擋——白話錯誤；PUT 路同一套閘 (0.395375ms)
+✔ banner 輪播相容：舊 draft 只有 banner.img（無 imgs 鍵）＝合法零波及 (0.333667ms)
+✔ 模組順序（M11）：mechanic 下移一格＝與 promo 對調；下移→上移＝page 逐字復原（等於預設序＝刪鍵）；碰頂（kv 恆首）＝changed:false (1.030917ms)
+✔ 模組順序（S11 釘位制）：碰底界＝explore 前；promo 開放移動；舊稿 explore 後綴形＝move 前自動歸位；未加入不能移；未知方向＝throw (1.033667ms)
+✔ S11 樓層/牆個體戶：組內對調（pos 與 position 重編）＋碰組邊界＝changed:false＋加一層/一面（上限 3）＋單層移除（牆下限 1、樓層可刪到 0＝刪鍵） (2.208542ms)
+✔ composeOrder 非法＝validateContentModules 擋（缺鍵/重複/固定序破壞/kv 非首）——PUT 路同一套閘 (0.431791ms)
+✔ 固定模組移除：promo remove＝promoEntries 鍵消失（絕非空陣列＝CP-15）；promoModuleTitle 留著；editorial remove；add/set 被拒 (0.442083ms)
+✔ 排版樣式值域：白名單 runtime 讀 modules.json promo variants（buildSelectable 過濾＝好禮款登了也不進值域） (0.513ms)
+✔ 換皮（方案 A）：offer-rows 寫入→同值 changed:false→換回 entry-circles＝鍵消失；A→換皮→換回 page 深度 diff=0；promoEntries 零改動 (0.362708ms)
+✔ 換皮負向：非法值擋／promo 已移除（無 promoEntries 鍵）＝白話擋／set-variant 打錯對象＝擋／PUT 路 validateContentModules 同閘 (0.325334ms)
+✔ 換皮寫入紀律：writeContentModuleIntoDraft set-variant＝落版備份＋寫回；同值＝不寫檔 (0.925041ms)
+✔ 貼稿帶入新品（hero）：products[] 追加一列真值（position=spotlight-pick、tagSource=manual、offer 留空）＋heroCard.gdid 寫入 (0.382125ms)
+✔ dedupe by gdid：已在活動裡＝直接引用不重複加（products[] 長度不變、無第二列） (0.325417ms)
+✔ 右欄槽位：pick ref2＝productRefs[1] 寫入、[0] 洞補空字串（勿留 null＝驗證語意跑掉）；ref1 再帶入照位寫 (0.353458ms)
+✔ pick 邊界：同 slot 同品＝changed:false；另一 slot 已有同品＝白話擋；沒加 spotlight／slot 非法／kind 非 spotlight＝throw (0.3895ms)
+✔ 防手填繞道：product 缺真值欄（gdid/name/price/url/imgs 任一）＝throw、draft 零改動 (1.493666ms)
+✔ pick 寫入紀律：writeContentModuleIntoDraft＝落版備份＋寫回；同品重帶＝零變更不寫檔 (4.142625ms)
+✔ 登錄絆線：draft-writers.allow content-modules-apply 行必須登錄 pick 動作（同 hero_combo 絆線制） (0.213333ms)
+✔ 促銷卡多卡：首次 add＝陣列一張空卡；連加到上限（20）張；第 21 張＝白話擋（放偶數張最整齊） (1.011375ms)
+✔ 促銷卡舊形相容：page.promoCard 單物件＝驗證合法（視為一張）；寫入動作就地升級陣列＋刪舊鍵；雙鍵並存＝擋 (0.345667ms)
+✔ 促銷卡單卡移除：remove index＝只移那張；移到 0 張＝整節點刪鍵；index 越界＝throw；加→刪＝page 逐字復原 (0.338917ms)
+✔ 促銷卡驗證器：非陣列/空陣列/>4/卡非物件/卡間 gdid 重複＝throw；空 gdid 多卡＝合法 (2.214958ms)
+✔ 促銷卡 pick：card-2 帶入新品＝products 追加 position promo-card-pick＋該卡 gdid 寫入；同卡同品＝零變更；他卡同品＝擋 (0.519666ms)
+✔ 樓層加商品：新品入 products（position featured-1、order 接尾）＋gdid 推入樓層清單；提醒＝3/7/11/15 排制；同層重加＝零變更 (0.435ms)
+✔ 牆加商品：新品 position wall-1＋4 倍數提醒；已在 products 但未曝光＝直接引用不重複加 (0.377792ms)
+✔ 全頁互斥：商品已用在樓層/牆/編輯精選/本期活動＝白話擋；主視覺＝放行＋提醒（2026-10-05 裁決可重複） (0.400584ms)
+✔ 件數上限與邊界：樓層滿 15 擋（2026-08-26 裁決 3/7/11/15）／牆滿 12 擋／index 越界＝throw／wall、floor 未開放動作擋（S11 起 add/remove/move 開放） (0.399125ms)
+✔ 牆/樓層 pick 寫入紀律：writeContentModuleIntoDraft＝落版備份＋寫回；同品重加＝零變更不寫檔 (0.972833ms)
+✔ 登錄絆線補：allow 檔必須登錄 promo-card-pick／wall-pick／floor-pick 與 promoCards 多卡（G3 登錄制） (0.116917ms)
+✔ banner 一圖一連結：預設形 urls 三空格；非 Yahoo 網域擋；>3 個擋；舊稿沒有 urls＝合法零波及 (0.358541ms)
+✔ 搶購鈕文字：空列預設 ctaText 空字串（引擎退「搶購去」）；非字串擋；文字內容不驗（CMS 只提醒字數） (0.292041ms)
+✔ 本期活動換排版：圓形→舞台＝清檔期、只留前 3 則；舞台→圓形＝清副標／斜帶字；每項出聲；沒有不重疊內容＝訊息說內容都沒動 (0.419541ms)
+✔ 亮底＝往深調（原行為不變） (1.06325ms)
+✔ 暗底＝往亮調（原行為不變） (0.127042ms)
+✔ 中間調照片（#A16C69，亮度 0.19 被判暗底）：黑字往亮走到白仍 4.32 不過→回頭往深＝純黑 4.86 過 (1.42175ms)
+✔ 兩向都不過＝回對比較高的那一向（呼叫端自會判 pass=false，不假裝過） (0.641166ms)
+✔ 配方方向：backdrop 襯字層比字身深、glow 光暈比字身淺、outline 深描邊→主色深階、keep 空字串 (0.798792ms)
+✔ 只畫在字裡偵測：明寫 background-clip、簡寫 ') text'、簡寫尺寸後 'text,'（A3）都要抓到；沒有的不抓 (0.133416ms)
+✔ 純字形（沒換到任何顏色）＝補字身吃墨色；有換到＝不補 (0.160542ms)
+✔ 字風樣式表每款 --ts-costume 與登記簿 costumeMode 同值（沒配方的款不得有變數） (2.921416ms)
+✔ fillKind：漸層字面（clip text，含寫在 .line 行段的）＝gradient；實色＝solid；透明字面＝hollow；襯字層不算字面；未登記＝solid (0.373917ms)
+✔ sameProductUrl：兩式同編號＝同一件；異編號／站外同路徑＝不同；非商品網址＝回退字串比對 (0.695333ms)
+✔ syncPoolEntry：等價換式＝不覆寫、不記 changed（不汙染池、不無謂廢核可）；真的變了＝照同步 (0.416167ms)
+✔ 四道比對門全部走 sameProductUrl（鐵律 4：同一條規則一個家，改回手寫 !== ＝紅） (1.570625ms)
+✔ 汙染源已堵：productFetch 回傳「實際問到的網址」而非使用者輸入 (0.155083ms)
+✔ 出口鈕條件：孤兒看「在不在頁面上」不綁訊息字串；重建來源紀錄涵蓋「與來源不符」家族；孤兒條目給「清出這件」 (1.702834ms)
+✔ ①對齊判定：清單寫法 vs 頁面寫法＝同步 name 並回報；已一致＝不動；不在草稿＝不動 (0.764125ms)
+✔ ②重建來源紀錄＝兩邊都對齊：端點有草稿收斂＋備份鏈＋核可失效＋回報 draftAligned (0.299583ms)
+✔ ③另外三條入池路都接了對齊（編輯精選挑品／Excel 帶入／lib 寫入口＝pick 共用） (13.972333ms)
+✔ ④前端跟上：rebuildPool 以 draftAligned 同步本地列再宣告磁碟一致 (0.574792ms)
+✔ B｜mapPool：結果照原序、全池節流有效、serial 回退單工、onProgress 每件一叫 (226.582709ms)
+✔ A｜種子鏈：enrich 落檔（同一支探測器的產物）→ 建立期讀檔（10 分鐘新鮮度窗）→ 只有建立那條路傳 seed (0.382125ms)
+✔ B｜兩段迴圈都接上池、沒有殘留的逐件睡眠 (0.476708ms)
+✔ C｜估時照實測、進度畫得出來 (0.388666ms)
+✔ 不帶參數＝舊行為：主打 3 件、products[3] 就是第 1 層情境卡代表品（四件槽版式會撞的那個陷阱）、沒有預留提醒 (591.892166ms)
+✔ --heroCount 4：主打 4 件、樓層從第 5 件起分、舊 KV 節點仍 3 件、商品總數與集合不變（只搬位置）、提醒出聲 (1220.371208ms)
+✔ 新版式路：名字放不進主視覺兩行的不當主打、往後排給樓層（尺＝rules.json heroName）；不帶參數＝長名照舊當主打 (1798.780375ms)
+✔ 值域夾 3～8：--heroCount 99＝8、--heroCount 1＝3、非數字＝3 (1679.855959ms)
+✔ 五份內建範本全部解析乾淨（自家產物先過自家解析器） (17.035167ms)
+✔ 真人亂寫也吃得下：全形井號／標題帶冒號／中文序號／忘記破折號 (0.52ms)
+✔ Gemini 第一輪那種寫法（第一層：／五層／選品寫成散文）＝吃得下，而且逐件出聲 (0.2085ms)
+✔ 真值一律擋下，而且講得出是哪一段、哪一種、為什麼 (0.20725ms)
+✔ 缺必填段＝擋下並指路；缺選填段＝放行但記帳 (0.111875ms)
+✔ 認不得的標題＝提醒不擋人；重複段落＝用第一份並出聲 (0.174375ms)
+✔ 空檔案／沒有任何標題＝擋下，而且指路可操作 (0.096ms)
+✔ 選品方向：讀得出來、真的會生效（2026-09-14 起）；「優先」寫了要講它不生效 (0.165792ms)
+✔ 每一句 error／notice 都是白話，且不得混入程式內部字串 (0.373042ms)
+✔ 落地：主標寫進第 1 段、格內折行用 U+2028、其餘段原樣不動 (3.968042ms)
+✔ 落地：樓層標題兩份複本一起改；v2 第二段「放什麼」只給機器、不再灌進小標籤（2026-09-14 實走更正） (0.799792ms)
+✔ 落地 v2：第三段短賣點進 subtitle／sceneCopy.sub 兩份複本；第四段進小標籤 tag（牆 cms-layout-fit Q3 甲） (0.191042ms)
+✔ 落地 v2：牆標題／編輯精選／眉標＝人寫機器搬（牆 cms-layout-fit Q4 甲）；沒有位置的要出聲不硬塞 (0.394584ms)
+✔ 落地：一根寒毛都不碰真值（價格／連結／劃線價／檔期／商品綁定） (0.144958ms)
+✔ 落地：不新增也不刪除樓層；多了少了都出聲 (0.160875ms)
+✔ 落地：titleSource 不動（04 號定稿兩種值，U19 規則綁著它） (0.087ms)
+✔ 落地：來源記帳寫進 meta.brief，畫面才講得出哪些是系統填的 (0.117083ms)
+✔ 落地：沒過檢查的劇本一律不套用（擋在門口，不是套一半） (0.20875ms)
+✔ 人寫的標題只掛在對得上的模組上（2026-09-14 使用者實走：收尾清潔底下一排計時器、醬料與調味底下是計時器） (0.792125ms)
+✔ 主標落在這款版面「主標」那一格：12 款逐款；其餘段不動；不多出一格沒人讀的槽；kv 兩行同步 (0.411125ms)
+✔ 舊殼（沒標版式）主標照舊寫 slogan-left、只有 title-center 就寫那格；kv 原本沒有標題兩行＝不硬加 (0.091208ms)
+✔ 零命中的層＝標題照底下商品補（兩份複本一起）、小標籤與短賣點不拿人那段的字、記 meta.brief.autoTitles、提醒句講得出補了什麼；牆同理 (11.079417ms)
+✔ 中秋烤肉的策略檔對上計時器商品池＝出聲（low） (1.357792ms)
+✔ 同一份策略檔對上烤肉商品池＝安靜（不假警報） (0.243958ms)
+✔ 「避開」的字不算命中——寫了避開計時器，不能反過來讓計時器池變成對得上 (0.198416ms)
+✔ 「放什麼」提示會被拿來比對（同事照範本在標題後面寫的品類名，就是對得上的關鍵） (0.221208ms)
+✔ 沒商品、或策略檔沒有可比的字＝不出聲（是「沒得比」，不是「對不上」） (0.134958ms)
+✔ 門檻由呼叫端傳（跟 gate 的主題契合閘同一個數字）；沒傳＝0.3 預設 (0.133625ms)
+✔ 切詞只有一把刀：server.js 不得再自帶 deriveThemeKeywords，要 require lib (1.040041ms)
+✔ applyBriefToDraft：對不太上排第一句、選品帳折句跟後、有帳才算生效 (1.319125ms)
+✔ applyBriefToDraft：沒有選品帳但寫了多放／避開＝AI 路，要講沒生效；沒給名單就不算 fit (0.140666ms)
+✔ 範本的標題＝真源的標題，逐字且同序 (10.475333ms)
+✔ Gemini 助理指令列的標題＝真源的標題，逐字且同序 (0.594334ms)
+✔ 還沒接上的段落，在範本與助理指令裡都要出聲；接上的不准再說「還不會」 (0.346625ms)
+✔ 禁收真值欄位＝71 號 §4.2 原文清單，不得自行增減 (0.09225ms)
+✔ 真值樣態：該擋的會擋 (1.296208ms)
+✔ 真值樣態：策略描述不會被誤擋（誤擋比漏抓更糟——會擋住正常人做事） (0.362084ms)
+✔ 真源自己不准寫字數上限（長度上限已有三份複本在打架，這裡再寫就是第四份） (0.321958ms)
+✔ 內建範本與助理指令＝與真源同步（手改或忘了重產就紅） (104.452333ms)
+✔ 內建範本自己不准夾帶真值（同事會照抄，示範壞習慣比程式 bug 難發現） (0.924458ms)
+✔ 標 consumed:true 的段落，必須指得出消費端，而且那個檔案真的存在 (0.461583ms)
+✔ 每個還沒接上的段落，範本與助理指令都要講明它還不會生效 (0.22525ms)
+▶ 部署前在途改動健檢
+  ✖ ① 待發佈區有在途改動、沒人宣告＝擋下來，而且把檔名印出來 (357.305292ms)
+  ✖ ② 改動落在 DEPLOY_MINE 宣告範圍內＝放行（本線自己的東西不算別人的） (400.826916ms)
+  ✖ ② -b DEPLOY_MINE 寫成相對 repo 根的完整路徑也算數（兩種寫法都要吃） (402.456625ms)
+  ✖ ③ DEPLOY_CARRY 明講帶上＝放行，但清單照印（明講不等於隱形） (461.721084ms)
+  ✖ ④ 待發佈區乾淨＝放行且說「乾淨」（不是沉默） (349.895958ms)
+  ✖ ⑤ 宣告只蓋到一部分＝只擋沒蓋到的那幾筆，且不誤報已宣告的 (397.509709ms)
+  ✖ ⑥ repo 其他位置的在途改動＝不擋，但要報數字（那些不會隨本次上線） (281.552542ms)
+  ✖ ⑦ 掃不到 git＝出聲並放行（不靜默，也不拿掃不到當理由擋住部署） (22.762791ms)
+  ✖ ⑧ 用法錯（沒給路徑／路徑不存在）＝exit 2，與「擋下」分得開 (17.546792ms)
+✖ 部署前在途改動健檢 (2692.816708ms)
+
+dod-guards（full）：
+  ✅ G2 空 catch ratchet — 33 個（基線上限 33；只准降）
+  ✅ G3 draft 寫入點 ratchet — 18 個（基線 18）
+  ✅ G4 tokenizer — SKIP：找不到 FrameTest 源（不在本 repo，屬跨目錄）——部署級 dod-check.sh full 會實跑
+
+✓ dod-guards 全過。
+
+▶ G6 基線調動必附登記
+  ▶ 該擋的（紅）
+    ✔ ① 只把上限改大、登記檔沒跟上＝擋（這就是原本那條捷徑） (0.479041ms)
+    ✔ ② 登記檔有進本批，但一筆都沒多＝擋（碰一下檔案不算交代） (0.137ms)
+    ✔ ③ 登記檔反而變少、上限卻調高＝擋 (0.101834ms)
+    ✔ ④ 一次跳很多也一樣擋（不是只擋 +1） (0.084125ms)
+  ✔ 該擋的（紅） (1.425084ms)
+  ▶ 該放行的（綠）——不擋有正當手續的人
+    ✔ ⑤ 上限調高＋登記真的多一筆＝放行 (0.11675ms)
+    ✔ ⑥ 上限調降（ratchet 收緊）＋登記檔同批更新＝放行 (0.075042ms)
+    ✔ ⑦ 基線檔根本不在本批＝不適用，不吵人 (0.06375ms)
+    ✔ ⑧ 改的是基線裡別的欄位（draftWriters 沒動）＝放行 (0.065083ms)
+    ✔ ⑨ 讀不到基線值（新檔／壞 JSON）＝本閘不判，交給 G3，不假裝有結論 (0.116333ms)
+  ✔ 該放行的（綠）——不擋有正當手續的人 (0.594458ms)
+  ▶ 登記筆數怎麼算（算錯就等於門沒在看）
+    ✔ ⑩ 只算行首非空白非 # 的行；註解、續行、空行都不算 (0.088125ms)
+    ✔ ⑪ 空輸入與 null 都回 0，不丟例外 (0.087584ms)
+    ✔ ⑫ 真檔案讀得出筆數（絆線：格式若改掉，這裡會先紅） (0.229125ms)
+  ✔ 登記筆數怎麼算（算錯就等於門沒在看） (0.474209ms)
+✔ G6 基線調動必附登記 (2.765417ms)
+
+dod-guards（full）：
+  ✅ G2 空 catch ratchet — 33 個（基線上限 33；只准降）
+  ✅ G3 draft 寫入點 ratchet — 18 個（基線 18）
+  ✅ G4 tokenizer — SKIP：找不到 FrameTest 源（不在本 repo，屬跨目錄）——部署級 dod-check.sh full 會實跑
+
+✓ dod-guards 全過。
+
+✔ 名單真源就在 baseline，且涵蓋打包機與守門自己（漏了這幾條這道門就形同不存在） (0.5125ms)
+✔ 分層納入：抓價兩支在名單內；錢閘刻意不在（裁決＝2026-09-21，理由見 baseline 註解） (0.098917ms)
+✔ 沒動出貨守門＝綠（不擋一般開發） (0.099041ms)
+✔ 動了打包機但沒附審查記錄＝紅，並點名是哪個檔 (0.377375ms)
+✔ 動了打包機且同批有 docs/reviews/*.md＝綠 (0.061375ms)
+✔ design-qa 的記錄也算（動版型／畫面的變更留在那裡，不強迫寫成 code review） (0.045792ms)
+✔ 目錄型名單：pack-root/ 與 .githooks/ 底下任何檔都算命中 (0.048584ms)
+✔ 改守門自己也要 review（否則可先放寬基線關掉這道門，再去改打包機） (0.044083ms)
+✔ 記錄必須是 .md，也必須在記錄資料夾裡（隨手放個 txt 或改別處的 md 不算過關） (0.07075ms)
+✔ 端到端：staged 有打包機、沒有審查記錄＝exit 1，訊息給得出下一步 (1011.773542ms)
+✔ 端到端：同批附上審查記錄＝G5 綠（不是靠關掉守門過關） (972.308792ms)
+✔ 每一處 draft = r.draft 之後 12 行內都有 applyAndWire 或 reloadPreview (7.844ms)
+✔ Excel 帶入收尾＝cmApply 同一口徑：afterDraftMutation(diskConsistent)→renderEditor→applyGateMarks→applyAndWire→捲到帶入的區塊 (1.652084ms)
+✔ GET draft.json 帶 X-Draft-Mtime（毫秒、等於檔案 mtime） (637.667958ms)
+✔ PUT 帶舊 base（早於 sysDraftWriteAt）＝409 stale-draft、回最新草稿、磁碟一個位元組都沒動；帶新 base＝200；不帶＝200 (22.7205ms)
+✔ 沒有 sysDraftWriteAt 的舊 run：帶多舊的 base 都照舊 200（不誤擋） (10.886792ms)
+✔ ①重複商品：同一件出現在兩個模組＝兩列都要回，不能只回第一列 (3.412459ms)
+✔ ②情境卡與商品卡同商品：兩列都有 data-gdid＝兩列都回（CP-18 樓層那型） (0.463084ms)
+✔ ③主視覺那種沒有 data-gdid 的列，靠 data-path 也要找得到（別修好一處、弄壞另一處） (0.304375ms)
+✔ ④同一列不可以被算兩次（data-gdid 與 data-path 都命中同一列） (0.301084ms)
+✔ ⑤找不到的商品＝空陣列，不丟例外（報告可能比畫面舊） (0.687625ms)
+✔ ⑥合規檢查的紅框走 prodRowsOfGdid（原本 el.closest＝只框第一列） (0.327167ms)
+✔ ⑦報告「前往」會把重複的每一處一起閃 (0.193708ms)
+✔ ⑧換完品回跳也要閃全部（flashRow 同族） (0.305708ms)
+✔ ⑨商品狀態的說明文字要掛在「自己那一列」底下（原本全域找＝只掛第一列） (0.102292ms)
+✔ ⑩情境卡重複的訊息要把貨號帶出來（原本只回樓層＝整層亮） (0.30325ms)
+✔ ⑪全頁互斥那型本來就帶貨號——確認它沒被這次改動弄丟 (0.123375ms)
+✔ ⑫訊息帶了商品名之後，句頭錨「全頁互斥違反：gd:」仍然抽得到貨號（名字是附加、不是改錨） (0.057834ms)
+✔ ⑬提醒級（重複曝光 WARN）帶 gd: 之後要有自己的分支，而且排在樓層分支前面——原本被「樓層 #N」接走＝去修跳到樓層標題欄 (0.753209ms)
+✔ ⑭商品不在清單列（入口×精選圓）＝去修退而指到模組區塊，不再丟「找不到商品」死巷（2026-10-07 使用者實測） (1.495833ms)
+✔ ⑬撞號：同一件同時在樓層卡與品類牆＝兩處都要列出來（替換會一起換掉） (0.562959ms)
+✔ ⑭情境大圖與同層商品卡撞號＝分得出是哪一種（使用者最容易困惑的那型） (0.893208ms)
+✔ ⑮只出現一處＝不要出聲（沒有重複就不該嚇人） (1.001916ms)
+✔ ⑯樹上拿不到名字也不能爆（退回預設名） (0.876ms)
+✔ ⑰替換彈窗要在撞號時先講清楚，並指到真正有用的那條路 (0.333458ms)
+✔ ⑫告訴使用者「已經幫你框起來」，不要再叫他自己找是哪一列 (0.26325ms)
+✔ ①白蘭的形狀：樓層 1 商品卡＋樓層 3 情境大圖＝兩段都要回、而且分得出是卡還是大圖 (1.45725ms)
+✔ ②主視覺／品類牆／編輯精選／本期活動也都算得到（不是只會看樓層） (0.360417ms)
+✔ ③左樹紅點：帶貨號的問題＝它在的每一段都亮（原本只亮 sectionOfPath 回的第一段） (1.299459ms)
+✔ ④區塊外框：框到哪一列，那一列所在的區塊就一起亮（情境大圖列沒有 data-path、推不到 box） (0.29125ms)
+✔ ⑤白話名是從 gdidPlaces 推出來的——「它在哪」的規則只能有一份 (0.417917ms)
+node:fs:624
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    at Object.readFileSync (node:fs:624:20)
+    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/engine_twin_tables.test.js:19:16)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+}
+
+Node.js v26.12.0
+✖ test/unit/engine_twin_tables.test.js (118.406ms)
+✔ AggregateError（message 空）→ 印出 errors[] 裡的 code，不再是空白 (0.61925ms)
+✔ errText：一般 Error 照印 message；code 不重複；cause 鏈接在後面 (0.086708ms)
+✔ errText：超長訊息截斷、循環 cause 不會爆 (0.1ms)
+✔ errKind：四種判準 (0.217666ms)
+✔ sourceFailVerdict：連線層那句不再叫人換網址、技術訊息在句尾括號 (0.909667ms)
+node:fs:624
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    at Object.readFileSync (node:fs:624:20)
+    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/explore_cap_sync.test.js:14:19)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+}
+
+Node.js v26.12.0
+✖ test/unit/explore_cap_sync.test.js (135.697542ms)
+✔ ①報告找不到對應列時，要自己補跑檢查——不可以靜默跳過 (1.867333ms)
+✔ ②守門擋下時，要順手把清單更新好，不是叫人自己去按 (0.30275ms)
+✔ ③補跑失敗要出聲，不得靜默吞掉（吞掉＝另一種鬼打牆） (0.367959ms)
+✔ ④原本那句把人推回迴圈的文案不得復活 (0.2245ms)
+✔ ①「看更多」那一列要有自己的兩條出路，不是跳去別的面板 (0.761333ms)
+✔ ②自動修復要真的去找在檔活動，不可以盲抄第一張卡 (0.30825ms)
+✔ ③找不到就明說並引導手動，不得靜默失敗 (0.377625ms)
+✔ ④「看更多」那條檢查不得被關掉——按鈕是真的會渲染的 (0.160834ms)
+✔ ⑤排除已經用過的目的地——看更多跟卡片指同一個地方沒有意義 (0.19775ms)
+[fetchPage] 連線層失敗（（connect ECONNREFUSED 203.0.113.1:443））→ 10ms 後換新連線再試一次：https://tw.buy.yahoo.com/brands/41193409
+✔ 連線層失敗 → 800ms（測試縮成 10ms）後重試一次並成功；重試那次帶新連線參數 (15.642333ms)
+✔ HTTP 503 不是這台的問題 → 不重試、直接丟 HTTP 錯 (1.560584ms)
+[fetchPage] 連線層失敗（（connect ECONNREFUSED 203.0.113.1:443））→ 10ms 後換新連線再試一次：https://tw.buy.yahoo.com/x
+✔ 兩次都連不上 → 丟出的錯用 errText 印得出 ECONNREFUSED（不是空白） (14.672417ms)
+✔ 故障注入開關 CS_FETCH_SIMULATE_OFFLINE=1 → 不打網路、直接丟多位址連不上的 AggregateError (0.329458ms)
+✔ parseActivityPage: 促銷價無引號數字 '"promotionPrice":880' → price=880 (1.1765ms)
+✔ parseActivityPage: 促銷價加引號字串 '"promotionPrice":"880"' → price=880（容忍字串形式） (0.218542ms)
+✔ parseActivityPage: 無促銷欄位 → price=currentPrice、promotionPrice=null (0.07725ms)
+✔ parseActivityPage: disc 以「實付/劃線價」計；無促銷＝無劃線＝無折數（2026-07-27 劃線價真值修） (0.099458ms)
+✔ parseActivityPage: 促銷價 >= 網路價則不採用（退回網路價） (0.066916ms)
+✔ parseActivityPage: 解析基本欄位（名稱／圖庫／絕對化 URL）＋ meta.resultsTotal (0.43275ms)
+✔ parseFlagshipPage: Shopping_PromotionList_Promotion → 活動檔（檔期逐字＋banner＋旗艦店名） (1.490583ms)
+✔ parseFlagshipPage: is_hidden / 無 url 的活動檔應濾除 (0.271792ms)
+✔ parseFlagshipPage: 無 gqlstate-data → 空結果；壞 JSON → parseError 出聲不吞錯 (0.118833ms)
+✔ parseActivityLinks: 抽 distinct actid、絕對化 URL；重複連結去重；無連結回空陣列 (0.2205ms)
+✔ parseListingHits: 抽 gdid/品名/清單價/錨定圖（gdsale.asp?gdid= 舊型連結） (0.445375ms)
+✔ parseListingHits: …-N.html 新型連結也抽得到 gdid；同 gdid 去重 (0.253791ms)
+✔ parseListingHits: -SP-<規格id> 檔名 key 的圖也收（區塊所有權錨定，非檔名驗）；無 gdid 連結＝整筆略過 (0.288625ms)
+✔ parseListingHits: 相鄰兩 hit 的 ec_* 欄位不互相汙染（取窗內最後匹配） (0.352708ms)
+✔ extractActivityPeriod: 帶時刻的檔期逐字抽取 (0.945583ms)
+✔ extractActivityPeriod: 缺時刻＋SSR 註解＋全形波浪號亦可解析 (0.07175ms)
+✔ extractActivityPeriod: 無檔期字樣 / 空字串 / null → 皆回 null (0.243ms)
+✔ classifyLiveness: 近空殼（無頁題/檔期/商品池）→ dead (0.351625ms)
+✔ classifyLiveness: 頁內檔期含現在 → online（sw 保護檔 404 亦判 online） (0.156708ms)
+✔ classifyLiveness: 頁身有內容但檔期已過 → archived (0.05925ms)
+✔ classifyLiveness: 無頁內檔期，改由來源頁 listedPeriod 含現在 → online (0.044ms)
+✔ hasActivityData: 非物件輸入 → false (0.053ms)
+✔ hasActivityData: promotions 任一檔期含現在 → true (0.042625ms)
+✔ hasActivityData: activities 未封存且檔期含現在 → true (0.036042ms)
+✔ hasActivityData: activities 檔期含現在但 archived → false (0.025792ms)
+✔ hasActivityData: 所有檔期皆已過 → false (0.033417ms)
+✔ 字體簿本身：id 唯一、license ∈ A/B/C、pickable 布林；pickable ⇒ A 級 (0.962292ms)
+✔ typestyles.css：每個網頁字族都有戶口；@import 只准 Google；@font-face 只准 jsdelivr 鎖版本 (2.8455ms)
+✖ 引擎頁（FrameTest）Google Fonts <link> 載的家族都有戶口 (0.264792ms)
+✖ 字風登記簿 × 字體簿：approved 的主字型＝有 fontId、A 級、消費者頁真的載得到；每款 fontId 對回的家族＝fontStack[0] (0.553458ms)
+✔ 檢查器自檢：合成 CSS 要抓得到家族、Google 家族、非白名單主機 (0.45275ms)
+node:internal/test_runner/harness:124
+      throw err;
+      ^
+
+Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    at Object.readFileSync (node:fs:624:20)
+    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/ga_tracking.test.js:91:22)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+}
+
+Node.js v26.12.0
+✖ test/unit/ga_tracking.test.js (133.553375ms)
+✔ 五碼白話分支都在（CP-03/26/28/29/31） (3.435ms)
+✔ CP-31 資訊卡型：抽得到列號與缺欄、帶路跳到該列欄位 (0.182083ms)
+✔ CP-26：路徑直映（含陣列索引轉點號） (0.131125ms)
+✔ CP-29／CP-28：句首判定互不誤攔 (0.082334ms)
+✔ 病例原字：69 字商品名——CP-03 要抽得出「主視覺商品標題」，不得退回兜底句 (0.694917ms)
+✔ CP-03 的引號擷取不得再設長度上限（設了就必定 100% 失效） (0.451416ms)
+✔ CP-26：gate 送出前截到 60 字，UI 這邊不能收得比它短 (1.066833ms)
+✔ 截短發生在顯示層：cutQ 20 字＋…，短值原樣不動 (0.23175ms)
+✔ 虛擬 FS：未 seed 時 loadConfig={} 且 loadToken=null（證明沒讀到真實檔） (1.601917ms)
+✔ saveConfig 合併既有欄位並回寫；loadConfig 讀回 (0.273041ms)
+✔ loadToken 讀回 seed 的 token；clearToken 後回 null (0.156375ms)
+✔ 損毀 JSON 檔：loadConfig 回 {}、loadToken 回 null（不丟錯） (0.158584ms)
+✔ verifyState：正確且未逾時 → true，且成功後清除 state（一次性） (0.143875ms)
+✔ verifyState：不符 → false，且『不』清除進行中的 state（防偽造 callback DoS） (0.11ms)
+✔ verifyState：空/未帶 state → false (0.087584ms)
+✔ verifyState：逾時（>10 分）→ false (0.07975ms)
+✔ verifyState：無 config（無 _oauthState）→ false (0.07725ms)
+✔ status：無 config 無 token → 未設定、未連結、scope 全缺 (0.160792ms)
+✔ status：有憑證 + 具完整 scope 的 token → 已設定、已連結、scopesOk、無缺 scope (0.097917ms)
+✔ status：只授 userinfo.email → scopesOk=false 且兩項 scope 皆缺 (0.07125ms)
+✔ status：只授 spreadsheets（缺 drive.file）→ scopesOk=false 且只缺雲端硬碟 (0.063667ms)
+✔ status：有 token 但無 refresh_token → connected=false（未完成離線授權） (0.065292ms)
+✔ status：僅填 clientId（缺 clientSecret）→ configured=false (0.074167ms)
+✔ getAuthUrl：未設定憑證 → 丟 NO_CONFIG (0.22575ms)
+✔ getAuthUrl：有憑證 → 產生正確 OAuth URL、含全部 scope，並把 state 持久化到 config (0.853375ms)
+✔ getAuthUrl → verifyState 端到端：URL 內的 state 可通過驗證且一次性 (0.149459ms)
+✔ getAuthUrl：每次呼叫產生不同 state（隨機性） (0.195958ms)
+✔ ① 登記簿：A 與已複查 B＝clear、不掛字、不擋；C＝掛「背景版權待審核」＋擋；B 缺複查日期＝unknown（交 CP-27） (0.530458ms)
+✔ ② 待審訪客號＝掛「背景版權待審核」＋擋（63 號原樣）；缺欄＝走版式預設 (0.080584ms)
+✔ ③ 你上傳的背景：三檔齊＋未確認＝掛「背景版權：活動負責人確認中」＋擋；9/30 版的擋句寫明下一版開放 (0.080542ms)
+✔ ④ 你上傳的背景：下一版旗標開＋確認紀錄 sha 相符＝clear；sha 不符或沒有帳號＝仍掛字 (1.310709ms)
+✔ ⑤ 你上傳的背景缺檔＝unknown＋擋句講缺哪些；三檔齊判定與缺格清單 (0.891334ms)
+✔ ⑥ 出口擋句三態（2026-09-29 牆 1 甲／4 乙＋文案過目定稿）：未確認句／換圖句／相符放行；藏標題不再擋 (0.356ms)
+✔ ⑥-2 ownConfirmMatches：sha＋帳號齊而且對得上才算（真源＝wb_meta.heroBgLicenseConfirm） (0.080458ms)
+node:fs:624
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    at Object.readFileSync (node:fs:624:20)
+    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_bg_own_doors.test.js:17:16)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+}
+
+Node.js v26.12.0
+✖ test/unit/hero_bg_own_doors.test.js (132.897667ms)
+✔ parseOwnApiPath：只認 /api/runs/<id>/hero-bg/<三格檔名>；data URI、外站網址、亂檔名＝null (0.874458ms)
+✔ resolveOwnFileMap：逐格對到磁碟實檔＋mime；已是 data: 的格跳過；缺檔＝丟錯出聲講哪一格 (3.52825ms)
+✔ 搬家不變式 layout-002→layout-004→layout-002：page 深度 diff=0（暫存收使用者內容、換回全還原） (9.405875ms)
+✔ 搬家不變式 layout-006→layout-008→layout-006：page 深度 diff=0（暫存收使用者內容、換回全還原） (4.784958ms)
+✔ 搬家不變式 layout-001→layout-004→layout-001：page 深度 diff=0（暫存收使用者內容、換回全還原） (4.5115ms)
+✔ 排版檔位：heroTitleLeading／heroSubtitleLeading 寫進 page.typography；標準檔或 null＝清欄；非檔位值＝白話 throw (2.073084ms)
+✔ 排版檔位：heroTitleTracking 寫進 page.typography；標準檔或 null＝清欄；非檔位值＝白話 throw (4.353625ms)
+✔ 檔位表每一張都要自己說哪一檔是標準（default 旗標）——少一張就會在 applyCombo 炸掉 (0.21175ms)
+✖ 四支排版控制的檔位表與渲染端 hv2TypoMul 的複本同值（人肉同步的斷裂偵測） (1.562792ms)
+✔ 搬家不變式 A→B→C→A：page 深度 diff=0 (6.687792ms)
+✔ 換版式：同名槽直搬、使用者內容入暫存、目標缺槽補預設（不覆蓋搬家內容） (11.902042ms)
+✔ 機器預設內容換走＝直接丟（可再生），不佔暫存 (4.856708ms)
+✔ 預設補槽不覆蓋暫存還原內容（還原優先） (2.400667ms)
+✔ 換回還原：restoredGdids 列出自暫存回到頁面的商品 (5.932209ms)
+✔ legacy 態：kvVariant 缺席＋選『現行版型』＝零變更（不寫檔） (2.425333ms)
+✔ legacy→v2：固定對映（主標＋副標→標題槽、主打商品→商品槽）；切回＝kv 未動全量還原 (3.101125ms)
+✔ 真值鎖定：連續切換後 products[] 價格/URL、kv.dateValue/actid 逐欄原值 (6.3435ms)
+✔ 一般換版式：明選背景池外＝保留＋黃燈句（彈性三原則，不阻擋） (3.848459ms)
+✔ kinRef 008↔009 特例：原選在對方池內＝保留；池外＝換對方預設＋黃燈（51 §2.14） (2.876208ms)
+✔ 背景/主題改選：合法值寫入、null＝清除回預設；主題 rejected/未知＝throw (3.703792ms)
+✔ 換版式負向：未知貨號／rollout closed＝throw（出貨可選判定與表單同套；文案白話先講、代號收技術括號） (5.1085ms)
+✔ 引擎完工閘：換到未完工版式＝白話擋；提案包帶入未完工＝同一道閘擋；完工一款＝解鎖一款 (3.490917ms)
+✔ writeComboIntoDraft：draft 讀不到＝throw（D9 失敗要出聲） (1.678667ms)
+✔ writeComboIntoDraft：成功＝寫回＋draft.v1 備份；沒有變更＝不寫檔 (2.170916ms)
+✔ writeComboIntoDraft：寫入失敗＝throw（備份目錄不可寫） (1.95425ms)
+✔ 面板改選＝meta.layoutChoice 換手動履歷、原 AI 建議保留（aiOriginal）＋舊履歷入 log (1.472542ms)
+✔ packToChange：合法包＝整組帶入（layout/background/theme＋qaStatus 黃燈映射）；非法＝逐條出聲 (2.734375ms)
+✔ R4 四路徑 table-driven：換版式/折扣開關/貼提案包/改背景主題＝全 changed（單一寫入口必觸發核可失效） (7.477833ms)
+✔ 偏離標記：pack 帶入＝false；手動改＝翻 true＋note；零變更不翻；無包在案不生欄；重貼包＝重新對齊 (7.2075ms)
+✔ 主題統整：家族同名 1:1 對映；無對應款＝內容走預設＋出聲；null＝雙軌回預設（還原鍵） (2.34175ms)
+✔ titleStyleThemed：true 寫入、null/false 清欄、其他值白話 throw (1.738083ms)
+✔ titleGroupWarp：true 寫入、null/false 清欄、其他值白話 throw (1.427042ms)
+✔ 換版式補槽：跳過已在樓層／牆上的商品、補不滿出聲；新舊兩種機器預填換走都算可再生（不佔暫存）；A→B→A 有樓層時仍 diff=0 (5.543416ms)
+✔ 配色引擎：discount 是獨立角色——三列映射有、預設對到自己、每個日系盤都帶、覆寫只動它不連動 price (4.267875ms)
+✔ 配色引擎：可讀性檔多兩列（折扣數字對 hero 底、圓章字對圓章底，門檻 3）；交付 CSS 變數多三支；deriveTheme 槽位帶三槽 (0.581583ms)
+﹣ 活動頁引擎：三支變數進清理名單、三個 cc-* 進槽開關名單、themeDraft 三槽 set＋class、三款折數同源、板值後備原樣（Q4 甲） (2.377542ms) # 引擎源檔不在（同事包情境）
+﹣ 引擎鏡像（deploy-site）跟上源頭：cc-discount 規則在 (0.091792ms) # 鏡像或源頭不在
+﹣ 色彩工具：角色列有 Discount、對照表把價格與折數分開寫、打包帶三欄；PALETTE_ENGINE 注入塊已重產成 1.3.0（複本對帳） (0.355417ms) # 工具頁不在
+✔ CMS 檢查層：提案包帶折數／圓章色＝兩條提醒級（不擋、不給一鍵換）；舊包沒帶＝零列 (1.870292ms)
+✔ 可讀性掃描：疊圖改截圖取樣估算（隱藏整段再截）、只出聲、exit code 仍只看純色底 (0.390542ms)
+✔ 主視覺顯示名欄：預設留白、placeholder 顯示原名＋「留白＝用商品原名」；不再把全名塞進欄位 (0.598209ms)
+✔ 長名軟提示：只在欄位空且原名放不進兩行時出現、用檢查器同一把尺、不擋 (0.161416ms)
+node:fs:624
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    at Object.readFileSync (node:fs:624:20)
+    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_stages_twin.test.js:16:16)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+}
+
+Node.js v26.12.0
+✖ test/unit/hero_stages_twin.test.js (119.743833ms)
+✔ 門①｜clearHeroNameIfLeftHero：離開所有主視覺槽才清；還在別的槽＝不清；兩個出口都呼叫它 (2.023792ms)
+✔ 門②｜R3 入池只有一支共用函式；模組換品兩處、主視覺、layout-004 四個入口都走它 (1.3875ms)
+✔ 門②｜檢查清單「沒有來源紀錄」那條直接給「重建來源紀錄」鈕（草稿有這件才畫） (0.320208ms)
+✔ 門③｜主視覺換品門只對照其他主視覺槽（2026-10-05 裁決：主視覺可與下方重複；槽內仍不重複、不傳空陣列） (0.781958ms)
+✔ 門③｜伺服器 pageExposedGdids 與 lib gdidUsedOnPage 都認新版主視覺槽（同一條規則四處消費端） (0.184375ms)
+﹣ ①灰度只定義一次：遮罩 10% 與調暗 90% 寫在同一行（html{--hover-veil;--hover-dim}），是中性灰、不是品牌色 (0.402791ms) # 引擎源檔不在（同事包情境）
+﹣ ②矩形卡蓋遮罩、切角卡整卡調暗；資訊卡整列入口吃同一個變數；品牌淡紫不得殘留 (0.085708ms) # 引擎源檔不在
+﹣ ③遮罩只在有 hover 能力的裝置啟用（手機點一下不會殘留）；遮罩不吃點擊 (0.062458ms) # 引擎源檔不在
+﹣ ④用 ::after 蓋遮罩的卡都有定位（沒有 position 的卡遮罩會跑到別處） (0.0625ms) # 引擎源檔不在
+✔ parseImageSize：JPEG SOF0 基線＝寬高正確（80×80 病例形） (2.996416ms)
+✔ parseImageSize：JPEG SOF2 漸進式也認得（Yahoo 圖床兩形都有） (0.259667ms)
+✔ parseImageSize：JPEG 截到 SOF 段之前＝null（bytes 不夠不誤判） (0.100584ms)
+✔ parseImageSize：PNG IHDR 寬高正確 (0.448416ms)
+✔ parseImageSize：GIF 畫布寬高正確 (0.080125ms)
+✔ parseImageSize：WebP VP8X／VP8／VP8L 三型寬高正確 (0.290917ms)
+✔ parseImageSize：垃圾資料／HTML 殼頁 bytes＝null（不把非圖當圖） (0.152708ms)
+✔ 候選鏈①：imgs[1] 合格（寬 ≥300）＝照舊選第二張白底圖、verified、零 notes (0.200083ms)
+✔ 候選鏈②（80×80 病例）：imgs[1] 太小＝跳過出聲、imgs[2] 合格＝改選 (0.132416ms)
+✔ 候選鏈③：imgs[1..] 全太小＝退主圖；主圖合格＝verified (0.105917ms)
+✔ 候選鏈④：全部不合格（含主圖）＝照實用主圖＋notes 出聲（不吞、不留空） (0.08875ms)
+✔ 候選鏈⑤：探測全逾時＝逐候選出聲跳過、照實用主圖（離線不擋建立流程） (0.133458ms)
+✔ 候選鏈⑥：單圖商品（只有主圖）＝直接驗主圖；太小照實用＋出聲 (0.071042ms)
+✔ 候選鏈⑦：同 URL 去重＝不重複探測（imgs[1] 與主圖同圖只探一次） (0.051083ms)
+✔ 候選鏈⑧：imgs 空＝img 空字串＋出聲（上游守門本就要求 imgs[0] 存在） (0.040334ms)
+✔ 候選鏈⑨：minWidth 可調（預設常數＝300 圓顯示級） (0.053834ms)
+✔ probeImageSize：非 https 圖址＝reject 出聲（沿 urlStatus 慣例） (1.08425ms)
+✔ probeImageSize：壞網址＝reject 出聲 (0.070292ms)
+✔ 連不到（指到沒人聽的埠）→ 印 ⚠、講「先用瀏覽器試」、安裝照樣走完（exit 0） (372.782375ms)
+✔ 連得到（本機假 Yahoo 回 200）→ ✓ 連得到，並講明是用工具自己的方式測的 (333.099292ms)
+✔ 對方回非 2xx／3xx → 不印綠燈（連得到不等於可用） (377.469333ms)
+✔ 絆線：第 5 步不得用 curl 探測（curl 通、Node 不通是真實病例） (1.172792ms)
+✔ 絆線：探測要載入產品自己的連線設定（同一把尺） (0.09875ms)
+✔ 絆線：探不到時要說「沒量到」，不得印成綠燈（承開工三查 ④-2 的教訓） (0.252708ms)
+✔ 絆線負例自驗：把 curl 塞回第 5 步，偵測式確實抓得到 (0.156ms)
+✔ backgroundEligible：A 過票；B 要複查＋qaStatus pass 系；C／B 未複查／conditional 全擋 (0.640958ms)
+✔ suggestLayout：附錄 B 六列全數照表（fixture 五目標皆過票＝零代換） (2.416292ms)
+✔ 條件式版式不當自動配預設（2026-09-14）：autoPick=false 的映射目標→換同標籤無條件款；同標籤沒得換＝走既有代換鏈；理由句講得出要什麼圖 (23.802459ms)
+✔ 主題字優先（2026-09-14 乙）：主題含登記簿 themeKeywords＝配那款；命中款條件式／未過票＝不採、退回對照表並在履歷講；沒主題＝行為不變 (5.878ms)
+✔ suggestLayout：舊情境值「0N 」前綴相容剝除 (2.608417ms)
+✔ suggestLayout：映射不到＝throw（C3d 退回手選＋出聲） (1.751875ms)
+✔ 灰度代換：映射目標預設背景未過票＝代換 layout-006、理由行明講授權與代換 (1.204792ms)
+✔ 灰度代換：B 未複查同樣未過票（license B・未複查 要講明） (3.761583ms)
+✔ 灰度代換：促銷意圖目標未過票＝自身除外後仍找得到可上線候選；全滅＝throw (5.73675ms)
+✔ suggestLayout：背景貨號不在背景登記簿＝資料缺 throw（不裝乾淨） (2.336667ms)
+✔ resolveLayoutChoice：ai＝走映射；已解鎖版式（006）無引擎告示、未完工版式帶告示（C3d 誠實條款＝逐款解鎖） (3.789417ms)
+✔ resolveLayoutChoice：手選裸值＝by manual；new/legacy＝現行版型且無引擎提示 (2.316083ms)
+✔ resolveLayoutChoice：kv- 舊拼法正規化後照裸值走 (5.619459ms)
+✔ resolveLayoutChoice：提案包同值未偏離＝by pack；偏離＝by manual (1.792541ms)
+✔ resolveLayoutChoice：未知貨號＝throw 出聲（C4 前端回 AI 代選的觸發源） (1.471875ms)
+✔ 現行版型逐變體判定：new closed＝第七張卡消失＋值 400；legacy 不受牽連（反之亦然） (10.876458ms)
+✔ layout-* 停收（rollout closed）：卡不出現、resolve 400 出聲、AI 代選永不回它（代換鏈照常） (1.402667ms)
+✔ layout-* 只在設計側目錄、不在 modules.json 出貨值域＝同樣停收（值域不吃 layouts manifest） (4.378417ms)
+✔ 促銷親戚停收（rollout closed）＝本尊卡折扣開關 disabled＋理由；AI 代換候選也跳過停收者 (6.666459ms)
+✔ catalogForForm：十貨號折疊成七卡（fixture 2026-09-14 補 010）；促銷親戚掛開關；008 特例帶切換預告 (3.328958ms)
+✔ catalogForForm：kinRef 對換目標不在出貨值域＝開關 disabled＋理由（51 §2.7） (3.569709ms)
+✔ parsePackForForm：促銷貨號＝本尊卡＋折扣開關開；本尊貨號＝開關關 (2.223959ms)
+✔ parsePackForForm：C2 負 fixtures 四組全出聲不靜默 (2.271167ms)
+✔ loadLayoutDeps：登記簿路徑錯＝throw 出聲不靜默降級 (1.880625ms)
+✔ writeLayoutChoiceIntoDraft：正常路徑寫入 page.kvVariant＋meta.layoutChoice＋meta.proposalPack (4.884917ms)
+✔ writeLayoutChoiceIntoDraft：壞路徑（草稿檔不存在）＝throw 出聲——server 據此記 meta.layoutChoiceWriteError (0.09825ms)
+✔ writeLayoutChoiceIntoDraft：layout-* 且 hero 缺席＝照登記簿槽位預填（文字槽=活動名、商品槽=池前 N 件 gdid）；已有 hero＝不覆蓋 (3.291958ms)
+✔ engineNoteFor：layout-006 已解鎖＝無告示；未完工版式＝告示措辭不得再稱「以現行版型呈現」 (0.043833ms)
+✔ 顯示層文案：reasonDisplay/engineNote/switchNote 白話段禁貨號・文件編號・治理行話 (4.098375ms)
+✔ 滾動上架：未完工版式＝卡不出現、手選被擋、AI 代選代換到完工款——完工一款自動解鎖 (1.957459ms)
+✔ parsePackForForm：回 names（背景／主題／字風＝登記簿名稱；查不到＝null 不印） (2.545042ms)
+✔ catalog.typography 下發 scale／leading／tracking／width 四張表，各剛好一檔 default，字距標籤＝緊／標準／鬆 (1.715417ms)
+✔ 滾動上架第十二棒：ENGINE_SUPPORTED 含 layout-012；真登記簿的表單卡單出現這款、直傳可解析；未登錠貨號仍擋 (2.010625ms)
+✔ titleSlotFor／writeTitleIntoSlot：12 款版式都找得到主標格；010 上下行兩格；舊殼與未登錄＝null；其餘段不動、尾端空段修掉 (0.179834ms)
+✔ defaultHeroForLayout：有 kv 兩行標題＝文字槽用它（不再把活動內部名稱印到主標）；沒有＝退回活動名（舊行為）；010 上下行 (0.139834ms)
+✔ defaultHeroForLayoutEx exclude：已曝光的跳過取下一件；沒放滿＝short 帳＋白話句；填滿就停、後面不算跳過；不帶 opts＝舊行為逐位元組不變 (0.155958ms)
+✔ defaultHeroForLayoutEx nameBudgetEm：名字放不進兩行的跳過（尺＝rules.json heroName 760px@16px＝47.5em，與 gate CP-03 同一把） (0.113167ms)
+✔ heroPrefillExclusions 沿 gdidUsedOnPage（樓層卡／情境卡／牆／編輯精選牆算曝光；kv 鏡像不算；heroSoFar 內的算）；heroProductCapacity／heroCountArgs 讀登記簿；writeLayoutChoiceIntoDraft 預填避開＋出聲 (13.131875ms)
+✔ run_patrol.js 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.527292ms)
+✖ price_watch.sh 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.111708ms)
+✖ overview_sheet.js 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.05525ms)
+﹣ lib 版面→欄位表 vs 引擎列模板：四款逐欄相等；贈品圖張數相等 (0.408959ms) # 引擎源檔不在這台機器（同事包情境）
+✔ rules.json 鏡像＝lib（CMS 面板讀這裡） (1.19725ms)
+✔ cms-hints 版面旗標 gift／cta＝由 lib 表推導（顯示層不另立名單） (0.211417ms)
+✔ ①欄位清單：優惠卡三列／好禮圖列多了連結欄（ctaUrl），但沒有鈕文字（ctaText）；有鈕那兩款不動 (0.798875ms)
+﹣ ②引擎：這兩款的列有連結時整列是一個 <a>、帶搶購鈕同一套追蹤標記；沒連結＝純文字 div (0.101625ms) # 引擎源檔不在這台機器（同事包情境）
+﹣ ③引擎樣式：整列 hover 只用淡底表示可點；文字不加底線、連結不變色（使用者 2026-09-26 裁：淡底夠了、底線像劃掉） (0.070708ms) # 引擎源檔不在
+✔ ④CMS 欄位標籤照版面講：沒有鈕的兩款叫「這一列的活動連結」，有鈕的叫「搶購連結」 (0.3625ms)
+✔ ⑤連結活不活的檢查納入資訊卡：每列連結、banner 共用連結或一圖一連結（欄位清查 F5） (0.402209ms)
+✔ ⑥連結檢查報告：資訊卡那一列有「前往活動資訊卡」的鈕（不然報了沒路走） (0.094042ms)
+﹣ ⑦欄位字典不再說「只有搶購版面有按鈕」（字典要照程式寫） (0.066833ms) # 字典不在
+✖ 載入後，每位址預算高於 Node 預設 250ms（低於等於 250 等於沒調到） (107.358709ms)
+✔ 環境變數可覆寫（特殊網路／故障注入用） (146.934916ms)
+✔ 環境變數是壞字面＝退回預設並出聲，不靜默降級（鐵律 3） (114.131958ms)
+✔ 絆線：會對外抓的檔，就是已知那幾個門——多一個沒登記就紅燈 (9.821375ms)
+✔ 絆線：每一個門都 require 了 lib/net_tuning（漏一個＝那條路照樣會卡） (0.847584ms)
+✔ 絆線負例自驗：拿掉 require 的檔確實會被抓出來（一道從來沒紅過的閘跟沒有閘一樣） (0.365625ms)
+✔ 本行程載入也生效（server.js 實際走的路徑） (0.304625ms)
+✖ 退役：source 回非零且訊息明確（不靜默） (34.478ms)
+✔ 退役：不得設值 NETLIFY_AUTH_TOKEN（防殘留呼叫端誤判可部署） (24.302958ms)
+✔ 單封日報：未登記負責人的異常活動彙整一封＋心跳＝共 2 封；日報含各檔名與統計 (5.657583ms)
+✔ 已登記負責人＝單發該負責人＋操作者副本；未登記者仍走日報 (2.303916ms)
+✔ 零外部連結機械強制：⛔ 信體的伺服器錯誤訊息＝URL 與本機路徑被遮蔽；docs.google.com 放行 (0.534459ms)
+✔ 冪等：sent-<date> 已存在＝整日不重寄；warn 不擋補跑 (0.745791ms)
+✔ 收檔信：🏁＋closed-<id> 終身去重；寄成才寫標記 (0.756542ms)
+✔ 心跳寄失敗＝不寫 sent-（當日不鎖死，手動補跑可整日重寄）；寄成才寫 (0.94225ms)
+✔ 消毒補強：裸網域（ENOTFOUND）與裸 IP 也遮蔽；docs.google.com 裸寫放行 (0.396042ms)
+✔ 併行防護：拿不到鎖＝直接讓路，一封不寄、不動任何標記 (0.672917ms)
+✔ 心跳信：乾淨日一樣寄（沒收到＝故障訊號）；FrameTest 早於昨日＝點名排查 (0.709375ms)
+✔ 乾淨清單＝零問題（綠要真的綠） (2.560084ms)
+✔ 假 Google token 與 config＝紅、訊息點名檔案與白話理由 (0.145041ms)
+✔ 負責人策略檔 briefs/mine/*.md＝紅；built-in 與 .gitkeep 不算 (0.152791ms)
+✔ 其餘禁止樣式各命中一次：.wb-pass／.wb.log／fatal.log／.git／plist／runs／.trash／退場腳本／負責人腳本 (0.1515ms)
+✔ 包根五件缺了＝紅（兩份 txt／install.sh／兩顆 .command），一件一句白話 (0.197208ms)
+✔ 只有先看我、缺「這一版有什麼新的」＝紅（一份 txt 不算過關） (0.119959ms)
+✔ 缺 VERSION＝紅 (0.63025ms)
+✔ --expect-hash：記號尾段等於 hash＝綠；不等＝紅並印出兩邊 (2.367958ms)
+✔ FORBIDDEN 每條都有白話理由（不准只丟正則） (1.162041ms)
+✔ 端到端：乾淨 zip＋正確 hash＝exit 0 (213.899875ms)
+✔ 端到端：故意放假 .google-token.json＝exit 1、stderr 點名它（69 號開工前置第 1 條的負向演練） (155.183916ms)
+✔ 端到端：hash 不符＝exit 1 (203.918583ms)
+✔ 端到端：找不到 zip＝exit 2（用法錯不假裝紅燈也不假裝綠燈） (124.357791ms)
+✔ ①沒有別的分支＝放行（exit 0） (418.935084ms)
+✔ ②分支全併入＝放行 (823.60975ms)
+✔ ③分支有未併 commit＝擋（exit 1）且點名分支與顆數 (805.190208ms)
+✔ ④PACK_UNMERGED_OK=理由＝明講不帶、放行（exit 0）且理由印出來 (685.878667ms)
+✔ ⑤揀收過（cherry-pick 同補丁）＝不誤報 (449.593709ms)
+✔ ⑥多 repo 一次查＋用法錯（無參數）exit 2 (562.167792ms)
+✔ ⑧路徑裡有冒號與括號也切得對（本專案資料夾名＝「…( W:Yu-ting )」；首跑被自己擋的病例） (186.565625ms)
+✔ ⑦打包機真的接了這道關（不是寫了沒接） (0.233125ms)
+✔ server：pcBlockingCount 只定義一次、且把 unverified 算進去 (0.714959ms)
+✔ server：三條交付路（發佈／匯出／製作 AEM）都改吃 pcBlockingCount，舊手抄算式零殘留 (0.858916ms)
+✔ server：擋下時的白話訊息會點名「連不上 Yahoo、沒能驗價」與件數，並告訴人怎麼辦 (0.099833ms)
+✔ 前端：pcBad 同口徑含 unverified（介面「N 件要處理」與伺服器擋門一致） (0.228291ms)
+✔ P-8：apply-live-price(-all) 不在編修模式 403 名單（同事遇變價有路可走） (0.127ms)
+✔ 沒人應門＝直接用這個號碼（輸出格式 `<埠> free`） (79.304791ms)
+✔ 應門的是別的工具（負責人模式）＝換下一個，不把人讓給它 (151.981833ms)
+✔ 應門的是同一個包＝回報 ours（呼叫端據此不再起第二台） (140.303417ms)
+✔ 應門的是同模式但不同版本＝仍算別人，不可誤判成自己人 (185.08025ms)
+✔ 都被佔著＝exit 非 0，不可悄悄回一個被佔的號碼 (177.105292ms)
+✔ 兩個入口都走同一支挑埠腳本（規則不得各寫一份） (1.133083ms)
+✔ parseProductPage: promotionPrice < currentPrice → 取促銷價（07-26 修：gdid=11697562 網路15840/促銷15365） (0.859833ms)
+✔ parseProductPage: 頁面顯示灰價（subPriceNumber 有值）→ listPrice 直取顯示值（12034942：現價239／灰價290） (0.239042ms)
+✔ parseProductPage: 深折不顯示（容器在但是空的）→ 不捏造灰價；促銷中仍照 07-27 規則劃 currentPrice（11581454 形） (0.067417ms)
+✔ parseProductPage: 灰價帶千分位（$4,980）→ 正確去逗號；灰價 ≤ 實付價＝解析雜訊不採 (0.071292ms)
+✔ parseProductPage: promotionPrice 缺 → 退回 currentPrice、promotionPrice=null (0.071125ms)
+✔ parseProductPage: promotionPrice = 0 → 退回 currentPrice（0 不視為有效促銷） (0.060875ms)
+✔ parseProductPage: promotionPrice > currentPrice → 退回 currentPrice (0.049917ms)
+✔ parseProductPage: promotionPrice == currentPrice（非嚴格小於）→ 退回 currentPrice (0.05525ms)
+✔ parseProductPage: currentPrice 缺但有促銷 → 採促銷價（currentPrice==null 分支） (0.0685ms)
+✔ parseProductPage: 小數價格 Math.round（1000.4→1000、950.6→951） (0.09775ms)
+✔ parseProductPage: 找不到商品實體 → null (0.054041ms)
+✔ parseProductPage: 錨定必帶 ":"，{"__ref":"Shopping_Product:<gdid>"} 指標不誤中、讀真實體 (0.372041ms)
+✔ extractData: runSelfTest 體含 regex 字面量不 throw、balancedEnd 正確切片（07-21 迴歸） (8.338291ms)
+✔ extractData: 結構抽取（marketMeta、五池、各集 kvKeyProducts）—— 等價入口健全 (5.588625ms)
+✔ collectItems: parseMoney 抽價、pool+kv 同 gdid 去重併 where、listPrice 取自 marketMeta (4.458375ms)
+✔ collectItems: datasetFilter 只收指定集 (3.234583ms)
+✔ selftestLiterals: 掃出 runSelfTest 內 NT$ 字面、對映 items、無漂移時 breaks=false (4.064ms)
+✔ discTag: 進位集（ceil）vs 四捨五入集（titanium）分歧樣態 (0.906125ms)
+✔ discTag: null 護欄（無價／無原價／原價<=現價 皆回 null） (0.054083ms)
+✔ priceVerdict：一件都沒驗到＝FATAL exit 2（09-02 假乾淨病例） (0.122167ms)
+✔ priceVerdict：未驗證達半數＝FATAL（半數都量不到不能宣稱乾淨） (0.041667ms)
+✔ priceVerdict：少數未驗證放行但寫進理由；有漂移＝BLOCK exit 1 (0.044125ms)
+✔ auditItems：抓取層全倒（fetch 一律 throw）→ 全數 unverified、ok 0、verdict FATAL（不是乾淨） (2712.0555ms)
+✔ 有變價＝快照與草稿同批改：price 換商品頁現價、原價高於現價才留欄、快照多一行稽核；沒變的不動 (1.145625ms)
+✔ 篩選與「一鍵套用全部變價」同一條：offline／dead／unverified／沒 livePrice 的都不碰；不在草稿的不動池、不在池的列跳過並回報 (0.1485ms)
+✔ 離線＝全部 unverified：一件都不改、offline=true 給呼叫端出聲；空報告＝checked 0、offline=false (1.158ms)
+✔ gdid 解析兩型：gdsale.asp?gdid= 與 -<gdid>.html；?xgdid=＝不誤抽（F9-1 參數界定） (0.595708ms)
+✔ 賣場編號裸輸入＝組 gdsale 網址＋實抓走 p-<gdid>.html；真值欄逐字自實抓（name/price/marketPrice、og 置首） (2.027125ms)
+✔ 商品頁網址（-<gdid>.html 型）＝照原網址實抓；listPrice 不高於現價＝不收 marketPrice (0.867125ms)
+✔ 下架拒收（三態非 online＝白話擋、不觸發任何寫入）：offline／dead 各自白話 (0.200959ms)
+✔ 網域白名單＋商品頁限定：非 Yahoo購物中心／非 https／非 /gdsale/＝400 且不實抓；亂字串＝白話引導 (0.147291ms)
+✔ pageGdids 互斥預檢＝409（替換情境保留；貼稿選品不傳＝允許引用既有品） (0.115125ms)
+✔ 實抓防呆：fetchPage 拋錯＝502 白話＋技術訊息收尾；讀不到名稱或價格＝400；抓不到支援圖床的圖＝400 (0.369458ms)
+✔ 回傳 url＝實際問到的那個網址（2026-10-04 死鎖汙染源根治）：裸編號／asp 式輸入→實抓 p- 式→url 必為 p- 式 (0.173291ms)
+✔ productFetchUrls：網址怎麼拼只有這一份——數字型 asp 形→[p-,asp]；slug 形→[原網址,asp]；無網址→[p-,asp]；p 型→asp 形問兩次 (0.845416ms)
+✔ 迴歸 12087726：p- 形一次 404 空殼、asp 形 200 有商品 → online（不是 dead）；兩次都留證據 (2.152584ms)
+✔ 第一次就 online → 只問一次（不多花一次網路） (0.739458ms)
+✔ 真下架：兩種拼法都 404 同一空殼 → dead；evidence 兩筆、statusCode 404 (0.15375ms)
+✔ 200 空殼＋404 空殼 → offline（頁在但沒商品資料，比「連結失效」更接近事實） (0.089292ms)
+✔ 網路層：第一種拼法連丟兩次（重試一次仍失敗）→ 換第二種拼法問到 online；例外那一筆留在 attempts (0.153334ms)
+✔ 網路層：全部拼法都連不上 → throw（呼叫端記 unverified／502），err.attempts 帶證據——「連不上」不是「不在」 (0.310166ms)
+✔ 貼稿選品（createProductFetch）走同一支：p- 形一次 404 → asp 形 200 → 收下商品；兩種都 404 → 400 連結已失效＋evidence (0.651416ms)
+✔ 迴歸 11688645：帶簽章 sw= 的網址先照原網址問——在賣就是 online、價格取得到促銷價 (0.1605ms)
+✔ lib 真源＝20；pick 槽位正則跟著上限走（card-20 合法、card-21／card-0 不合法） (2.329375ms)
+✔ rules.json 帶 contentModules.promoCardsMax＝lib（CMS 面板讀這裡，不另寫死） (1.319041ms)
+✔ server 不再自抄槽位正則；CMS 面板不再寫死 4 張文案 (4.771834ms)
+﹣ 引擎鏡像 CMPC_MAX＝lib（真源可達才驗；同事包沒有規劃 repo＝跳過） (0.124959ms) # 引擎源檔不在這台機器
+✔ 單一來源：rules.json entryCount＝3~12（gate 抽頂常數重匯；上限 4→12 已生效） (2.467542ms)
+✔ 面板資料層：加到 12 一路放行、加第 13 擋、剛好 3 則按刪＝擋 (2.831375ms)
+✔ rules.json 還沒載到（RULES=null）＝保守 fallback 同值 3~12，不會變成無上限 (1.56675ms)
+✔ 絆線：面板不得殘留舊上限寫死（length >= 4 disabled）＋新文案在場 (1.363458ms)
+✔ promoPoolItem：候選項帶 price／marketPrice／imgs／offer（2026-08-30 prodItem 只有四欄＝復發真因） (0.793417ms)
+✔ ensurePromoProducts：補入含真值欄；缺真值＝跳過出聲；不在池＝出聲；已在清單＝不重複 (0.226916ms)
+﹣ 真 run 資料（read-only）：2026-09-04-wb-164258 四則品牌推薦入口＝用 snapshot 真值全部補得進 (0.045917ms) # SKIP
+✔ lib 表形狀：兩款排版、舞台多副標／斜帶字、圓形多檔期、舞台只放 3 則 (0.729625ms)
+﹣ 引擎對帳：舞台皮區塊摸副標／斜帶字／前 3 則、不摸檔期；圓形標籤堆摸檔期（真源可達才驗） (0.155042ms) # 引擎源檔不在這台機器（同事包情境）
+✔ rules.json 鏡像＝lib（CMS 面板讀這裡） (3.114209ms)
+✔ normalizeKvVariant：舊拼法正規化、裸值與未知值原樣 (0.503875ms)
+✔ loadRegistries：五本真源可讀、值域形狀正確（含主題 slug 制） (3.686583ms)
+✔ parseProposalPack：合法包通過（真實主題 slug） (2.68825ms)
+✔ parseProposalPack：壞 JSON 字串＝出聲擋下 (2.049208ms)
+✔ parseProposalPack：缺 version 與 version 型別錯＝分開出聲 (2.671834ms)
+✔ parseProposalPack：未知貨號逐欄出聲（版式／背景／字體／動畫／主題） (1.9085ms)
+✔ parseProposalPack：layout 填舊拼法 kv-new＝擋下且錯訊帶原值（正規化不救版式欄） (1.405375ms)
+✔ parseProposalPack：主題大小寫敏感（Default＝擋） (1.841042ms)
+✔ parseProposalPack：qaStatus 非綠＝黃燈帶入不擋 (2.043917ms)
+✔ loadRegistries：路徑錯＝throw 出聲不靜默 (0.29575ms)
+✔ loadRegistries：tokens 缺 themes 陣列＝throw（不靜默縮值域） (2.557958ms)
+✔ R5 鏡像絆線：write_xlsx ENUMS.kvVariant 與 modules.json hero variants 零漂移 (132.715916ms)
+✔ 待審簿：pending 號段載入＋提案包帶訪客號＝過（黃燈告知）＋未知號照擋 (1.565458ms)
+✔ 寫入層也認訪客號（2026-08-31 使用者報修迴歸鎖：包驗證放行、applyCombo 卻擋＝兩處值域只改一處） (17.028125ms)
+✔ loadRegistries：字風登記簿 27 款入 typestyleRecords；值域 typestyleIds 只認 approved（首批全 pending＝空） (4.216625ms)
+✔ parseProposalPack：titleStyle 未知＝擋；pending＝擋且講明審查狀態；寫在舊位置（colors.titleStyle）＝黃燈不套用 (1.739208ms)
+✔ parseProposalPack：subtitleFont 值域＝字體簿貨號＋整百字重；舊位置 fontFamilyCss 對得上＝帶入＋提醒；對不上＝出聲不帶 (3.310583ms)
+✔ parseProposalPack：typography 只收三個檔位；未知檔位＝擋；非檔位鍵＝略過出聲 (2.833416ms)
+✔ parseProposalPack：typography 行距兩檔 titleLeading／subtitleLeading 照收（2026-09-04 晚場）；未知檔位＝擋 (2.395ms)
+✔ 登記簿一致性：每款版式的 defaultBackground 存在且未退役（retiredFromPool） (3.643917ms)
+✔ typographyMeasured:false → 警告「沒有量到引擎」；沒標＝不吵 (2.955792ms)
+✔ registriesFingerprint：八本簿各有指紋、同內容同指紋、舊報告沒指紋＝全部要重檢 (1.687875ms)
+▶ 發佈時蓋上核可狀態
+  ✔ ① 沒核可＝approved false、核可時間 null (0.535875ms)
+  ✔ ② 有核可＝approved true 且帶得出核可時間 (0.063542ms)
+  ✔ ③ 蓋章不動內容——只多一個 publish 鍵，其餘逐鍵相同 (1.17975ms)
+  ✔ ③ -b 未核可的稿同樣只多一鍵（內容不因為沒核可而被動手腳） (0.14825ms)
+  ✔ ④ 解析不了＝原文原樣回傳、不丟例外、說得出為什麼 (0.133ms)
+  ✔ ④ -b 頂層是陣列（不是物件）＝同樣原樣回傳，不硬塞鍵 (0.065291ms)
+  ✔ ⑤ 蓋完仍是合法 JSON 且結尾換行（與既有 draft 落檔慣例一致） (0.11275ms)
+✔ 發佈時蓋上核可狀態 (2.878666ms)
+✔ 病例 run 150043：墨字 #1C1C1C × 阿虎照片 #A16C69 ＝ 兩端都紅、都是 3.95:1、門檻都 4.5 (3.65225ms)
+✔ 純色底（沒傳 heroSurface）：兩端都對草案 hero 底算、同判 (0.432083ms)
+✔ 格點同判：12 組字色 × 6 塊底（含亮／中間調／暗照片）＝ 四列 pass／ratio／need 逐格相等 (12.126042ms)
+✔ 工具列標籤講清楚坐哪：有照片底＝「／照片底」、沒有＝「／Hero」 (0.133167ms)
+✔ backgroundRecords：逐貨號紀錄可查 license 與複查欄（CP-27 消費形） (3.273667ms)
+✔ backgroundsMeta：termsVerification 在場／缺席兩形都如實透出（B 級商用條款前提） (1.414583ms)
+✔ motionRecords：license 可查（E7）；motionIds 與紀錄同源 (0.971208ms)
+✔ heroVariantRecords：rollout 旗標透出（trial／closed／缺席＝開放）；與 heroVariantIds 同源 (0.703584ms)
+✔ 單發＝原格式 id、不帶尾綴、資料夾已建 (1.874666ms)
+✔ 同秒四連發＝四個不同 id、四個不同資料夾（原病迴歸鎖） (1.028083ms)
+✔ runs 根目錄不存在＝自動建（recursive 只用在根、不用在 run 資料夾） (0.579333ms)
+✔ lifecycleState：空值＝長青；兩端含當日；前後界外 (0.506375ms)
+✔ needsClosedNotice：ended 且未通知過＝true；記過 closedNoticeAt＝false（一次性） (0.078375ms)
+✔ summarizeCheck：口徑對齊既有系統（每列最多 1、變價/待同步分桶、unverified 含連結） (0.527292ms)
+✔ buildOverviewRows：首列心跳契約（含 FrameTest 欄）＋列值逐字＋欄序＝.gs 讀表契約 (16.413542ms)
+✔ buildDetailRows：價格逐字（真值鐵律）＋類型/動作指引＋雙壞同列一列 (0.58725ms)
+✔ 放行：資料夾內的正常相對路徑 (0.46475ms)
+✔ 擋下：往上跳出資料夾 (0.13575ms)
+✔ 擋下：同前綴的姊妹資料夾（這就是 2026-09-11 補的那個洞） (0.085167ms)
+✔ 擋下：絕對路徑硬塞 (0.427667ms)
+✔ 實作沒漂：server.js 裡的 safeJoin 仍是「等於 base 或 base+分隔字元開頭」這一版 (1.4975ms)
+✔ index.html RECIPE_CARDS 五張卡的 value／title／legacyTitle／goal 與名冊逐字相同（介面那份是複本，機器這份是真源） (1.204541ms)
+✔ resolve：新卡名、舊卡名、資料鍵、帶 0N 前綴、去符號近似都認；認不得＝null (0.224167ms)
+✔ 策略檔第一行「這檔是哪一種活動：X｜活動主題：Y」→ data.scenario／scenarioLabel／theme；不影響其餘段、不出 notice (1.200959ms)
+✔ 第一行容錯：半形冒號與 |、只寫型態、寫舊卡名、寫了認不得的字 (0.117625ms)
+✔ 舊檔（沒有第一行）：三欄空、其餘照舊；內建五份範本仍全數解析成功 (3.797041ms)
+✔ ①換品排除清單要含每一層的情境卡商品（原本 9001／9003 都不在＝可以換成同一件） (2.041417ms)
+✔ ②原本認得的曝光面一個都不能掉（主視覺／樓層卡／牆／主視覺槽位／主打選品／促銷卡） (1.524583ms)
+✔ ③不在頁面上的商品不得被排除（池裡有、頁上沒有＝要能換回來；CT-1 語意不變） (0.426459ms)
+✔ ④sectionOfGdid 認得情境卡＝回它所在的樓層（「前往」與紅點才找得到它；孤兒判定也不再誤判） (0.449333ms)
+✔ ⑤「它在哪」只有一份規則：usedGdidSet 與 sectionOfGdid 的情境卡判定都走 gdidPlaces (1.047792ms)
+✔ 08:30 活動巡檢與 09:30 價格巡檢的排程路徑已從 server.js 移除 (1.378667ms)
+✔ 每日引擎自我測試只在開關檔存在時掛排程（同事機零排程） (0.946125ms)
+✔ 自我測試失敗要出聲（console.error＋桌面通知），不得靜默 (0.141791ms)
+✖ ① /api/briefs：內建五份都帶第一行的型態與主題 (0.296125ms)
+✖ ② 組「給 Gemini 的話」：帶卡名、主題、真實商品名清單、該型態範本正文 (0.033167ms)
+✖ ③ 貼上就存＋對帳：型態寫成別張卡＝算出 different；檔存進 mine 且同名不覆蓋 (0.06075ms)
+✖ ③b 貼上夾價格＝400 不存、白話講哪一段 (0.0365ms)
+✖ ④ 選檔對帳：內建 05 對這檔＝型態 same (0.037541ms)
+✖ ⑤ 建立帶策略檔但沒選型態＝從策略檔第一行補型態（09-15 下午翻案：策略檔是型態真源） (0.027958ms)
+✖ ⑤b 人有填主題＝人的優先，策略檔不覆蓋 (0.025917ms)
+✖ ⑥ 照策略檔重做：先備份、同批商品重排、核可失效、meta.brief 落檔、跑完 ready (0.02675ms)
+✖ ⑦ 建立活動：舊網域 @yahooinc.com 擋下並指路「重新整理」、外部信箱擋下指路 Outlook、新網域放行；擋下的不落檔 (0.041541ms)
+✔ /api/version：mode=editor、能力三項皆無、覆寫的項標「未探測」 (628.943ms)
+✔ 編修模式：發佈／對外／試算表／線上改價逐條 403，錯誤句白話先講、技術句尾 (13.10575ms)
+✔ 沒在名單上的路由不受影響（export-zip 不是 403） (6.657041ms)
+✔ P-8：套用新價（單品／批次）在編修模式不是 403——同事遇變價要有路可走 (5.6195ms)
+✔ 送 engine:"ai" 建立＝400 白話擋下（介面藏了卡、伺服器再擋一次） (156.705791ms)
+✔ 啟動輸出：宣告編修模式、沒掛每日排程、綁 127.0.0.1 (0.128375ms)
+✔ POST /api/caps/recheck：重測回新的能力表，且編修模式不擋（同事版正需要這顆鈕） (114.765042ms)
+✔ 重測併發共用同一輪：同時三個請求只真的探一次（探針會花 AI 額度，同事機花的是他自己的） (711.014916ms)
+✔ GET 打重測端點不動作（只收 POST） (302.043917ms)
+✔ P-5 乙：開機自動清掉滿 30 天的；2 天的留著並回 daysLeft (633.450875ms)
+✔ P-5 甲：永久刪除一檔＝資料夾真的消失；不在垃圾桶的名字＝404；清空＝全部 (17.438625ms)
+✔ P-4：建＝存 mine；編輯＝驗格式＋備份到 .versions；夾價格＝400 不存 (30.155708ms)
+✔ P-4：改名（同名 409）、下載帶附件標頭、刪除＝移到 .trash 且不再列出；不准動 built-in (13.420667ms)
+✔ 通用指令端點回文字；flow-guide 帶新段（createOptions／fromActivity／mine／trash） (3.674458ms)
+✔ 分家①：內建範本還在（分家不能把包裡那一半弄丟） (637.626417ms)
+✔ 分家②：貼上的策略檔落在家目錄，包裡不會多出東西 (7.786041ms)
+✔ 搬家③：舊位置那份被搬過來，而且出聲 (3.363542ms)
+✔ 搬家④：同名的不覆蓋——以新位置那份為準 (0.164833ms)
+✖ report 樁：有變價＝快照與草稿同批改用商品頁現價、gate CP-02 0、wb.log 逐件＋總結、meta.priceTruth 記帳、stage ready (1.622041ms)
+✖ offline 樁：全部連不上＝一件都不改、出聲、不擋建立（stage ready）、meta.priceTruth.offline (0.771375ms)
+✔ ①範本結構：開始頁＋每款版面一個分頁＋主打選品＋促銷卡；每頁只列這款會畫的欄、列數照版面；開始頁講清楚只會出現一款；空範本＝三個區塊都不動 (287.360583ms)
+✔ ②解析資訊卡：選分頁＝選版面；banner 與各列讀 C 欄；非 Yahoo 連結／圖片非 https＝問題（位置＝C 欄格）；填兩款版面＝問題、不帶入 (588.355791ms)
+✔ ③解析主打選品（表單）與促銷卡（表格）：商品欄只驗格式；Google Sheets 超連結物件／richText 讀顯示值；範例列與空列不算 (323.832584ms)
+✔ ④套用：走 applyContentModule（加區塊／換版面／pick）、整模組覆寫、商品由呼叫端給、最後單閘驗證；缺商品＝throw (301.30575ms)
+✔ ⑤指南：建議字數＝量測檔、對照圖每頁一張、字數警告只掛黃格且不擋、範例句不超建議字數、★ 標在會擋出貨的格 (43.854458ms)
+✔ ⑥盤點修補（2026-09-27）：舊版範本整份擋下一句話；★ 沒填＝預警不擋；內容填到範例欄＝全錯擋下、部分錯預警；促銷卡範例列被改＝預警 (310.870209ms)
+✔ cellText：Excel 超連結（text 是 richText 物件）、Sheets 超連結（text 是字串）、只有 hyperlink——三種都讀出網址；不再是 [object Object] (0.449291ms)
+✔ 整份範本：活動資訊卡的共用連結／圖 1／活動連結都用 Excel 超連結形 → 零問題、值逐字帶進模組（使用者 ３３３.xlsx 的形狀） (286.922ms)
+✔ 帶入前確認：每模組一行「主詞・數量 → 狀態」，三種狀態字樣齊、尾句只剩一句 (1.323708ms)
+✔ 帶入完成：結果卡取代 toast——標題、三行已發生、每行「看」、一行引導、「知道了」才收；解釋收進滑鼠提示 (1.110084ms)
+✔ 區塊內提示只剩一句；解釋（覆寫／備份／實抓）在按鈕滑鼠提示裡、不在第一眼；範本 v3＝七分頁、提示不再寫「三個分頁」 (0.534541ms)
+✔ 舊版範本只印 lib 那一句；★ 預警黃色不擋；範本下載不吃瀏覧器快取 (2.509625ms)
+✔ 整台連不到：好網址的探測回 kind=network，結論講網路不講換網址，技術訊息有 ECONNREFUSED (831.705375ms)
+✔ 前置擋（非 Yahoo 網域）不受影響：沒有 kind、維持原結論 (3.817958ms)
+✔ HERO_LEN 讀得出來、而且是巢狀兩層 (24.994125ms)
+✖ HERO_LEN 每一欄在 spec 機讀欄都有同鍵條目，且 max ＝ 三裝置 maxChars 最小值（spec 是真源） (12.741667ms)
+✔ spec 機讀欄每一條、每一裝置都要寫 source（數字從哪來），不准裸數字 (3.426708ms)
+✔ extractStoreName：旗艦館頭錨點 alt＝第一優先（頁面實際顯示的賣場頭） (0.678042ms)
+✔ extractStoreName：無錨點 alt＝退 FlagshipHeader 區塊內 <h1> 文字 (0.122041ms)
+✔ extractStoreName：平台通名（storeName／JSON-LD seller 皆「Yahoo購物中心」）＝視同缺席回 null (0.225ms)
+✔ extractStoreName：非通名的 seller.name＝可入欄（未來頁型出現真店家名自然生效） (0.063375ms)
+✔ extractStoreName：抓不到＝null（空頁／無任何來源＝不捏造、不留空字串） (0.200042ms)
+✔ extractStoreName：HTML entity 反跳脫（alt 帶 &amp;） (0.057084ms)
+✔ parseProductPage：頁面有旗艦館頭＝prod.store 帶賣場名（旗艦館頭在實體切片外＝對整頁抽取） (0.227542ms)
+✔ parseProductPage：頁面無旗艦館頭（僅平台通名）＝prod.store=null（缺席不捏造） (0.136875ms)
+✔ productFetch：實抓有店名＝product.store 逐字帶回 (1.967625ms)
+✔ productFetch：實抓無店名＝product 鍵缺席（不留空字串） (0.438125ms)
+✔ upsertPoolEntry add：實抓有店名＝池列帶 store；沒有＝鍵缺席 (0.519584ms)
+✔ syncPoolEntry：店名變＝同步並記變更；新抓沒有＝刪欄（頁面撤賣場頭＝缺席）；同值＝零變更 (0.825375ms)
+✔ 促銷卡 pick：實抓有店名＝新列帶 store（渲染端有 store 才顯示店名列） (1.5425ms)
+✔ pick：實抓無店名＝新列鍵缺席（不留空字串）；樓層 pick 同帶欄 (0.480416ms)
+✔ 可編修語意：draft 列帶 store（含使用者改過的值）過 validateContentModules 不被擋（PUT draft.json 同一套閘） (0.358708ms)
+✔ require 守門：取橋接函式不誤跑 CLI 主流程（gate.js 前例） (0.491ms)
+✔ 自訂 hex 路＝deriveThemeDraft 單一真源、欄形與 hero_combo 同形、家族三欄齊（反例 145831 同路） (5.730417ms)
+✔ 自訂 hex 兜底 autopass（2026-08-27 擋色制）：不及格 hex 溜到橋接＝自動改用通過版＋原值記帳 (1.810459ms)
+✔ 惰性讀簿：自訂 hex 路不得觸發主題值域讀取（登記簿壞掉也不影響 hex 路） (0.138458ms)
+✔ token 家族路：green（light）→ themeId=green-light；legacy colorTheme 照舊、不寫 colors (0.086875ms)
+✔ token 家族路：surfaceMode dark → 對 dark slug（gold-dark） (0.061417ms)
+✔ hueFamily 缺席（AI 漏欄）→ 從 colorTheme 十枚舉拆家族（gold-dark） (0.083833ms)
+✔ 病例 214311 重演：pink（token 沒有）→ 家族代表色走自訂盤＋機選自動用通過版（2026-08-27 使用者裁決） (3.712833ms)
+✔ rejected 款 fallback：blue＋dark（token 無 blue-dark）→ 家族代表色 #6EA6D4 自訂盤 (1.881666ms)
+✔ mono 家族（token 沒有）→ 代表色 #6E7780 自訂盤 (0.415709ms)
+✔ FAMILY_ACCENT 表＝五家族×亮暗十格、值全合法 hex（campaign/accent 真值鏡像） (0.096792ms)
+✔ legacy 路（kvVariant=new）：不寫新欄、draft 一字不動、colorTheme 照舊 (0.077458ms)
+✔ 不覆蓋：已有 themeId（提案包/先行寫入）＝no-op (0.054166ms)
+✔ 不覆蓋：已有 colors.themeDraft ＝no-op（145831 這類已修好的頁不重寫） (0.103166ms)
+✔ 值域外家族（hueFamily 與 colorTheme 皆自創值）：不橋接、出聲不裝懂、draft 不動 (0.131458ms)
+✔ hueFamily 值域外但 colorTheme 合法＝以 colorTheme 救回（gate 枚舉欄較強治理） (1.988666ms)
+✔ 檔案版：v2 有變更才寫回、legacy 檔案 byte 不動 (2.883375ms)
+✔ 檔案版：讀不到＝throw 白話出聲（不靜默降級） (0.239084ms)
+✔ 登錄絆線：draft-writers.allow CREATE 節必須登錄 create-theme-bridge（G3 登錄制） (0.224125ms)
+✔ 檔位表＝三檔制、預設檔乘數 1（2026-08-25 使用者裁決） (1.008084ms)
+✔ deriveThemeDraft：恆定槽不動（價格紅鐵律／商品卡白／商品圖底）＋忠實用色（標題/膠囊＝主色原樣） (2.607959ms)
+✔ checkThemeDraft：淺主色＝標題對主視覺底黃燈；suggestSeed 產出的建議色自身全過檢 (8.727ms)
+✔ assessSeedColor：壞格式擋、太淺出聲可用 (0.096583ms)
+✔ C 案 schema：15 槽齊＋backgroundModules 五角色＋bgOverrides 亮暗雙套＋overrides 逐槽微調 (0.419708ms)
+✔ applyCombo customColor：寫 page.colors（custom schema）＋清 themeId＋內容區塊 custom 主題；null＝清除 (7.487083ms)
+✔ applyCombo customColor 擋色制（2026-08-27 令取代 2026-08-25 不硬擋）：淺主色＝擋下不寫入＋blocked 結構＋建議色；一鍵建議色＝成功寫入；壞 hex＝throw 白話 (6.13425ms)
+✔ applyCombo themeId：改選主題＝清 page.colors（單一控制點）＋出聲 (3.661125ms)
+✔ applyCombo 提案包原子擋（2026-08-27 擋色制）：colors 擋級不過＝版式/背景/主題全不落地＋meta.proposalPack 不寫＋修正版選項 (4.4165ms)
+✔ effectiveHeroSurface：照片版式＝登記簿 bridgeColor；退場照非預設＝回落版式預設；底紋／連續磚／現行版型＝null (2.976958ms)
+✔ checkThemeDraft(td, {heroSurface})：標題族改對實際底算；未給＝照舊對草案 hero (0.258ms)
+✔ applyCombo 提案包・照片版式：深色草案白字＝對照片底擋下（原子）＋surface 揭示＋修正版對實際底過；同草案在底紋版式不擋 (2.432625ms)
+✔ applyCombo customColor／customSlot・照片版式：淺主色對照片底擋；改 hero 槽不影響照片上的標題＝不擋 (7.559417ms)
+✔ packToChange：font／motion 沒接上＝出聲不靜默丟（font-001／static＝預設值不吵） (2.515125ms)
+✔ applyCombo customSlot 擋色制：這手改壞＝擋＋複合修正（使用者底色＋連動字色）；既有病灶不擋無關槽 (2.605167ms)
+✔ applyCombo customSlot：逐槽微調重推＋重過檢；鎖定槽/未知槽/未選主色＝throw 白話 (4.08725ms)
+✔ applyCombo pageBg：手調＝存 pageBgOverride；換背景＝保留＋提醒；null＝回自動；退場背景＝容忍出聲 (2.969542ms)
+✔ applyCombo typography：檔位寫入/回標準檔清欄/未知檔位 throw；標準檔全清＝節點不留 (4.642958ms)
+✔ packToChange：包帶 colors＝themeDraft 進 change（pageBg 歸零回自動） (2.786167ms)
+✔ applyCombo titleStyle：approved 寫入＋履歷標籤；pending／未知＝throw 白話；字型未載入＝寫入但出聲；null＝清欄 (1.713333ms)
+✔ packToChange：titleStyle 一等欄進 change（整組帶入語意：包沒帶＝null 清回版式原字）；pending 在解析層就擋 (2.706125ms)
+✔ applyCombo subtitleFont：寫入帶 family／css2；無 css2＝寫入出聲；未知貨號／壞字重＝throw；null＝清欄；packToChange 整組語意 (4.711209ms)
+✔ packToChange：typography 檔位 → heroTitleScale／heroSubtitleScale／heroTitleWidth；包沒帶＝null 回標準檔 (2.183959ms)
+✔ titleFrame：包 off→草稿 off；on／沒帶＝清欄；壞值 throw；版式沒裝飾線＝解析黃燈 (2.227125ms)
+✔ applyCombo（by=pack）：包帶待審字風（舊位置）＝丟掉＋info.notes 出聲「沒有帶入…待審」；帶已審字風＝不吵 (1.961833ms)
+✔ entryFitVerdict：title／no-pool／no-global-hit／small-pool／pass／fail 六種分支 (0.751792ms)
+✔ loadThemeFitRule：斜線別名展開＋小寫；threshold 數值或 {B_poolHitRate}；讀不到＝fallback (1.998916ms)
+✔ 不帶 --themeFit＝舊行為：入口照快照原序前三檔（含會被 CP-14 判 FAIL 的 900001） (942.883083ms)
+✔ 帶 --themeFit：900001（6 件只 1 件跟主題有關＝17%＜30%）跳過、換下一檔補滿三則、note 出聲；標題含詞的 900004 照 C 訊號直接過 (611.996458ms)
+﹣ 引擎：hv2ApplyTitleInk 存在、掛在 hv2ApplyCostume 開頭（不論妝容開關）、只對 solid＋cc-title 用行內樣式套主標色、拆時只拆自己的 (0.422333ms) # 引擎源檔不在（同事包情境）
+✔ 換妝算法真源有 fillKind；工具頁與鏡像兩份機器複本跟上（複本由腳本重產、不手改） (0.316708ms)
+﹣ 工具：字風說明改口（實心＝跟主標題文字映射走／漸層＝不作用）＋漸層款打包提醒＋純字形款改口 (0.083292ms) # 工具頁不在
+✔ CMS 編修頁「妝容跟主題走」提示補一句字面色規則 (0.118166ms)
+✔ typestyles.css：剪字紋理層（background-clip:text）必帶透明填色，否則亮底壓深會蓋掉紋理 (3.354875ms)
+✔ 檢查器自檢：漏掉透明填色的合成規則要被抓到、補了的放行 (0.263416ms)
+node:fs:624
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+    at Object.readFileSync (node:fs:624:20)
+    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/typo_steps_three_copies.test.js:20:17)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14)
+    at Object..js (node:internal/modules/cjs/loader:2108:10)
+    at Module.load (node:internal/modules/cjs/loader:1690:32)
+    at Module._load (node:internal/modules/cjs/loader:1480:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+}
+
+Node.js v26.12.0
+✖ test/unit/typo_steps_three_copies.test.js (104.7615ms)
+✔ ①製作中自成一態，排在發佈中之後、未儲存之前 (0.852708ms)
+✔ ②做好且最新＝主鈕直接下載；過期／沒做過＝主鈕是製作 (0.84425ms)
+✔ ③新舊判定只有一把尺，且三個消費端都問同一把 (0.533458ms)
+✔ ③-2 伺服器端「沒核可不准製作」這道守門還在（過期判定靠它才成立） (0.176333ms)
+✔ ④使用者眼前不再用「匯出」講 AEM 這件事 (3.858041ms)
+✔ ④-2 動作名成雙成對出現：選單是製作、任務條做好才是下載 (0.650875ms)
+✔ ⑤未儲存態：任務條那顆是指路牌、降次要（第 7 題甲） (0.3305ms)
+✔ ⑥檢查面板：同一個動作只畫一次（第 2 題甲） (0.37075ms)
+✔ 建立頁四步：1 商品來源／2 活動主題規劃／3 活動版型挑選（收折 details）／4 活動創建人；沒有第 5 步 (2.741667ms)
+✔ AI 那組搬進第 2 步底下、只在有 AI 時出現；標題「或者，讓 AI 從頭策展」 (0.215292ms)
+✔ 策略檔格：不上鎖（09-15 下午翻案）；策略檔帶型態＝自動帶入；只擋型態 A vs 策略檔 B（in-brief-mismatch） (1.139417ms)
+✔ 內容策略區、策略檔頁、歡迎三格的容器與函式都在；文案只在 flow_guide_copy.json (1.379042ms)
+✔ flow_guide_copy.json：三份引導（歡迎三格／Gemini 五步／建頁六步）齊、對帳卡句型齊 (0.256917ms)
+✔ 伺服器：flow-guide 端點、補選型態端點、三支策略檔端點都在 (1.047334ms)
+✖ 分享站鏡像頁與文案真源同步（tools/gen-flow-guide.mjs --check；產物勿手改） (92.549792ms)
+✔ 3 甲：建立頁寬幅、輸入欄另限寬、四步各一個 SHP 圖示；1 甲：貼上一份新的（選項文案讀單一真源） (3.196709ms)
+✔ data-needs 只准用能力表的三個字（值域＝lib/capabilities KEYS） (2.990917ms)
+✔ 靜態 data-needs 元素預設 hidden（能力表沒到之前先藏＝fail-closed） (0.722917ms)
+✔ 前端只從 /api/version 讀能力；不讀模式旗標（介面看能力、伺服器看旗標） (0.645292ms)
+✔ 伺服器 403 名單存在且含三類：發佈、對外、試算表；線上改價（套用新價）不在名單（2026-09-16 牆 P-8 甲） (0.1445ms)
+✔ 介面對應：發佈次鈕與入口欄只在 hasCap(publish) 時出現；AI 卡組掛 data-needs=ai (0.145042ms)
+✔ /api/version 帶 mode 與 caps；建立時 engine ai 有伺服器守門 (0.093542ms)
+✔ 依能力切換的句子集中在 CAP_COPY，每鍵都有 pub／noPub 兩支 (1.851833ms)
+✔ 「發佈內網預覽」的介面句都改讀表：五步第 5 步、核可確認框、核可 toast、選單提示、分頁、首頁第三卡 (0.771542ms)
+✔ 商品狀態燈不再看有沒有發佈；講上次檢查與幾件要處理 (0.201792ms)
+✔ 已交付＝AEM 檔真的下載過（downloadedAt）；狀態膠囊、分桶、首頁最近交付都用同一個 isDelivered (0.591833ms)
+✔ Claude 裝了沒登入的橫幅：字照使用者過目的第 3 條，只在 installed 且 loginOk===false 時出現 (0.222625ms)
+✔ 橫幅重新檢查：四態文案逐字＝使用者核可版 (0.66225ms)
+✔ 橫幅重新檢查：打伺服器的重測端點、成功走既有 applyCaps（不自己另寫一套收橫幅） (0.423375ms)
+✔ 重測端點放在登入守門之後（它會真的叫一次 claude，不能裸奔在免登入區） (0.080084ms)
+✔ 能力表可重測：開機那一次不再是唯一一次，且併發共用同一輪 (0.150625ms)
+✔ 舊講法逐字不得回滲（介面主檔全文，含註解） (18.247792ms)
+✔ 核可後、還沒做過檔：主鈕＝製作 AEM 網頁檔、次鈕＝發佈／更新內網預覽（對 taskState 原始碼斷言） (1.785333ms)
+✔ 建立流程進度列末步＝核可交付（label／short／desc 三處都不講上線） (2.517542ms)
+✔ 「核可」這個動作在畫面上只有一個名字：核可這一版（鈕／右上／對話框；2026-09-11 使用者裁丙案） (1.684167ms)
+✔ 進度列末步：節點字是階段名、提示字講先後，兩者不得互相矛盾也不得讓按鈕多說一件事 (1.646625ms)
+✔ server.js 會上畫面的句子（error／_MSG／KEY_ZH／部署訊息）不得再講「上線部署」或退場的 ZIP (3.201708ms)
+✔ 未定稿預覽提醒：句子逐字在、判定用時間比對、提醒行真的會畫出來 (2.586083ms)
+✔ 活動策略檔：讀不到清單與資料夾是空的，是兩句不同的話 (0.780625ms)
+✔ 後端原文直印在畫面上的處數＝只准降不准升（基線 2） (0.365667ms)
+✔ 配色說明句：端點不存在時給的是白話，不是後端原文 (0.185375ms)
+✔ 上限數字只有 HERO_LEN 一份（不准某款版型在別處自己寫一組） (2.236917ms)
+✔ 主視覺文字槽不得有 maxlength 硬擋（裁決＝只提醒不硬擋） (3.722917ms)
+✔ 常駐標籤用「建議 N 個字以內」，不用「最多 N 個字」的口氣 (2.202583ms)
+✔ 011 與 012 走同一套（兩款都在 HERO_LEN 裡，沒有一款留在舊做法） (1.240958ms)
+✔ CMS 介面檔全文零 emoji（含文字符號；允許清單＝空） (49.794583ms)
+✔ SHP 圖示 sprite 存在且不用 display:none 隱藏（display:none 會吞 <use> 圖——2026-08-18 SHP 分享站病例） (1.450041ms)
+✔ CMS 顯示文案：五組不得自稱 AI（真 AI 白名單不受影響） (22.164333ms)
+✔ 真 AI 白名單還在（絆線不得把需要 AI 帳號的功能名字一起洗掉） (1.547792ms)
+✔ 五組的新名字都在畫面上（改名有真的落地，不是只把舊字刪掉） (1.320708ms)
+✔ AI 引擎真的在跑時的狀態句還在 (1.356042ms)
+✔ 活動檔期的輸入格、儲存通道、列表欄與首頁區塊都不在了 (3.647667ms)
+✔ 剝掉註解之後，介面不再對使用者講「巡檢」 (4.933042ms)
+✔ 廠商 Google 試算表選單項預設隱藏、依連線狀態顯示（Q1 甲：同事機不出現） (0.467875ms)
+✔ 建立頁兩個下拉、編修頁那一段、列表欄、送出鍵都不在了 (2.758542ms)
+✔ 剝掉註解之後，介面不再對使用者講「更新頻次」 (3.444417ms)
+✔ 伺服器：建立時不再寫 page.refreshPolicy、列表回應不再帶它；但也不得刪既有資料 (0.660125ms)
+✔ 資料保留的活證據：fixtures 裡帶 refreshPolicy 的 draft 還在（舊資料形狀沒被順手清掉） (0.290292ms)
+✔ 右上主鈕標記不得預設帶 primary（任務條在畫面上時它是次要） (0.695166ms)
+✔ 層級由任務條可見度決定；偵測失效的預設是「可見」＝右上維持次要 (0.325917ms)
+✔ 可見偵測有能力檢查、掛失敗不炸頁；沒有 IntersectionObserver 就不掛、維持預設 (0.219041ms)
+✔ 渲染主鈕與任務條之後有同步層級（不然重繪會把 class 洗回舊態） (0.112125ms)
+✔ ①面板檢查中＝不畫核可鈕（busy 分支在最後的「都齊了」之前，文案照裁決預覽稿） (0.582917ms)
+✔ ⑥主視覺重複＝四處消費端口徑一致（擋的門扣主視覺、提醒由 gate WARN 出） (0.391375ms)
+✔ ⑦促銷活動站網域＝兩道門同批收（行為以 rules.json 匯出的同一條正則驗） (0.711166ms)
+✔ COLS/HEADER_ROWS：第一欄=系統索引(origKey/🔒)、賣場編號=可改、可改欄集合正確 (1.124083ms)
+✔ buildVendorRows：回傳 baseline 快照＋第一欄=系統索引(origKey=原 gdid)、含表頭定位錨 (1.259667ms)
+✔ buildVendorRows：previewUrl 空值→資訊區落「活動尚未上線」指引文案（不出任何連結）；有值原樣帶出 (0.457417ms)
+✔ whereOf：定位標籤／未曝光／null 安全 (0.206125ms)
+✔ parseVendorEdits：未改動→ok、edits 空、unknown/missing 皆 0 (0.203209ms)
+✔ parseVendorEdits：廠商刪一列→missing++（回錨基準偵測遺漏） (0.154542ms)
+✔ parseVendorEdits：改系統索引成不存在值→unknown++（幽靈殘列安全略過） (0.168125ms)
+✔ parseVendorEdits：swapGdid 僅接受 6~10 位數字，其餘一律不換品 (0.220167ms)
+✔ parseVendorEdits：tag/note 差異正確擷取（含 oldTag），未動欄不誤報 (0.145ms)
+✔ parseVendorEdits：廠商打亂列序→回錨免疫（歸屬靠系統索引非列序） (0.154958ms)
+✔ parseVendorEdits：舊版表(無系統索引表頭)→ok:false 友善錯誤 (0.102958ms)
+✔ parseVendorEdits：缺 baseline→ok:false 友善錯誤（提示重建） (0.111458ms)
+✔ ①件數規則單一真源：登記簿匯出，gate 與 rules.json 都讀它、沒有人自己抄 (4.824083ms)
+✔ ②擋門已拆（2026-10-05 使用者裁「照樓層模式」）：加入一次一件一律放行、前端不再有件數擋門 (0.556875ms)
+✔ ③湊滿提醒仍在：lib 加品回報句＋面板件數提示（照樓層模式＝提醒不擋） (0.285625ms)
+✔ ④機器閘降提醒：gate CP-21 牆件數 enum＝WARN 湊滿句、宣告≠實數仍 FAIL (0.686834ms)
+✔ ⑤移除通道不受影響（可加可刪＝拆門的前提） (0.539208ms)
+✔ ⑥加商品時，要認得「它已經是某層的情境卡代表品」 (0.316167ms)
+✔ ⑦p 型貨號的代表品也要認得（不是只認純數字） (0.07075ms)
+✔ ⑧URL 解不出貨號時不誤擋 (0.057209ms)
+✔ ⑨後端有「移除單一商品」通道，且商品留在來源池 (1.400167ms)
+✔ ⑩移除不存在的商品＝不是錯誤，是「沒有變更」 (0.561541ms)
+✔ ⑪移除鈕真的接上了（畫面有鈕、有人在聽、走後端同一條路） (0.5505ms)
+✔ ⑫替換／自動補品也要看得到情境卡代表品（第二處消費端） (0.718042ms)
+ℹ tests 975
+ℹ suites 6
+ℹ pass 916
+ℹ fail 41
+ℹ cancelled 0
+ℹ skipped 18
+ℹ todo 0
+ℹ duration_ms 8399.579292
+
+✖ failing tests:
+
+test at test/unit/bg_map_resolves_used_backgrounds.test.js:75:1
+✖ 每一檔已完成活動用到的背景，背景地圖都還解析得開 (0.41725ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+      at Object.readFileSync (node:fs:624:20)
+      at mapIds (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:33:18)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:76:15)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+  }
+
+test at test/unit/bg_map_resolves_used_backgrounds.test.js:89:1
+✖ 審核過的待審背景仍留在地圖，但標成不供挑選 (0.092708ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:90:18)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+  }
+
+test at test/unit/colortool_env.test.js:23:1
+✖ ① 源頭工具頁有環境格且留空（環境中立） (1.0655ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:24:19)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  }
+
+test at test/unit/colortool_env.test.js:29:1
+✖ ② injectEnv：填得進、讀得回、冪等、找不到格出聲 (0.090459ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:30:19)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  }
+
+test at test/unit/colortool_env.test.js:40:1
+✖ ③ CLI 就地改寫（部署腳本走的那條路） (0.222333ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:43:26)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  }
+
+test at test/unit/colortool_env.test.js:51:1
+✖ ④ 工具頁不得再寫死 localhost:8787 的 API 呼叫 (0.073292ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:52:19)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:52:3
+✖ ① 待發佈區有在途改動、沒人宣告＝擋下來，而且把檔名印出來 (357.305292ms)
+  AssertionError [ERR_ASSERTION]: 沒人認領的在途改動要擋（exit 1）
+  
+  127 !== 1
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:57:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at node:internal/test_runner/test:1903:71
+      at node:internal/per_context/primordials:505:82
+      at new Promise (<anonymous>)
+      at new SafePromise (node:internal/per_context/primordials:479:3)
+      at node:internal/per_context/primordials:505:9
+      at Array.map (<anonymous>) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:64:3
+✖ ② 改動落在 DEPLOY_MINE 宣告範圍內＝放行（本線自己的東西不算別人的） (400.826916ms)
+  AssertionError [ERR_ASSERTION]: 宣告範圍內應放行
+  
+  127 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:70:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1905:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:75:3
+✖ ② -b DEPLOY_MINE 寫成相對 repo 根的完整路徑也算數（兩種寫法都要吃） (402.456625ms)
+  AssertionError [ERR_ASSERTION]: 相對 repo 根的寫法也要認得
+  
+  127 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:81:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:85:3
+✖ ③ DEPLOY_CARRY 明講帶上＝放行，但清單照印（明講不等於隱形） (461.721084ms)
+  AssertionError [ERR_ASSERTION]: 明講帶上應放行
+  
+  127 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:90:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:96:3
+✖ ④ 待發佈區乾淨＝放行且說「乾淨」（不是沉默） (349.895958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  127 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:100:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:105:3
+✖ ⑤ 宣告只蓋到一部分＝只擋沒蓋到的那幾筆，且不誤報已宣告的 (397.509709ms)
+  AssertionError [ERR_ASSERTION]: 還有沒蓋到的就要擋
+  
+  127 !== 1
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:112:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:119:3
+✖ ⑥ repo 其他位置的在途改動＝不擋，但要報數字（那些不會隨本次上線） (281.552542ms)
+  AssertionError [ERR_ASSERTION]: deploy-site 以外的東西不會上線＝不該擋部署
+  
+  127 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:124:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:129:3
+✖ ⑦ 掃不到 git＝出聲並放行（不靜默，也不拿掃不到當理由擋住部署） (22.762791ms)
+  AssertionError [ERR_ASSERTION]: 掃不到不該擋部署
+  
+  127 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:133:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/deploy_dirty_tree_guard.test.js:138:3
+✖ ⑧ 用法錯（沒給路徑／路徑不存在）＝exit 2，與「擋下」分得開 (17.546792ms)
+  AssertionError [ERR_ASSERTION]: 沒給參數＝用法錯，不可與 exit 1（擋下）混為一談
+  
+  127 !== 2
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:140:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 127,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/engine_twin_tables.test.js:1:1
+✖ test/unit/engine_twin_tables.test.js (118.406ms)
+  'test failed'
+
+test at test/unit/explore_cap_sync.test.js:1:1
+✖ test/unit/explore_cap_sync.test.js (135.697542ms)
+  'test failed'
+
+test at test/unit/fonts_registry.test.js:119:1
+✖ 引擎頁（FrameTest）Google Fonts <link> 載的家族都有戶口 (0.264792ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/fonts_registry.test.js:121:19)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  }
+
+test at test/unit/fonts_registry.test.js:129:1
+✖ 字風登記簿 × 字體簿：approved 的主字型＝有 fontId、A 級、消費者頁真的載得到；每款 fontId 對回的家族＝fontStack[0] (0.553458ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/fonts_registry.test.js:133:19)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  }
+
+test at test/unit/ga_tracking.test.js:1:1
+✖ test/unit/ga_tracking.test.js (133.553375ms)
+  'test failed'
+
+test at test/unit/hero_bg_own_doors.test.js:1:1
+✖ test/unit/hero_bg_own_doors.test.js (132.897667ms)
+  'test failed'
+
+test at test/unit/hero_combo.test.js:166:1
+✖ 四支排版控制的檔位表與渲染端 hv2TypoMul 的複本同值（人肉同步的斷裂偵測） (1.562792ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_combo.test.js:168:17)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  }
+
+test at test/unit/hero_stages_twin.test.js:1:1
+✖ test/unit/hero_stages_twin.test.js (119.743833ms)
+  'test failed'
+
+test at test/unit/legacy_pipelines_archived.test.js:17:3
+✖ price_watch.sh 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.111708ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/price_watch.sh'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/legacy_pipelines_archived.test.js:18:21)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/price_watch.sh'
+  }
+
+test at test/unit/legacy_pipelines_archived.test.js:17:3
+✖ overview_sheet.js 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.05525ms)
+  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/overview_sheet.js'
+      at Object.readFileSync (node:fs:624:20)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/legacy_pipelines_archived.test.js:18:21)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/overview_sheet.js'
+  }
+
+test at test/unit/net_tuning.test.js:26:1
+✖ 載入後，每位址預算高於 Node 預設 250ms（低於等於 250 等於沒調到） (107.358709ms)
+  AssertionError [ERR_ASSERTION]: Node 預設值變了＝這條守門的前提要重新評估
+  
+  500 !== 250
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/net_tuning.test.js:35:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 500,
+    expected: 250,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/netlify_auth.test.js:19:1
+✖ 退役：source 回非零且訊息明確（不靜默） (34.478ms)
+  AssertionError [ERR_ASSERTION]: stderr 應含退役訊息
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/netlify_auth.test.js:22:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'zsh:source:1: no such file or directory: /Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/workbench/netlify-auth.sh\n',
+    expected: /已退役/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/unit/server_brief_flow.test.js:48:1
+✖ ① /api/briefs：內建五份都帶第一行的型態與主題 (0.296125ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:56:1
+✖ ② 組「給 Gemini 的話」：帶卡名、主題、真實商品名清單、該型態範本正文 (0.033167ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:65:1
+✖ ③ 貼上就存＋對帳：型態寫成別張卡＝算出 different；檔存進 mine 且同名不覆蓋 (0.06075ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:77:1
+✖ ③b 貼上夾價格＝400 不存、白話講哪一段 (0.0365ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:85:1
+✖ ④ 選檔對帳：內建 05 對這檔＝型態 same (0.037541ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:90:1
+✖ ⑤ 建立帶策略檔但沒選型態＝從策略檔第一行補型態（09-15 下午翻案：策略檔是型態真源） (0.027958ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:100:1
+✖ ⑤b 人有填主題＝人的優先，策略檔不覆蓋 (0.025917ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:107:1
+✖ ⑥ 照策略檔重做：先備份、同批商品重排、核可失效、meta.brief 落檔、跑完 ready (0.02675ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_brief_flow.test.js:132:1
+✖ ⑦ 建立活動：舊網域 @yahooinc.com 擋下並指路「重新整理」、外部信箱擋下指路 Outlook、新網域放行；擋下的不落檔 (0.041541ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestHook.runInAsyncScope (node:async_hooks:226:14)
+      at TestHook.run (node:internal/test_runner/test:1402:25)
+      at TestHook.run (node:internal/test_runner/test:1757:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.createHook (node:internal/test_runner/test:1117:33)
+      at test.before (node:internal/test_runner/harness:426:12)
+      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_price_truth_flow.test.js:52:1
+✖ report 樁：有變價＝快照與草稿同批改用商品頁現價、gate CP-02 0、wb.log 逐件＋總結、meta.priceTruth 記帳、stage ready (1.622041ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at withServer (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:25:6)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:53:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/server_price_truth_flow.test.js:88:1
+✖ offline 樁：全部連不上＝一件都不改、出聲、不擋建立（stage ready）、meta.priceTruth.offline (0.771375ms)
+  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+      at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
+      at Object.cpSync (node:fs:3854:3)
+      at withServer (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:25:6)
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:89:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  }
+
+test at test/unit/spec_field_limits_vs_hero_len.test.js:83:1
+✖ HERO_LEN 每一欄在 spec 機讀欄都有同鍵條目，且 max ＝ 三裝置 maxChars 最小值（spec 是真源） (12.741667ms)
+  AssertionError [ERR_ASSERTION]: 
+  layout-012.piece:0：spec 三裝置檔都沒有 fieldLimitsMachine["piece:0"]——數字只活在 CMS＝沒有真源
+  layout-012.discount-digit：spec 三裝置檔都沒有 fieldLimitsMachine["discount-digit"]——數字只活在 CMS＝沒有真源
+  layout-012.tag：spec 三裝置檔都沒有 fieldLimitsMachine["tag"]——數字只活在 CMS＝沒有真源
+  layout-012.heroName：spec 三裝置檔都沒有 fieldLimitsMachine["heroName"]——數字只活在 CMS＝沒有真源
+  layout-011.piece:2：spec 三裝置檔都沒有 fieldLimitsMachine["piece:2"]——數字只活在 CMS＝沒有真源
+  layout-011.piece:3：spec 三裝置檔都沒有 fieldLimitsMachine["piece:3"]——數字只活在 CMS＝沒有真源
+  + actual - expected
+  
+  + [
+  +   'layout-012.piece:0：spec 三裝置檔都沒有 fieldLimitsMachine["piece:0"]——數字只活在 CMS＝沒有真源',
+  +   'layout-012.discount-digit：spec 三裝置檔都沒有 fieldLimitsMachine["discount-digit"]——數字只活在 CMS＝沒有真源',
+  +   'layout-012.tag：spec 三裝置檔都沒有 fieldLimitsMachine["tag"]——數字只活在 CMS＝沒有真源',
+  +   'layout-012.heroName：spec 三裝置檔都沒有 fieldLimitsMachine["heroName"]——數字只活在 CMS＝沒有真源',
+  +   'layout-011.piece:2：spec 三裝置檔都沒有 fieldLimitsMachine["piece:2"]——數字只活在 CMS＝沒有真源',
+  +   'layout-011.piece:3：spec 三裝置檔都沒有 fieldLimitsMachine["piece:3"]——數字只活在 CMS＝沒有真源'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/spec_field_limits_vs_hero_len.test.js:93:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'layout-012.piece:0：spec 三裝置檔都沒有 fieldLimitsMachine["piece:0"]——數字只活在 CMS＝沒有真源', 'layout-012.discount-digit：spec 三裝置檔都沒有 fieldLimitsMachine["discount-digit"]——數字只活在 CMS＝沒有真源', 'layout-012.tag：spec 三裝置檔都沒有 fieldLimitsMachine["tag"]——數字只活在 CMS＝沒有真源', 'layout-012.heroName：spec 三裝置檔都沒有 fieldLimitsMachine["heroName"]——數字只活在 CMS＝沒有真源', 'layout-011.piece:2：spec 三裝置檔都沒有 fieldLimitsMachine["piece:2"]——數字只活在 CMS＝沒有真源', 'layout-011.piece:3：spec 三裝置檔都沒有 fieldLimitsMachine["piece:3"]——數字只活在 CMS＝沒有真源' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/unit/typo_steps_three_copies.test.js:1:1
+✖ test/unit/typo_steps_three_copies.test.js (104.7615ms)
+  'test failed'
+
+test at test/unit/ui_brief_flow.test.js:54:1
+✖ 分享站鏡像頁與文案真源同步（tools/gen-flow-guide.mjs --check；產物勿手改） (92.549792ms)
+  AssertionError [ERR_ASSERTION]: 鏡像頁過期或被手改：
+  ✗ 鏡像頁與文案真源不同步：請跑 node tools/gen-flow-guide.mjs
+  
+  修法＝node tools/gen-flow-guide.mjs
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/ui_brief_flow.test.js:57:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+ⓘ 尚無 test/（Phase 2 補）

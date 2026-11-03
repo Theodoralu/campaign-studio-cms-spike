@@ -1,0 +1,204 @@
+{
+  "_產物": "機器量測、不手改；重產＝在 pipeline/ 跑 node tools/sheet_template_guide.js --measure（引擎版面改了就重跑）",
+  "generatedAt": "2026-09-27T07:07:27.400Z",
+  "engine": "2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html",
+  "unit": "全形字（半形字約算 0.55，同 rules.json charLimits.widthModel）",
+  "method": "把「測」×N 填進畫面元素，桌機 1264／平板 768／手機 375 各量一次，二分搜尋到「再多一字就溢出／截斷／折行／超出父框」；min＝三裝置最小值＝範本建議值",
+  "devices": [
+    "desktop",
+    "tablet",
+    "mobile"
+  ],
+  "mechanic": {
+    "banner": {
+      "badgeText": {
+        "desktop": 13,
+        "tablet": 9,
+        "mobile": 11,
+        "min": 9
+      },
+      "titleLine1": {
+        "desktop": 10,
+        "tablet": 7,
+        "mobile": 14,
+        "min": 7
+      },
+      "titleLine2": {
+        "desktop": 10,
+        "tablet": 7,
+        "mobile": 14,
+        "min": 7
+      }
+    },
+    "rows": {
+      "info-offer-rows": {
+        "label": {
+          "desktop": 30,
+          "tablet": 19,
+          "mobile": 15,
+          "min": 15
+        },
+        "brandName": {
+          "desktop": 14,
+          "tablet": 11,
+          "mobile": 11,
+          "min": 11
+        },
+        "offerText": {
+          "desktop": 14,
+          "tablet": 14,
+          "mobile": 12,
+          "min": 12
+        },
+        "thresholdText": {
+          "desktop": 5,
+          "tablet": 5,
+          "mobile": 5,
+          "min": 5
+        },
+        "rewardText": {
+          "desktop": 5,
+          "tablet": 5,
+          "mobile": 5,
+          "min": 5
+        }
+      },
+      "info-gift-rows": {
+        "label": {
+          "desktop": 22,
+          "tablet": 11,
+          "mobile": 9,
+          "min": 9
+        },
+        "thresholdText": {
+          "desktop": 9,
+          "tablet": 7,
+          "mobile": 6,
+          "min": 6
+        },
+        "rewardText": {
+          "desktop": 26,
+          "tablet": 16,
+          "mobile": 16,
+          "min": 16
+        },
+        "ctaText": {
+          "desktop": 17,
+          "tablet": 11,
+          "mobile": 11,
+          "min": 11
+        }
+      },
+      "info-gift-gallery": {
+        "label": {
+          "desktop": 35,
+          "tablet": 22,
+          "mobile": 19,
+          "min": 19
+        },
+        "thresholdText": {
+          "desktop": 14,
+          "tablet": 13,
+          "mobile": 12,
+          "min": 12
+        },
+        "rewardText": {
+          "desktop": 40,
+          "tablet": 32,
+          "mobile": 32,
+          "min": 32
+        }
+      },
+      "info-gift-rush": {
+        "label": {
+          "desktop": 28,
+          "tablet": 16,
+          "mobile": 13,
+          "min": 13
+        },
+        "thresholdText": {
+          "desktop": 11,
+          "tablet": 9,
+          "mobile": 8,
+          "min": 8
+        },
+        "rewardText": {
+          "desktop": 32,
+          "tablet": 22,
+          "mobile": 22,
+          "min": 22
+        },
+        "ctaText": {
+          "desktop": 21,
+          "tablet": 14,
+          "mobile": 14,
+          "min": 14
+        }
+      }
+    }
+  },
+  "spotlight": {
+    "badgeText": {
+      "desktop": 43,
+      "tablet": 24,
+      "mobile": 24,
+      "min": 24
+    },
+    "title": {
+      "desktop": 12,
+      "tablet": 12,
+      "mobile": 14,
+      "min": 12
+    },
+    "subtitle": {
+      "desktop": 15,
+      "tablet": 21,
+      "mobile": 24,
+      "min": 15
+    },
+    "capsuleText": {
+      "desktop": 15,
+      "tablet": 12,
+      "mobile": 14,
+      "min": 12
+    },
+    "diagonalText": {
+      "desktop": 14,
+      "tablet": 8,
+      "mobile": 8,
+      "min": 8
+    },
+    "offerLine": {
+      "desktop": 18,
+      "tablet": 13,
+      "mobile": 14,
+      "min": 13
+    }
+  },
+  "promoCard": {
+    "capsuleText": {
+      "desktop": 18,
+      "tablet": 15,
+      "mobile": 17,
+      "min": 15
+    },
+    "diagonalText": {
+      "desktop": 8,
+      "tablet": 7,
+      "mobile": 6,
+      "min": 6
+    },
+    "offerLine": {
+      "desktop": 13,
+      "tablet": 10,
+      "mobile": 13,
+      "min": 10
+    },
+    "priceNote": {
+      "desktop": 9,
+      "tablet": 5,
+      "mobile": 6,
+      "min": 5
+    }
+  }
+}

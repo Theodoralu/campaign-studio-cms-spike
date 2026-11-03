@@ -1,0 +1,35 @@
+{
+  "params": {
+    "BG_TH": 36,
+    "CORE_HI": 90,
+    "FEATHER_R": 3,
+    "PAD_RATIO": 0.04
+  },
+  "generatedAt": "2026-07-21T07:05:54.427Z",
+  "items": [
+    {
+      "gdid": "11187535",
+      "name": "Le Creuset 復古調色盤系列 花形深盤組 20cm 5入",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/e5a46331ed-Gd-11187535.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/lecreuset/11187535.png",
+      "srcSize": "1000x1000",
+      "outSize": "1053x628",
+      "pad": 39,
+      "bbox": {
+        "x0": 16,
+        "y0": 258,
+        "bw": 975,
+        "bh": 550
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.6924,
+      "despeckledPx": 6,
+      "alphaRatio": 0.4622,
+      "featherRatio": 0.0069,
+      "edgeSamples": 3299,
+      "hardEdgeRatio": 0.2228,
+      "whiteHaloRatio": 0
+    }
+  ]
+}

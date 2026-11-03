@@ -1,0 +1,107 @@
+{
+  "params": {
+    "BG_TH": 36,
+    "CORE_HI": 90,
+    "FEATHER_R": 3,
+    "PAD_RATIO": 0.04
+  },
+  "generatedAt": "2026-07-20T08:24:22.868Z",
+  "items": [
+    {
+      "gdid": "10987175",
+      "name": "羅技 Wave Keys 人體工學鍵盤-玫瑰粉",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/52F0C16F92-Product-34435532.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/keyboard/10987175.png",
+      "srcSize": "1000x1000",
+      "outSize": "901x643",
+      "pad": 33,
+      "bbox": {
+        "x0": 69,
+        "y0": 197,
+        "bw": 835,
+        "bh": 577
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.615,
+      "despeckledPx": 0,
+      "alphaRatio": 0.6594,
+      "featherRatio": 0.0083,
+      "edgeSamples": 2388,
+      "hardEdgeRatio": 0.2538,
+      "whiteHaloRatio": 0
+    },
+    {
+      "gdid": "10818599",
+      "name": "羅技 K380s 跨平台藍牙鍵盤-珍珠白",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/76EBBA5E01-Product-33561517.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/keyboard/10818599.png",
+      "srcSize": "1000x1000",
+      "outSize": "941x456",
+      "pad": 35,
+      "bbox": {
+        "x0": 65,
+        "y0": 279,
+        "bw": 871,
+        "bh": 386
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.6677,
+      "despeckledPx": 0,
+      "alphaRatio": 0.771,
+      "featherRatio": 0.0156,
+      "edgeSamples": 2400,
+      "hardEdgeRatio": 0.1388,
+      "whiteHaloRatio": 0
+    },
+    {
+      "gdid": "10440431",
+      "name": "rapoo 雷柏 高雅系E9300G多模無線鍵盤",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/5550CFC058-SP-13224655.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/keyboard/10440431.png",
+      "srcSize": "1000x1000",
+      "outSize": "920x423",
+      "pad": 34,
+      "bbox": {
+        "x0": 74,
+        "y0": 325,
+        "bw": 852,
+        "bh": 355
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.7524,
+      "despeckledPx": 0,
+      "alphaRatio": 0.6353,
+      "featherRatio": 0.0016,
+      "edgeSamples": 2222,
+      "hardEdgeRatio": 0.721,
+      "whiteHaloRatio": 0
+    },
+    {
+      "gdid": "10818600",
+      "name": "羅技 K380s 跨平台藍牙鍵盤-玫瑰粉",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/2CD980A7E7-Product-33561518.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/keyboard/10818600.png",
+      "srcSize": "1000x1000",
+      "outSize": "941x456",
+      "pad": 35,
+      "bbox": {
+        "x0": 62,
+        "y0": 265,
+        "bw": 871,
+        "bh": 386
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.6662,
+      "despeckledPx": 0,
+      "alphaRatio": 0.7774,
+      "featherRatio": 0.0025,
+      "edgeSamples": 2401,
+      "hardEdgeRatio": 0.5269,
+      "whiteHaloRatio": 0
+    }
+  ]
+}

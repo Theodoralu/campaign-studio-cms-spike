@@ -1,0 +1,107 @@
+{
+  "params": {
+    "BG_TH": 36,
+    "CORE_HI": 90,
+    "FEATHER_R": 3,
+    "PAD_RATIO": 0.04
+  },
+  "generatedAt": "2026-07-20T08:24:21.906Z",
+  "items": [
+    {
+      "gdid": "12126031",
+      "name": "KZM 工業風304不鏽鋼套杯8件組",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/11BFD1C7F5-SP-22819976.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/camping/12126031.png",
+      "srcSize": "1000x1000",
+      "outSize": "866x846",
+      "pad": 32,
+      "bbox": {
+        "x0": 138,
+        "y0": 110,
+        "bw": 802,
+        "bh": 782
+      },
+      "srcBorderWhiteShare": 0.9701,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.6125,
+      "despeckledPx": 6673,
+      "alphaRatio": 0.5052,
+      "featherRatio": 0.0075,
+      "edgeSamples": 4050,
+      "hardEdgeRatio": 0.2985,
+      "whiteHaloRatio": 0
+    },
+    {
+      "gdid": "12125852",
+      "name": "KZM 工業風裝備收納袋80L",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/6CA8D594AC-SP-22819952.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/camping/12125852.png",
+      "srcSize": "1000x1000",
+      "outSize": "948x777",
+      "pad": 35,
+      "bbox": {
+        "x0": 68,
+        "y0": 133,
+        "bw": 878,
+        "bh": 707
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.5233,
+      "despeckledPx": 1,
+      "alphaRatio": 0.6454,
+      "featherRatio": 0.0027,
+      "edgeSamples": 2624,
+      "hardEdgeRatio": 0.2889,
+      "whiteHaloRatio": 0
+    },
+    {
+      "gdid": "12124816",
+      "name": "KZM 素面木手把低座折疊椅",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/444F9989FB-SP-22819709.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/camping/12124816.png",
+      "srcSize": "1000x1000",
+      "outSize": "705x846",
+      "pad": 31,
+      "bbox": {
+        "x0": 181,
+        "y0": 102,
+        "bw": 643,
+        "bh": 784
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.7196,
+      "despeckledPx": 0,
+      "alphaRatio": 0.4682,
+      "featherRatio": 0.0035,
+      "edgeSamples": 2496,
+      "hardEdgeRatio": 0.3177,
+      "whiteHaloRatio": 0
+    },
+    {
+      "gdid": "9887255",
+      "name": "KZM KAZMI 多功能露營折疊手拉車",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/ec4c0b5cfa-Gd-9887255.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/camping/9887255.png",
+      "srcSize": "1000x1000",
+      "outSize": "856x690",
+      "pad": 32,
+      "bbox": {
+        "x0": 126,
+        "y0": 187,
+        "bw": 792,
+        "bh": 626
+      },
+      "srcBorderWhiteShare": 1,
+      "whiteBgGate": "pass",
+      "bgRemovedRatio": 0.8361,
+      "despeckledPx": 1,
+      "alphaRatio": 0.2767,
+      "featherRatio": 0.0013,
+      "edgeSamples": 3179,
+      "hardEdgeRatio": 0.7528,
+      "whiteHaloRatio": 0
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "_fixture": "hermetic 最小 backgrounds 登記簿（W1-E 測試專用）。license／qaStatus 組合覆蓋 CP-27 全分支：A（bg-005）／C（bg-001）／B+pass（bg-008）／B+pass-with-note（bg-009）／B 無複查欄（bg-010）／B+conditional（bg-012）。meta.termsVerification 在場＝B 級商用條款前提滿足（缺席案見 backgrounds.noterms.manifest.json）。",
+  "meta": {
+    "name": "背景素材資料庫（測試複本）",
+    "version": "0.0.0-fixture",
+    "termsVerification": "（測試值）生成平台商用條款書面查證紀錄在此欄——真簿＝Higgsfield ToU §4.4 2026-08-24 查證入簿 v0.5.1"
+  },
+  "assets": [
+    { "id": "bg-001", "name": "聯名深藍夜底", "license": "C" },
+    { "id": "bg-005", "name": "灰底幾何裝飾（純變數規格）", "license": "A" },
+    { "id": "bg-008", "name": "玻璃簾幕弧形白廳", "license": "B", "qaStatus": "pass", "reviewDate": "2026-08-24" },
+    { "id": "bg-009", "name": "銀灰弧棚", "license": "B", "qaStatus": "pass-with-note", "reviewDate": "2026-08-24", "reviewNote": "（測試值）帶注記通過" },
+    { "id": "bg-010", "name": "白紗簾幕棚（未複查）", "license": "B" },
+    { "id": "bg-012", "name": "霧面點陣光牆", "license": "B", "qaStatus": "conditional", "reviewDate": "2026-08-24", "reviewNote": "（測試值）漂浮光斑 AI 痕跡＝池內保留不得任預設" }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+ "meta": {
+  "source": "規劃/tools/lib/field-dictionary.mjs（CMS_COPY／MODULE_PLAIN／VARIANT_PLAIN）＋pipeline lib/content_modules.js defaultNodeFor()＋規劃/modules.json buildSelectable",
+  "note": "產物——改真源後重跑 pipeline/tools/build_cms_hints.js（sync.sh 每次部署也會重跑）。示範句純顯示、不得寫入 draft（真值鐵律）。"
+ },
+ "modules": {
+  "mechanic": {
+   "name": "活動資訊卡",
+   "one": "左邊一張活動 banner、右邊一張優惠卡列，講「滿多少送什麼、折多少」。四款版面可換。",
+   "file": "mechanic-banner-offer-rows.png"
+  },
+  "spotlight": {
+   "name": "主打選品",
+   "one": "滿版色帶：左邊一張大選品卡、右邊標題加兩張商品卡。文字你填，商品資料自動帶。",
+   "file": "featured-spotlight.png"
+  },
+  "promoCard": {
+   "name": "促銷卡",
+   "one": "切角白卡，一張捧一件商品，可放 1～20 張。你填膠囊和標語，價格跟著商品走。",
+   "file": "featured-promo-card.png"
+  }
+ },
+ "variants": {
+  "mechanic": {
+   "info-offer-rows": {
+    "name": "優惠卡列三列",
+    "file": "mechanic-offer-rows.png",
+    "gift": false,
+    "cta": true,
+    "note": "純文字三列。每一列是「誰家的活動」＋「優惠一句話」，右邊獨立一欄放滿額數字。沒有商品圖、沒有按鈕；每一列可以填活動連結，填了整列都能點。"
+   },
+   "info-gift-rows": {
+    "name": "滿額贈雙列",
+    "file": "mechanic-gift-rows.png",
+    "gift": true,
+    "cta": true,
+    "note": "兩列，贈品用大圖。每列是滿多少送什麼，右邊一顆「搶購去」。**只有這一款是兩列，其餘三款都是三列。**"
+   },
+   "info-gift-gallery": {
+    "name": "好禮圖列",
+    "file": "mechanic-gift-gallery.png",
+    "gift": true,
+    "cta": true,
+    "note": "三列，贈品用小圖、每列可放一到兩張。左邊文字右邊圖，沒有按鈕；每一列可以填活動連結，填了整列都能點——重點是把好禮講清楚。"
+   },
+   "info-gift-rush": {
+    "name": "好禮列搶購",
+    "file": "mechanic-gift-rush.png",
+    "gift": true,
+    "cta": true,
+    "note": "三列，贈品小圖擺最左，右邊帶「搶購去」。跟好禮圖列的差別就是左右對調＋多了按鈕。"
+   }
+  }
+ },
+ "fields": {
+  "mechanic": {
+   "banner.badgeText": {
+    "ph": "例：New Balance（有店名就照店名逐字）",
+    "ghost": "小標，例：New Balance",
+    "filler": "人工",
+    "hidden": false
+   },
+   "banner.img": {
+    "ph": "",
+    "ghost": "",
+    "filler": "人工",
+    "hidden": true
+   },
+   "banner.imgs[]": {
+    "ph": "貼圖片網址；放 1 張不輪播、2～3 張自動輪播",
+    "ghost": "活動 banner 圖（直式，1～3 張）",
+    "filler": "人工",
+    "hidden": false
+   },
+   "banner.titleLine1": {
+    "ph": "例：全民運動日",
+    "ghost": "大字第一行，例：全民運動日",
+    "filler": "人工",
+    "hidden": false
+   },
+   "banner.titleLine2": {
+    "ph": "例：潮鞋 4 折起（折數照來源一字不差）",
+    "ghost": "大字第二行，例：潮鞋 4 折起",
+    "filler": "人工",
+    "hidden": false
+   },
+   "banner.url": {
+    "ph": "共用連結：個別圖沒填時用這個；全部留空就不能點",
+    "ghost": "共用連結：個別圖沒填時用這個；全部留空就不能點",
+    "filler": "人工",
+    "hidden": false
+   },
+   "banner.urls[]": {
+    "ph": "這張圖點下去去哪（Yahoo購物中心網址；留空＝用共用連結）",
+    "ghost": "這張圖點下去去哪（Yahoo購物中心網址；留空＝用共用連結）",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].brandName": {
+    "ph": "例：ASICS 亞瑟士官方旗艦（照來源逐字）",
+    "ghost": "店家名，例：ASICS",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].ctaText": {
+    "ph": "留空＝搶購去；例：立即搶、去逛逛",
+    "ghost": "搶購去",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].ctaUrl": {
+    "ph": "貼 Yahoo購物中心網址——有搶購鈕的版面會出現按鈕；優惠卡三列、好禮圖列則整列都能點",
+    "ghost": "搶購去",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].label": {
+    "ph": "例：618｜好禮一",
+    "ghost": "膠囊小標，例：618｜好禮一",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].offerText": {
+    "ph": "例：秋冬新品 9 折起",
+    "ghost": "活動文案，例：9 折起",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].rewardImgs[]": {
+    "ph": "貼贈品圖網址（最多 2 張）",
+    "ghost": "贈品圖",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].rewardText": {
+    "ph": "例：折 $300、回饋 8%、或贈品名稱",
+    "ghost": "折 $300",
+    "filler": "人工",
+    "hidden": false
+   },
+   "rows[].thresholdText": {
+    "ph": "例：滿 $3,000（照來源逐字）",
+    "ghost": "滿 $3,000",
+    "filler": "人工",
+    "hidden": false
+   },
+   "variant": {
+    "ph": "",
+    "ghost": "",
+    "filler": "系統",
+    "hidden": false
+   }
+  },
+  "spotlight": {
+   "badgeText": {
+    "ph": "例：618｜主打獨家好禮 2 選 1",
+    "ghost": "螢光標，例：618 好禮",
+    "filler": "人工",
+    "hidden": false
+   },
+   "heroCard.capsuleText": {
+    "ph": "例：芭蕾舞鞋・優雅潮流",
+    "ghost": "膠囊標，例：芭蕾舞鞋",
+    "filler": "人工",
+    "hidden": false
+   },
+   "heroCard.diagonalText": {
+    "ph": "多為英文，例：FASHION",
+    "ghost": "斜帶字",
+    "filler": "人工",
+    "hidden": false
+   },
+   "heroCard.gdid": {
+    "ph": "",
+    "ghost": "這裡放一件主打商品——點我，到左欄挑一件或貼商品網址",
+    "filler": "實抓",
+    "hidden": false
+   },
+   "heroCard.offerLine": {
+    "ph": "例：寵爸無極限・好禮折上折（有數字要跟商品資料一致）",
+    "ghost": "活動語，例：好禮折上折",
+    "filler": "人工",
+    "hidden": false
+   },
+   "productRefs[]": {
+    "ph": "",
+    "ghost": "商品卡——點我，到左欄挑一件",
+    "filler": "實抓",
+    "hidden": false
+   },
+   "subtitle": {
+    "ph": "例：精選單品 8 折起",
+    "ghost": "副標，例：精選單品 8 折起",
+    "filler": "人工",
+    "hidden": false
+   },
+   "title": {
+    "ph": "一行大標題，例：夏日運動祭",
+    "ghost": "大標題，例：夏日運動祭",
+    "filler": "人工",
+    "hidden": false
+   }
+  },
+  "promoCard": {
+   "capsuleText": {
+    "ph": "例：芭蕾舞鞋・優雅潮流",
+    "ghost": "膠囊標，例：芭蕾舞鞋",
+    "filler": "人工",
+    "hidden": false
+   },
+   "diagonalText": {
+    "ph": "例：618 最強優惠、2026 NEW IN",
+    "ghost": "斜角標語",
+    "filler": "人工",
+    "hidden": false
+   },
+   "gdid": {
+    "ph": "",
+    "ghost": "這張卡放一件商品——點我，到左欄挑一件或貼商品網址",
+    "filler": "實抓",
+    "hidden": false
+   },
+   "offerLine": {
+    "ph": "例：寵爸無極限・好禮折上折",
+    "ghost": "活動語，例：好禮折上折",
+    "filler": "人工",
+    "hidden": false
+   },
+   "priceNote": {
+    "ph": "原價後面那句短話，例：挑戰低價",
+    "ghost": "｜挑戰低價",
+    "filler": "人工",
+    "hidden": false
+   }
+  }
+ },
+ "images": [
+  "mechanic-banner-offer-rows.png",
+  "featured-spotlight.png",
+  "featured-promo-card.png",
+  "mechanic-offer-rows.png",
+  "mechanic-gift-rows.png",
+  "mechanic-gift-gallery.png",
+  "mechanic-gift-rush.png"
+ ]
+}

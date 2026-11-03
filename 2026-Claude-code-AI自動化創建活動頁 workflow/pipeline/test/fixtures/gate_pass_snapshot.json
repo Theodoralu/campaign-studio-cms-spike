@@ -1,0 +1,1184 @@
+{
+  "sourceUrl": "https://tw.buy.yahoo.com/category/4481524",
+  "fetchedAt": "2026-07-22T14:04:14.927Z",
+  "brand": "AWANA",
+  "promotions": [
+    {
+      "actid": "718479",
+      "title": "一品川流 廚房用具鍋具 便當盒 優惠中",
+      "short": "滿99大優惠",
+      "startTs": 1763344800,
+      "endTs": 1798768799,
+      "period": "2025.11.17 ~ 2027.01.01",
+      "url": "https://tw.buy.yahoo.com/activity/onsale?actid=718479",
+      "banner": "https://img.yec.tw/zp/MipBanners/8D13652637-718479.jpg"
+    },
+    {
+      "actid": "19666",
+      "title": "(夜殺限定)居家餐廚滿499享82折",
+      "short": "滿499享82折",
+      "startTs": 1784721600,
+      "endTs": 1784771999,
+      "period": "2026.07.22 ~ 2026.07.23",
+      "url": "https://tw.buy.yahoo.com/activity/onsale/cp?actid=19666&sw=594b46d2580bbbf3",
+      "banner": null
+    },
+    {
+      "actid": "3316949",
+      "title": "日本CAFEC 9折",
+      "short": "滿1件9折",
+      "startTs": 1775026800,
+      "endTs": 1798732799,
+      "period": "2026.04.01 ~ 2026.12.31",
+      "url": "https://tw.buy.yahoo.com/ystore/wuz190304/pricePromo?promotion_id=3316949",
+      "banner": "https://img.yec.tw/qs/mall/yps/common/promo_act_banner_940x360.jpg"
+    },
+    {
+      "actid": "3269856",
+      "title": "美食大賞！送保鮮燜燒罐",
+      "short": "滿1件送贈品",
+      "startTs": 1696987800,
+      "endTs": 1880121599,
+      "period": "2023.10.11 ~ 2029.07.30",
+      "url": "https://tw.buy.yahoo.com/ystore/mx_molifun/pricePromo?promotion_id=3269856",
+      "banner": "https://img.yec.tw/qs/mall/yps/common/promo_act_banner_940x360.jpg"
+    }
+  ],
+  "activities": {
+    "19666": {
+      "meta": {
+        "resultsTotal": 24191
+      },
+      "count": 20,
+      "title": "(夜殺限定)居家餐廚滿499享82折",
+      "period": "2026.07.22 ~ 2026.07.23",
+      "startTs": 1784721600,
+      "endTs": 1784771999,
+      "pageStartTs": 1784721600,
+      "pageEndTs": 1784771940,
+      "pagePeriod": "2026.07.22 ~ 2026.07.23",
+      "liveness": "online",
+      "archived": false
+    },
+    "718479": {
+      "meta": {
+        "resultsTotal": 1044
+      },
+      "count": 20,
+      "title": "一品川流 廚房用具鍋具 便當盒 優惠中",
+      "period": "2025.11.17 ~ 2027.01.01",
+      "startTs": 1763344800,
+      "endTs": 1798768799,
+      "pageStartTs": 1763344800,
+      "pageEndTs": 1798768740,
+      "pagePeriod": "2025.11.17 ~ 2027.01.01",
+      "liveness": "online",
+      "archived": false
+    },
+    "3269856": {
+      "meta": {
+        "resultsTotal": null
+      },
+      "count": 0,
+      "title": "美食大賞！送保鮮燜燒罐",
+      "period": "2023.10.11 ~ 2029.07.30",
+      "startTs": 1696987800,
+      "endTs": 1880121599,
+      "pageStartTs": null,
+      "pageEndTs": null,
+      "pagePeriod": null,
+      "liveness": "online",
+      "archived": false
+    },
+    "3316949": {
+      "meta": {
+        "resultsTotal": null
+      },
+      "count": 0,
+      "title": "日本CAFEC 9折",
+      "period": "2026.04.01 ~ 2026.12.31",
+      "startTs": 1775026800,
+      "endTs": 1798732799,
+      "pageStartTs": null,
+      "pageEndTs": null,
+      "pagePeriod": null,
+      "liveness": "online",
+      "archived": false
+    }
+  },
+  "products": [
+    {
+      "gdid": "9793492",
+      "name": "優得俠客品茶壺-附止滑墊-1000ml-1入組",
+      "desc": [
+        "可當泡茶壺或公杯壺",
+        "耐高溫#304不銹鋼濾網設計",
+        "耐高溫#304不鏽鋼濾網設計"
+      ],
+      "price": 490,
+      "marketPrice": 600,
+      "disc": 82,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=9793492",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/308bae7f43-Gd-9793492.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/87a550fa72-Gd-9793492.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "10937347",
+      "name": "日本製橢圓形濾水籃-3入",
+      "desc": [
+        "日本製造品質安心",
+        "多用途使用清洗去除雜質",
+        "可清洗各種食材水果"
+      ],
+      "price": 360,
+      "marketPrice": 500,
+      "disc": 72,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10937347",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/EE9BDE7B16-SP-16011072.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/66b28409cb-Gd-10937347.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/dafb4d8a2b-Gd-10937347.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "10937346",
+      "name": "日本製橢圓形洗菜盆x2入＋濾水籃x2入",
+      "desc": [
+        "日本製造品質安心",
+        "多用途使用清洗去除雜質",
+        "可清洗各種食材水果"
+      ],
+      "price": 448,
+      "marketPrice": 700,
+      "disc": 64,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10937346",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/EB5659C689-SP-16011009.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/993014600A-SP-16011009.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/81b3088372-Gd-10937346.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/23c5d53087-Gd-10937346.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "10937348",
+      "name": "日本製橢圓形洗菜盆-3入",
+      "desc": [
+        "日本製造品質安心",
+        "多用途使用清洗去除雜質",
+        "可清洗各種食材水果"
+      ],
+      "price": 360,
+      "marketPrice": 500,
+      "disc": 72,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10937348",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/707379471B-SP-16010893.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1B585FE4FB-SP-16010893.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0bc97451c1-Gd-10937348.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8160a675ff-Gd-10937348.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "10937349",
+      "name": "瑪露塔316不鏽鋼抗菌防霉雙面砧板-1入 (贈送砧板架 X 1入)",
+      "desc": [
+        "耐酸鹼抗腐蝕耐高溫",
+        "雙面設計使用",
+        "可當切菜板或切水果板"
+      ],
+      "price": 688,
+      "marketPrice": 800,
+      "disc": 86,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10937349",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/f4d06cc0f8-Gd-10937349.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/74d2cba338-Gd-10937349.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8452014",
+      "name": "美味關係/手提式沖茶袋-小-36枚入x12包",
+      "desc": [
+        "台灣製造品質安心",
+        "通過食物用分析檢驗合格",
+        "纖維細緻、過濾效果佳"
+      ],
+      "price": 460,
+      "marketPrice": 600,
+      "disc": 77,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8452014",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F038CFAEF5-SP-7164328.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F038CFAEF5-SP-7164328.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458337",
+      "name": "UdiLife 品木屋合木木煎-2入",
+      "desc": [
+        "不沾鍋專用煎匙",
+        "使用方便順手",
+        "好拿好握不燙手"
+      ],
+      "price": 249,
+      "marketPrice": 400,
+      "disc": 62,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458337",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3E832BE918-SP-7169972.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3E832BE918-SP-7169972.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458338",
+      "name": "UdiLife 品木屋。原木飯碗-中-4入組",
+      "desc": [
+        "手工研磨製作獨特",
+        "經ＳＧＳ檢驗認證使用安心",
+        "原木材質摔地不易破裂"
+      ],
+      "price": 780,
+      "marketPrice": 1000,
+      "disc": 78,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458338",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2DE5F46DD6-SP-7170219.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2DE5F46DD6-SP-7170219.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458342",
+      "name": "UdiLife GOTO保溫瓶護套/大/背帶-4入",
+      "desc": [
+        "潛水衣材質彈性佳",
+        "保護保溫瓶不刮傷",
+        "底部止滑設計"
+      ],
+      "price": 480,
+      "marketPrice": 600,
+      "disc": 80,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458342",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/8EFF261FF3-SP-7169900.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8EFF261FF3-SP-7169900.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458388",
+      "name": "UdiLife 品木屋。圓型深盤-大-2入組",
+      "desc": [
+        "手工研磨製作獨特",
+        "經ＳＧＳ檢驗認證使用安心",
+        "原木材質摔地不易破裂"
+      ],
+      "price": 780,
+      "marketPrice": 1000,
+      "disc": 78,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458388",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2EC327B4E1-SP-7170400.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2EC327B4E1-SP-7170400.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458395",
+      "name": "UdiLife 品木屋。圓型深盤-中-2入組",
+      "desc": [
+        "手工研磨製作獨特",
+        "經ＳＧＳ檢驗認證使用安心",
+        "原木材質摔地不易破裂"
+      ],
+      "price": 590,
+      "marketPrice": 800,
+      "disc": 74,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458395",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/911FECD1D1-SP-7170430.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/911FECD1D1-SP-7170430.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458435",
+      "name": "UdiLife 樂司/不鏽鋼料理夾-6入",
+      "desc": [
+        "SGS檢驗合格品質安心",
+        "採用#304不銹鋼耐高溫",
+        "流線造型握感極佳"
+      ],
+      "price": 590,
+      "marketPrice": 800,
+      "disc": 74,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458435",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/4EF205F539-SP-7175357.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4EF205F539-SP-7175357.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458445",
+      "name": "Maluta極緻七層不鏽鋼深型炒鍋-雙耳-40cm",
+      "desc": [
+        "臺灣製造精品通過SGS檢驗合格",
+        "內層316不銹鋼耐酸鹼抗腐蝕",
+        "複合金鍋身厚度2.7mm無塗層"
+      ],
+      "price": 2798,
+      "marketPrice": 4200,
+      "disc": 67,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458445",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/e40a610772-Gd-8458445.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/dad6be484f-Gd-8458445.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458457",
+      "name": "保溫不倒杯470ml-2入",
+      "desc": [
+        "神奇不倒杯碰撞不易推翻",
+        "強力魔力吸盤不倒就是不倒",
+        "垂直90度向上輕鬆拿取"
+      ],
+      "price": 1088,
+      "marketPrice": 1600,
+      "disc": 68,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458457",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/EAFAA055CC-SP-7174357.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/EAFAA055CC-SP-7174357.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458461",
+      "name": "飄逸杯-500ml",
+      "desc": [
+        "台灣製造精品品質安心",
+        "可泡茶也可過濾咖啡",
+        "輕輕一按茶水自動流下"
+      ],
+      "price": 519,
+      "marketPrice": 800,
+      "disc": 65,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458461",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/1B8CA5EA2B-SP-7174425.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1B8CA5EA2B-SP-7174425.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458485",
+      "name": "多功能矽膠耐熱料理夾-短-26cm-2入組",
+      "desc": [
+        "料理食物好幫手",
+        "不銹鋼＋矽膠材質耐高溫",
+        "好沖好洗好握好拿"
+      ],
+      "price": 330,
+      "marketPrice": 450,
+      "disc": 73,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458485",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/ee5e951741-Gd-8458485.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4ebecf4a04-Gd-8458485.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458491",
+      "name": "多功能矽膠耐熱料理夾-長-30cm-2入組",
+      "desc": [
+        "料理食物好幫手",
+        "不銹鋼＋矽膠材質耐高溫",
+        "好沖好洗好握好拿"
+      ],
+      "price": 348,
+      "marketPrice": 500,
+      "disc": 70,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458491",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/ee5e951741-Gd-8458491.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4ebecf4a04-Gd-8458491.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458504",
+      "name": "KIYODO 銘匠玻璃壺-2.3L-2入組",
+      "desc": [
+        "SGS檢驗合格使用安心",
+        "可當咖啡壺或花茶壺",
+        "耐熱玻璃材質高透明度"
+      ],
+      "price": 748,
+      "marketPrice": 1100,
+      "disc": 68,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458504",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/D1C8B93A06-SP-7178151.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/42AA829ABA-SP-7178151.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458534",
+      "name": "王樣316不鏽鋼隔熱碗-12cm-6入",
+      "desc": [
+        "食器專用SGS檢驗合格",
+        "雙層真空隔熱不燙手",
+        "內層採用316加厚不鏽鋼"
+      ],
+      "price": 1173,
+      "marketPrice": 1500,
+      "disc": 78,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458534",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/8F388CCA40-SP-7177591.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5DA08580ED-SP-7177591.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "8458537",
+      "name": "王樣316不鏽鋼隔熱碗-14cm-6入",
+      "desc": [
+        "食器專用SGS檢驗合格",
+        "雙層真空隔熱不燙手",
+        "內層316不鏽鋼"
+      ],
+      "price": 1488,
+      "marketPrice": 2100,
+      "disc": 71,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8458537",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/8F388CCA40-SP-7177635.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5DA08580ED-SP-7177635.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "718479"
+    },
+    {
+      "gdid": "12027534",
+      "name": "TYESO易拉杯 304不鏽鋼500ml大容量保溫杯 防漏旋轉杯蓋附提手保溫杯 手提杯蓋運動保溫杯 304不鏽鋼保溫環保咖啡杯",
+      "desc": [
+        "大容量手提式運動保溫杯",
+        "304不鏽鋼雙層真空保溫設計",
+        "防漏旋轉杯蓋車載咖啡杯"
+      ],
+      "price": 349,
+      "marketPrice": 648,
+      "disc": 54,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12027534",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/81ADF84D1B-SP-22315500.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C3F9C2CDD2-SP-22315500.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "11992440",
+      "name": "Reddot紅點生活 日系免綁帶可替換擦手雙口袋圍裙(可拆卸吸水毛巾布)",
+      "desc": [
+        "日系簡約設計，居家與工作皆合適",
+        "防水防油材質 清潔不殘留",
+        "雙口袋實用配置"
+      ],
+      "price": 229,
+      "marketPrice": 1500,
+      "disc": 15,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11992440",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/1F9220DE7F-SP-22095221.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CD903F6EAF-SP-22095221.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A674B66CA6-SP-22095221.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/243DF3885E-SP-22095221.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/AAD711194D-SP-22095221.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "11480047",
+      "name": "英國FGODA 萌趣動物印花頸掛式防水圍裙-多款可選 (兒童節)",
+      "desc": [
+        "可調節卡扣適合多種身形",
+        "加長系帶滿足各體型需求",
+        "親膚耐磨，反覆水洗不易掉色"
+      ],
+      "price": 257,
+      "marketPrice": 1300,
+      "disc": 20,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11480047",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2969AFF5BA-SP-18826950.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/582A58767B-SP-18826950.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "12066033",
+      "name": "【日本dretec】日本「利萊特」小方塊電子式溫濕度計-白色(O-451WT)",
+      "desc": [
+        "採用LED亮光、音效警示",
+        "中暑、流感警示功能",
+        "用臉部標記顯示"
+      ],
+      "price": 660,
+      "marketPrice": 760,
+      "disc": 87,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12066033",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/432D58438F-SP-22505352.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C22EAF0479-SP-22505352.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/760333D420-SP-22505352.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "12053101",
+      "name": "Prepara Latchlok CLICK系列 TRITAN保鮮盒 2B(990ml)",
+      "desc": [
+        "開關氣孔蓋，簡單輕鬆保鮮",
+        "Tritan材質，輕巧安全無毒",
+        "氣孔上蓋，可直接帶蓋微波"
+      ],
+      "price": 525,
+      "marketPrice": 656,
+      "disc": 80,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12053101",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/663792F034-SP-22443590.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/663792F034-SP-22443590.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "11713254",
+      "name": "【荷生活】烏檀木整木底部站腳降噪切菜砧板 貓咪雕刻堅韌耐砍整木砧板-中號1入組",
+      "desc": [
+        "一體式板面 不藏污",
+        "整木芯 堅韌不開裂",
+        "激光雕刻 安全無毒"
+      ],
+      "price": 1199,
+      "marketPrice": 2397,
+      "disc": 50,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11713254",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/4B10061F32-SP-20652464.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/592DA3A274-SP-20652464.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E382EE24C7-SP-20652464.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "12044332",
+      "name": "KOM x 達克比｜可微波不鏽鋼便當盒1入(飯碗/湯碗/菜盤/湯匙/隔熱套)",
+      "desc": [
+        "料理盛裝/烹調備料/儲存保鮮",
+        "內附316湯匙達克比彩色激光",
+        "雙層隔熱湯碗+便當盒安全不燙手"
+      ],
+      "price": 788,
+      "marketPrice": 1999,
+      "disc": 39,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12044332",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/310289EBD9-SP-22378104.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5C601AF87C-SP-22378104.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A2C91C0C92-SP-22378104.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/61E5C517ED-SP-22378104.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/112F03EC1D-SP-22378104.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/122BD1E7F0-SP-22378104.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "11939726",
+      "name": "【鍋太后】學生餐盤 304不鏽鋼4分隔餐盤26x18.5x4.8cm(圓弧形)-3入組",
+      "desc": [
+        "抗腐蝕、耐酸鹼、淸洗更方便",
+        "內角圓潤 曲線設計",
+        "304不鏽鋼 多種款式任選"
+      ],
+      "price": 599,
+      "marketPrice": 1050,
+      "disc": 57,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11939726",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/A16A5DD19B-SP-21844899.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CF61AA266E-SP-21844899.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0B4F252CB4-SP-21844899.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7C6DCDD60E-SP-21844899.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C948845DC0-SP-21844899.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "11642355",
+      "name": "日本CAPTAIN STAG 保冰冰磚/保冰劑SS-350g(3入組)",
+      "desc": [
+        "可重複使用，安全又環保",
+        "外體堅固耐用，不易變形",
+        "提把圓潤，方便攜帶"
+      ],
+      "price": 559,
+      "marketPrice": 960,
+      "disc": 58,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11642355",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/69D0804EB4-SP-20115032.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D401C72A3D-SP-20115032.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DDF7071B41-SP-20115032.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "11426208",
+      "name": "萬土燒 嚕嚕米Moomin正版授權日式燉煮砂鍋 八方湯鍋多功能陶鍋 湯鍋 土鍋 佛跳牆 喜宴 雞湯-冬夜款4300ML",
+      "desc": [
+        "鎖味鎖鮮 保留食材原汁原味",
+        "精選陶士 天然健康 更耐高溫",
+        "細煮慢燉 一鍋搞定"
+      ],
+      "price": 2199,
+      "marketPrice": 4280,
+      "disc": 51,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11426208",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/E5219AE5D6-SP-18656577.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A4D9D15CE2-SP-18656577.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/EAC5F93495-SP-18656577.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B99DEE705C-SP-18656577.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/62EF22E807-SP-18656577.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "10677894",
+      "name": "【日本NAKAYA】日本製造可瀝水雙層收納保鮮盒1100ML",
+      "desc": [
+        "密封不串味 保持食物新鮮",
+        "帶蓋方便疊加 節省空間好收納",
+        "瀝水保鮮 維持新鮮度"
+      ],
+      "price": 79,
+      "marketPrice": 220,
+      "disc": 36,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10677894",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/E2B43456E3-SP-14529198.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/20EBAA8EA5-SP-14529198.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "10574599",
+      "name": "日本NAKAYA 日本製方形攜帶式水壺800ml-3入組",
+      "desc": [
+        "果汁冷藏 享受冰爽時刻",
+        "旋轉擰蓋 密封不易漏水",
+        "大口徑瓶口 方便淸洗"
+      ],
+      "price": 399,
+      "marketPrice": 540,
+      "disc": 74,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10574599",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/AEC26DE40F-SP-13878777.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E5D52233D6-SP-13878777.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/51E5BBD041-SP-13878777.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3C99D9766A-SP-13878777.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "10325234",
+      "name": "ADERIA 日本製耐熱玻璃清酒杯片口杯3件套組",
+      "desc": [
+        "-只壺，兩只杯，溫酒烹茶",
+        "昜淸潔 好收納",
+        "厚實溫潤的手造感"
+      ],
+      "price": 1299,
+      "marketPrice": 2380,
+      "disc": 55,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10325234",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/BBD1CBD6FD-SP-12650137.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A2ACC47329-SP-12650137.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/69307958B1-SP-12650137.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "10103933",
+      "name": "日本珍珠金屬 日本製不鏽鋼牛奶鍋14cm(有刻度)",
+      "desc": [
+        "多種爐具皆適用",
+        "一鍋滿多種需求",
+        "日本製造 安心保障"
+      ],
+      "price": 599,
+      "marketPrice": 1700,
+      "disc": 35,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10103933",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/5462312FE2-SP-11693482.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/15BADD2CAF-SP-11693482.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "9878007",
+      "name": "日本FOREVER 耐熱玻璃玫瑰金把手水壺1800ML",
+      "desc": [
+        "線條流暢 觸感溫潤舒適",
+        "高硼硅玻璃 耐熱防爆",
+        "大口徑 清洗更方便"
+      ],
+      "price": 529,
+      "marketPrice": 1280,
+      "disc": 41,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=9878007",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/BE3703D965-SP-10963057.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/FC8A6082B8-SP-10963057.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4E844DACA7-SP-10963057.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "9187376",
+      "name": "NAKAYA 日本製造可瀝水雙層收納保鮮盒6件/組",
+      "desc": [
+        "密封不串味 保持食物新鮮",
+        "帶蓋方便疊加 節省空間好收納",
+        "瀝水保鮮 維持新鮮度"
+      ],
+      "price": 459,
+      "marketPrice": 1020,
+      "disc": 45,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=9187376",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/B92A4EC9F8-SP-8939359.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1DA91072E8-SP-8939359.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/642F77EFD9-SP-8939359.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "8937528",
+      "name": "日本下村工業 日本製方形不鏽鋼湯鍋/泡麵鍋15CM",
+      "desc": [
+        "鍋內刻度 方便目測",
+        "可烹飪泡麵、拉麵等料理",
+        "可使用IH爐等"
+      ],
+      "price": 1099,
+      "marketPrice": 1680,
+      "disc": 65,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8937528",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/7b9b63b479-Gd-8937528.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6bff9a87e2-Gd-8937528.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2b48d7f269-Gd-8937528.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6df7d94012-Gd-8937528.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0358e3b87b-Gd-8937528.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/44fd1598c4-Gd-8937528.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "12184796",
+      "name": "HARIO V60無漂白03濾紙(1-6杯)400張",
+      "desc": [
+        "V60專用錐形濾紙",
+        "可以充分萃取咖啡原味"
+      ],
+      "price": 700,
+      "marketPrice": 1000,
+      "disc": 70,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12184796",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/076820FA7F-SP-23120973.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/FD1FD0DA53-SP-23120973.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "12184795",
+      "name": "HARIO V60漂白03濾紙(1-6杯)400張",
+      "desc": [
+        "V60專用錐形濾紙",
+        "可以充分萃取咖啡原味"
+      ],
+      "price": 700,
+      "marketPrice": 1000,
+      "disc": 70,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12184795",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/9518BAB0A0-SP-23121027.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A49D835A64-SP-23121027.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    },
+    {
+      "gdid": "12121641",
+      "name": "KOM x 角落小夥伴｜ECO易扣隔熱不鏽鋼便當盒14cm(飯碗/湯碗/菜盤/湯匙/隔熱套)",
+      "desc": [
+        "料理盛裝/烹調備料/儲存保鮮",
+        "與角落小夥伴奇幻的玩具工廠聯名",
+        "雙層隔熱湯碗+便當盒安全不燙手"
+      ],
+      "price": 618,
+      "marketPrice": 1999,
+      "disc": 31,
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12121641",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/D85BF70C87-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/EBA010371C-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E3C038B369-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/74EE1E77F6-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0174246228-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/141ABE65DB-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/ADD056469C-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/BC5F680C11-SP-22804660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/EA9C0A3676-SP-22804660.jpg"
+      ],
+      "offer": null,
+      "source": "activity",
+      "actid": "19666"
+    }
+  ],
+  "hits": [
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-1000ml-黑色(VCS-03B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110822",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "日本製HARIO耐熱玻璃咖啡壺-1000ml-1組",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11010351",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "日本製HARIO耐熱玻璃咖啡壺-1000ml-2組",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11010346",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60_日本耐熱玻璃咖啡壺700ml+濾杯組-灰白色-日本製",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12112482",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-800ml-黑色(XVD-80B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110826",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "Driver Moka耐熱玻璃壺400ml-2入",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10843425",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】Zebrang_日本18-8不銹鋼咖啡細口壺&手沖壺-800ml-霧黑(ZB-DK-MB)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11945802",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "日本霜山 耐熱玻璃咖啡分享壺-480ml",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11836717",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【iwaki】耐熱玻璃滴漏式咖啡壺-600ml",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10418595",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "Driver波紋耐熱玻璃壺600ml-2入",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12140641",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "HARIO V60經典咖啡壺800ml(日本製分享壺)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12184352",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】日本冷熱兩用耐熱玻璃咖啡壺-700ml-黑色-日本製+無漂白咖啡濾紙1~4杯用110張(VDIR-02-B+VCF-02-110M)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12079605",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-450ml-迷彩綠+【HARIO】V60_日本無漂白咖啡濾紙-圓錐形-110張*1包-1~2杯用-日本製",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11968147",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60_日本冷熱兩用耐熱玻璃咖啡壺-700ml-黑色1入-日本製",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12112481",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "MUVNA 慕威納 螢盞分享壺(450ml)咖啡壺、泡茶壺 - 水墨黑",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11836713",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】日本冷熱兩用耐熱玻璃咖啡壺-700ml-黑色-日本製+酵素漂白咖啡濾紙-50張*1包-1~4杯用",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12129062",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "AWANA 芯動咖啡壺(500ml)MD-500",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11683444",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "Driver波紋耐熱玻璃壺400ml+600ml",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12142867",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】日本耐熱玻璃咖啡分享壺&大茶海-煙熏黑-600ml",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12129061",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "台灣製玻璃咖啡壺-605cc-塑膠手把x1+304不鏽鋼沖泡茶濾網組x1入",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11010354",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-450ml-迷彩綠",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11968144",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-450ml-迷彩綠+【HARIO】V60_日本無漂白咖啡濾紙-圓錐形-40張*1包-1~2杯用-日本製",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11968146",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "Driver波紋耐熱玻璃壺400ml-2入",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12140642",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60_outdoor_日本不銹鋼咖啡手沖壺-500ml(O-VCSM-50-HSV)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12079609",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】新球型_日本茶&咖啡耐熱玻璃壺-1000ml-黑色-日本製(TCR-100B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110824",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60_outdoor_迷你雲朵_日本不銹鋼咖啡細口壺&手沖壺-500ml",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12135977",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-700ml黑色+日本PP樹脂咖啡濾杯1-4杯+咖啡濾紙50張",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12135976",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】【HARIO】日本冷熱兩用耐熱玻璃咖啡壺-700ml-黑色-日本製(VDIR-02-B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12079610",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【iwaki】多用途耐熱玻璃咖啡壺附濾杯-1L",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10418589",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】日本冷熱兩用耐熱玻璃咖啡壺-700ml-黑色-日本製+酵素漂白咖啡濾紙1~4杯用110張(VDIR-02-B+VCF-02-110W)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12079612",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "600ml雲朵壺",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11190428",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60雲朵_日本耐熱玻璃沖泡壺&咖啡壺-600ml-白色-2~5杯用(XGT-60TW)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11133416",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】新球型_日本茶&咖啡耐熱玻璃壺-1000ml-咖啡色-日本製(TCN-100CBR)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110825",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "日本FOREVER 日式手沖咖啡用具5件禮盒組",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10858398",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-700ml-黑色(VCS-02B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110827",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-450ml-黑色(VCS-01B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110823",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60雲朵_日本耐熱玻璃沖泡壺&咖啡壺-600ml-橘色-2~5杯用(XGT-60TO)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11133413",
+      "subcat": "耐熱咖啡壺"
+    },
+    {
+      "cat": "餐廚/杯瓶/淨水/寵物\\t咖啡/茶具\\t耐熱咖啡壺",
+      "name": "【HARIO】V60日本耐熱玻璃沖泡壺&咖啡壺-600ml-黑色(XVD-60B)",
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11110828",
+      "subcat": "耐熱咖啡壺"
+    }
+  ],
+  "warnings": [
+    "actid 718479：商品池 1044 件、本次僅取內嵌首批 20 件（不足由人工指定補抓＝R3）",
+    "actid 19666：商品池 24191 件、本次僅取內嵌首批 20 件（不足由人工指定補抓＝R3）"
+  ],
+  "subcatDist": {
+    "耐熱咖啡壺": 38
+  },
+  "minDisc": 15
+}

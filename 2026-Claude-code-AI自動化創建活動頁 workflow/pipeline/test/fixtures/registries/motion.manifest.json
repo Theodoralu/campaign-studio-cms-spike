@@ -1,0 +1,8 @@
+{
+  "_fixture": "hermetic 最小 motion 登記簿（W1-E 測試專用）。motion-002 鏡射真簿＝license C（試作預覽）；motion-901 虛構＝license A 放行案（真簿現況全 C、A 級素材待「當檔商品照現生」批）。",
+  "meta": { "name": "互動設計資產資料庫（測試複本）", "version": "0.0.0-fixture" },
+  "assets": [
+    { "id": "motion-002", "name": "kv-slide（輪播滑動版）", "license": "C", "status": "試作預覽" },
+    { "id": "motion-901", "name": "（虛構）當檔現生動畫＝自產授權", "license": "A" }
+  ]
+}

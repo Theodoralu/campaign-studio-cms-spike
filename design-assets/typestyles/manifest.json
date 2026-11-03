@@ -1,0 +1,1593 @@
+{
+  "meta": {
+    "name": "字風登記簿（活動標題造型配方戶口）",
+    "version": "0.5.5",
+    "spec": "2026-AI自動化活動頁生成規劃/68_色彩工具預覽改跑真引擎_批判前置_2026-09-03.md",
+    "createdAt": "2026-09-04",
+    "updatedAt": "2026-09-08",
+    "decision": "68 號第二批 Q2 開簿＋Q10 入庫審查制：每筆 review.status ∈ pending｜approved｜rejected；proposal_pack.js 值域只認 approved、色彩工具打包只帶 approved（pending 可預覽、打包出聲）。首批 27 款全部 pending，逐一審過才翻 approved。 ｜2026-09-04 使用者裁決：字型已載入的 16 款（Noto 9＋Zen Kaku 7）一批 approved；11 款（GenJyuuGothic 9／TASAExplorer／BoutiqueBitmap）維持 pending 等 CP-27 授權查證。｜2026-09-08 CMS 字型版權盤點批：11 款 pending 的主字型全數查完授權並入字體簿（font-019～024）、fontId 補齊；'Yazelin Display Local'→'Unbounded Sans CJK Local'、'Unbounded Sans Local'→'Unbounded Local'（原名是錯的）；emfont 4 條 @import 自 typestyles.css 拆到工具頁；review.status 一律不動＝授權查完≠審過（載入路與缺字兩件仍在 blockers）｜2026-09-08 使用者裁兩題：①CP-27 納管字型／字風（gate v17）②待審字風正式載入路＝Google 在庫改 css2（TASA Explorer／Unbounded）、乾淨 GitHub 上游走 jsdelivr 鎖版本（無界黑）、MiSans TC 自 N1B 拿掉；源柔黑體（作者只放 zip）與精品點陣方點（上游未明）無法走 jsdelivr＝仍 emfont 工具預覽、另開子集化自架批｜2026-09-08 使用者「走建議 A」：N1B、Y10 翻 approved（Y19／Y1 仍 pending 待點頭）",
+    "division": "本簿＝字風『戶口與審查狀態』；造型配方真值＝design-proposal-kit/deliverables/電商活動標題字風型錄.html；可套用的 CSS＝同資料夾 typestyles.css（抽自工具頁字風區、由 sync-registry-to-colortool.mjs 回注工具頁＝機器複本）；字型家族庫存＝design-assets/fonts/manifest.json（fontId 對得上才填）。",
+    "fontLoadedNote": "fontLoaded＝主字型是否在引擎／工具實際載入的 Google Fonts 家族內（Noto Sans TC／Zen Kaku Gothic New／Zen Maru Gothic／DotGothic16）；false＝在沒裝那套字的電腦上會退成後備字型＝「我的電腦上是好的」型缺陷（68 號補充評估乙）",
+    "cssFile": "design-assets/typestyles/typestyles.css",
+    "sourceTool": "2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html（字風 CSS 區 2026-09-04 抽出）",
+    "costumeModes": {
+      "note": "換妝配方（2026-09-05 設計師 QA 裁決）。缺欄＝generic。工具與引擎只讀這裡，不在程式裡另抄名單。",
+      "generic": "非中性色照款內色序輪替：主色→強調色→主色淡階；黑白中性保留",
+      "hue": "只換色相、保飽和度亮度（霓虹家）",
+      "ink": "墨色通道→主色（框／填／堆疊襯字）",
+      "backdrop": "字體本體→主色深階（同色相 L-20）；底紋／陰影襯層→同色相亮 22 點（清楚可見又比字淺；2026-09-05 使用者：原 tintBrand 太淺看不見）",
+      "glow": "字體本體→主色；光暈層→比主色淺很多（80% 白；2026-09-05 由 62% 提亮＝明度拉開）",
+      "tint": "描邊→主色；暈染斑點→主色與強調色的淡階（保留粉彩暈染味）",
+      "keep": "保留原妝、開關不作用（銀光兩款＝妝即身分）",
+      "pure": "（自動判定）規則裡沒有任何顏色可換的純字形款：換妝開＝字體本體直接吃主色（亮底壓深、深底提亮）",
+      "outline": "白字＋深描邊款（H1）：描邊→主色深階（62% 黑）、白字保留、其餘照輪替——描邊換成主色本身會在淺主題下糊成一片"
+    },
+    "migration20260905": "Y 系 18 款＋免費骨架 4 款自色彩工具頁遷入（全部 pending＝可預覽不可打包，等審）；「思源黑體」不遷＝它就是版式原字、留在工具當「不套字風」預設",
+    "pureFollowsTheme": {
+      "date": "2026-09-05",
+      "decision": "Q4-B：純字形款（規則裡沒有自己顏色）字身在所有版式跟主題「主色」，含 ②型（001／002／003 等）；型錄款不變。實作＝typestyles.css 每條純字形規則 color:var(--campaign-hero-ink,var(--campaign-title,inherit))；--campaign-hero-ink＝引擎 hv2ApplyHeroInk 對 hero 真底色把主色壓深／提亮到 4.5:1（保色相）"
+    },
+    "costumePreviewOnly": {
+      "date": "2026-09-05",
+      "finding": "（已解，同日晚場）原本換妝只在色彩工具預覽；現在＝引擎依登記簿配方（樣式表 --ts-costume）＋頁面主題變數用共用算法 design-assets/typestyles/costume-engine.js 自算注入，提案包／草稿只帶 titleStyleThemed 布林，CMS 面板有開關；預覽＝上線同一份數學",
+      "resolved": "2026-09-05"
+    },
+    "lightAdaptive": {
+      "date": "2026-09-06",
+      "decision": "使用者裁「主題自適應」：淡粉彩型錄款亮底洗白→深底維持原妝、亮底 body.shell-v2:not(.surface-dark) 壓深字身色到對白底 ≥4.5。第一批 6 款實色（A3/A6/F2/B3/B6/F5）；白字＋描邊款 A2/A4/C6/F3/H1＋H2 待第二輪",
+      "version": "0.5.1"
+    }
+  },
+  "assets": [
+    {
+      "id": "css-a2",
+      "code": "A2",
+      "name": "雙重描邊",
+      "displayName": "A2 雙重描邊",
+      "cssClass": "css-a2",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "描邊外再包一層描邊，貼紙感最強、遠看依然清楚。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-a3",
+      "code": "A3",
+      "name": "網點漸層",
+      "displayName": "A3 網點漸層",
+      "cssClass": "css-a3",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "material-fixed",
+      "advice": "高密度細網點當材質填充（不搶字形），霧面印刷感。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-a4",
+      "code": "A4",
+      "name": "暈染上色",
+      "displayName": "A4 暈染上色",
+      "cssClass": "css-a4",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "白實心字＋深藍框＋粉彩色斑內紋，字重扎實、層級拉開。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      },
+      "costumeMode": "tint"
+    },
+    {
+      "id": "css-a6",
+      "code": "A6",
+      "name": "彩虹漸層",
+      "displayName": "A6 彩虹漸層",
+      "cssClass": "css-a6",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "material-fixed",
+      "advice": "字身三色漸層＋白貼紙邊，甜度最高的一款。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-b2",
+      "code": "B2",
+      "name": "局部色影",
+      "displayName": "B2 局部色影",
+      "cssClass": "css-b2",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "白字深靛框永遠最上層＋雙色剪影墊底，海報疊字感。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-b3",
+      "code": "B3",
+      "name": "斜紋陰影",
+      "displayName": "B3 斜紋陰影",
+      "cssClass": "css-b3",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 12,
+      "level": "recommended",
+      "tone": "brand-shadow",
+      "advice": "淡色斜紋當陰影，主字唯一焦點、陪襯層退後。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "backdrop"
+    },
+    {
+      "id": "css-b6",
+      "code": "B6",
+      "name": "網點錯位",
+      "displayName": "B6 網點錯位",
+      "cssClass": "css-b6",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "material-fixed",
+      "advice": "中粉實色字身＋細粉框＋網點錯位底紋影，復古疊印。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "backdrop"
+    },
+    {
+      "id": "css-c6",
+      "code": "C6",
+      "name": "向前飛出",
+      "displayName": "C6 向前飛出",
+      "cssClass": "css-c6",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "brand-shadow",
+      "advice": "白字紅框＋全彩實色影＋微轉，向前衝出的立體感。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "decisionLog": [
+        {
+          "date": "2026-09-05",
+          "what": "試做透視（兩行往中縫收）→ 使用者裁「不要變形、回原本斜切」＝撤回"
+        }
+      ]
+    },
+    {
+      "id": "css-d2",
+      "code": "D2",
+      "name": "星軌裝飾",
+      "displayName": "D2 星軌裝飾",
+      "cssClass": "css-d2",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "星軌 Logo 字（型錄的軌道環屬舞台裝飾，預覽含字體效果本體）。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      },
+      "costumeMode": "glow"
+    },
+    {
+      "id": "css-d4",
+      "code": "D4",
+      "name": "復古機甲",
+      "displayName": "D4 復古機甲",
+      "cssClass": "css-d4",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "白字黑框＋層層堆疊的黑色厚度，90 年代動畫 Logo 味。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "ink"
+    },
+    {
+      "id": "css-f1",
+      "code": "F1",
+      "name": "疊影錯位",
+      "displayName": "F1 疊影錯位",
+      "cssClass": "css-f1",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "brand-shadow",
+      "advice": "白字粗青框壓住往左殘影，主體清楚、殘影退後。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-f2",
+      "code": "F2",
+      "name": "漸層貼紙",
+      "displayName": "F2 漸層貼紙",
+      "cssClass": "css-f2",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "material-fixed",
+      "advice": "藍→紫→粉字身＋白厚邊＋灰細外線，光澤貼紙。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-f3",
+      "code": "F3",
+      "name": "內凹陰影",
+      "displayName": "F3 內凹陰影",
+      "cssClass": "css-f3",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "白實心字＋紫框＋字腔內凹暈，軟糖按壓感。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-f5",
+      "code": "F5",
+      "name": "紋理字身",
+      "displayName": "F5 紋理字身",
+      "cssClass": "css-f5",
+      "family": "GenJyuuGothic",
+      "fontStack": [
+        "GenJyuuGothic",
+        "Zen Maru Gothic",
+        "Hiragino Maru Gothic ProN",
+        "Yuanti TC",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-021",
+      "fontLoaded": false,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "material-fixed",
+      "advice": "字身填細斜紋＋白內邊＋水藍厚邊錯位，粉彩糖果感。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「GenJyuuGothic（源柔黑體）」授權已查＝SIL OFL 1.1（font-021，2026-09-08 結案）。approved 前還剩兩件：①載入路目前是第三方 CDN font.emtech.cc（無 SLA、不逐款標授權）——2026-09-08 已從消費者頁拆掉這條外連、現只在色彩工具預覽載入，轉正前改 Google Fonts／jsdelivr 鎖版本自架 ②日文字集、繁中會缺字——標題文案逐字目檢（CP-01）。沒載到會退成「Zen Maru Gothic」"
+        ]
+      }
+    },
+    {
+      "id": "css-g1",
+      "code": "G1",
+      "name": "交互描邊",
+      "displayName": "G1 交互描邊",
+      "cssClass": "css-g1",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 11,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "實心＋細描邊（型錄的英數交替鏤空需逐字結構，預覽以實心版呈現）。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-g3",
+      "code": "G3",
+      "name": "潮流雲朵",
+      "displayName": "G3 潮流雲朵",
+      "cssClass": "css-g3",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "潮流雲朵描邊字（雲朵裝飾屬型錄舞台層，預覽含字體本體效果）。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "ink"
+    },
+    {
+      "id": "css-h1",
+      "code": "H1",
+      "name": "螢光氣泡標",
+      "displayName": "H1 螢光氣泡標",
+      "cssClass": "css-h1",
+      "family": "Zen Kaku Gothic New",
+      "fontStack": [
+        "Zen Kaku Gothic New",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Hiragino Sans",
+        "sans-serif"
+      ],
+      "fontId": "font-013",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "contrast-outline",
+      "advice": "螢光氣泡描邊字（黑底格線舞台不搬，淺背景請確認對比）。效果已忠實還原型錄設計（配色＝型錄原設計色）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "outline",
+      "decisionLog": [
+        {
+          "date": "2026-09-05",
+          "what": "使用者：主題套用後白字配淺邊糊掉、要加深襯邊——配方 ink→outline（描邊→主色深階、白字保留）"
+        }
+      ]
+    },
+    {
+      "id": "css-h2",
+      "code": "H2",
+      "name": "像素電玩字",
+      "displayName": "H2 像素電玩字",
+      "cssClass": "css-h2",
+      "family": "BoutiqueBitmap9x9SquareDot",
+      "fontStack": [
+        "BoutiqueBitmap9x9SquareDot",
+        "DotGothic16",
+        "Zen Kaku Gothic New",
+        "monospace"
+      ],
+      "fontId": "font-022",
+      "fontLoaded": false,
+      "costume": false,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "DotGothic 點陣電玩字，復古像素感（雙行錯落屬型錄版面設計）。純字形款＝字色跟主題走（亮底壓深、深底提亮）；上深色或複雜背景前看下方對比檢查。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "主字型「BoutiqueBitmap9x9SquareDot」授權＝B 級（font-022，2026-09-08）：母體精品點陣體 9×9 是 OFL 1.1，但「方點」變體只在 emfont 見到、變體作者與授權原文沒找到——找到上游 OFL.txt 升 A 才可 approved。載入路同 GenJyuu（emfont 外連 2026-09-08 已自消費者頁拆除、轉正前改自架）。沒載到會退成「DotGothic16」（font-014，OFL）"
+        ]
+      },
+      "decisionLog": [
+        {
+          "date": "2026-09-07",
+          "what": "使用者：套金棕主題標題仍深藍——09-06 亮底兜底寫死 #1F3A6B、權重蓋掉主題色（連換妝規則也輸它）。typestyles.css 改為亮底先吃 --campaign-hero-ink、量不到退 --campaign-brand-ink、都沒有才退深藍。同批校正戶口 costume true→false：CSS 本無自帶顏色＝純字形款，工具不再出「妝容跟主題走」開關與「型錄原設計色」說明（原說明與畫面上的純字形提示互相矛盾）"
+        }
+      ]
+    },
+    {
+      "id": "css-n1",
+      "code": "N1",
+      "name": "港式霓虹招牌",
+      "displayName": "N1 港式霓虹招牌",
+      "cssClass": "css-n1",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "fixed-neon-outline",
+      "advice": "港式霓虹招牌：黑色字面、白色燈管外框與光暈。此字效使用固定黑白霓虹結構色，適合深色 Hero，淺底或花背景需人工檢查。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "hue"
+    },
+    {
+      "id": "css-n1b",
+      "code": "N1B",
+      "name": "港式霓虹招牌｜Y19",
+      "displayName": "N1B 港式霓虹招牌｜Y19",
+      "cssClass": "css-n1b",
+      "family": "TASA Explorer",
+      "fontStack": [
+        "TASA Explorer",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-023",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "fixed-neon-outline",
+      "advice": "N1 港式霓虹延伸，以 Y19 科技標題字為骨架；正黑字面＋白色燈管外框，內部骨幹線較細。適合科技聯名短標。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "blockers": [],
+        "date": "2026-09-08",
+        "by": "使用者裁決（2026-09-08 走建議 A；run 150043 病例後）",
+        "note": "主字型 TASA Explorer 為純歐文：中文全退 Noto Sans TC 900＋霓虹描邊，只有英數字是探空體——負責人知情接受",
+        "resolvedBlockers": [
+          "載入路已接（2026-09-08 使用者裁）：主字型 TASA Explorer 改 Google Fonts css2（OFL、Google 在庫）＝消費者頁真的載得到；後備 MiSans TC（C 級）已自配方拿掉。剩給負責人判：TASA 是純歐文＝中文字全退 Noto Sans TC 900，只有英數會是探空體——設計本意若是「中英混排、英文出味」則可審，否則要換骨架"
+        ]
+      },
+      "costumeMode": "hue",
+      "decisionLog": [
+        {
+          "date": "2026-09-08",
+          "what": "使用者裁「走建議 A」翻 approved：主字型授權 A、載入路已接（fontLoaded=true）、CP-27 v17 出貨會過；設計註記＝主字型 TASA Explorer 為純歐文：中文全退 Noto Sans TC 900＋霓虹描邊，只有英數字是探空體——負責人知情接受"
+        }
+      ]
+    },
+    {
+      "id": "css-n1c",
+      "code": "N1C",
+      "name": "港式霓虹招牌｜Y6",
+      "displayName": "N1C 港式霓虹招牌｜Y6",
+      "cssClass": "css-n1c",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "fixed-neon-outline",
+      "advice": "N1 港式霓虹延伸，以 Y6 先鋒設計字為骨架；厚黑短標可讀性較高，仍建議搭配深色低干擾背景。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "hue"
+    },
+    {
+      "id": "css-n2",
+      "code": "N2",
+      "name": "Cyber 玻璃霓虹",
+      "displayName": "N2 Cyber 玻璃霓虹",
+      "cssClass": "css-n2",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "fixed-blue-neon",
+      "advice": "Cyber 玻璃霓虹：藍色玻璃厚字與冷光外暈。固定藍青色系，不跟活動色自動換色；建議用科技、電競、黑五類深底。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "hue",
+      "decisionLog": [
+        {
+          "date": "2026-09-05",
+          "what": "使用者：主題套用後辨識度低、要加深襯邊——後層改近黑深藍描邊；換妝配方 generic→hue（跟霓虹家一樣只換色相，保玻璃明暗結構）"
+        }
+      ]
+    },
+    {
+      "id": "css-n3",
+      "code": "N3",
+      "name": "Level Up 透視霓虹",
+      "displayName": "N3 Level Up 透視霓虹",
+      "cssClass": "css-n3",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "fixed-blue-neon",
+      "advice": "Level Up 透視霓虹：深色字面＋亮青白第一層描框＋藍色厚度。透視陰影會增加寬度，長標題容易壓縮。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-n5",
+      "code": "N5",
+      "name": "Blue Neon Tube",
+      "displayName": "N5 Blue Neon Tube",
+      "cssClass": "css-n5",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "fixed-blue-neon",
+      "advice": "Blue Neon Tube：青白高光、深藍字腹與整體外暈。已避免中文筆畫碎片感，但大字距與固定藍色系仍需要深色背景。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-n6",
+      "code": "N6",
+      "name": "Cyber Prism Beam",
+      "displayName": "N6 Cyber Prism Beam",
+      "cssClass": "css-n6",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "fixed-blue-neon",
+      "advice": "Cyber Prism Beam：斜體玻璃字、水平光束與藍色厚度。光束為固定材質效果，建議搭配科技大促或遊戲類深底。",
+      "usesLineLayers": true,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-n7",
+      "code": "N7",
+      "name": "銀光底標字",
+      "displayName": "N7 銀光底標字",
+      "cssClass": "css-n7",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 14,
+      "level": "recommended",
+      "tone": "fixed-silver-marker",
+      "advice": "銀光底標字：粗黑體加每行獨立銀白金屬底條。底標跟每行文字長度走，左右與上方 4px、下方 8px，適合黑底資訊型主標。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "keep"
+    },
+    {
+      "id": "css-n7b",
+      "code": "N7B",
+      "name": "銀光底標字｜Y4",
+      "displayName": "N7B 銀光底標字｜Y4",
+      "cssClass": "css-n7b",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 12,
+      "level": "limited",
+      "tone": "fixed-silver-marker",
+      "advice": "N7 銀光底標延伸，以 Y4 極簡品牌字為基礎；字距大、文字較細，適合精品短標與留白版面。",
+      "usesLineLayers": false,
+      "review": {
+        "status": "approved",
+        "date": "2026-09-04",
+        "by": "使用者裁決（2026-09-04 裁決牆：字型已載入的 16 款一批審過）",
+        "blockers": []
+      },
+      "costumeMode": "keep"
+    },
+    {
+      "id": "css-y1",
+      "code": "Y1",
+      "name": "潮流品牌字",
+      "displayName": "Y1 潮流品牌字",
+      "cssClass": "css-y1",
+      "family": "Unbounded Sans",
+      "fontStack": [
+        "Unbounded Sans",
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-020",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 10,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "適合潮流、球鞋、戶外活動短標。Hero 版會降低壓縮與陰影，保留速度感但優先可讀。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-trend",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "載入路已接（2026-09-08 使用者裁）：主字型無界黑 Unbounded Sans 改 jsdelivr 鎖版本 @font-face（上游 maoken-fonts/unbounded-sans v1.100 原檔 4.2MB、OFL；與設計師本機檔同一檔）＝消費者頁載得到。剩兩件：①簡中 GB2312 字集、繁中缺字多且字形偏陸標——標題文案逐字目檢（CP-01）②4.2MB 未子集化＝首屏字型下載重，approved 前建議另開「子集化自架」批"
+        ],
+        "visualOk": {
+          "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+          "note": "設計師圈 ✅，但牆上看到的是後備字型（主字型為本機檔、引擎載不到）；字型入簿＋授權查證後才翻 approved"
+        }
+      }
+    },
+    {
+      "id": "css-y2",
+      "code": "Y2",
+      "name": "電商促銷字",
+      "displayName": "Y2 電商促銷字",
+      "cssClass": "css-y2",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 9,
+      "level": "recommended",
+      "tone": "contrast-outline",
+      "advice": "適合促銷與 CTA 強的活動。建議短字、強對比背景，避免長中文標題造成筆畫擠壓。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-promo",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 四題裁決牆 Q3）",
+        "blockers": [],
+        "note": "字身色改讀 --campaign-brand-ink 後重看 ✅"
+      }
+    },
+    {
+      "id": "css-y3",
+      "code": "Y3",
+      "name": "現代知識字",
+      "displayName": "Y3 現代知識字",
+      "cssClass": "css-y3",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 16,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "現代知識字適合資訊型活動與會員科技頁，Hero 中可承載較長標題。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-modern",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": [],
+        "note": "使用者報「寬度窄沒反應」＝這則示意標題比 003 版寬預算窄，調窄本來就不會動（容器旋鈕）；工具端補出聲提示，字風本身無事"
+      }
+    },
+    {
+      "id": "css-y4",
+      "code": "Y4",
+      "name": "極簡品牌字",
+      "displayName": "Y4 極簡品牌字",
+      "cssClass": "css-y4",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 12,
+      "level": "limited",
+      "tone": "solid",
+      "advice": "極簡品牌字需要留白與字距，適合短句與低干擾背景，不建議促銷長標。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-min",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y5",
+      "code": "Y5",
+      "name": "都市潮流字",
+      "displayName": "Y5 都市潮流字",
+      "cssClass": "css-y5",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 8,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "都市潮流字筆畫量重，Hero 中容易糊。建議只用短中文主標，背景保持低干擾。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-city",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y6",
+      "code": "Y6",
+      "name": "先鋒設計字",
+      "displayName": "Y6 先鋒設計字",
+      "cssClass": "css-y6",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 8,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "先鋒設計字適合短標與展覽感主視覺，目前 Hero 版先用可讀安全骨架。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-design",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y7",
+      "code": "Y7",
+      "name": "強衝擊標題字",
+      "displayName": "Y7 強衝擊標題字",
+      "cssClass": "css-y7",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 9,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "強衝擊標題字適合短促銷語，長字會快速變擠，需保留高對比背景。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-impact",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y8",
+      "code": "Y8",
+      "name": "高級雜誌字",
+      "displayName": "Y8 高級雜誌字",
+      "cssClass": "css-y8",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 12,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "高級雜誌字適合精品、專欄與 editorial hero，建議用低彩色盤與充分留白。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-editorial",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y10",
+      "code": "Y10",
+      "name": "科技簡潔字",
+      "displayName": "Y10 科技簡潔字",
+      "cssClass": "css-y10",
+      "family": "Unbounded",
+      "fontStack": [
+        "Unbounded",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-019",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 14,
+      "level": "recommended",
+      "tone": "brand-shadow",
+      "advice": "適合 3C、AI、會員科技。Hero 版已降低紅綠襯字透明度，建議字距略開以保留科技感。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-tech",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "blockers": [],
+        "visualOk": {
+          "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+          "note": "設計師圈 ✅，但牆上看到的是後備字型（主字型為本機檔、引擎載不到）；字型入簿＋授權查證後才翻 approved"
+        },
+        "date": "2026-09-08",
+        "by": "使用者裁決（2026-09-08 走建議 A；run 150043 病例後）",
+        "note": "主字型 Unbounded 為純歐文：中文全退 Noto Sans TC，只吃 Y10 的字距與陰影造型，只有英數字是 Unbounded——負責人知情接受",
+        "resolvedBlockers": [
+          "載入路已接（2026-09-08 使用者裁）：主字型 Unbounded 改 Google Fonts css2（OFL、Google 在庫）＝消費者頁載得到、不再靠設計師本機 TTF。剩給負責人判：純歐文＝中文全退 Noto Sans TC，只有英數會是 Unbounded——設計本意若是英文標題請在戶口註記後審"
+        ]
+      },
+      "decisionLog": [
+        {
+          "date": "2026-09-08",
+          "what": "使用者裁「走建議 A」翻 approved：主字型授權 A、載入路已接（fontLoaded=true）、CP-27 v17 出貨會過；設計註記＝主字型 Unbounded 為純歐文：中文全退 Noto Sans TC，只吃 Y10 的字距與陰影造型，只有英數字是 Unbounded——負責人知情接受"
+        }
+      ]
+    },
+    {
+      "id": "css-y11",
+      "code": "Y11",
+      "name": "商業襯線體",
+      "displayName": "Y11 商業襯線體",
+      "cssClass": "css-y11",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 12,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "商業襯線體適合商務、會員、高端活動，建議避免過強陰影與花背景。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-business-serif",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y12",
+      "code": "Y12",
+      "name": "深度專欄字",
+      "displayName": "Y12 深度專欄字",
+      "cssClass": "css-y12",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 12,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "深度專欄字適合知識、專題、策展頁，建議搭配沉穩低彩色盤。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-column",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y14",
+      "code": "Y14",
+      "name": "雜誌襯線體",
+      "displayName": "Y14 雜誌襯線體",
+      "cssClass": "css-y14",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 12,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "雜誌襯線體適合時尚、選品、專題活動，需保留字距與清楚背景。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-mag-serif",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y15",
+      "code": "Y15",
+      "name": "創作者標題字",
+      "displayName": "Y15 創作者標題字",
+      "cssClass": "css-y15",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "BiauKai",
+        "DFKai-SB",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": true,
+      "maxChars": 8,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "創作者標題字適合短中文手寫感標題，不建議長句或中英混排。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-creator",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y16",
+      "code": "Y16",
+      "name": "復古故事字",
+      "displayName": "Y16 復古故事字",
+      "cssClass": "css-y16",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "復古故事字適合懷舊專題，建議使用單色文字與紙感背景。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-retro",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y18",
+      "code": "Y18",
+      "name": "空間導視字",
+      "displayName": "Y18 空間導視字",
+      "cssClass": "css-y18",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 14,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "空間導視字適合清楚、理性、展場或導購任務，Hero 中可維持高可讀性。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-wayfinding",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y19",
+      "code": "Y19",
+      "name": "科技標題字",
+      "displayName": "Y19 科技標題字",
+      "cssClass": "css-y19",
+      "family": "Unbounded",
+      "fontStack": [
+        "Unbounded",
+        "Noto Sans TC",
+        "sans-serif"
+      ],
+      "fontId": "font-019",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 12,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "科技標題字適合 3C、AI、未來感活動，建議維持乾淨背景與中等字距。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-tech-title",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "pending",
+        "blockers": [
+          "載入路已接（2026-09-08 使用者裁）：主字型 Unbounded 改 Google Fonts css2（OFL、Google 在庫）＝消費者頁載得到、不再靠設計師本機 TTF。剩給負責人判：純歐文＝中文全退 Noto Sans TC，只有英數會是 Unbounded——設計本意若是英文標題請在戶口註記後審"
+        ],
+        "visualOk": {
+          "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+          "note": "設計師圈 ✅，但牆上看到的是後備字型（主字型為本機檔、引擎載不到）；字型入簿＋授權查證後才翻 approved"
+        }
+      }
+    },
+    {
+      "id": "css-y20",
+      "code": "Y20",
+      "name": "展覽字",
+      "displayName": "Y20 展覽字",
+      "cssClass": "css-y20",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 6,
+      "level": "limited",
+      "tone": "solid",
+      "advice": "展覽字線條極細且高瘦，只適合極短標題與大量留白。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-exhibition",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-y23",
+      "code": "Y23",
+      "name": "輕奢細線字",
+      "displayName": "Y23 輕奢細線字",
+      "cssClass": "css-y23",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 8,
+      "level": "limited",
+      "tone": "solid",
+      "advice": "輕奢細線字需要更大字級與留白；長標題或低對比背景會快速失去可讀性。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "y-luxury-line",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-w2",
+      "code": "W2",
+      "name": "思源宋體・商務襯線",
+      "displayName": "W2 思源宋體・商務襯線",
+      "cssClass": "css-w2",
+      "family": "Noto Serif TC",
+      "fontStack": [
+        "Noto Serif TC",
+        "Chiron Sung HK",
+        "serif"
+      ],
+      "fontId": "font-005",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 14,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "適合商務、精品、專欄感活動。建議增加字距與行距，保持優雅留白。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "web-serif",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-w3",
+      "code": "W3",
+      "name": "楷書手寫骨架",
+      "displayName": "W3 楷書手寫骨架",
+      "cssClass": "css-w3",
+      "family": "LXGW WenKai TC",
+      "fontStack": [
+        "LXGW WenKai TC",
+        "BiauKai",
+        "DFKai-SB",
+        "serif"
+      ],
+      "fontId": "font-007",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "楷書骨架適合文化、故事、禮品情境，需避免過小字級。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "web-kai",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2）",
+        "blockers": [],
+        "note": "原設計指定 BiauKai／DFKai-SB（系統字），網頁版改 LXGW WenKai TC（font-007）打頭；使用者看牆圈 ✅＝楷體味道確認可接受"
+      }
+    },
+    {
+      "id": "css-w4",
+      "code": "W4",
+      "name": "圓體親和骨架",
+      "displayName": "W4 圓體親和骨架",
+      "cssClass": "css-w4",
+      "family": "Noto Sans TC",
+      "fontStack": [
+        "Noto Sans TC",
+        "PingFang TC",
+        "sans-serif"
+      ],
+      "fontId": "font-001",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 16,
+      "level": "recommended",
+      "tone": "solid",
+      "advice": "圓體骨架適合親和生活、食品、母嬰與寵物活動。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "web-rounded",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    },
+    {
+      "id": "css-w5",
+      "code": "W5",
+      "name": "點陣像素骨架",
+      "displayName": "W5 點陣像素骨架",
+      "cssClass": "css-w5",
+      "family": "Cubic 11",
+      "fontStack": [
+        "Cubic 11",
+        "DotGothic16",
+        "monospace"
+      ],
+      "fontId": "font-012",
+      "fontLoaded": true,
+      "costume": false,
+      "maxChars": 10,
+      "level": "limited",
+      "tone": "mono-safe",
+      "advice": "點陣骨架適合遊戲與復古科技，需保持短標與高對比。",
+      "usesLineLayers": false,
+      "migratedFrom": {
+        "toolStyleId": "web-pixel",
+        "date": "2026-09-05",
+        "reason": "工具頁模擬 CSS→共用樣式表（引擎畫得出來）"
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-09-05",
+        "by": "使用者圈選（2026-09-05 牆 #2＝22 款遷入字風 × 003／001／006）",
+        "blockers": []
+      }
+    }
+  ]
+}

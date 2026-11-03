@@ -1,0 +1,18 @@
+{
+  "_fixture": "hermetic 最小登記簿複本（W1-E 測試專用，經 overridePaths／GATE_REGISTRY_OVERRIDES 注入；不依賴主 repo 佈局＝W1-A review 教訓）。layout-001/002/006 鏡射真簿關鍵欄；layout-014/015 為虛構貨號＝專測非 trial 版式的 conditional 黃燈／conditional 任預設兩案，真簿無此紀錄。",
+  "modules": [
+    {
+      "module_id": "hero",
+      "variants": [
+        { "variant_id": "new", "meaning": "現行 KV", "buildSelectable": true },
+        { "variant_id": "legacy", "meaning": "舊版文字鎖陣 KV", "buildSelectable": true },
+        { "variant_id": "layout-001", "meaning": "聯名・深藍夜", "buildSelectable": true, "rollout": "trial" },
+        { "variant_id": "layout-002", "meaning": "攝影棚", "buildSelectable": true, "rollout": "trial" },
+        { "variant_id": "layout-006", "meaning": "新品（中間標題・多品環列）", "buildSelectable": true, "rollout": "trial" },
+        { "variant_id": "layout-014", "meaning": "（虛構）已轉正式版式＝無 rollout 旗標＝開放", "buildSelectable": true },
+        { "variant_id": "layout-015", "meaning": "（虛構）預設背景綁 conditional 的錯簿案", "buildSelectable": true },
+        { "variant_id": "layout-016", "meaning": "（虛構）已停接新案", "buildSelectable": true, "rollout": "closed" }
+      ]
+    }
+  ]
+}

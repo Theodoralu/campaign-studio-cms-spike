@@ -1,0 +1,42 @@
+# ── 密鑰／權杖（絕不進版控；洩漏＝需輪替，非只 rm）──
+.google-config.json
+.google-token.json
+workbench/.google-config.json
+workbench/.google-token.json
+workbench/.wb-pass
+workbench/.wb-bind
+
+# ── 執行期日誌（事後追查用，勿入庫）──
+workbench/fatal.log
+
+# ── 相依套件（由 package-lock.json 可重現，勿入庫）──
+node_modules/
+
+# ── 產物／生成資料（改源頭非產物：每 run 的 draft/snapshot/export/raw 皆生成物）──
+runs/
+live-drafts/
+price_qa_report.json
+workbench/online-url.txt
+workbench/VERSION   # 打包時由 tools/pack-editor.sh 寫入（日期-hash）；開發樹沒有＝介面顯示 dev
+
+# ── 視覺 QA 實拍的暫存輸出（2026-09-16 `TEST-SHOTS-DIRTY-TREE`）──
+# 截圖腳本預設寫這裡＝跑完不弄髒工作樹。要留成證據＝明確傳 outDir 指到 docs/design-qa/…，
+# 那是刻意的動作；**不要**再讓腳本預設覆寫版控裡的證據圖（原病例：08-24 的證據被後來的重跑覆寫掉）。
+test/browser/.shots/
+
+# ── 日誌 ──
+*.log
+workbench/.wb.log
+
+# ── 部署／工具狀態 ──
+.netlify
+.wrangler/
+
+# ── 系統 ──
+.DS_Store
+workbench/.wb-dev-schedules
+
+# ── AEM 共用樣式：main.css 本體＋json＋assets 進版控＝交付物；歷史版與 DAM 上傳包（--dam 隨時可重產、素材重複一份）不留 ──
+dist/aem-shared/versions/
+dist/aem-shared/dam/
+dist/aem-test/

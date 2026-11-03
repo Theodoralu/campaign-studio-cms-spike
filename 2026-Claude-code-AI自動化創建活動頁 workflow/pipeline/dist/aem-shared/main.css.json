@@ -1,0 +1,145 @@
+{
+ "version": "v2026-09-17-8f254386",
+ "generatedAt": "2026-09-18T05:19:19.377Z",
+ "bytes": 243294,
+ "encoded": 306000,
+ "rules": 1659,
+ "editorRulesDropped": 53,
+ "layouts": {
+  "layout-006": 38,
+  "layout-001": 92,
+  "layout-004": 57,
+  "layout-002": 11,
+  "layout-003": 36,
+  "layout-007": 50,
+  "layout-005": 70,
+  "layout-008": 57,
+  "layout-009": 59,
+  "layout-010": 96,
+  "layout-011": 121,
+  "layout-012": 72
+ },
+ "blocks": [
+  {
+   "id": null,
+   "skipped": "後台開機遮罩"
+  },
+  {
+   "id": null,
+   "rulesBefore": 1455,
+   "rulesAfter": 1415
+  },
+  {
+   "id": "device-preview-css",
+   "rulesBefore": 257,
+   "rulesAfter": 244
+  },
+  {
+   "id": "tokensV2",
+   "source": "design-tokens/tokens.css"
+  },
+  {
+   "id": null,
+   "skipped": "後台開機遮罩"
+  }
+ ],
+ "warnings": [],
+ "assets": [
+  {
+   "file": "assets/hero-bg/bg-031.webp",
+   "from": 2334839,
+   "to": 50302,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-031-768.webp",
+   "from": 1119765,
+   "to": 68116,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-031-375.webp",
+   "from": 755315,
+   "to": 42606,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-008.webp",
+   "from": 1150480,
+   "to": 10232,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-009.webp",
+   "from": 4232576,
+   "to": 18378,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-017.webp",
+   "from": 1285768,
+   "to": 9662,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-018.webp",
+   "from": 1205354,
+   "to": 9284,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-027.webp",
+   "from": 1240721,
+   "to": 39022,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-027-768.webp",
+   "from": 564412,
+   "to": 34480,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-027-375.webp",
+   "from": 438278,
+   "to": 23722,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-036.webp",
+   "from": 340831,
+   "to": 29062,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-036-768.webp",
+   "from": 232352,
+   "to": 28892,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/hero-bg/bg-036-375.webp",
+   "from": 155314,
+   "to": 16024,
+   "kind": "webp"
+  },
+  {
+   "file": "assets/editor-grid-tile.webp",
+   "from": 109536,
+   "to": 10480,
+   "kind": "webp"
+  }
+ ],
+ "sources": {
+  "template": "2026-AI自動化活動頁生成規劃/deploy-site/lecreuset-frametest/index.html",
+  "templateSha": "fb0c3f0f20e3",
+  "tokens": "design-tokens/tokens.css",
+  "tokensSha": "0388c785870f"
+ },
+ "dam": {
+  "uploadUrl": "https://aem.ec.yahoo.com/assets.html/content/dam/yahoo/campaign-studio-ai/",
+  "publicBase": "https://tw.buy.yahoo.com/act/assets/campaign-studio-ai/shared/v2026-09-17-8f254386/",
+  "mainCssUrl": "https://tw.buy.yahoo.com/act/assets/campaign-studio-ai/shared/v2026-09-17-8f254386/main.css"
+ },
+ "pageRule": "每頁 HTML：刪掉所有 <style>，只留 <style id=\"typestylesV2\">（這頁字風）；<head> 加 <link rel=\"stylesheet\" href=\"https://tw.buy.yahoo.com/act/assets/campaign-studio-ai/shared/v2026-09-17-8f254386/main.css\">；保留 Google Fonts <link>。"
+}

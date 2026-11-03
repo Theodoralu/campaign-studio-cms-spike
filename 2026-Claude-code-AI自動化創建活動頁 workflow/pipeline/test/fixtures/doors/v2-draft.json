@@ -1,0 +1,1690 @@
+{
+ "page": {
+  "id": "doors-v2-fixture",
+  "pageName": "芭蕾舞鞋_2026-09",
+  "status": "草稿",
+  "template": "MVP-v1",
+  "inputTier": "T1",
+  "curationGoal": "",
+  "curationTheme": "",
+  "theme": {
+   "hueFamily": "pink",
+   "colorTheme": "pink-light",
+   "surfaceMode": "light",
+   "kvTitleStyle": "deep",
+   "moduleBorderStyle": "theme",
+   "labelStyle": "deep-plate"
+  },
+  "kv": {
+   "eyebrow": "CURATED SELECTION",
+   "eyebrowZh": "愛迪達選品",
+   "titleLine1": "愛迪達",
+   "titleLine2": "精選好物",
+   "titleSource": "ai-curated",
+   "showSuffix": false,
+   "titleFlip": true,
+   "showMarquee": true,
+   "actid": "",
+   "dateValue": "09/09 - 10/10",
+   "images": [
+    "https://img.yec.tw/zp/MerchandiseImages/6879FFE7FB-SP-22142749.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/519091db3f-Gd-10671950.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/DDC2FD3CAD-SP-19469542.jpg"
+   ],
+   "keyProductGdids": [
+    "12010102",
+    "10671950",
+    "11545869"
+   ],
+   "eyebrowCnMobile": "auto"
+  },
+  "ctaText": "看更多愛迪達選品",
+  "dockFeaturedLabel": "主打精選",
+  "footerTitle": "愛迪達選品",
+  "noticeText": "商品價格、優惠條件、活動期間與可售狀態，請以商品頁與結帳頁顯示為準。\n不同商品可能適用不同優惠、配送方式與庫存狀態。\n點擊商品卡後可前往商品頁查看完整規格、付款方式、配送資訊與最新優惠。",
+  "floors": [
+   {
+    "pos": "featured-1",
+    "title": "主打嚴選",
+    "titleSource": "ai-curated",
+    "subtitle": "本檔優先看這裡",
+    "sceneCopy": {
+     "tag": "嚴選",
+     "title": "主打嚴選",
+     "sub": "本檔優先看這裡"
+    },
+    "productGdids": [
+     "12029035",
+     "12029145",
+     "11977208"
+    ],
+    "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/8760617204-SP-21929884.jpg",
+    "sceneUrl": "https://tw.buy.yahoo.com/gdsale/p-11957540.html",
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "featured-2",
+    "title": "人氣推薦",
+    "titleSource": "ai-curated",
+    "subtitle": "口碑與回購精選",
+    "sceneCopy": {
+     "tag": "人氣",
+     "title": "人氣推薦",
+     "sub": "口碑與回購精選"
+    },
+    "productGdids": [
+     "12062233",
+     "12080355",
+     "12071841"
+    ],
+    "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/4219FFA243-SP-18608971.jpg",
+    "sceneUrl": "https://tw.buy.yahoo.com/gdsale/p-11411591.html",
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "featured-3",
+    "title": "質感首選",
+    "titleSource": "ai-curated",
+    "subtitle": "值得升級的一件",
+    "sceneCopy": {
+     "tag": "質感",
+     "title": "質感首選",
+     "sub": "值得升級的一件"
+    },
+    "productGdids": [
+     "12161499",
+     "12062250",
+     "9880774"
+    ],
+    "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1B5D69A1AC-SP-22532553.jpg",
+    "sceneUrl": "https://tw.buy.yahoo.com/gdsale/p-12071839.html",
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   }
+  ],
+  "walls": [
+   {
+    "pos": "category-1",
+    "title": "更多選品一次看",
+    "titleSource": "ai-curated",
+    "productGdids": [
+     "12217385",
+     "11541178",
+     "11085596",
+     "11150927",
+     "10954726",
+     "12092525",
+     "11150933",
+     "11150928",
+     "12191366",
+     "12224850",
+     "12224846",
+     "12224849"
+    ],
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "category-2",
+    "title": "追加補貨清單",
+    "titleSource": "ai-curated",
+    "productGdids": [
+     "11879781",
+     "11804199",
+     "11441727",
+     "11954092",
+     "12090852",
+     "12221075",
+     "12221097",
+     "12221096",
+     "11910099",
+     "11899726",
+     "11899747",
+     "11899749"
+    ],
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "category-3",
+    "title": "順手加購小物",
+    "titleSource": "ai-curated",
+    "productGdids": [
+     "11899750",
+     "12232442",
+     "11987914",
+     "11987915",
+     "11682104",
+     "11994244",
+     "11754966",
+     "9839834",
+     "9592534",
+     "11950804",
+     "10605605",
+     "10605217"
+    ],
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   }
+  ],
+  "categoryWallCount": 3,
+  "editorial": {
+   "title": [
+    "愛迪達",
+    "精選好物",
+    "編輯室嚴選提案"
+   ],
+   "circles": [
+    {
+     "tag": "[韓妞推薦鞋款",
+     "copy": "[韓妞推薦鞋款組合]【KEITH-WILL時尚",
+     "date": "",
+     "img": "https://img.yec.tw/zp/MerchandiseImages/B2E2F45B4F-SP-14073632.jpg",
+     "url": "https://tw.buy.yahoo.com/gdsale/p-10604943.html",
+     "imgs": [
+      "https://img.yec.tw/zp/MerchandiseImages/B141C8EA15-SP-14073632.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/2CA474D529-SP-14073632.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/4864D95D87-SP-14073632.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/F6BE288ED2-SP-14073632.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/B2E2F45B4F-SP-14073632.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/8FA713B060-SP-14073632.jpg"
+     ],
+     "gdid": "10604943"
+    },
+    {
+     "tag": "[韓妞推薦鞋款",
+     "copy": "[韓妞推薦鞋款組合]【KEITH-WILL時尚",
+     "date": "",
+     "img": "https://img.yec.tw/zp/MerchandiseImages/7B79C6F4E7-SP-14072225.jpg",
+     "url": "https://tw.buy.yahoo.com/gdsale/p-10604817.html",
+     "imgs": [
+      "https://img.yec.tw/zp/MerchandiseImages/84703B7A9A-SP-14072225.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/B062C16285-SP-14072225.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/65154E3EBA-SP-14072225.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/1449978F09-SP-14072225.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/7B79C6F4E7-SP-14072225.jpg",
+      "https://img.yec.tw/zp/MerchandiseImages/89A52C69C9-SP-14072225.jpg"
+     ],
+     "gdid": "10604817"
+    }
+   ]
+  },
+  "explore": {
+   "moreUrl": "https://tw.buy.yahoo.com/search/product?p=%E8%8A%AD%E8%95%BE%E9%9E%8B",
+   "ctaText": "看更多愛迪達選品",
+   "items": [
+    {
+     "label": "前往愛迪達來源頁",
+     "sub": "完整選品一次看",
+     "img": "https://img.yec.tw/zp/MerchandiseImages/381A97FAD7-SP-22711449.jpg",
+     "url": "https://tw.buy.yahoo.com/search/product?p=%E8%8A%AD%E8%95%BE%E9%9E%8B"
+    }
+   ]
+  },
+  "refreshPolicy": {
+   "products": "none",
+   "theme": "none"
+  },
+  "kvVariant": "layout-005",
+  "hero": {
+   "product-left": {
+    "gdids": [
+     "12010102",
+     "10671950"
+    ]
+   },
+   "title-center": "芭蕾 潮流必備款\nPUMA\n2026\nRose 聯名限量款",
+   "product-right": {
+    "gdids": [
+     "11545869",
+     "11957540"
+    ]
+   }
+  },
+  "backgroundId": "bg-028",
+  "colors": {
+   "source": "pack",
+   "themeDraft": {
+    "mainColorSource": "mood",
+    "cardBadge": "#BC9F77",
+    "titleBadge": "#BC9F77",
+    "latticeLine": "#BC9F77",
+    "brandColor": "#D9AB42",
+    "brand": "#D9AB42",
+    "brandSoft": "#D8B462",
+    "brandNeon": "#FFE9B8",
+    "paletteSource": "nippon",
+    "nipponPalette": "kuchiba_seasonal",
+    "nipponCategory": "tech",
+    "harmonyRule": null,
+    "brandExtensionRule": null,
+    "nipponReference": {
+     "brand": {
+      "name": "朽葉",
+      "romaji": "KUCHIBA",
+      "hex": "#D9AB42",
+      "note": "主色，建立活動頁的色彩記憶點"
+     },
+     "hero": {
+      "name": "鳥之子",
+      "romaji": "TORINOKO",
+      "hex": "#DAC9A6",
+      "note": "轉成高明度 Hero 背景，保留色感但降低壓迫"
+     },
+     "headline": {
+      "name": "檜皮",
+      "romaji": "HIWADA",
+      "hex": "#854836",
+      "note": "標題文字色，優先確保可讀性"
+     },
+     "price": {
+      "name": "紅鳶",
+      "romaji": "BENITOBI",
+      "hex": "#994639",
+      "note": "價格或促購資訊，用少量暖色形成行動提醒"
+     },
+     "accent": {
+      "name": "白茶",
+      "romaji": "SHIRACHA",
+      "hex": "#BC9F77",
+      "note": "輔助點綴色，銜接情緒與視覺層次"
+     }
+    },
+    "strategy": "tech",
+    "strategyLabel": "朽葉秋季",
+    "themeMode": "light",
+    "mood": "bright",
+    "suggestedHueFamily": "gold-bronze",
+    "suggestedColorTheme": "gold-bronze-light",
+    "saturationAdjust": 0,
+    "lightnessAdjust": 0,
+    "contrastAdjust": 0,
+    "titleStyle": "css-f1",
+    "heroCopy": {
+     "titleText": "PUMA x ROSÉ \n聯名鞋款開賣",
+     "subtitleText": "測試文案 ppp",
+     "eventTimeNote": "活動時間標題與日期為示意文案，正式檔期由來源實抓（真值鐵律）"
+    },
+    "typography": {
+     "title": {
+      "style": "css-f1",
+      "sizePx": 90,
+      "trackingPercent": 0,
+      "leading": 1.33,
+      "align": "center"
+     },
+     "subtitle": {
+      "font": "sans",
+      "fontFamilyCss": "'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",
+      "weightCss": 900,
+      "sizePx": 24,
+      "trackingPercent": 10,
+      "leading": 1.2
+     }
+    },
+    "componentColors": {
+     "title": "#854836",
+     "subtitle": "#854836",
+     "eventLabel": "#854836",
+     "eventDate": "#854836",
+     "cardText": "#854836",
+     "price": "#994639"
+    },
+    "designerOverrides": {
+     "colorOverrides": {},
+     "moduleMapping": {
+      "page": "page",
+      "hero": "hero",
+      "section": "section",
+      "card": "card",
+      "product": "product",
+      "eyebrow": "accent",
+      "cta": "cta",
+      "price": "price",
+      "title": "headline",
+      "subtitle": "text",
+      "eventLabel": "text",
+      "eventDate": "headline",
+      "cardBadge": "accent",
+      "titleBadge": "accent",
+      "latticeLine": "accent"
+     }
+    },
+    "backgroundModules": [
+     {
+      "key": "page",
+      "label": "Page / 活動頁底色",
+      "token": "campaign/page-bg",
+      "hex": "#F2EAD9",
+      "usage": "整頁最底層背景"
+     },
+     {
+      "key": "hero",
+      "label": "Hero / 主視覺背景",
+      "token": "campaign/hero-bg",
+      "hex": "#F5F0E5",
+      "usage": "首屏主視覺底色"
+     },
+     {
+      "key": "section",
+      "label": "Section / 區塊背景",
+      "token": "campaign/section-bg",
+      "hex": "#F7F2E9",
+      "usage": "活動內容分段底色"
+     },
+     {
+      "key": "card",
+      "label": "Card / 內容卡片",
+      "token": "campaign/card-bg",
+      "hex": "#FAF8F4",
+      "usage": "商品卡與資訊容器"
+     },
+     {
+      "key": "product",
+      "label": "Product / 商品展示底",
+      "token": "campaign/product-bg",
+      "hex": "#ECE3D7",
+      "usage": "商品圖、賣點區塊襯底"
+     }
+    ],
+    "qaStatus": "needs-review"
+   }
+  },
+  "subtitleFont": {
+   "fontId": "font-001",
+   "family": "Noto Sans TC",
+   "weight": 900,
+   "css2": "Noto+Sans+TC:wght@100..900"
+  },
+  "titleStyleThemed": true,
+  "heroQaStatus": "needs-review",
+  "promoModuleTitle": "",
+  "dockPromoLabel": ""
+ },
+ "products": [
+  {
+   "gdid": "12010102",
+   "position": "kv-main",
+   "order": 1,
+   "name": "Repetto Camille 納帕小牛皮芭蕾舞粗跟鞋(3CM/黑色)",
+   "price": 9588,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12010102.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6879FFE7FB-SP-22142749.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/6879FFE7FB-SP-22142749.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 12784,
+   "kvShortName": "Repetto Camille 納帕小牛皮芭蕾",
+   "heroName": "Repetto Camille 納帕小牛皮芭蕾舞粗跟鞋(3CM/黑色)",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/736DC55724-SP-22142749.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F18F8A130C-SP-22142749.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/6879FFE7FB-SP-22142749.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/1B3832420B-SP-22142749.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FF22045A5C-SP-22142749.jpg"
+   ]
+  },
+  {
+   "gdid": "10671950",
+   "position": "kv-main",
+   "order": 2,
+   "name": "TORY BURCH CLAIRE 皮革LOGO拼色芭蕾平底鞋(奶茶/白)",
+   "price": 8899,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-10671950.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/519091db3f-Gd-10671950.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/519091db3f-Gd-10671950.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 10852,
+   "kvShortName": "TORY BURCH CLAIRE 皮革LOGO拼色",
+   "heroName": "TORY BURCH CLAIRE 皮革LOGO拼色芭蕾平底鞋(奶茶/白)",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/6d023b7a65-Gd-10671950.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/c079c96499-Gd-10671950.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/519091db3f-Gd-10671950.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/313df6b3ff-Gd-10671950.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/4c6ed1897c-Gd-10671950.jpg"
+   ]
+  },
+  {
+   "gdid": "11545869",
+   "position": "kv-main",
+   "order": 3,
+   "name": "adidas 休閒鞋 Diona Ballet 女鞋 芭蕾風 黑 復古 愛迪達 JR7318",
+   "price": 1412,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11545869.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/DDC2FD3CAD-SP-19469542.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/DDC2FD3CAD-SP-19469542.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1680,
+   "kvShortName": "adidas 休閒鞋 Diona Ballet 女鞋",
+   "heroName": "adidas 休閒鞋 Diona Ballet 女鞋 芭蕾風 黑 復古 愛迪達 JR7318",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/DDC2FD3CAD-SP-19469542.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/73B43F7906-SP-19469542.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/EB961379FA-SP-19469542.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/AEDC65F182-SP-19469542.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/73801A99A5-SP-19469542.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/B32943DCB4-SP-19469542.jpg"
+   ]
+  },
+  {
+   "gdid": "11957540",
+   "position": "featured-1-scene",
+   "order": 1,
+   "name": "【Adidas 愛迪達】BARREDA MARY JANE 瑪莉珍鞋 芭蕾風 休閒鞋 運動鞋 女 A-HQ7398 B-HQ7400",
+   "price": 1420,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11957540.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/5BB6A3DA89-SP-21929884.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/8760617204-SP-21929884.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1690,
+   "heroName": "【Adidas 愛迪達】BARREDA MARY JANE 瑪莉珍鞋 芭蕾風 休閒鞋 運動鞋 女 A-HQ7398 B-HQ7400",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/8760617204-SP-21929884.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/C9898153EC-SP-21929884.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/1E9F0BB2B6-SP-21929884.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/D77651A034-SP-21929884.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/5BB6A3DA89-SP-21929884.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/92E0D41FBE-SP-21929884.jpg"
+   ]
+  },
+  {
+   "gdid": "12029035",
+   "position": "featured-1",
+   "order": 1,
+   "name": "Pineapple Outfitter-甜美青春交叉帶厚底芭蕾鞋TACE-黑色",
+   "price": 2278,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12029035.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/FB222DF481-SP-22325735.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/FB222DF481-SP-22325735.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2680,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/FB222DF481-SP-22325735.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/33A7970F18-SP-22325735.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/33B2539FB1-SP-22325735.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/BA298FC1EB-SP-22325735.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F2B470B85C-SP-22325735.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/A2A6902742-SP-22325735.jpg"
+   ]
+  },
+  {
+   "gdid": "12029145",
+   "position": "featured-1",
+   "order": 2,
+   "name": "Pineapple Outfitter-甜美青春交叉帶厚底芭蕾鞋TACE-銀色",
+   "price": 2278,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12029145.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/B4D9F25CB6-SP-22326230.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/B4D9F25CB6-SP-22326230.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2680,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/B4D9F25CB6-SP-22326230.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FBECA93AA1-SP-22326230.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/0FCBFAB8E3-SP-22326230.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7B555F51A2-SP-22326230.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/BEBC1DCBAE-SP-22326230.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/A9423497EB-SP-22326230.jpg"
+   ]
+  },
+  {
+   "gdid": "11977208",
+   "position": "featured-1",
+   "order": 3,
+   "name": "Ann’S走路像雲端-芭蕾蝴蝶結魔鬼氈超軟 瑪莉珍德訓鞋1.5cm-黑",
+   "price": 1598,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11977208.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/503FAAE775-SP-22028566.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/503FAAE775-SP-22028566.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1880,
+   "store": "Ann’S官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/503FAAE775-SP-22028566.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/9475EE7B35-SP-22028566.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/573A00CBCD-SP-22028566.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/BBA7540F94-SP-22028566.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/DFD401654D-SP-22028566.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/DE260953A9-SP-22028566.jpg"
+   ]
+  },
+  {
+   "gdid": "11411591",
+   "position": "featured-2-scene",
+   "order": 1,
+   "name": "STEVE MADDEN-SPIN-OFF 芭蕾綁帶運動休閒鞋-粉色",
+   "price": 1105,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11411591.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/4219FFA243-SP-18608971.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/4219FFA243-SP-18608971.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1299,
+   "store": "STEVE MADDEN+官方旗艦館"
+  },
+  {
+   "gdid": "12062233",
+   "position": "featured-2",
+   "order": 1,
+   "name": "STEVE MADDEN-芭蕾綁帶側簍空高跟鞋 LARINA-粉色",
+   "price": 2510,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12062233.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/B1CDED16C2-SP-22493058.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/B1CDED16C2-SP-22493058.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2952,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/B1CDED16C2-SP-22493058.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FF5C62D8AB-SP-22493058.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7092D09F8B-SP-22493058.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/B2373FEA1A-SP-22493058.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2141AC91C6-SP-22493058.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/67FC7F95D5-SP-22493058.jpg"
+   ]
+  },
+  {
+   "gdid": "12080355",
+   "position": "featured-2",
+   "order": 2,
+   "name": "Pineapple Outfitter-甜美女孩真皮芭蕾休閒鞋KAHOLO-銀色",
+   "price": 2278,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12080355.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1B51D28543-SP-22582294.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1B51D28543-SP-22582294.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2680,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/1B51D28543-SP-22582294.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7B6F363AD8-SP-22582294.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2C726BCF4F-SP-22582294.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/3DB0230A9B-SP-22582294.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/19A472D21C-SP-22582294.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E6C9AF19A1-SP-22582294.jpg"
+   ]
+  },
+  {
+   "gdid": "12071841",
+   "position": "featured-2",
+   "order": 3,
+   "name": "Pineapple Outfitter-真皮厚底增高交叉繫帶芭蕾鞋KANTI-銀色",
+   "price": 2108,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12071841.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/B57219E0B4-SP-22532589.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/B57219E0B4-SP-22532589.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2480,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/B57219E0B4-SP-22532589.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F8FAA280CA-SP-22532589.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/75DE7810C4-SP-22532589.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/03396623E5-SP-22532589.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/A897B98C55-SP-22532589.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/AD5E852C15-SP-22532589.jpg"
+   ]
+  },
+  {
+   "gdid": "12071839",
+   "position": "featured-3-scene",
+   "order": 1,
+   "name": "Pineapple Outfitter-真皮厚底增高交叉繫帶芭蕾鞋KANTI-黑色",
+   "price": 2108,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12071839.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1B5D69A1AC-SP-22532553.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1B5D69A1AC-SP-22532553.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2480,
+   "store": "STEVE MADDEN+官方旗艦館"
+  },
+  {
+   "gdid": "12161499",
+   "position": "featured-3",
+   "order": 1,
+   "name": "STEVE MADDEN-滿版亮片織帶芭蕾穆勒鞋CUTESY-SEQ-白色",
+   "price": 2280,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12161499.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/F366CC20E3-SP-23028794.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/F366CC20E3-SP-23028794.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2682,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/F366CC20E3-SP-23028794.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/9F6EBF9CA9-SP-23028794.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/3D68D80DB7-SP-23028794.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/A9A06E5457-SP-23028794.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/29FFEF5CEA-SP-23028794.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2F1B1B2EC0-SP-23028794.jpg"
+   ]
+  },
+  {
+   "gdid": "12062250",
+   "position": "featured-3",
+   "order": 2,
+   "name": "STEVE MADDEN-芭蕾綁帶側簍空高跟鞋 LARINA-黑色",
+   "price": 2510,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12062250.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1D7F282514-SP-22493141.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1D7F282514-SP-22493141.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2952,
+   "store": "STEVE MADDEN+官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/1D7F282514-SP-22493141.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/88FB70085D-SP-22493141.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/77DEFF606F-SP-22493141.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E60629BE91-SP-22493141.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FDD8077712-SP-22493141.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/C5819B3A70-SP-22493141.jpg"
+   ]
+  },
+  {
+   "gdid": "9880774",
+   "position": "featured-3",
+   "order": 3,
+   "name": "FAIR LADY 我的旅行日記 優雅芭蕾單結平底娃娃鞋 金 (501738)",
+   "price": 1831,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-9880774.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/f95cc3d5f9-Gd-9880774.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/f95cc3d5f9-Gd-9880774.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2080,
+   "store": "FAIR LADY 官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/f95cc3d5f9-Gd-9880774.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/be3ea8fd76-Gd-9880774.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/b322c42757-Gd-9880774.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/1506bb7e66-Gd-9880774.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/1f63ac96d9-Gd-9880774.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/996e9f4e82-Gd-9880774.jpg"
+   ]
+  },
+  {
+   "gdid": "12217385",
+   "position": "category-1",
+   "order": 1,
+   "name": "FAIR LADY 我的旅行日記 甜美芭蕾瑪莉珍羊皮增高平底娃娃鞋 銀箔 (553227)",
+   "price": 2447,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12217385.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/820651A32D-SP-23261915.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/4077B24FDC-SP-23261915.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2780,
+   "store": "FAIR LADY 官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/4077B24FDC-SP-23261915.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/80DA84C3A9-SP-23261915.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FE3A772BEC-SP-23261915.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/820651A32D-SP-23261915.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/EA21E69EBA-SP-23261915.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/AE6B87CBEC-SP-23261915.jpg"
+   ]
+  },
+  {
+   "gdid": "11541178",
+   "position": "category-1",
+   "order": 2,
+   "name": "Crocs 卡駱馳 (童鞋) 芭蕾 經典小克駱格- 207006-6GD",
+   "price": 1332,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11541178.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/C93F8679DC-SP-19419041.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/C93F8679DC-SP-19419041.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1480,
+   "store": "CROCS官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/C93F8679DC-SP-19419041.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/9368E58F42-SP-19419041.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2113D9C696-SP-19419041.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/1E3E8B4651-SP-19419041.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/EE51E0E811-SP-19419041.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/C02C571243-SP-19419041.jpg"
+   ]
+  },
+  {
+   "gdid": "11085596",
+   "position": "category-1",
+   "order": 3,
+   "name": "ILEY伊蕾 氣質芭蕾舞鞋印花棉質上衣(白色；M-XL)1242511207",
+   "price": 791,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11085596.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/D458DEC591-SP-16906215.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/D458DEC591-SP-16906215.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 878,
+   "store": "ILEYED伊蕾序語 旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/D458DEC591-SP-16906215.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/DF4D3B2778-SP-16906215.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/8A562C9A8E-SP-16906215.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/C221E1A585-SP-16906215.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/14CE8AA1F1-SP-16906215.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/8E574AD818-SP-16906215.jpg"
+   ]
+  },
+  {
+   "gdid": "11150927",
+   "position": "category-1",
+   "order": 4,
+   "name": "平底鞋 MISS 21  迷戀少女芭蕾風蝴蝶結交叉帶羊皮瑪莉珍平底鞋－黑",
+   "price": 1170,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11150927.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/9EDE142467-SP-17393334.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/9EDE142467-SP-17393334.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1299,
+   "store": "MISS 21官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/9EDE142467-SP-17393334.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2BAAE19981-SP-17393334.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F4A297C9DC-SP-17393334.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/79BBF9A7B8-SP-17393334.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FD1AE0D49B-SP-17393334.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/4E77019309-SP-17393334.jpg"
+   ]
+  },
+  {
+   "gdid": "10954726",
+   "position": "category-1",
+   "order": 5,
+   "name": "低跟鞋 MISS 21 精緻敏感芭蕾風蝴蝶結兩穿綁帶羊皮方頭娃娃低跟鞋－黑",
+   "price": 1170,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-10954726.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1A3B675C6E-SP-16063181.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1A3B675C6E-SP-16063181.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1299,
+   "store": "MISS 21官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/1A3B675C6E-SP-16063181.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/EFA460FAEB-SP-16063181.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F73C487BEE-SP-16063181.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/A4E0B0BF17-SP-16063181.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7B4111B770-SP-16063181.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/01706F12F2-SP-16063181.jpg"
+   ]
+  },
+  {
+   "gdid": "12092525",
+   "position": "category-1",
+   "order": 6,
+   "name": "Crocs 卡駱馳 (女鞋) 經典芭蕾鞋 Classic 經典系列 女鞋-粉筆色 211994-0WV",
+   "price": 1422,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12092525.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/419A446181-SP-22643953.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/419A446181-SP-22643953.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1580,
+   "store": "CROCS官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/419A446181-SP-22643953.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7926C3B8DA-SP-22643953.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F12B267760-SP-22643953.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FAC7FEFF91-SP-22643953.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/C781379F8C-SP-22643953.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/5719D17C7F-SP-22643953.jpg"
+   ]
+  },
+  {
+   "gdid": "11150933",
+   "position": "category-1",
+   "order": 7,
+   "name": "平底鞋 MISS 21 微甜芭蕾交叉帶全真皮瑪莉珍圓頭平底鞋－黑",
+   "price": 1170,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11150933.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/4C050D280F-SP-17393114.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/4C050D280F-SP-17393114.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1299,
+   "store": "MISS 21官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/4C050D280F-SP-17393114.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/739DCA7EEF-SP-17393114.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E11C8BA9CD-SP-17393114.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/344AAD331C-SP-17393114.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E52D27ED5D-SP-17393114.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/3F385AF7B3-SP-17393114.jpg"
+   ]
+  },
+  {
+   "gdid": "11150928",
+   "position": "category-1",
+   "order": 8,
+   "name": "平底鞋 MISS 21  迷戀少女芭蕾風蝴蝶結交叉帶金屬羊皮瑪莉珍平底鞋－銀",
+   "price": 1170,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11150928.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/22703323D6-SP-17393371.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/22703323D6-SP-17393371.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1299,
+   "store": "MISS 21官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/22703323D6-SP-17393371.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/BB0F2B8536-SP-17393371.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/CB474F70B9-SP-17393371.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7FA111F8AD-SP-17393371.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/56B9BD29D4-SP-17393371.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/D79E3E878F-SP-17393371.jpg"
+   ]
+  },
+  {
+   "gdid": "12191366",
+   "position": "category-1",
+   "order": 9,
+   "name": "Crocs 卡駱馳 (女鞋)  經典珍珠芭蕾鞋 -黑色 213990-001",
+   "price": 1872,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12191366.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/E0866F17C0-SP-23143816.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/E0866F17C0-SP-23143816.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2080,
+   "store": "CROCS官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/E0866F17C0-SP-23143816.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/56AEA7AE20-SP-23143816.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/1B4B7E0B6D-SP-23143816.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7F301718CC-SP-23143816.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/18965D4795-SP-23143816.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/0E871715B5-SP-23143816.jpg"
+   ]
+  },
+  {
+   "gdid": "12224850",
+   "position": "category-1",
+   "order": 10,
+   "name": "Crocs 卡駱馳 (女鞋) 經典金屬色芭蕾鞋-金色 214282-710",
+   "price": 1602,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12224850.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/4B09F62CD1-SP-23288047.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/4B09F62CD1-SP-23288047.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1780,
+   "store": "CROCS官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/4B09F62CD1-SP-23288047.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/A3F4C7C409-SP-23288047.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/C0E76F6787-SP-23288047.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/B1B628ED6D-SP-23288047.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E5C0C81DF0-SP-23288047.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/D2E193789D-SP-23288047.jpg"
+   ]
+  },
+  {
+   "gdid": "12224846",
+   "position": "category-1",
+   "order": 11,
+   "name": "Crocs 卡駱馳 (女鞋) 經典優雅珍珠芭蕾鞋 女鞋-亞麻色 215631-0HZ",
+   "price": 1962,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12224846.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6AE5C2A5D0-SP-23288090.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/6AE5C2A5D0-SP-23288090.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2180,
+   "store": "CROCS官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/6AE5C2A5D0-SP-23288090.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/63414D5484-SP-23288090.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E2C66224A8-SP-23288090.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/66BABB3672-SP-23288090.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/116634128F-SP-23288090.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/30037B35A9-SP-23288090.jpg"
+   ]
+  },
+  {
+   "gdid": "12224849",
+   "position": "category-1",
+   "order": 12,
+   "name": "Crocs 卡駱馳 (女鞋) 經典優雅蝴蝶芭蕾鞋-冰凍米色 215669-2MC",
+   "price": 1962,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12224849.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/EF29F36B04-SP-23288133.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/EF29F36B04-SP-23288133.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2180,
+   "store": "CROCS官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/EF29F36B04-SP-23288133.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/6888758D5E-SP-23288133.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/778B1E6F65-SP-23288133.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2D472AFA3C-SP-23288133.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/4DDA932EF3-SP-23288133.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/173A3914BC-SP-23288133.jpg"
+   ]
+  },
+  {
+   "gdid": "11879781",
+   "position": "category-2",
+   "order": 1,
+   "name": "【Grace Gift】珍珠小花條帶魔鬼氈芭蕾舞瑪莉珍鞋 米白",
+   "price": 2190,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11879781.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/d85a6512ae-Gd-11879781.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/d85a6512ae-Gd-11879781.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2380,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "11804199",
+   "position": "category-2",
+   "order": 2,
+   "name": "【Grace Gift】甜感少女2WAY緞帶芭蕾休閒鞋 杏",
+   "price": 911,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11804199.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/211E5BF93A-Gd-11804199.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/211E5BF93A-Gd-11804199.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 990,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "11441727",
+   "position": "category-2",
+   "order": 3,
+   "name": "【Grace Gift】妞妞聯名-韓系全真皮拼接德訓鞋(附芭蕾風珍珠DIY改造包) 米白",
+   "price": 2650,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11441727.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/EFEA87A5AB-SP-18683810.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/EFEA87A5AB-SP-18683810.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 2880,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "11954092",
+   "position": "category-2",
+   "order": 4,
+   "name": "【Grace Gift】首爾芭蕾機能綁帶蝴蝶結瑪莉珍運動鞋 咖",
+   "price": 1546,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11954092.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/696A6E2CD6-SP-21900181.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/696A6E2CD6-SP-21900181.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1680,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "12090852",
+   "position": "category-2",
+   "order": 5,
+   "name": "【Grace Gift】奶油雲朵極軟加厚乳膠芭蕾瑪莉珍鞋 粉",
+   "price": 1086,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12090852.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/25E4B0A9D5-SP-22625849.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/25E4B0A9D5-SP-22625849.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1180,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "12221075",
+   "position": "category-2",
+   "order": 6,
+   "name": "【Grace Gift】芭蕾女伶方頭雙帶平底瑪莉珍鞋 豹紋",
+   "price": 1178,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12221075.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/8888FEE224-SP-22673246.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/8888FEE224-SP-22673246.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1280,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "12221097",
+   "position": "category-2",
+   "order": 7,
+   "name": "【Grace Gift】法式訂製全真皮鞋墊芭蕾平底娃娃鞋 金",
+   "price": 1178,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12221097.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/501D1FD529-SP-22720854.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/501D1FD529-SP-22720854.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1280,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "12221096",
+   "position": "category-2",
+   "order": 8,
+   "name": "【Grace Gift】法式訂製全真皮鞋墊芭蕾平底娃娃鞋 酒紅漆",
+   "price": 1178,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12221096.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/A7FE62A8C9-SP-22720723.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/A7FE62A8C9-SP-22720723.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 1280,
+   "store": "Grace Gift 官方旗艦店"
+  },
+  {
+   "gdid": "11910099",
+   "position": "category-2",
+   "order": 9,
+   "name": "DONGCHICHI  透氣 柔軟 鋪棉底 綁帶 芭蕾舞鞋 平底 娃娃鞋 瑪莉珍鞋 黑色 G008",
+   "price": 790,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11910099.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/2EFA693800-Gd-11910099.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/2EFA693800-Gd-11910099.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 820
+  },
+  {
+   "gdid": "11899726",
+   "position": "category-2",
+   "order": 10,
+   "name": "DONGCHICHI【現貨】顏色超美 漆皮 平底 瑪莉珍鞋 芭蕾 蝴蝶結 娃娃鞋 大尺碼 銀色 C546",
+   "price": 750,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11899726.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/CEA26918BD-Gd-11899726.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/CEA26918BD-Gd-11899726.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 780
+  },
+  {
+   "gdid": "11899747",
+   "position": "category-2",
+   "order": 11,
+   "name": "DONGCHICHI【現貨】顏色超美 漆皮 平底 瑪莉珍鞋 芭蕾 蝴蝶結 娃娃鞋 大尺碼 黑色 C546",
+   "price": 750,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11899747.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/B372169A42-Gd-11899747.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/B372169A42-Gd-11899747.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 780
+  },
+  {
+   "gdid": "11899749",
+   "position": "category-2",
+   "order": 12,
+   "name": "DONGCHICHI【現貨】顏色超美 漆皮 平底 瑪莉珍鞋 芭蕾 蝴蝶結 娃娃鞋 大尺碼 白色 C546",
+   "price": 750,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11899749.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/DFE6628C49-Gd-11899749.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/DFE6628C49-Gd-11899749.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 780
+  },
+  {
+   "gdid": "11899750",
+   "position": "category-3",
+   "order": 1,
+   "name": "DONGCHICHI【現貨】顏色超美 漆皮 平底 瑪莉珍鞋 芭蕾 蝴蝶結 娃娃鞋 大尺碼 酒紅色 C546",
+   "price": 750,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11899750.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/32992401FE-Gd-11899750.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/32992401FE-Gd-11899750.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 780
+  },
+  {
+   "gdid": "12232442",
+   "position": "category-3",
+   "order": 2,
+   "name": "Rose x W Puma Speedcat Etoile 芭蕾粉 Rose同款 賽車鞋 女鞋 407673-03",
+   "price": 3363,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12232442.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/C5BAABD678-SP-23222837.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/C5BAABD678-SP-23222837.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "marketPrice": 3463
+  },
+  {
+   "gdid": "11987914",
+   "position": "category-3",
+   "order": 3,
+   "name": "PROJEXT 天絲飛織芭蕾鞋 鑽閃粉 女鞋 樂福鞋 娃娃鞋平底鞋 秒穿脫 美腿鞋 足弓鞋墊",
+   "price": 2190,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11987914.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/109059C098-SP-22083049.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/109059C098-SP-22083049.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "PROJEXT 官方旗艦館"
+  },
+  {
+   "gdid": "11987915",
+   "position": "category-3",
+   "order": 4,
+   "name": "PROJEXT 天絲飛織芭蕾鞋 黑色 女鞋 樂福鞋 娃娃鞋平底鞋 秒穿脫 美腿鞋 足弓鞋墊",
+   "price": 2190,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11987915.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/F1E8CA8CFC-SP-22082597.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/F1E8CA8CFC-SP-22082597.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "PROJEXT 官方旗艦館"
+  },
+  {
+   "gdid": "11682104",
+   "position": "category-3",
+   "order": 5,
+   "name": "【LN】現+預 芭蕾舞軟Q舒適平底鞋(女鞋/平底鞋/方頭鞋/休閒鞋)",
+   "price": 749,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11682104.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/F8DF1D3045-SP-20419588.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/F8DF1D3045-SP-20419588.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature"
+  },
+  {
+   "gdid": "11994244",
+   "position": "category-3",
+   "order": 6,
+   "name": "休閒鞋 MISS 21 閃甜芭蕾鬆緊雙繫帶材質拼接瑪莉珍薄底休閒鞋－米白",
+   "price": 2980,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11994244.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/567102CB19-SP-22109304.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/567102CB19-SP-22109304.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "MISS 21官方旗艦館"
+  },
+  {
+   "gdid": "11754966",
+   "position": "category-3",
+   "order": 7,
+   "name": "Robinlo 真皮芭蕾交叉綁帶瑪莉珍鞋通勤鞋圓頭平底娃娃鞋 PHIL 櫻漾輕粉",
+   "price": 1599,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11754966.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1302562907-SP-20882314.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1302562907-SP-20882314.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature"
+  },
+  {
+   "gdid": "9839834",
+   "position": "category-3",
+   "order": 8,
+   "name": "(杰恆)los0663粉兒童碼舞蹈鞋兒童軟底練功鞋古典形體貓爪跳舞鞋瑜伽芭蕾",
+   "price": 219,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-9839834.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6CD94A764E-SP-10850774.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/6CD94A764E-SP-10850774.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature"
+  },
+  {
+   "gdid": "9592534",
+   "position": "category-3",
+   "order": 9,
+   "name": "Ann’S芭蕾造型-寬版鬆緊繫帶V口綿羊皮尖頭細跟鞋-杏",
+   "price": 2280,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-9592534.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/275F6015DE-SP-10079820.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/275F6015DE-SP-10079820.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "Ann’S官方旗艦館"
+  },
+  {
+   "gdid": "11950804",
+   "position": "category-3",
+   "order": 10,
+   "name": "Adidas 愛迪達 Taekwondo Mei Ballet [JR5758] 女 休閒鞋 平底鞋 芭蕾 舒適 藍 白",
+   "price": 3490,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11950804.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/FCF2FFD2D7-SP-21897631.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/FCF2FFD2D7-SP-21897631.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature"
+  },
+  {
+   "gdid": "10605605",
+   "position": "category-3",
+   "order": 11,
+   "name": "[韓妞推薦鞋款組合]【KEITH-WILL時尚鞋館】-獨家限量下殺 好康特惠婚鞋芭蕾鞋系列D(娃娃鞋/媽媽鞋/通勤鞋/豆豆鞋)(時時樂限定)",
+   "price": 599,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-10605605.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/79802dc528-Gd-10605605.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/79802dc528-Gd-10605605.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature"
+  },
+  {
+   "gdid": "10605217",
+   "position": "category-3",
+   "order": 12,
+   "name": "[韓妞推薦鞋款組合]【KEITH-WILL時尚鞋館】-獨家限量下殺 好康特惠婚鞋芭蕾鞋系列C(娃娃鞋/媽媽鞋/通勤鞋/豆豆鞋)(時時樂限定)",
+   "price": 599,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-10605217.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/cc2dbaddc5-Gd-10605217.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/cc2dbaddc5-Gd-10605217.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature"
+  },
+  {
+   "gdid": "11804197",
+   "position": "editorial-wall",
+   "order": 1,
+   "name": "【Grace Gift】街頭芭蕾內增高瑪莉珍薄底運動鞋 黑",
+   "price": 1780,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11804197.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6BCBAA590C-SP-21101528.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/2F0B16F56C-SP-21101528.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "Grace Gift 官方旗艦店",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/2F0B16F56C-SP-21101528.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/6BCBAA590C-SP-21101528.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/906590205C-SP-21101528.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/D59E3F1AED-SP-21101528.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F4A5DE7AC0-SP-21101528.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/FF0FB8DF4B-SP-21101528.jpg"
+   ]
+  },
+  {
+   "gdid": "12242670",
+   "position": "editorial-wall",
+   "order": 2,
+   "name": "厚底鞋-厚底-老爹鞋-芭蕾舞運動鞋-韓國-芭蕾鞋-運動鞋-正韓-休閒鞋-G227",
+   "price": 1390,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-12242670.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/7C667FF402-SP-23359679.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/B38A239B29-SP-23359679.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/B38A239B29-SP-23359679.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/902C73A63A-SP-23359679.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/B89D020079-SP-23359679.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E521ED92FF-SP-23359679.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7C667FF402-SP-23359679.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/7630156C5E-SP-23359679.jpg"
+   ]
+  },
+  {
+   "gdid": "11987912",
+   "position": "editorial-wall",
+   "order": 3,
+   "name": "PROJEXT 天絲飛織芭蕾鞋 橄欖綠 女鞋 樂福鞋 娃娃鞋平底鞋 秒穿脫 美腿鞋 足弓鞋墊",
+   "price": 2190,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11987912.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/5FDF5C6E49-SP-22082809.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/ADD1985BB0-SP-22082809.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "PROJEXT 官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/ADD1985BB0-SP-22082809.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/F84AC242D5-SP-22082809.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/BD3341A60F-SP-22082809.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/5FDF5C6E49-SP-22082809.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/015E203DF4-SP-22082809.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/CA33EC020D-SP-22082809.jpg"
+   ]
+  },
+  {
+   "gdid": "11987913",
+   "position": "editorial-wall",
+   "order": 4,
+   "name": "PROJEXT 天絲飛織芭蕾鞋 朱丹紅 女鞋 樂福鞋 娃娃鞋平底鞋 秒穿脫 美腿鞋 足弓鞋墊",
+   "price": 2190,
+   "url": "https://tw.buy.yahoo.com/gdsale/p-11987913.html",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/BAD551EC87-SP-22083293.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/08CA4675CA-SP-22083293.jpg",
+   "offer": "",
+   "tag": "",
+   "tagSource": "feature",
+   "store": "PROJEXT 官方旗艦館",
+   "imgs": [
+    "https://img.yec.tw/zp/MerchandiseImages/08CA4675CA-SP-22083293.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/5A772C162B-SP-22083293.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/215874DFEC-SP-22083293.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/BAD551EC87-SP-22083293.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E3E880E4B5-SP-22083293.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/E6F9C61F5C-SP-22083293.jpg"
+   ]
+  }
+ ],
+ "meta": {
+  "generatedBy": "curate_auto v0（機械策展：只挑選不生成；moreLink 全 off＝U28 目的地驗證需網路/人工）",
+  "engine": "auto",
+  "scenario": "",
+  "theme": "",
+  "sourceUrl": "https://tw.buy.yahoo.com/search/product?p=%E8%8A%AD%E8%95%BE%E9%9E%8B",
+  "generatedAt": "2026-09-07T03:49:08.238Z",
+  "notes": [
+   "編輯精選＝圓×2＋牆 4 件（餘池生成、未曝光品）",
+   "在線活動入口 0 則 <3（U17/U19）＝promoEntries 整組省略、loader 維持現值",
+   "延伸探索＝1 卡（真值 URL：來源頁）"
+  ],
+  "layoutChoice": {
+   "by": "pack",
+   "reason": "提案包帶入（背景＋配色草案＋副標題字體＋字風妝容跟主題走＋組合QA狀態）：現值＝版式「攻略・銀棚」（layout-005）、背景 bg-028。提案包 qaStatus=needs-review；黃燈：這份包的字風「css-f1」寫在舊位置（colors 裡）且尚未審查通過，CMS 不會套用——請用新版色彩工具重新打包（字風要放在 titleStyle 一等欄，且須審查通過）；qaStatus=needs-review＝黃燈帶入（組合未過試搭 QA，工作台需顯示提醒）",
+   "reasonDisplay": "照設計師提案包帶入背景＋配色草案＋副標題字體＋字風妝容跟主題走＋組合QA狀態——目前用 「攻略・銀棚」 版面、背景「白磁磚小方格（合成・四方連續）」、副標字體「思源黑體」。",
+   "decidedAt": "2026-09-07T03:49:08.769Z",
+   "aiOriginal": null,
+   "aiOriginalDisplay": null
+  },
+  "proposalPack": {
+   "pack": {
+    "version": 1,
+    "generatedAt": "2026-09-07",
+    "layout": "layout-005",
+    "background": "bg-028",
+    "font": "font-001",
+    "motion": "static",
+    "layoutDetail": {
+     "name": "攻略・銀棚",
+     "family": "特輯封面式",
+     "devices": [
+      "1440",
+      "768",
+      "375"
+     ]
+    },
+    "backgroundDetail": {
+     "name": "白磁磚小方格（合成・四方連續）",
+     "mode": "image",
+     "bridgeColor": "#EFF1F3",
+     "license": "A",
+     "inPool": true
+    },
+    "fontDetail": {
+     "note": "跟字風走（預設 Noto 系）",
+     "styleKey": "css-f1"
+    },
+    "titleStyleThemed": true,
+    "motionDetail": {
+     "mode": "static"
+    },
+    "products": [],
+    "colors": {
+     "mainColorSource": "mood",
+     "cardBadge": "#BC9F77",
+     "titleBadge": "#BC9F77",
+     "latticeLine": "#BC9F77",
+     "brandColor": "#D9AB42",
+     "brand": "#D9AB42",
+     "brandSoft": "#D8B462",
+     "brandNeon": "#FFE9B8",
+     "paletteSource": "nippon",
+     "nipponPalette": "kuchiba_seasonal",
+     "nipponCategory": "tech",
+     "harmonyRule": null,
+     "brandExtensionRule": null,
+     "nipponReference": {
+      "brand": {
+       "name": "朽葉",
+       "romaji": "KUCHIBA",
+       "hex": "#D9AB42",
+       "note": "主色，建立活動頁的色彩記憶點"
+      },
+      "hero": {
+       "name": "鳥之子",
+       "romaji": "TORINOKO",
+       "hex": "#DAC9A6",
+       "note": "轉成高明度 Hero 背景，保留色感但降低壓迫"
+      },
+      "headline": {
+       "name": "檜皮",
+       "romaji": "HIWADA",
+       "hex": "#854836",
+       "note": "標題文字色，優先確保可讀性"
+      },
+      "price": {
+       "name": "紅鳶",
+       "romaji": "BENITOBI",
+       "hex": "#994639",
+       "note": "價格或促購資訊，用少量暖色形成行動提醒"
+      },
+      "accent": {
+       "name": "白茶",
+       "romaji": "SHIRACHA",
+       "hex": "#BC9F77",
+       "note": "輔助點綴色，銜接情緒與視覺層次"
+      }
+     },
+     "strategy": "tech",
+     "strategyLabel": "朽葉秋季",
+     "themeMode": "light",
+     "mood": "bright",
+     "suggestedHueFamily": "gold-bronze",
+     "suggestedColorTheme": "gold-bronze-light",
+     "saturationAdjust": 0,
+     "lightnessAdjust": 0,
+     "contrastAdjust": 0,
+     "titleStyle": "css-f1",
+     "heroCopy": {
+      "titleText": "PUMA x ROSÉ \n聯名鞋款開賣",
+      "subtitleText": "測試文案 ppp",
+      "eventTimeNote": "活動時間標題與日期為示意文案，正式檔期由來源實抓（真值鐵律）"
+     },
+     "typography": {
+      "title": {
+       "style": "css-f1",
+       "sizePx": 90,
+       "trackingPercent": 0,
+       "leading": 1.33,
+       "align": "center"
+      },
+      "subtitle": {
+       "font": "sans",
+       "fontFamilyCss": "'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",
+       "weightCss": 900,
+       "sizePx": 24,
+       "trackingPercent": 10,
+       "leading": 1.2
+      }
+     },
+     "componentColors": {
+      "title": "#854836",
+      "subtitle": "#854836",
+      "eventLabel": "#854836",
+      "eventDate": "#854836",
+      "cardText": "#854836",
+      "price": "#994639"
+     },
+     "designerOverrides": {
+      "colorOverrides": {},
+      "moduleMapping": {
+       "page": "page",
+       "hero": "hero",
+       "section": "section",
+       "card": "card",
+       "product": "product",
+       "eyebrow": "accent",
+       "cta": "cta",
+       "price": "price",
+       "title": "headline",
+       "subtitle": "text",
+       "eventLabel": "text",
+       "eventDate": "headline",
+       "cardBadge": "accent",
+       "titleBadge": "accent",
+       "latticeLine": "accent"
+      }
+     },
+     "backgroundModules": [
+      {
+       "key": "page",
+       "label": "Page / 活動頁底色",
+       "token": "campaign/page-bg",
+       "hex": "#F2EAD9",
+       "usage": "整頁最底層背景"
+      },
+      {
+       "key": "hero",
+       "label": "Hero / 主視覺背景",
+       "token": "campaign/hero-bg",
+       "hex": "#F5F0E5",
+       "usage": "首屏主視覺底色"
+      },
+      {
+       "key": "section",
+       "label": "Section / 區塊背景",
+       "token": "campaign/section-bg",
+       "hex": "#F7F2E9",
+       "usage": "活動內容分段底色"
+      },
+      {
+       "key": "card",
+       "label": "Card / 內容卡片",
+       "token": "campaign/card-bg",
+       "hex": "#FAF8F4",
+       "usage": "商品卡與資訊容器"
+      },
+      {
+       "key": "product",
+       "label": "Product / 商品展示底",
+       "token": "campaign/product-bg",
+       "hex": "#ECE3D7",
+       "usage": "商品圖、賣點區塊襯底"
+      }
+     ],
+     "qaStatus": "needs-review"
+    },
+    "qaStatus": "needs-review",
+    "warnings": [
+     "字風「F1 疊影錯位」尚未審查通過（待審查）——工具可以預覽，但這份包不帶字風、CMS 會用版式原本的字；請負責人在字風登記簿審查通過後重新打包"
+    ],
+    "registrySources": {
+     "layouts": "0.7.12",
+     "backgrounds": "0.10.0",
+     "fonts": "0.3.0",
+     "motion": "0.5.0",
+     "typestyles": "0.5.2"
+    },
+    "usage": "兩條路都通：①貼到 CMS 編修頁「版型與配色 → 貼組合提案包」＝版式＋背景＋主題一次帶入；②貼回 Claude Code 說「讀提案包」＝組 Figma 工作頁。素材授權 C 級僅內部預覽",
+    "subtitleFont": {
+     "fontId": "font-001",
+     "weight": 900
+    }
+   },
+   "warnings": [
+    "這份包的字風「css-f1」寫在舊位置（colors 裡）且尚未審查通過，CMS 不會套用——請用新版色彩工具重新打包（字風要放在 titleStyle 一等欄，且須審查通過）",
+    "qaStatus=needs-review＝黃燈帶入（組合未過試搭 QA，工作台需顯示提醒）"
+   ],
+   "deviated": false,
+   "appliedAt": "2026-09-07T03:49:08.769Z",
+   "appliedFrom": "combo-panel"
+  },
+  "layoutChoiceLog": [
+   {
+    "by": "pack",
+    "reason": "手選版式「攻略・銀棚」（layout-005）",
+    "reasonDisplay": "照設計師提案包，這檔用「攻略・銀棚」版面。之後在編修頁隨時可以換。",
+    "engineNote": null,
+    "decidedAt": "2026-09-07T03:48:30.814Z",
+    "heroPrefill": "骨架預填 3 槽（建立期機器預設、可編修）"
+   }
+  ]
+ },
+ "assets": {
+  "moduleImages": {
+   "kvImage2": "https://img.yec.tw/zp/MerchandiseImages/519091db3f-Gd-10671950.jpg"
+  }
+ }
+}

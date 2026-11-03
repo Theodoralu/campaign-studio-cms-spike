@@ -1,0 +1,107 @@
+{
+  "params": {
+    "BG_TH": 36,
+    "CORE_HI": 90,
+    "FEATHER_R": 3,
+    "PAD_RATIO": 0.04
+  },
+  "generatedAt": "2026-07-20T08:24:23.904Z",
+  "items": [
+    {
+      "gdid": "12128733",
+      "name": "en-suey 立體提織橫條A-LINE洋裝",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/3480C1BD28-SP-22855496.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/fashion/12128733.png",
+      "srcSize": "1000x1000",
+      "outSize": "1080x1080",
+      "pad": 40,
+      "bbox": {
+        "x0": 0,
+        "y0": 0,
+        "bw": 1000,
+        "bh": 1000
+      },
+      "srcBorderWhiteShare": 0.1677,
+      "whiteBgGate": "fail",
+      "bgRemovedRatio": 0.0766,
+      "despeckledPx": 528,
+      "alphaRatio": 0.7861,
+      "featherRatio": 0.0073,
+      "edgeSamples": 7979,
+      "hardEdgeRatio": 0.5164,
+      "whiteHaloRatio": 0.0145
+    },
+    {
+      "gdid": "12131013",
+      "name": "en-suey 電繡縫珠航海風線衫",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/B5EB88474F-SP-22862652.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/fashion/12131013.png",
+      "srcSize": "1000x1000",
+      "outSize": "1080x1080",
+      "pad": 40,
+      "bbox": {
+        "x0": 0,
+        "y0": 0,
+        "bw": 1000,
+        "bh": 1000
+      },
+      "srcBorderWhiteShare": 0.012,
+      "whiteBgGate": "fail",
+      "bgRemovedRatio": 0.0002,
+      "despeckledPx": 0,
+      "alphaRatio": 0.857,
+      "featherRatio": 0.0004,
+      "edgeSamples": 4062,
+      "hardEdgeRatio": 0.9636,
+      "whiteHaloRatio": 0.0049
+    },
+    {
+      "gdid": "12131012",
+      "name": "en-suey 熱帶葉片印花休閒短褲",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/962F4CCA44-SP-22862408.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/fashion/12131012.png",
+      "srcSize": "1000x1000",
+      "outSize": "1080x1080",
+      "pad": 40,
+      "bbox": {
+        "x0": 0,
+        "y0": 0,
+        "bw": 1000,
+        "bh": 1000
+      },
+      "srcBorderWhiteShare": 0.0135,
+      "whiteBgGate": "fail",
+      "bgRemovedRatio": 0.0025,
+      "despeckledPx": 41,
+      "alphaRatio": 0.8539,
+      "featherRatio": 0.0024,
+      "edgeSamples": 5067,
+      "hardEdgeRatio": 0.7697,
+      "whiteHaloRatio": 0.0367
+    },
+    {
+      "gdid": "12137551",
+      "name": "en-suey EU手繪感印花格紋長裙",
+      "src": "https://img.yec.tw/zp/MerchandiseImages/5E5DC1797E-SP-22902789.jpg",
+      "file": "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/cutouts/fashion/12137551.png",
+      "srcSize": "1000x1000",
+      "outSize": "1080x1080",
+      "pad": 40,
+      "bbox": {
+        "x0": 0,
+        "y0": 0,
+        "bw": 1000,
+        "bh": 1000
+      },
+      "srcBorderWhiteShare": 0.006,
+      "whiteBgGate": "fail",
+      "bgRemovedRatio": 0.0011,
+      "despeckledPx": 138,
+      "alphaRatio": 0.8557,
+      "featherRatio": 0.0005,
+      "edgeSamples": 4228,
+      "hardEdgeRatio": 0.939,
+      "whiteHaloRatio": 0.106
+    }
+  ]
+}

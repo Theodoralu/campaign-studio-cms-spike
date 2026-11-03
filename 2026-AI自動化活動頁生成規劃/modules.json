@@ -1,0 +1,1883 @@
+{
+ "schemaVersion": "1.1.0-draft",
+ "status": "M1 已定版（2026-08-24 使用者裁決＝凍結候選解凍；後續變更一律走 amendments＋tracker §8）",
+ "amendments": [
+  "2026-08-24：M1 解凍定版＋九版式登錄批（使用者裁決；51 號 v1.1 第一波 W1-A）——①status 凍結候選→已定版②hero variants 追加 layout-001〜009（G-6 append、裸值拼法＝51 §2.6 合帳、new/legacy 保留；rollout:'trial'＝51 §3 灰度旗標、legacy 停新案為獨立開關）③與 design-assets/layouts/manifest.json catalogRef 互指同批填值（33 號 F-5 橋就此接通）④出貨門票＝CP-25 版式值域／CP-26 佔位殘留／CP-27 素材授權（登記表 v1.8，實裝 W1-E）",
+  "2026-07-28：GA4 v2.0＋版型變體批（使用者裁決 G-7＝B 案通用事件收斂＋G-6 身分/版型兩軸分離；規格＝17 號文件 §1/§7、01 §11 已升 v2.0＝事件枚舉唯一事實來源）——①全模組 ga4.events 改寫為 v2.0 通用事件歸屬（product_click／entry_click／more_link_click／cta_click／nav_click／share_click；module_impression 與 activity_page_view 為全域事件不逐模組列；特例：頁首「活動說明」鈕＝nav_click、module_id=horizontal_uh、target_module=notice）②新增 variants[] 版型登錄區（hero=new|legacy、featured=grid|carousel、mechanic=grid|banner、category_entry=icon-grid|card——皆為既有規格變體就地收編、非新發明；未列 variants 之模組＝僅 default；值域單一來源＝本檔，Sheets P4 鏡像與工作台版型下拉待首個第二版型實裝時隨 pipeline 批）③schemaVersion 1.0.0-draft→1.1.0-draft",
+  "2026-07-21：U19~U31 條文落地批——本檔同步 U27（2026-07-20 裁決㉗：category_groups 每牆商品數＝4 的倍數 4|8|12，新增 wallProductCount 槽位＋sheetsFields 欄；機器閘 CP-21）＋U28/U28b（2026-07-20 裁決㉘：featured 新增／category_groups 改寫 moreLink={enabled,url} 槽位——看更多主題化＋全頁唯一＝機器閘 CP-22）；已落地事實：FrameTest 五集第三牆＝4/4/4/4/8、看更多 30 位置全 on、部署 commit c7b3dbd",
+  "2026-07-21：裁決⑱⑲ 條文落地——category_groups colsByDevice 依 ㉗ 事實回填（desktop＝4 欄 grid repeat(4,1fr) 軌 288、tablet＝4 欄卡 150、mobile＝2 欄；該模組 PENDING-09 佔位就此去除，其餘模組 PENDING-09 維持待 09 凍結）；⑲ tablet 品類牆 4 欄定案（替代案 2 欄剔除、收斂會字樣去除；09 §2.11 T 同步）",
+  "2026-08-25：layout-010 雜誌封面・三件套收錄出貨值域（使用者指定入庫；設計側登記＝5c 線 layouts v0.6.0＋bg-026 斜紋白棚 A 級純變數；G-6 append、rollout trial；引擎未完工＝滾動制照舊：選單不出卡、出貨閘擋，完工解鎖）",
+  "2026-08-25：W2 內文模組第一批登錄（G-6 append；story＝pipeline docs/stories/content-modules-wave2.md M1；勘查真源＝Figma 0kBvgdSpVUui1eQrwOIqRM 藍圖 2026-08-25 實抽）——①mechanic variants 追加 info-offer-rows／info-gift-rows／info-gift-gallery／info-gift-rush（活動資訊卡四版式；197:48 板圈選通過 2026-08-21、字級間距規格對照 47 號 A 組；banner 配對版面掛模組層＝1440 banner 392×450＋卡 600×450 欄距 24／768 286＋410 並排／375 343 上下排＝197:48 板真源）②featured variants 追加 spotlight（主打選品舞台 377:250）＋promo-card（促銷卡 291:667；模組層排法原檔未載＝第二批渲染前補裁）③商品卡（729:160）＝卡樣式隨 featured／category_groups 走、不登模組不進面板（2026-08-25 使用者裁決「隨模組走」；渲染規格＝47 號 B 組、products[] 零新欄）；模組標題列＝既有 SectionHeader atom（776:54）零登錄④六新變體 buildSelectable:true＝CMS 編修頁「頁面組成」面板可選、rollout:'trial'＝渲染未到位灰度旗標（第一批＝登錄＋面板＋內容編修；真渲染＝第二批 M7~M10、預覽端誠實標示製作中）；值域機器消費＝pipeline lib/content_modules.js runtime 讀本檔（CP-25 讀簿模式）⑤契約節點（page.mechanic／page.spotlight／page.promoCard）＝14 號 §2.14 登錄待審；mechanic slots 擴充（offerRows）隨 14 號審、本批不動既有 slots",
+  "2026-08-26：本期活動排版樣式第一批登錄（G-6 append；W2.5 換皮批＝方案 A 同內容換皮，使用者四題裁決）——promo variants 追加 entry-circles（現行圓形入口卡＝預設、缺欄語意；照 hero new 慣例不標 rollout）＋offer-rows（優惠說明卡皮；197:48 板 2026-08-21 圈選；rollout:'trial'）；好禮三款不開放給本期活動（缺承諾性真值欄）、數字欄商品型顯真值/活動型隱藏、banner＝模組標題純色（皆渲染端規則）；契約＝14 號 §2.4 page.promoVariant 登錄待審；值域機器消費＝pipeline lib/content_modules.js runtime 讀本檔"
+ ],
+ "sources": {
+  "01_System_PRD.md": {
+   "version": "v1.1",
+   "date": "2026-07-13",
+   "lines": 347,
+   "role": "資料契約（§4）、品質規則（§5）、頁型（§6）、降級規則與骨架樹（§7）、GA4 事件表（§11，唯一事實來源）"
+  },
+  "02_Template_Contracts.md": {
+   "version": "v1.1",
+   "date": "2026-07-13",
+   "lines": 277,
+   "role": "模板契約（Banner/Hero/Featured/ProductCard/PromoCard/CategoryGroup/ExtendedExplore/AnchorNav）、版心格線（§13）、上稿資產（§14）、Prompt 契約（§11）"
+  },
+  "03_Category_Purpose_Matrix.md": {
+   "role": "品類×目的判型（§6.3 判型輸出 schema）、格位矩陣（§5）、格位查核與 fallback（§7）、戰略（§8.2）"
+  },
+  "04_Module_Design_System.md": {
+   "version": "v0.9",
+   "date": "2026-07-13",
+   "lines": 243,
+   "role": "模組登記表（§3，Canonical Registry 單一事實來源）、Atoms 22 個（§4）、目的變體（§5）、骨架序與模板公式（§6）、theme/token（§7）、RWD 矩陣（§8.5）、Figma 命名（§9）"
+  },
+  "MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html": {
+   "lines": 2133,
+   "role": "prototype 實況（sec-* section id、資料層形狀、7 位置 tuple、Sheets 欄位備忘、互動行為）"
+  },
+  "2026-Claude-code-AI自動化創建活動頁 workflow/01_GoogleSheets_欄位需求備忘.md": {
+   "version": "v0.1",
+   "date": "2026-07-15 起累積",
+   "role": "Sheets 欄位正式需求文件＝各模組 sheetsFields 的契約出處（自述「驗證載體：MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html」）；§2.1 KV 文案/起字顯示/KV 主打商品（資訊卡）、§2.2-2.3 模組主圖、§2.3.1 商品標籤。注意：備忘 §1 配色 6 欄（hueFamily/colorTheme/surfaceMode/kvTitleStyle/moduleBorderStyle/labelStyle）與 §2.4 來源 URL 為頁級欄位，本 manifest（模組層）無收錄位置＝待補頁級欄位區"
+  },
+  "cases/LeCreuset_cid29588048_Case_Baseline.md": {
+   "role": "D×1 已驗證格位（商品分組 33/15/8/4）"
+  },
+  "MVP_Phase1_便當盒_L2活動頁視覺設計規劃.md": {
+   "role": "C×4 已驗證格位（任務型策展，策展邏輯層面）"
+  },
+  "figma_scan": "Figma MCP 實測（2026-07-16）：頁面/atoms/模板 frame/variables 之 node id 見 figmaFile 區塊"
+ },
+ "namingConvention": {
+  "rules": "三套命名並存且需對照：(1) canonicalName＝04 §3 模組登記表 PascalCase（「所有層（IA/theme/RWD/Figma/GA4/anchorId）一律使用本表名稱」），用於 Figma `Module/<Registry名稱>/<device>`；(2) module_id＝01 §4.1 requiredModules snake_case 枚舉（13 值；HorizontalUH 與 FooterModule 為常駐系統件不入枚舉），同時是 GA4 事件參數 module_id；(3) anchorId＝模組根 frame 名＝`sec-<module_id>-<index>`，01 §11 明文「所有模組的 module_id＝anchorId＝Figma 模組根 frame 名（sec-<module_id>-<index>），三者同源」。04 §3 另列 8 組禁用舊名：KVHeroModule／ProductWallModule／BankOfferModule／BrandDailyModule／MechanismModule＋RegistrationModule／FloorTitleModule／BackToTopButton／HeroProductCarouselModule。",
+  "anchorIdPattern": "sec-<module_id>-<index>",
+  "knownConflicts": [
+   {
+    "id": "NC-1",
+    "conflict": "anchorId 底線 vs 連寫：01 §4.4 實例 \"sec-category_groups-1\"（保留 snake_case 底線＋數字 index）；FrameTest 實作 \"sec-categorygroup-tableware\"／\"sec-categorygroup-cookware\"（連寫無底線＋語意後綴非 index）。",
+    "sources": [
+     "01_System_PRD.md §4.4 行129",
+     "FrameTest.html L762-763"
+    ],
+    "resolution": "UNVERIFIED——待裁決；本 manifest anchorId 欄採 01 §11 規格，FrameTest 實況照錄於 frametestSectionId。",
+    "consolidatedInto": "67 號 §六 追加項 N「三套命名並存」（2026-09-09 使用者裁 C 案：editor_topic 代號沿用不改名——改名成本落在外部同事身上〔分析師 09-01 交回的 GTM 規格已寫 editor_topic〕，且真正的病是三套命名各說各話、單獨改一個會更不一致。三條併一題留帳，**應在 GA4 埋點上線前收斂**〔開始收數據後改名＝報表斷代〕，建議併 62 號 D-13）"
+   },
+   {
+    "id": "NC-2",
+    "conflict": "FrameTest sec-* id 與 module_id 不同源：sec-uh（非 sec-horizontal_uh）、sec-anchornav-floating（連寫＋語意後綴）、sec-featureddeal-1/2/3（連寫）、sec-promodeal、sec-extendedexplore、sec-editortopic 均為小寫連寫，非 01 §4.1 snake_case；另 sec-hero（L693）、sec-notice（L772）、sec-footer（L782）——三者 module_id 根雖與 01 §4.1 枚舉相符（hero/notice；footer 為常駐件草擬 id），但均缺 `-<index>` 後綴，不符 01 §11 行336 `sec-<module_id>-<index>` 規格。",
+    "sources": [
+     "FrameTest.html L682/L693/L738/L745-747/L765/L772/L782/L787",
+     "01_System_PRD.md §4.1 行55",
+     "01_System_PRD.md §11 行336"
+    ],
+    "resolution": "照實記錄；三套命名互不對照為背景已查證事實，統一方案待裁決。",
+    "consolidatedInto": "67 號 §六 追加項 N「三套命名並存」（2026-09-09 使用者裁 C 案：editor_topic 代號沿用不改名——改名成本落在外部同事身上〔分析師 09-01 交回的 GTM 規格已寫 editor_topic〕，且真正的病是三套命名各說各話、單獨改一個會更不一致。三條併一題留帳，**應在 GA4 埋點上線前收斂**〔開始收數據後改名＝報表斷代〕，建議併 62 號 D-13）"
+   },
+   {
+    "id": "NC-3",
+    "conflict": "EditorTopicModule／sec-editortopic 僅存在於 FrameTest（L749），於 01/02/04 全文均未出現（grep 零命中），是否入 04 §3 登記表待裁決。",
+    "sources": [
+     "FrameTest.html L749",
+     "04_Module_Design_System.md 全文檢索無結果",
+     "01/02 全文檢索無結果"
+    ],
+    "resolution": "本 manifest 以 status=pending_decision 收錄，module_id=editor_topic 為草擬值（UNVERIFIED）。",
+    "consolidatedInto": "67 號 §六 追加項 N「三套命名並存」（2026-09-09 使用者裁 C 案：editor_topic 代號沿用不改名——改名成本落在外部同事身上〔分析師 09-01 交回的 GTM 規格已寫 editor_topic〕，且真正的病是三套命名各說各話、單獨改一個會更不一致。三條併一題留帳，**應在 GA4 埋點上線前收斂**〔開始收數據後改名＝報表斷代〕，建議併 62 號 D-13）"
+   },
+   {
+    "id": "NC-4",
+    "conflict": "FrameTest 商品資料層用 7 位置 tuple [name, role, image, price, offer, clean, url]（檔頭 L822-824），偏離 01 §4.2 ProductItem（21+ 欄位 schema，含 id/originalPrice/stockStatus/canUseForHero 等）；且 tuple[5] 命名衝突：檔頭叫 cleanImage，FA/CAMP 註解定義為「第 1 張情境圖 1000px」（L1396/L1355），LC 首件填本地去背 PNG——同一位置三種用法。",
+    "sources": [
+     "FrameTest.html L822-824/L1052/L1396/L1355",
+     "01_System_PRD.md §4.2 行64-93"
+    ],
+    "resolution": "UNVERIFIED——正式契約以 01 §4.2 ProductItem 為準；tuple 為原型過渡格式，tuple[5] 正式語意待裁決。"
+   },
+   {
+    "id": "NC-5",
+    "conflict": "GA4 事件表 16 事件中，v1.1 新增 8 事件僅 7 個帶 module_id 參數（行327-333：category_entry_click／registration_click／coupon_claim_click／flash_sale_product_click／brand_day_card_click／banner_wall_click／hero_carousel_product_click）；go_top_click（v1.1）必填參數僅 page_type，不含 module_id（行334「| `go_top_click`（v1.1） | 回頂鈕 | `page_type` |」）；舊 8 事件（activity_page_view 至 share_click）參數不含 module_id。",
+    "sources": [
+     "01_System_PRD.md §11 行315-336（go_top_click 見行334；含 module_id 的 7 個 v1.1 事件見行327-333）"
+    ],
+    "resolution": "照實記錄；本 manifest ga4.events 僅列事件名，參數以 01 §11 為唯一事實來源。"
+   }
+  ]
+ },
+ "pageSkeleton": {
+  "description": "活動頁固定資訊架構（骨架序）。04 §6.1 逐字：「骨架固定序（版位仲裁：骨架序為唯一事實，變體位置語意一律引用骨架槽位）」；01 §7 逐字：「機制永遠在前、品類永遠在後」。banner_wall 出現兩次＝同一模組的兩個骨架槽位（small 銀行牆在機制帶、full 換氣在品類帶交錯）。",
+  "order": [
+   "horizontal_uh",
+   "anchor_nav",
+   "hero",
+   "category_entry",
+   "mechanic",
+   "banner_wall(small 銀行牆)",
+   "coupon",
+   "flash_sale",
+   "promo",
+   "featured",
+   "brand_day",
+   "category_groups ×N ⟷ banner_wall(full 換氣) 交錯",
+   "extended_links",
+   "notice",
+   "footer"
+  ],
+  "rules": [
+   "模組降級＝整模組隱藏、錨點同步移除、不改變其餘順序（01 §7：「降級一律整模組/整卡隱藏、不出空殼、錨點同步移除、記入 qaReport.warnings」）",
+   "04 §6.2：「降級一律整模組/整卡隱藏、不出空殼、記入 qaReport.warnings、錨點同步移除」",
+   "BrandDayModule 例外可移位：「festival 目的可配置移機制帶內、Coupon 前——對齊 PChome 序」（04 §3 行45）",
+   "CategoryEntryModule 位置變體：「KV 正下（預設 post-KV，可選 pre-KV variant）」（04 §3 行39）",
+   "交錯換氣硬條件：「連續 >3 個必插 BannerWallModule(full)，surface 交替不計入換氣手段」（04 §5）；01 §10.5：「CategoryGroupModule 連續超過 3 個必須插入 BannerWall（full）換氣」",
+   "AnchorNav anchorItems 由實際渲染模組序自動鏡射（機制前、品類後、TOP 尾），被降級模組不得殘留錨點（防死錨）（04 §5、02 §12）",
+   "主打商品輪播＝HeroModule.productCarousel 變體（不獨立佔樓層序）；銀行牆＝BannerWallModule(sizeClass=small)；樓層標題＝SectionHeader atom；回頂＝GoTopButton atom（04 §3 行52）"
+  ]
+ },
+ "modules": [
+  {
+   "module_id": "horizontal_uh",
+   "module_id_note": "UNVERIFIED——01 §4.1 明文「HorizontalUH 與 FooterModule 為常駐系統件，不入枚舉」，此 id 由 canonical 名轉換草擬",
+   "canonicalName": "HorizontalUH",
+   "figmaName": "Module/HorizontalUH/<device>",
+   "anchorId": "sec-horizontal_uh-1（UNVERIFIED，常駐系統件是否需 anchorId 未載明）",
+   "frametestSectionId": "sec-uh（L682，<header> 元素非 <section>；偏差：非 sec-<module_id> 格式）",
+   "iaRole": "頁首（logo 左＋分享右；明確不含搜尋/購物車/會員）",
+   "skeletonPosition": 1,
+   "required": true,
+   "slots": [
+    {
+     "name": "logoLockup",
+     "contractPath": "04 §4 Atom LogoLockup",
+     "type": "asset",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "桌機 full.svg / ≤640 icon.svg，高 24"
+    },
+    {
+     "name": "shareUrl",
+     "contractPath": "04 §4 Atom ShareButton.shareUrl",
+     "type": "url",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "必填（非 AI 生成）；GA4 share_click"
+    },
+    {
+     "name": "activityInfoLink",
+     "contractPath": "04 §5 HorizontalUH.activityInfoLink",
+     "type": "link",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "可缺省 slot，label 固定「活動說明」，缺 url 隱藏"
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "D×1/FrameTest：0 商品卡"
+   },
+   "dataPreconditions": [],
+   "degradation": "不降級（系統級）",
+   "colsByDevice": {
+    "desktop": null,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "horizontal_uh（UNVERIFIED）",
+    "events": [
+     "share_click",
+     "nav_click"
+    ],
+    "eventsNote": "v2.0（2026-07-28 G-7 B 案）：share_click 沿用；nav_click＝「活動說明」鈕特例（nav_type=anchor、target_module=notice）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "sticky top:0、高 45（保留規格，列入 4 倍數豁免清單）、inner min(1180, 100%−32)（04 §5）",
+    "黑底綁 surface/header token（04 §8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1219",
+   "figmaTemplateNote": "sec-uh-1"
+  },
+  {
+   "module_id": "anchor_nav",
+   "canonicalName": "AnchorNav",
+   "figmaName": "Module/AnchorNav/<device>",
+   "anchorId": "sec-anchor_nav-1（UNVERIFIED——AnchorNav 本身是否設 anchorId 未載明）",
+   "frametestSectionId": "sec-anchornav-floating（L787，<nav>；偏差：連寫＋語意後綴 floating，且實作為浮動 dock 非吸頂列）",
+   "iaRole": "UH 下吸頂頁內導覽（錨點鏡射實際渲染模組序）",
+   "skeletonPosition": 2,
+   "required": false,
+   "slots": [
+    {
+     "name": "anchorItems",
+     "contractPath": "04 §4 Atom AnchorItem（label＋targetId；type=section|top）",
+     "type": "AnchorItem[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": true,
+     "notes": "「由實際渲染模組序自動鏡射：機制在前、品類在後、TOP 固定尾項；不可手排」（02 §12）；flex:0 0 auto 防壓縮"
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "FrameTest：按鈕 5＋TOP ↑ 1＝6 顆"
+   },
+   "dataPreconditions": [
+    "缺省條件為結構性（頁面 <4 樓層可缺省），非資料性（01 §4.1）"
+   ],
+   "degradation": "頁面 <4 樓層可缺省，僅留浮動 GoTop",
+   "colsByDevice": {
+    "desktop": null,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "anchor_nav",
+    "events": [
+     "nav_click"
+    ],
+    "eventsNote": "v2.0：nav_click 統一承載（nav_type=anchor｜top；原 anchor_nav_click／go_top_click 歸屬對照＝17 號附錄 A）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "點擊平滑捲動至 anchorId；scroll-margin-top desktop 96／mobile 92（02 §12）",
+    "支援 URL hash 直達樓層（#3C 式站內導流）（02 §12）",
+    "sticky top:45；mobile 吸頂橫滑膠囊列／desktop 吸頂列；浮動右側欄變體僅 viewport ≥1440（04 §5）",
+    "GoTopButton 去重：AnchorNav 存在時桌機僅保留導覽尾 TOP 項，浮動鈕不出（04 §4）",
+    "FrameTest 實況：dock 導航文字隨資料層生成（categorySections[].title 連動，L1027-1035）；顯示時機開關 after=捲後浮現/always=常駐（L1714）；dock 順序（hero→featureddeal→promodeal→categorygroup×2）與 DOM 序不同，且未含 editortopic/extendedexplore/notice 錨點（偏差照錄）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1426",
+   "figmaTemplateNote": "sec-anchornav-floating（浮動 dock 形態）"
+  },
+  {
+   "module_id": "hero",
+   "canonicalName": "HeroModule",
+   "figmaName": "Module/HeroModule/<device>",
+   "anchorId": "sec-hero-1",
+   "frametestSectionId": "sec-hero（L693；偏差：缺 -<index> 後綴，不符 01 §11 行336 sec-<module_id>-<index> 規格；內含 kv-marquee 跑馬燈、新版 KV .kv-variant-new「左文右圖（Figma 手動版 sec-hero-4-test）」、舊版 KV .kv-variant-legacy A/B 對照——偏差：FrameTest 新版 KV 為左文右圖，02 §3.4/§4.2 v1.1 規格為 KV 疊層式「滿版背景＋置中標題組（台灣電商慣例，取代舊左文右圖）」）",
+   "iaRole": "KV（疊層式主視覺，重定義，需回寫 02）",
+   "skeletonPosition": 3,
+   "required": true,
+   "slots": [
+    {
+     "name": "pageTitle",
+     "contractPath": "02 §4.1 pageTitle",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    },
+    {
+     "name": "headline",
+     "contractPath": "02 §4.1 headline",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "＝KVTitleGroup.campaignTitle（AI 可生成）"
+    },
+    {
+     "name": "subheadline",
+     "contractPath": "02 §4.1 subheadline",
+     "type": "string",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "＝benefitSubtitle：「數字必回溯 ActivityOffer」（04 §4）；mobile 副標可縮短（02 §4.2）"
+    },
+    {
+     "name": "ctaText",
+     "contractPath": "02 §4.1 ctaText",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "「只保留一個主要 CTA」（02 §3.4 行67；§4.2 行103「單一主 CTA」）；「每張 banner／每個 Hero 一顆」出自 04 §4 行69 CTAButton「單一主 CTA 規則限縮回 02 §3.4 原範圍（每張 banner／每個 Hero 一顆）」"
+    },
+    {
+     "name": "ctaUrl",
+     "contractPath": "02 §4.1 ctaUrl",
+     "type": "url",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "AI 禁生成 URL"
+    },
+    {
+     "name": "backgroundAssetPair",
+     "contractPath": "02 §14 KV 背景（PC 1440 出血寬高 480–560；mobile 專用窄長圖另出）",
+     "type": "assetPair",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "「PC/Mobile 成對資產（_m 體系）；無上稿圖時以 theme 的 kv-gradient 作 fallback 底」（02 §3.4）；缺對即降級為 gradient 底（02 §4.3）"
+    },
+    {
+     "name": "brandLogoAsset",
+     "contractPath": "04 §4 KVTitleGroup.brandLogoAsset",
+     "type": "asset",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "可缺省，與 campaignTitle 擇一渲染，品牌 KV 用；brand 目的＝brandLogoAsset 進主標位（04 §5）"
+    },
+    {
+     "name": "periodText",
+     "contractPath": "04 §4 KVTitleGroup.periodText",
+     "type": "string",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "共用 formatter，僅 startAt/endAt 格式化；FrameTest：「無檔期資料 → 整行降級隱藏（鐵律：不捏造日期）」（L1143）"
+    },
+    {
+     "name": "decorSlot",
+     "contractPath": "04 §5 HeroModule.decorSlot；token kvDecor/*",
+     "type": "decor",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "festival 目的 decor 開（04 §5）"
+    },
+    {
+     "name": "heroProduct / productCarousel",
+     "contractPath": "02 §4.1 heroProduct；02 §4.2.1 productCarousel 變體；01 §4.2 ProductItem.canUseForHero",
+     "type": "ProductItem[]",
+     "min": 0,
+     "max": "UNVERIFIED",
+     "required": false,
+     "notes": "「商品須 canUseForHero=true 且售價存在」（02 §4.2.1）；launch 目的＝productCarousel 啟用（04 §5）；件數上限未載明＝UNVERIFIED"
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": "UNVERIFIED",
+    "verified": "D×1（LC baseline §6）：Hero 主視覺 1 件；FrameTest：KV 三圓 ×3＋kvKeyProducts 3 件＋商品資訊卡 ×1"
+   },
+   "dataPreconditions": [
+    "進 KV 商品：canUseForHero=true 且售價存在",
+    "商品圖不適合主視覺→不進入 Hero（01 §7）",
+    "促銷字/貼紙/邊框圖禁入 Hero（02 §14）"
+   ],
+   "degradation": "fallback 變體＝簡化 Banner 型（1200×600、2:1）；KV 背景資產缺對→gradient 底",
+   "colsByDevice": {
+    "desktop": 1,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "variants": [
+    {
+     "variant_id": "new",
+     "meaning": "現行 KV（左文右圖＋三圓輪播＋key product 資訊卡）",
+     "source": "page.kvVariant=new（14 §2.1）",
+     "buildSelectable": true,
+     "rollout": "closed",
+     "rolloutNote": "舊殼退場（2026-08-28 使用者裁決「線上都是測試內容，可以讓舊殼退場」）：停接新案——工作台不再供新選、AI 代選不會挑到；值域保留＝歷史頁照舊渲染出貨（51 §3）。完整拆碼（移除 legacy 分支與 39 處自測斷言）延後至 CMS 第一波落定後再評估宿主去留。"
+    },
+    {
+     "variant_id": "legacy",
+     "meaning": "舊版文字鎖陣 KV（02 §3.4 第二變體；U29 AI 去背鎖陣素材鏈）",
+     "source": "page.kvVariant=legacy",
+     "buildSelectable": true,
+     "rollout": "closed",
+     "rolloutNote": "舊殼退場（2026-08-28 使用者裁決「線上都是測試內容，可以讓舊殼退場」）：停接新案——工作台不再供新選、AI 代選不會挑到；值域保留＝歷史頁照舊渲染出貨（51 §3）。完整拆碼（移除 legacy 分支與 39 處自測斷言）延後至 CMS 第一波落定後再評估宿主去留。"
+    },
+    {
+     "variant_id": "layout-001",
+     "meaning": "聯名・深藍夜（左右商品・中間標題）",
+     "source": "page.kvVariant=layout-001（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-001"
+    },
+    {
+     "variant_id": "layout-002",
+     "meaning": "攝影棚（左右商品・中間標題）",
+     "source": "page.kvVariant=layout-002（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-002"
+    },
+    {
+     "variant_id": "layout-003",
+     "meaning": "攝影棚促銷（左右商品・中間標題＋折扣槽）",
+     "source": "page.kvVariant=layout-003（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-003"
+    },
+    {
+     "variant_id": "layout-004",
+     "meaning": "攻略・粉格紋（左標語・右圖拼貼）",
+     "source": "page.kvVariant=layout-004（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-004"
+    },
+    {
+     "variant_id": "layout-005",
+     "meaning": "攻略・銀棚（左右商品・中間標題）",
+     "source": "page.kvVariant=layout-005（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-005"
+    },
+    {
+     "variant_id": "layout-006",
+     "meaning": "新品（中間標題・多品環列）",
+     "source": "page.kvVariant=layout-006（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-006"
+    },
+    {
+     "variant_id": "layout-007",
+     "meaning": "促銷（中間標題・多品環列＋折扣槽）",
+     "source": "page.kvVariant=layout-007（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-007"
+    },
+    {
+     "variant_id": "layout-008",
+     "meaning": "引言色塊型（左標語・右商品）",
+     "source": "page.kvVariant=layout-008（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-008"
+    },
+    {
+     "variant_id": "layout-009",
+     "meaning": "聯名促銷型（左標語・右商品＋折扣槽；kinRef 特例＝切換連動皮膚背景）",
+     "source": "page.kvVariant=layout-009（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-009"
+    },
+    {
+     "variant_id": "layout-010",
+     "meaning": "雜誌封面・三件套（左標題・右拼貼主卡）",
+     "source": "page.kvVariant=layout-010（51 §2.6）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-010"
+    },
+    {
+     "variant_id": "layout-011",
+     "meaning": "中秋團圓・茶點零嘴（月夜拱窗；滿版 1440 首款）",
+     "source": "page.kvVariant=layout-011（51 §2.6；W1-B11 2026-08-28）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-011"
+    },
+    {
+     "variant_id": "layout-012",
+     "meaning": "霓虹夜市・夜間限定（左標語・右商品；滿版 1440×560，商品卡一大一小＋輪播）",
+     "source": "page.kvVariant=layout-012（2026-09-10 路①流程走查產出；站 6 固化）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "catalogRef": "design-assets/layouts/manifest.json#layout-012"
+    }
+   ],
+   "variantsNote": "G-6 版型登錄制（2026-07-28；17 §7.2）：本區＝版型值域單一來源；GA4 參數 module_variant 取此值、未登記＝default；kvVariant 為現役唯一建置可選版型欄。2026-08-24 九版式登錄（51 號 W1-A）：拼法一律裸值（write_xlsx 讀入正規化 kv- 前綴舊拼法）；rollout:'trial'＝灰度旗標（試用徽章；出貨門票另受 CP-27 素材授權節制）；legacy 停新案＝獨立開關（裁決切換）",
+   "ga4": {
+    "module_id": "hero",
+    "events": [
+     "product_click",
+     "cta_click"
+    ],
+    "eventsNote": "v2.0：product_click＝KV 三圓＋資訊卡（click_surface=circle｜key_card）；cta_click（cta_type=hero）僅 fallback 簡化 Banner 變體有觸發面"
+   },
+   "sheetsFields": [
+    "KV 文案：eyebrowLatin、eyebrowCn、titleLine1、titleLine2、dateLabel、dateValue（FrameTest L956-967「Sheets「KV 文案」欄位對應」；01_GoogleSheets_欄位需求備忘.md §2.1）；titleSuffix 於備忘無對應欄位＝UNVERIFIED（備忘 §2.1 僅定義「起字顯示」（是/否）開關欄位，FrameTest L963 titleSuffix:\"起\" 為資料層固定值）",
+    "「起字顯示」獨立選項（是/否）＝showTitleSuffix（L962；01_GoogleSheets_欄位需求備忘.md §2.1，2026-07-15 使用者定義）",
+    "KV 主打商品（資訊卡）（01_GoogleSheets_欄位需求備忘.md §2.1：「KV 商品資訊卡（2026-07-16 新增，同步 Figma 247:3296）：聲明列（公司貨/品牌，取商品特色聲明行或品牌名）＋商品名＋價格＋連結；預設＝KV 主圓商品」；鐵律「name/price/url 必為來源真值；無價格 → 價格列降級隱藏」；prototype 對應 FrameTest L1009-1013 kvKeyProducts）",
+    "titleFlip＝標題掀牌動畫開關（L964）",
+    "showMarquee＝活動主題跑馬燈（POPEYE 式純文字帶）顯示開關（L965）",
+    "模組主圖：themeImages.kv.main/sub1/sub2 override（L933-937，override 填人工替換圖、null＝預設抓商品圖 fallback）"
+   ],
+   "interactions": [
+    "KV 三圓輪播（initKvCarousel/navigateKv，主位點擊開商品頁 kvFigUrls，FrameTest L1194-1255）",
+    "商品資訊卡連動輪播（renderKvKeyCard，無真值價格→降級隱藏，L1257-1270）",
+    "標題掀牌動畫（titleFlip；資料集切換時 playKvFlip()）",
+    "跑馬燈（renderKvMarquee，showMarquee 開關）",
+    "主標縮字防斷字（fitKvTitles；02 §4.2 mobile clamp 縮級防斷字）",
+    "舊版 KV 左右去背舞台（kvCutouts，A/B 對照；多圖 crossfade 依裁決棄用、機制保留休眠，L1014-1023）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1224",
+   "figmaTemplateNote": "sec-hero-3（內含 hidden kv-canvas 舊版鎖陣＋sec-hero-4-test）"
+  },
+  {
+   "module_id": "category_entry",
+   "canonicalName": "CategoryEntryModule",
+   "figmaName": "Module/CategoryEntryModule/<device>",
+   "anchorId": "sec-category_entry-1",
+   "frametestSectionId": null,
+   "iaRole": "KV 正下品類/入口宮格（預設 post-KV，可選 pre-KV variant）",
+   "skeletonPosition": 4,
+   "required": false,
+   "slots": [
+    {
+     "name": "entryItems",
+     "contractPath": "01 §4.1 categoryEntries[]（label、iconUrl、url）",
+     "type": "CategoryEntryItem[]",
+     "min": 4,
+     "max": 12,
+     "required": true,
+     "notes": "「entryItems 4–12 項（下限修正，支援品牌 4–5 系列與策展 5 子題）」（04 §5）；atom CategoryEntryItem display=icon-grid|card 變體屬性（04 §4）"
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "無商品卡（entryItems 為品類入口非商品，項數 4–12 見 slots[0]）"
+   },
+   "dataPreconditions": [
+    "無入口資料"
+   ],
+   "degradation": "無入口資料缺省",
+   "colsByDevice": {
+    "desktop": 6,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "variants": [
+    {
+     "variant_id": "icon-grid",
+     "meaning": "icon 宮格型入口",
+     "source": "04 §4 CategoryEntryItem display=icon-grid",
+     "buildSelectable": false
+    },
+    {
+     "variant_id": "card",
+     "meaning": "延伸卡型入口",
+     "source": "04 §4 CategoryEntryItem display=card",
+     "buildSelectable": false
+    }
+   ],
+   "variantsNote": "規格層變體就地收編（模組未渲染，buildSelectable 待實裝時開）",
+   "ga4": {
+    "module_id": "category_entry",
+    "events": [
+     "entry_click"
+    ],
+    "eventsNote": "v2.0：entry_type=category_entry（原 category_entry_click；entry_label 續用為選填參數）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "Mobile「>8 項維持宮格不橫滑」（04 §8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": null,
+   "figmaTemplateNote": "不存在於模板 frame 148:1218（機制帶缺席，見 knownGaps GAP-15）"
+  },
+  {
+   "module_id": "mechanic",
+   "canonicalName": "MechanicModule",
+   "figmaName": "Module/MechanicModule/<device>",
+   "anchorId": "sec-mechanic-1",
+   "frametestSectionId": null,
+   "iaRole": "機制帶首位（登記/機制入口）",
+   "skeletonPosition": 5,
+   "required": false,
+   "slots": [
+    {
+     "name": "registrationEntries",
+     "contractPath": "01 §4.3 ActivityOffer（offerType=registration；rewardText＋registerUrl 必填）；04 §4 Atom RegistrationEntry",
+     "type": "RegistrationEntry[]",
+     "min": 1,
+     "max": 3,
+     "required": true,
+     "notes": "「registrationEntries 1–3＋supportCta；兩種 layout 變體（入口卡宮格／單張橫幅）；全欄位 AI 禁區」（04 §5）；RegistrationEntry「四欄位全來源驅動，缺任一不生成」（04 §4）"
+    },
+    {
+     "name": "supportCta",
+     "contractPath": "04 §5 MechanicModule.supportCta",
+     "type": "cta",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": ""
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "UNVERIFIED"
+   },
+   "dataPreconditions": [
+    "registration 型 rewardText 與 registerUrl 必填（缺任一該機制入口不生成）（01 §4.3）"
+   ],
+   "degradation": "無登記/機制資料→整模組隱藏",
+   "colsByDevice": {
+    "desktop": "2-4（入口卡 2–4 單列等分 gap 16／橫幅卡高 96–128）",
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "variants": [
+    {
+     "variant_id": "grid",
+     "meaning": "入口卡宮格 layout",
+     "source": "04 §5 MechanicModule 兩種 layout 變體之一",
+     "buildSelectable": false
+    },
+    {
+     "variant_id": "banner",
+     "meaning": "單張橫幅 layout（卡高 96–128）",
+     "source": "04 §5 MechanicModule 兩種 layout 變體之一",
+     "buildSelectable": false
+    },
+    {
+     "variant_id": "info-offer-rows",
+     "meaning": "活動資訊卡・優惠卡列三列（純文字三列：標籤＋店家＋優惠文案｜直向虛線｜滿額數字欄）",
+     "source": "197:48 板圈選通過 2026-08-21；47 號 A 組；W2 第一批登錄（story＝content-modules-wave2 M1）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-25",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#195:63（元件集 242:606；banner 配對版面＝197:48 板）"
+    },
+    {
+     "variant_id": "info-gift-rows",
+     "meaning": "活動資訊卡・滿額贈雙列（贈品大圖 ×2 列＋滿額字＋贈品名＋搶購鈕）",
+     "source": "197:48 板圈選通過 2026-08-21；47 號 A 組；W2 第一批登錄",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-25",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#777:277（元件集 242:606）"
+    },
+    {
+     "variant_id": "info-gift-gallery",
+     "meaning": "活動資訊卡・好禮圖列（標籤＋滿額字＋贈品名＋贈品小圖 1~2 張 ×3 列）",
+     "source": "197:48 板圈選通過 2026-08-21；47 號 A 組；W2 第一批登錄",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-25",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#777:407（元件集 242:606）"
+    },
+    {
+     "variant_id": "info-gift-rush",
+     "meaning": "活動資訊卡・好禮列搶購（贈品圖＋標籤＋滿額字＋贈品名＋搶購鈕 ×3 列）",
+     "source": "197:48 板圈選通過 2026-08-21；47 號 A 組；W2 第一批登錄",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-25",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#777:567（元件集 242:606）"
+    }
+   ],
+   "variantsNote": "規格層變體就地收編（模組未渲染，buildSelectable 待實裝時開）。info-* 四版式（2026-08-25 W2 第一批）＝活動資訊卡家族：buildSelectable:true＝CMS 編修頁「頁面組成」面板可選（值域機器消費＝pipeline lib/content_modules.js runtime 讀本檔）、rollout:'trial'＝渲染未到位灰度旗標（第一批內容編修先行、真渲染＝第二批 M7）；契約節點＝14 號 §2.14 page.mechanic（登錄待審）",
+   "ga4": {
+    "module_id": "mechanic",
+    "events": [
+     "cta_click"
+    ],
+    "eventsNote": "v2.0：cta_type=registration（原 registration_click；offer_id 續用為選填參數）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "Mobile「2 欄宮格；>4 項橫滑」（04 §8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": null,
+   "figmaTemplateNote": "不存在於模板 frame 148:1218（機制帶缺席，見 knownGaps GAP-15）"
+  },
+  {
+   "module_id": "coupon",
+   "canonicalName": "CouponModule",
+   "figmaName": "Module/CouponModule/<device>",
+   "anchorId": "sec-coupon-1",
+   "frametestSectionId": null,
+   "iaRole": "機制帶折價券區",
+   "skeletonPosition": 7,
+   "required": false,
+   "slots": [
+    {
+     "name": "couponCards",
+     "contractPath": "01 §4.5 CouponItem（id、scopeText、faceValue、validFrom、validUntil、claimUrl、sourceField、confidence）",
+     "type": "CouponItem[]",
+     "min": 2,
+     "max": 8,
+     "required": true,
+     "notes": "「couponCards 2–8」（04 §5）；「scopeText、faceValue、claimUrl 三者缺一→該券卡不生成；全部缺→CouponModule 整模組隱藏。所有欄位限來源資料」（01 §4.5）"
+    },
+    {
+     "name": "moreCouponsLink",
+     "contractPath": "04 §5（SectionHeader.moreLink 的語意別名）",
+     "type": "url",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": ""
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "無商品卡（couponCards 為券卡非商品，件數 2–8 見 slots[0]）"
+   },
+   "dataPreconditions": [
+    "scopeText、faceValue、claimUrl 三者缺一→該券卡不生成",
+    "全部缺→整模組隱藏"
+   ],
+   "degradation": "無券資料→隱藏",
+   "colsByDevice": {
+    "desktop": 3,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "coupon",
+    "events": [
+     "cta_click"
+    ],
+    "eventsNote": "v2.0：cta_type=coupon_claim（原 coupon_claim_click；coupon_id／face_value 續用為選填參數）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "Mobile「≤2 張單欄堆疊、≥3 張橫滑卡 296」（04 §5/§8.5）",
+    "CouponCard 面額區固定寬 desktop 112/mobile 96；min-width 320（04 §4）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": null,
+   "figmaTemplateNote": "不存在於模板 frame 148:1218（機制帶缺席，見 knownGaps GAP-15）"
+  },
+  {
+   "module_id": "flash_sale",
+   "canonicalName": "FlashSaleModule",
+   "figmaName": "Module/FlashSaleModule/<device>",
+   "anchorId": "sec-flash_sale-1",
+   "frametestSectionId": null,
+   "iaRole": "機制帶限時搶購（倒數驅動）",
+   "skeletonPosition": 8,
+   "required": false,
+   "slots": [
+    {
+     "name": "countdown",
+     "contractPath": "01 §4.3 ActivityOffer.endAt（flash_sale 型升為必填）；04 §4 CountdownUnit（endAt 來源＝ActivityOffer.endAt | ProductItem.saleEndAt 首賣倒數）",
+     "type": "countdown",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "「countdown 必填（缺 endAt 寫死為隱藏，轉 FeaturedDeal 需人工核准）」（04 §5）；位元固定尺寸絕不 fill"
+    },
+    {
+     "name": "products",
+     "contractPath": "01 §4.2 ProductItem[]",
+     "type": "ProductItem[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": true,
+     "notes": "件數上下限於 01/02/04 均未載明＝UNVERIFIED"
+    },
+    {
+     "name": "offerType",
+     "contractPath": "01 §4.3 offerType 枚舉＝promo｜coupon｜registration｜flash_sale｜brand_day｜preorder",
+     "type": "enum",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "「offerType 枚舉增 preorder（新品首賣）」（04 §5，launch 目的）"
+    }
+   ],
+   "productCount": {
+    "min": "UNVERIFIED",
+    "max": "UNVERIFIED",
+    "verified": "UNVERIFIED"
+   },
+   "dataPreconditions": [
+    "flash_sale 型 endAt 升為必填（驅動 CountdownUnit）（01 §4.3）"
+   ],
+   "degradation": "缺 endAt→隱藏（轉 FeaturedDeal 需人工核准）",
+   "colsByDevice": {
+    "desktop": 4,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "flash_sale",
+    "events": [
+     "product_click"
+    ],
+    "eventsNote": "v2.0：原 flash_sale_product_click；countdown_remaining 續用為選填參數（建議 bucket 化 <1h／1-24h／>24h）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "倒數計時（desktop 位元 40×48／mobile 32×40）＋mini 卡橫滑 156（04 §8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": null,
+   "figmaTemplateNote": "不存在於模板 frame 148:1218（機制帶缺席，見 knownGaps GAP-15）"
+  },
+  {
+   "module_id": "promo",
+   "canonicalName": "PromoDealModule",
+   "figmaName": "Module/PromoDealModule/<device>",
+   "anchorId": "sec-promo-1",
+   "frametestSectionId": "sec-promodeal（L738，「本期活動」＋#promo-entries 圓形入口 ×4；偏差：id 用 promodeal 非 promo；FrameTest 無機制帶其他模組，promodeal 直接接在 hero 後）",
+   "iaRole": "機制帶尾活動卡（活動卡導活動 URL；商品卡（混填補位→2026-07-20 裁決⑲ U19 改單一來源降層）導商品頁、僅限單品詞——2026-07-20 裁決⑤；U19 單一來源制＝模組內型別不得混用）",
+   "skeletonPosition": 9,
+   "required": false,
+   "slots": [
+    {
+     "name": "promoCards",
+     "contractPath": "02 §7 PromoCard；01 §4.3 ActivityOffer（activityUrl、offerText、title）",
+     "type": "PromoCard[]",
+     "min": 3,
+     "max": 4,
+     "required": true,
+     "notes": "「資料來源＝來源 URL 中的活動或限時活動模組；活動卡導向活動 URL；商品卡（單一來源降層——2026-07-20 裁決⑲ U19 改寫混填補位）導向商品頁、僅限單品詞；活動文字＝只取來源資料；商品圖＝完整 1:1，不裁切；入口圖預設＝該活動 URL 商品池第一件商品的第一張商品圖（imageSet[0][0]，即 sceneImg「第 1 張」語意），活動 banner 降為人工覆寫級（assets.moduleImages.promoEntryN 通道）」（02 §7，修訂 2026-07-20）；卡片件數上下限＝3~4（2026-07-20 裁決⑰ U17：至多 4 則、不得少於 3 則——<3 依三層優先序整組降層（U19 單一來源制：不跨層補位、取代 U8 跨層遞補）、降至第 3 層仍 <3＝gate CP-15 FAIL；原「desktop 排版 2–4 張（04 §8.5）」下限語意由 U17 收緊、UNVERIFIED 上下限就此定版）；型別同質義務（2026-07-20 裁決⑲ U19）＝promoCards 全組必須同一來源層/型別，模組內型別混用＝機器閘 FAIL"
+    }
+   ],
+   "productCount": {
+    "min": "UNVERIFIED",
+    "max": "UNVERIFIED",
+    "verified": "FrameTest：圓形入口 ×4（promoEntries，{tag, copy, date, img, url}）；D×1（LC baseline）：優惠標籤商品區首版 4–8 件"
+   },
+   "dataPreconditions": [
+    "同模組不重複（Blocking）：「同一模組內不得出現同一活動 actid/同一 URL＝Blocking（0 容忍，Q3 定案：warning 級距取消）；跨模組引用（editorial.circles refEntry 引用本期活動入口）屬設計語意、允許保留」（2026-07-20 裁決①）",
+    "「活動過期＝內容失效，須更新為在線活動」（2026-07-20 裁決③）",
+    "單一來源三層降級（2026-07-20 裁決⑲ U19 改寫裁決⑤三層 fallback 混填制；裁決⑤原取代舊「缺活動 URL→整模組隱藏」）：模組內容必須單一型別（單一來源層）——同一層資料可湊滿 ≥3 則（U17 下限）才採用該層：第 1 層＝在線契合活動 ≥3→全組純活動（帶檔期列）；<3→整組降第 2 層品牌商品推薦（品牌頁 hotSales/hits；無檔期、僅限單品詞）；仍 <3→整組第 3 層商品替補（商品池主題關鍵商品，規格同第 2 層）；不跨層補位；模組內型別混用＝機器閘 FAIL（取代原 R2「真活動排前」排序 WARN）；商品型入口（第 2/3 層，規格不變）：連商品頁（Q4 定案＝允許、僅限單品詞，chip/文案禁優惠與檔期詞彙）、圖＝該商品第一張商品圖、無檔期列（dateValue 空＝隱藏）；商品池不足編組才降級整模組隱藏〔U19 廢止：裁決⑤「在線活動 <3 個→混填制＝真活動保留排前、不足 4 格用主題關鍵商品補滿」——起因＝上線頁「本期活動：特價229元起・夜殺9折起」標題喊優惠、第 4 格卻是 North Field 純鈦炊具餐盤商品推薦，標題與模組商品相關性連結不起來〕"
+   ],
+   "degradation": "模組續存單一來源制（2026-07-20 裁決⑲ U19，改寫裁決⑤模組續存混填制）：三層優先序（優惠活動→品牌商品推薦→商品替補，U8 序列沿用）取可滿足 ≥3 則（U17 下限）的最高優先層——同一層湊滿 ≥3 才採用；在線契合活動 <3→整組降第 2 層品牌商品推薦；仍 <3→整組第 3 層商品替補；不跨層補位；模組內型別混用＝機器閘 FAIL（取代原 R2 排序 WARN）；商品池不足編組才降級整模組隱藏；標題與內容同型（U19）：純活動＝promo-truth／純商品/品牌推薦＝ai-curated（「本期活動」四字消失）；workflow 04 §7 第 2 層同步由「模組續存混填制」（⑤）改寫為「模組續存單一來源制」（⑲）；數量規則（2026-07-20 裁決⑰ U17；遞補語意＝U19 修訂為整組降層）：有效入口下限 3、上限 4——逐層降至第 3 層仍 <3＝gate CP-15 FAIL（訊息載明降層義務）、>4＝FAIL；entries=3 版型行為＝等比放大：保持內容間距不變、「圓形圖模組的圖片」與「標題模組的背景寬度」等比放寬、活動標題字級不變——只有 module 內容的寬度等比放寬（09 §2.10；3 則版型＝單一來源制恰 3 則自然配套、不湊第 4 格；規則預備態、需可被資料驅動觸發＋自測可模擬驗證）",
+   "colsByDevice": {
+    "desktop": "3-4 單列等分 gap 16（2026-07-20 裁決⑰：數量 3~4 取代舊 2–4；=3 時 3 欄等比放大——間距不變、圓圖與標題背景寬度等比、字級不變，09 §2.10）",
+    "tablet": "PENDING-09（09 §2.10 提案：4 張單列等分圓 162、wall-gap 24；=3 時 3 欄等比放大同 desktop——2026-07-20 裁決⑰）",
+    "mobile": "PENDING-09（09 §2.10 提案：2×2 宮格；=3 時 2+1 尾卡靠左、尺寸不變＝合理預設——2026-07-20 裁決⑰列 09 §4.2 G-C10 開放項）"
+   },
+   "variants": [
+    {
+     "variant_id": "entry-circles",
+     "meaning": "本期活動・圓形入口卡（現行樣式：3~4 個圓形活動入口＋標籤堆疊；預設）",
+     "source": "現行 FrameTest renderPromoEntries；W2.5 換皮批登錄 2026-08-26（使用者方案 A 四題裁決）",
+     "buildSelectable": true,
+     "registered": "2026-08-26",
+     "catalogRef": "現行渲染＝真源（FrameTest renderPromoEntries）；歸檔＝ia-map promo 卡（無獨立 Figma 母版、不掛節點）"
+    },
+    {
+     "variant_id": "offer-rows",
+     "meaning": "本期活動・優惠說明卡皮（白底藍框一列一檔＋模組標題純色 banner 並排；同內容換皮、隨時換回）",
+     "source": "197:48 活動模組排版變形板（2026-08-21 圈選）＋2026-08-26 使用者方案 A 裁決",
+     "buildSelectable": false,
+     "rollout": "trial",
+     "registered": "2026-08-26",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#195:63（元件集 242:606；banner 配對版面＝197:48 板）",
+     "retired": "2026-08-26",
+     "retiredNote": "使用者裁決撤下：本期活動排版替換只保留 圓形入口卡 ↔ 主打選品舞台 兩款；本筆留檔不出選單（buildSelectable:false＝白名單自動排除）"
+    },
+    {
+     "variant_id": "spotlight-stage",
+     "meaning": "本期活動・主打選品舞台皮（滿版色帶：左大選品卡＋右標題與兩張商品卡；同內容換皮、隨時換回；顯示前 3 則入口）",
+     "source": "Figma 377:250 主打選品模組（桌機母版 224:403）；2026-08-26 使用者更正方案 A 替換對象＝圓形入口卡 ↔ 主打選品舞台",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-26",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#377:250（桌機母版 224:403；選品大卡元件集 215:366）"
+    }
+   ],
+   "variantsNote": "W2.5 換皮批（2026-08-26 使用者方案 A 四題裁決；G-6 append）＝同內容換皮：page.promoVariant 選排版樣式、promoEntries 內容零改動、隨時換回；缺欄＝entry-circles（預設不標 rollout＝沿 hero new 慣例）、寫入側預設值＝刪鍵（缺席即預設＝舊 draft 零波及）。值域機器消費＝pipeline lib/content_modules.js runtime 讀本檔（CP-25 讀簿模式）；契約節點＝14 號 §2.4 page.promoVariant 登錄待審。裁決併記：好禮三款（info-gift-* 同型皮）不開放給本期活動（缺承諾性真值欄）；數字欄＝商品型入口顯真值價（gdid 回查 products[]）、活動型隱藏；offer-rows banner 槽＝模組標題純色 banner（皆渲染端規則）；換皮＝內容變更同級＝核可失效重檢。",
+   "ga4": {
+    "module_id": "promo",
+    "events": [
+     "entry_click"
+    ],
+    "eventsNote": "v2.0：entry_type=promo（原 promo_card_click）；activity 型帶 activity_id、product 型帶 product_id（destination_type 區分，U19 單一來源制／Q3 manual 允許混型）"
+   },
+   "sheetsFields": [
+    "模組主圖：themeImages.promodeal[0..3] override（FrameTest L938-944「sec-promodeal-img，依文案主題對圖」）"
+   ],
+   "interactions": [
+    "FrameTest：labelStack date 空值不渲染（L1047）",
+    "【條目移除註記】「#promo-more.href=moreUrl（L1461）」於 2026-07-20 裁決⑥移除：「本期活動模組右上「看更多 ›」移除；moreUrl 欄位保留（主打精選/品類牆/延伸探索仍使用）」；14 號 §2.8「全頁統一導向」語意同步改寫"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1274",
+   "figmaTemplateNote": "sec-promodeal"
+  },
+  {
+   "module_id": "featured",
+   "canonicalName": "FeaturedDealModule",
+   "figmaName": "Module/FeaturedDealModule/<device>",
+   "anchorId": "sec-featured-1",
+   "frametestSectionId": "sec-featureddeal-1 / sec-featureddeal-2 / sec-featureddeal-3（L745-747，data-fd=0/1/2；偏差：連寫無底線；一模組拆三個 section 樓層，每樓層＝情境卡 ×1＋商品卡 ×3）",
+   "iaRole": "第一商品樓層（Hero 後立刻有明確點擊目標）",
+   "skeletonPosition": 10,
+   "required": true,
+   "slots": [
+    {
+     "name": "products",
+     "contractPath": "01 §4.2 ProductItem[]；02 §5 商品選擇邏輯（主軸商品／品牌代表商品／日常情境商品／優惠商品）",
+     "type": "ProductItem[]",
+     "min": 3,
+     "max": 4,
+     "required": true,
+     "notes": "「提供 3 至 4 件主打商品」（02 §5.1）；QA：「商品名稱、價格、商品 URL 必須存在；活動文字只能來自來源資料；商品圖完整，不被卡片裁切；整張卡片可點擊」（02 §5.3）"
+    },
+    {
+     "name": "floorTitle",
+     "contractPath": "floors[].title 逐樓層注入；titleSource 規則見 04 §3（2026-07-20 裁決④）",
+     "type": "string",
+     "min": 1,
+     "max": "每樓層 1（FrameTest 實況：3 樓層×各 1 個 h2）",
+     "required": true,
+     "notes": "「主打精選 h2 標題隨 AI 策展變換（floors[].title 逐樓層注入，遵循 04 §3 titleSource 規則）」（2026-07-20 裁決④）"
+    },
+    {
+     "name": "dockFeaturedLabel",
+     "contractPath": "2026-07-20 裁決④（dock 錨點短標欄位）",
+     "type": "string",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "「dock 錨點用 ≤5 全形字短標欄位 dockFeaturedLabel（LC 預設「主打推薦」）」（2026-07-20 裁決④）"
+    },
+    {
+     "name": "moreLink",
+     "contractPath": "14 §2.5 floors[].moreLink（2026-07-20 使用者裁決㉘ U28/U28b）；FrameTest featuredDealSections[i].moreLink 同型；掛載於 SectionHeader.moreLink（全系統「看更多」唯一掛載點，04 §4）",
+     "type": "{ enabled: \"on\"|\"off\", url }",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "每樓層一物件（🎚 enabled=on|off 預設 on＋✍️ url=🔒真值目的地）：url 主題化（AI 初稿優先序 p=詞＞brandIds＞品類/分類頁＞品牌頁）＋全頁唯一＋主題切合＝機器閘 CP-22；url ≠ 自身 sceneCard.url（U12 同模組雙入口延伸＝Blocking，U28b①）；enabled=off＝該樓層 sec-header 不渲染看更多（url 可留值備用＝U28b②）；欄位缺席＝退全域 moreUrl 舊行為（向下相容）；Sheets per 位置雙欄 F7.n/F8.n（樓層1~3；表尾附加制）；2026-07-21 落地：五集 30 位置全 on（鍵盤樓層1 目的地改 p=電競機械鍵盤＝原案與 W7 撞 URL 後之替代）"
+    }
+   ],
+   "productCount": {
+    "min": 3,
+    "max": 4,
+    "verified": "D×1（LC baseline §6）：主打商品區 3/3/3（實際可用/首版/展開後）；fallback 模板固定 3 件（01 §7/04 §6.4）；FrameTest：3 樓層 × 各 3 件＝9 商品卡＋3 情境卡"
+   },
+   "dataPreconditions": [
+    "商品名稱、價格、商品 URL 必須存在",
+    "售價缺→不進入主打商品（01 §5）",
+    "商品圖不適合主視覺→不進入 FeaturedDealModule（01 §7）"
+   ],
+   "degradation": "失效替補模板核心（固定 3 件）",
+   "colsByDevice": {
+    "desktop": 4,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "variants": [
+    {
+     "variant_id": "grid",
+     "meaning": "4 欄 grid（沿用商品牆尺寸）；現役＝情境卡＋3 商品卡屬此型",
+     "source": "04 §8.5 desktop 兩選項之一",
+     "buildSelectable": false
+    },
+    {
+     "variant_id": "carousel",
+     "meaning": "大卡輪播",
+     "source": "04 §8.5 desktop 兩選項之一",
+     "buildSelectable": false
+    },
+    {
+     "variant_id": "spotlight",
+     "meaning": "主打選品舞台（滿版藍底＋左選品大卡＋右欄螢光標籤・大標題・副標＋商品卡 ×2；格紋帶貼底滿版平鋪）",
+     "source": "母版描述 2026-08-18 定版（含使用者手調規則化）；W2 第一批登錄（story＝content-modules-wave2 M1）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-25",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#377:250（桌機母版 224:403；選品大卡元件集 215:366）"
+    },
+    {
+     "variant_id": "promo-card",
+     "meaning": "促銷卡（切角白卡單品強化：頂部膠囊標＋斜角文案＋商品照＋店名/品名/活動語/原價行/售價；2026-08-26 多卡升級＝每檔 1~4 張→2026-09-09 使用者裁上限 20（每檔 1~20 張）、契約節點 page.promoCards[] 陣列〔舊形 page.promoCard 單物件讀取相容〕；模組層排法＝2026-08-26 板量 pipeline docs/design-qa/content-modules-wave2-spec/promo-card-module-layout.json：1440/768 一列兩張 2×2、375 直排）",
+     "source": "母版描述「促銷卡（選品模組主打品強化呈現）」2026-08-18 使用者裁決開元件；W2 第一批登錄；多卡 1~4＝2026-08-26 使用者需求（14 §2.14 登錄待審）",
+     "buildSelectable": true,
+     "rollout": "trial",
+     "registered": "2026-08-25",
+     "catalogRef": "figma 0kBvgdSpVUui1eQrwOIqRM#291:667（桌機母版 291:666；模組層排列量測＝promo-card-module-layout.json 2026-08-26）"
+    }
+   ],
+   "variantsNote": "規格層變體就地收編（渲染端未實作切換，buildSelectable 待實裝時開）。spotlight／promo-card（2026-08-25 W2 第一批）＝樓層級新版式：buildSelectable:true＝CMS 編修頁「頁面組成」面板可選（值域機器消費＝pipeline lib/content_modules.js runtime 讀本檔）、rollout:'trial'＝渲染未到位灰度旗標（真渲染＝第二批 M8/M9）；商品卡樣式（729:160）隨本模組與 category_groups 走、不獨立成面板選項（2026-08-25 使用者裁決；規格＝47 號 B 組）；契約節點＝14 號 §2.14 page.spotlight／page.promoCards[]（促銷卡 2026-08-26 多卡升級 1~4 張、舊形 page.promoCard 單物件讀取相容；登錄待審）",
+   "ga4": {
+    "module_id": "featured",
+    "events": [
+     "product_click",
+     "entry_click",
+     "more_link_click"
+    ],
+    "eventsNote": "v2.0：product_click＝商品卡（原 featured_product_click）；entry_click（entry_type=scene）＝樓層情境卡（原提案 scene_card_click）；more_link_click＝每樓層看更多（U28）"
+   },
+   "sheetsFields": [
+    "模組主圖：themeImages.featureddeal[0..2] override（FrameTest L945-949「sec-featureddeal-img，只換各樓層最左第一格情境卡」；三張商品卡不替換）",
+    "商品標籤（01_GoogleSheets_欄位需求備忘.md §2.3.1，prototype 對應：tuple offer 欄；2026-07-16 使用者定義）：「每件商品必有標籤，溝通「新品／優惠／商品特色」擇一重點。AI 自動撰寫規則（2026-07-16 v2）：⓪商品頁「商品特色」第一行優先（＝列表頁 ec_description 首段；聲明類行自動跳取次行；單行標準 ≤11 字，超行由 AI 潤飾縮短保留原意——v3）①來源有活動標籤→逐字照用 ②有真實原價且市價比 ≥0.4→計算折數（進位不誇大）③市價比 <0.4（異常虛高）或無折扣→品名/屬性擷取特色標籤。人工可覆寫」；鐵律：特色標籤逐字取自商品頁「商品特色」欄位；折數/優惠類標籤必為真值；樣式備註：grey/100 底＋grey/600 字、14px、位置＝標題上方"
+   ],
+   "interactions": [
+    "desktop「4 欄 grid（沿用商品牆尺寸）或大卡輪播」（04 §8.5）",
+    "FrameTest 降級實例：featuredDealSections 缺該索引資料→樓層 section 整層 display:none（L1075）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1313",
+   "figmaTemplateNote": "sec-featureddeal-1（另 148:1328／148:1343 為 -2/-3 樓層）"
+  },
+  {
+   "module_id": "brand_day",
+   "canonicalName": "BrandDayModule",
+   "figmaName": "Module/BrandDayModule/<device>",
+   "anchorId": "sec-brand_day-1",
+   "frametestSectionId": null,
+   "iaRole": "主打後品牌日檔期卡（festival 目的可配置移機制帶內、Coupon 前——對齊 PChome 序）",
+   "skeletonPosition": 11,
+   "required": false,
+   "slots": [
+    {
+     "name": "brandDayCards",
+     "contractPath": "01 §4.6 BrandScheduleItem（date、brandName、offerText、url、sourceField、confidence）；04 §4 Atom BrandDayCard",
+     "type": "BrandScheduleItem[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": true,
+     "notes": "「缺任一必填欄位該卡不生成；無任何檔期表→BrandDayModule 整模組隱藏」（01 §4.6）；BrandDayCard「日期＋品牌＋優惠＋URL 全來源」（04 §4）；件數上下限未載明＝UNVERIFIED"
+    }
+   ],
+   "productCount": {
+    "min": "UNVERIFIED",
+    "max": "UNVERIFIED",
+    "verified": "UNVERIFIED"
+   },
+   "dataPreconditions": [
+    "缺任一必填欄位該卡不生成",
+    "無任何檔期表→整模組隱藏"
+   ],
+   "degradation": "無品牌檔期表→隱藏",
+   "colsByDevice": {
+    "desktop": "4（一屏 4 卡 288 橫滑）",
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "brand_day",
+    "events": [
+     "entry_click"
+    ],
+    "eventsNote": "v2.0：entry_type=brand_day（原 brand_day_card_click；brand／date 續用為選填參數）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "橫滑（desktop 一屏 4 卡／mobile 橫滑 256、peek 91）（04 §8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": null,
+   "figmaTemplateNote": "不存在於模板 frame 148:1218（機制帶缺席，見 knownGaps GAP-15）"
+  },
+  {
+   "module_id": "category_groups",
+   "canonicalName": "CategoryGroupModule",
+   "figmaName": "Module/CategoryGroupModule/<device>",
+   "anchorId": "sec-category_groups-<index>（01 §4.4 實例：sec-category_groups-1）",
+   "frametestSectionId": "sec-categorygroup-tableware / sec-categorygroup-cookware（L762-763，data-cg=0/1；偏差：連寫無底線＋語意後綴（tableware/cookware）非數字 index，與 01 §4.4 sec-category_groups-1 不一致）",
+   "iaRole": "品類帶 ×3~5（預設 3——2026-07-20 使用者裁決⑱ U18，取代 ×N/現況 2 組；與 BannerWall full 換氣交錯）",
+   "skeletonPosition": 12,
+   "required": false,
+   "instanceCount": {
+    "min": 3,
+    "max": 5,
+    "default": 3,
+    "notes": "2026-07-20 使用者裁決⑱（U18）：品類牆（「編輯精選」下方以分類為切入點模組）每活動頁 3~5 組、預設 3 組（活動頁預設至少曝光 3 組、至多 5 組；原 FrameTest 固定 2 組現況廢止）；組數由 Google Sheets categoryWallCount 欄（🎚 enum 3|4|5、預設 3）選擇，與實填牆標題數（牆4~8，牆6/7/8 填寫即啟用）一致性＝機器閘檢（03 Schema §2.6）；各牆分類切入互異（workflow 04 §4.5）；dock 連動＝dock 錨點隨牆數 6→7（預設 3 牆時、含 TOP）、至多 9 錨含 TOP——溢出引用既有 dock 橫滑 rail 機制（09 §2.2/§2.11）；資料層 walls[] 3~5＝14 §2.6"
+   },
+   "slots": [
+    {
+     "name": "groupTitle",
+     "contractPath": "02 §8.2 groupTitle",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    },
+    {
+     "name": "groupDescription",
+     "contractPath": "02 §8.2 groupDescription",
+     "type": "string",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": ""
+    },
+    {
+     "name": "displayCount",
+     "contractPath": "02 §8.2 displayCount（範例值 12）",
+     "type": "number",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    },
+    {
+     "name": "totalCount",
+     "contractPath": "02 §8.2 totalCount（範例值 33）",
+     "type": "number",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    },
+    {
+     "name": "products",
+     "contractPath": "02 §8.2 products[]；01 §4.2 ProductItem",
+     "type": "ProductItem[]",
+     "min": "4（2026-07-20 使用者裁決㉗ U27 定版：每牆商品數＝4 的倍數 {4,8,12}——原推導值 UNVERIFIED 就此結案；02 §8.1「少於 4｜併入相關分組或作為小型補充區」的 <4 展示對品類牆不再成立）",
+     "max": 12,
+     "required": true,
+     "notes": "分組規則（02 §8.1）：「商品分組不應平均硬切，需依實際商品池決定」；分組高＝「首段展示 8 至 12 件」（行169，max=12 依據）；中等＝「展示 4 至 8 件」（U27 註：品類牆適用值＝4|8）；少於 4＝「併入相關分組或作為小型補充區」（行171）；總量過大＝「首段展示，剩餘放入看更多」。件數鐵律（2026-07-20 使用者裁決㉗ U27）：每牆商品數＝4 的倍數（4|8|12；desktop 一行四品陣列、8 件＝上下兩行、12 件＝三行）——違反（%4≠0 或 ∉[4,12]）＝機器閘 CP-21 FAIL（Blocking，03 Schema R1「4~12 件 warning 不阻擋」語意對品類牆廢止）"
+    },
+    {
+     "name": "wallProductCount",
+     "contractPath": "14 §2.6 walls[].wallProductCount（2026-07-20 使用者裁決㉗ U27）；Sheets P1「牆N商品數wallProductCount」per-wall 欄（牆4~8＝品類牆1~5，跟隨 F1.4~F1.8 樓層連續編號制、表尾附加制；邏輯代號 F1.Nq（2026-07-21 裁決⑬ 轉正式代號））",
+     "type": "enum(4|8|12)",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "🎚 4|8|12、預設 4、牆未啟用＝值空——每牆商品展示件數宣告欄（per-wall，非單欄通用：同頁各牆件數可互異，落地首例 titanium 牆3＝8、其餘 4）；與該牆商品列實數一致性＝機器閘 CP-21（宣告≠實數＝FAIL；欄位缺席＝略過不誤殺，沿 CP-15/16 慣例）；P4 枚舉 wallProductCount=4|8|12 隨 R5 登記"
+    },
+    {
+     "name": "moreLink",
+     "contractPath": "02 §8.2 moreLink（掛載於 SectionHeader.moreLink——全系統「看更多」唯一掛載點，04 §4）；14 §2.6 walls[].moreLink（2026-07-20 使用者裁決㉘ U28/U28b）；FrameTest categorySections[i].moreLink 同型",
+     "type": "{ enabled: \"on\"|\"off\", url }",
+     "min": 0,
+     "max": 1,
+     "required": false,
+     "notes": "型別改寫（2026-07-20 裁決㉘ U28/U28b，原 type=url）：每牆一物件（🎚 enabled=on|off 預設 on＋✍️ url=🔒真值目的地）——url 主題化（AI 初稿優先序 p=詞＞brandIds＞品類/分類頁＞品牌頁）＋全頁唯一＋主題切合＝機器閘 CP-22（對其他牆/樓層/入口/編輯精選/探索互斥）；enabled=off＝該牆不渲染看更多（url 可留值備用＝U28b）；欄位缺席＝退全域 moreUrl 舊行為（向下相容；moreUrl 語意降級＝延伸探索專用＋缺欄 fallback，14 §2.8）；Sheets per 位置雙欄 F7.n/F8.n（牆4~8；表尾附加制）；2026-07-21 落地：五集 30 位置全 on"
+    },
+    {
+     "name": "colsDeclaration / surfaceToken",
+     "contractPath": "01 §4.4 modules[].colsDesktop/colsTablet/colsMobile/surfaceToken；04 §5「colsDeclaration＋surfaceToken（奇偶交替）」",
+     "type": "config",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    }
+   ],
+   "productCount": {
+    "min": 4,
+    "max": 12,
+    "perWallRule": "每牆商品數＝4 的倍數（4|8|12）——2026-07-20 使用者裁決㉗ U27（desktop 一行四品陣列、8 件＝上下兩行、12 件＝三行）；違反＝機器閘 CP-21 FAIL（Blocking）；宣告欄＝walls[].wallProductCount（等價 Sheets 牆N商品數，🎚 4|8|12 預設 4）；原 min「4（推導值 UNVERIFIED）」就此定版",
+    "verified": "D×1（LC baseline §6）：商品池 33/15/8/4，首版展示 12/8/8/4，首版合計約 40–44 件；「不再使用平均 8 件分組，而是依實際商品池配置」（§3）。FrameTest 原型偏差：每組僅 4 件（slice(4,8)）。U27 落地（2026-07-21）：FrameTest 五集第三牆＝LC/露營/鍵盤/女裝 4、鈦 8（4/4/4/4/8）＋desktop wall-row 4 欄 grid（repeat(4,1fr)、軌 288@1200）；部署 commit c7b3dbd"
+   },
+   "dataPreconditions": [
+    "<12 件商品池→整頁降小型模板（非本模組單獨降級）",
+    "商品分組不足→合併小分組或改成「看更多」入口（01 §7）"
+   ],
+   "degradation": "<12 件商品池→降小型模板",
+   "colsByDevice": {
+    "desktop": "4（4 欄 grid repeat(4,1fr)、軌 288@群組卡內容寬 1200、卡 width:100%——U27 2026-07-21 落地取代原「固定 288 flex 改等分 fill」提案；≥1248 可 5 欄 224、1200 驗收自動降 4 欄）",
+    "tablet": "4（4 欄卡 150、672 內容寬；伴生註 wall-row 價格級 16/20——2026-07-21 裁決⑱ 依 ㉗ 事實回填＋裁決⑲ 定案：替代案 2 欄剔除、收斂會字樣去除；834/1024 由 fill 吸收 4 欄恆定；09 §2.11 T）",
+    "mobile": "2（2 欄卡 165.5、min 156、gap 12/16；件數 4 倍數鐵律下 2×2／2×4／2×6 全整行——2026-07-21 裁決⑱ 依 ㉗ 事實回填；09 §2.11 M）"
+   },
+   "ga4": {
+    "module_id": "category_groups",
+    "events": [
+     "product_click",
+     "more_link_click"
+    ],
+    "eventsNote": "v2.0：product_click＝牆商品卡（原 category_product_click；group_title=牆標題為選填參數、報表鍵 slot_id=wall-1~5）；more_link_click＝每牆看更多（U28）"
+   },
+   "sheetsFields": [
+    "商品標籤（01_GoogleSheets_欄位需求備忘.md §2.3.1，prototype 對應：tuple offer 欄；2026-07-16 使用者定義）：每件商品必有標籤；AI 自動撰寫規則（2026-07-16 v2）⓪商品頁「商品特色」第一行優先 ①來源有活動標籤→逐字照用 ②有真實原價且市價比 ≥0.4→計算折數 ③市價比 <0.4 或無折扣→品名/屬性擷取特色標籤；人工可覆寫；鐵律：特色標籤逐字取自商品頁「商品特色」欄位、折數/優惠類標籤必為真值；樣式備註：grey/100 底＋grey/600 字、14px、位置＝標題上方",
+    "categoryWallCount 品類牆數量（03_GoogleSheets_Schema_v1.md §2.6 F6；2026-07-20 使用者裁決⑱ U18）：🎚 enum 3|4|5、預設 3——活動頁品類牆曝光組數（至少 3、至多 5）；與實填牆標題數（牆4~8）一致性＝機器閘檢；P4 枚舉鏡像隨 R5 登記；P2 位置枚舉同步擴 wall-1~5",
+    "牆N商品數wallProductCount（2026-07-20 使用者裁決㉗ U27）：P1 表尾附加 5 欄 per-wall（N＝4~8＝品類牆1~5，跟隨 F1.4~F1.8 樓層連續編號制；物理位置＝categoryWallCount 之後附加、不插中段）——🎚 enum 4|8|12、預設 4、牆未啟用＝值空；每牆商品數＝4 的倍數鐵律（desktop 一行四品陣列、8 件＝上下兩行）；與 P2 該牆商品列實數一致性＝機器閘 CP-21；P4 枚舉 wallProductCount=4|8|12 隨 R5 登記；邏輯代號 F1.Nq（2026-07-21 裁決⑬ 轉正式代號）"
+   ],
+   "interactions": [
+    "「交錯換氣硬條件：連續 >3 個必插 BannerWallModule(full)，surface 交替不計入換氣手段」（04 §5）",
+    "「高密度 5 欄僅 viewport ≥1248 啟用；1200 驗收自動降 4 欄」（04 §8.1）",
+    "樓層背景奇偶交替綁 floor-a/b token（04 §7.3）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1399",
+   "figmaTemplateNote": "sec-categorygroup-1（另 148:1407 為 -2）"
+  },
+  {
+   "module_id": "banner_wall",
+   "canonicalName": "BannerWallModule",
+   "figmaName": "Module/BannerWallModule/<device>",
+   "anchorId": "sec-banner_wall-<index>",
+   "frametestSectionId": null,
+   "iaRole": "穿插 banner 牆——雙骨架槽位：sizeClass=small＝銀行牆（機制帶，位置 6）；sizeClass=full＝換氣（品類帶交錯，位置 12 內）",
+   "skeletonPosition": 6,
+   "skeletonPositionNote": "本模組佔兩個骨架槽位：位置 6（small 銀行牆，機制帶 Mechanic 後 Coupon 前）＋品類帶內 full 換氣交錯（04 §6.1）；換氣槽位可用 full×1 或 half×2（592x296）（02 §13）",
+   "required": false,
+   "slots": [
+    {
+     "name": "banners",
+     "contractPath": "01 §4.1 banners[]（assetDesktop、assetMobile、linkUrl、altText、sizeClass）；04 §4 Atom BannerItem（sizeClass=full|half|third|small）",
+     "type": "BannerItem[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": true,
+     "notes": "「banners[] 為上稿素材通道（非 AI 生成物）」（01 §4.1）；「PC/Mobile 成對資產＋linkUrl 必填」（04 §4）；件數上下限未載明＝UNVERIFIED（僅收合閾值：>8 張 Disclosure 收合）"
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "UNVERIFIED"
+   },
+   "dataPreconditions": [
+    "banner 缺成對資產或 URL→該張不出，全缺整模組隱藏"
+   ],
+   "degradation": "缺成對資產或 URL→該張不出，全缺隱藏",
+   "colsByDevice": {
+    "desktop": "依 sizeClass（02 §13：full=1、half=2、third=3、small=4）；small 銀行牆＝4 欄 288×144；full 換氣＝單張版心 2:1 或 2 欄 592×296（04 §8.5）",
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "banner_wall",
+    "events": [
+     "entry_click"
+    ],
+    "eventsNote": "v2.0：entry_type=banner（原 banner_wall_click；size_class 續用為選填參數——size_class 屬槽位語意非版型，不入 variants）"
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "small：「>8 張 Disclosure 收合＋展開更多」；「festival 目的允許銀行牆全展（對齊 PChome 24 張慣例）」（04 §4 Disclosure／§8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": null,
+   "figmaTemplateNote": "不存在於模板 frame 148:1218（機制帶缺席，見 knownGaps GAP-15）"
+  },
+  {
+   "module_id": "extended_links",
+   "canonicalName": "ExtendedExploreModule",
+   "figmaName": "Module/ExtendedExploreModule/<device>",
+   "anchorId": "sec-extended_links-1",
+   "frametestSectionId": "sec-extendedexplore（L765，「延伸探索」＋#explore-row 入口 ×2；偏差：連寫且用 canonical 語意名 extendedexplore 非 module_id extended_links）",
+   "iaRole": "頁尾前延伸探索（導回品牌館、分類頁、搜尋結果或相關活動）",
+   "skeletonPosition": 13,
+   "required": false,
+   "slots": [
+    {
+     "name": "exploreCards",
+     "contractPath": "02 §9（用途／卡片數／文案／URL）；atoms_used＝SectionHeader＋CategoryEntryItem（04 §5，移除懸空的 CTAButton 引用）",
+     "type": "CategoryEntryItem[]",
+     "min": 2,
+     "max": 4,
+     "required": true,
+     "notes": "「卡片數＝2 至 4 張；文案＝短、具體，不寫泛稱；URL＝必須可點擊；缺少 URL＝不顯示該卡」（02 §9）"
+    }
+   ],
+   "productCount": {
+    "min": 2,
+    "max": 4,
+    "verified": "FrameTest：入口 ×2；C×4（便當盒 §10.4）：4 個入口"
+   },
+   "dataPreconditions": [
+    "缺少 URL→不顯示該卡",
+    "<2 有效卡→整模組隱藏"
+   ],
+   "degradation": "<2 有效卡→隱藏；替補頁見 §6.4 降級鏈",
+   "colsByDevice": {
+    "desktop": "2-4（2–4 卡單列等分）",
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "extended_links",
+    "events": [
+     "entry_click",
+     "more_link_click"
+    ],
+    "eventsNote": "v2.0：entry_click（entry_type=explore）＝入口卡（原 extended_link_click；link_type 續用為選填參數）；more_link_click＝explore CTA（explore.moreUrl＋ctaText）"
+   },
+   "sheetsFields": [],
+   "interactions": [],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1415",
+   "figmaTemplateNote": "sec-extendedexplore-3"
+  },
+  {
+   "module_id": "notice",
+   "canonicalName": "NoticeModule",
+   "figmaName": "Module/NoticeModule/<device>",
+   "anchorId": "sec-notice-1",
+   "frametestSectionId": "sec-notice（L772，靜態「注意事項」文字，無資料物件；偏差：缺 -<index> 後綴，不符 01 §11 行336 sec-<module_id>-<index> 規格）",
+   "iaRole": "Footer 前壓底注意事項（活動級規則；與 Footer.footerNote 站台級法務句並存不互斥）",
+   "skeletonPosition": 14,
+   "required": true,
+   "slots": [
+    {
+     "name": "noticeItems",
+     "contractPath": "01 §4.1 notice.noticeItems[]；04 §4 Atom NoticeList.items",
+     "type": "string[]",
+     "min": 0,
+     "max": "UNVERIFIED",
+     "required": false,
+     "notes": "「可缺省，降級時僅存 disclaimerText」（04 §4）；「notice 由來源/營運提供，AI 僅整理格式」（01 §4.1）"
+    },
+    {
+     "name": "disclaimerText",
+     "contractPath": "01 §4.1 notice.disclaimerText；04 §4 NoticeList.disclaimerText",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": "必填（04 §4）"
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "FrameTest：0 商品卡（靜態 3 行文字）"
+   },
+   "dataPreconditions": [],
+   "degradation": "最低保留 disclaimerText 一句",
+   "colsByDevice": {
+    "desktop": 1,
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "notice",
+    "events": []
+   },
+   "sheetsFields": [],
+   "interactions": [
+    "mobile Disclosure 手風琴、標題列 44（04 §8.5）"
+   ],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1421",
+   "figmaTemplateNote": "sec-notice-10"
+  },
+  {
+   "module_id": "footer",
+   "module_id_note": "UNVERIFIED——01 §4.1 明文「HorizontalUH 與 FooterModule 為常駐系統件，不入枚舉」，此 id 由 canonical 名轉換草擬",
+   "canonicalName": "FooterModule",
+   "figmaName": "Module/FooterModule/<device>",
+   "anchorId": "sec-footer-1（UNVERIFIED，常駐系統件是否需 anchorId 未載明）",
+   "frametestSectionId": "sec-footer（L782，#footer-title 資料連動（footerTitle）＋.f-legal 靜態法務文字；偏差：缺 -<index> 後綴，不符 01 §11 行336 sec-<module_id>-<index> 規格）",
+   "iaRole": "頁尾",
+   "skeletonPosition": 15,
+   "required": true,
+   "slots": [
+    {
+     "name": "footerBrand",
+     "contractPath": "04 §3（極簡版＝footerBrand＋footerNote）",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    },
+    {
+     "name": "footerNote",
+     "contractPath": "04 §5「Footer.footerNote 為站台級法務句（改綁純文字 slot，僅 disclaimerText）」",
+     "type": "string",
+     "min": 1,
+     "max": 1,
+     "required": true,
+     "notes": ""
+    }
+   ],
+   "productCount": {
+    "min": 0,
+    "max": 0,
+    "verified": "FrameTest：0 商品卡"
+   },
+   "dataPreconditions": [],
+   "degradation": "極簡版＝footerBrand＋footerNote",
+   "colsByDevice": {
+    "desktop": "2（深底（綁 surface/footer）兩欄 grid、gap 24、padding 24（統一 24））",
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "footer（UNVERIFIED）",
+    "events": []
+   },
+   "sheetsFields": [],
+   "interactions": [],
+   "version": "1.0.0-draft",
+   "status": "active",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1423",
+   "figmaTemplateNote": "sec-footer-11"
+  },
+  {
+   "module_id": "editor_topic",
+   "module_id_note": "UNVERIFIED——不在 01 §4.1 requiredModules 枚舉，由 FrameTest 實作名草擬",
+   "canonicalName": "EditorTopicModule（UNVERIFIED——04 §3 登記表全文未出現此名稱，是否入登記表待裁決）",
+   "figmaName": "Module/EditorTopicModule/<device>（UNVERIFIED）",
+   "anchorId": "sec-editor_topic-1（UNVERIFIED）",
+   "frametestSectionId": "sec-editortopic（L749，徽章「編輯精選」＋#editor-title-text（3 行標題）＋#editor-circles（圓形圖卡 ×2）＋#editor-wall（商品牆 ×12）；背景 themeImages.background.editorTile）",
+   "iaRole": "編輯精選策展牆（FrameTest 實況位置：FeaturedDeal 樓層後、CategoryGroup 前；規格層骨架序無此槽位＝UNVERIFIED）",
+   "skeletonPosition": "UNVERIFIED（FrameTest DOM 序介於 featured 與 category_groups 之間）",
+   "required": false,
+   "slots": [
+    {
+     "name": "editorTitleLines",
+     "contractPath": "UNVERIFIED（僅 FrameTest L988：editorTitleLines＝3 行字串陣列）",
+     "type": "string[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": false,
+     "notes": "FrameTest 預設 3 行"
+    },
+    {
+     "name": "editorCircles",
+     "contractPath": "UNVERIFIED（僅 FrameTest L986：editorCircles＝[promoEntries[0], promoEntries[2]]，2 件）",
+     "type": "entry[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": false,
+     "notes": ""
+    },
+    {
+     "name": "editorWall",
+     "contractPath": "UNVERIFIED（僅 FrameTest L987：editorWall＝12 件商品 tuple；三示範資料集皆 slice(0,12)＝12 件）",
+     "type": "ProductItem[]",
+     "min": "UNVERIFIED",
+     "max": "UNVERIFIED",
+     "required": false,
+     "notes": "FrameTest 實際 12 件"
+    }
+   ],
+   "productCount": {
+    "min": "UNVERIFIED",
+    "max": "UNVERIFIED",
+    "verified": "FrameTest：商品牆 12 件＋圓形圖卡 2＋標題 3 行"
+   },
+   "dataPreconditions": [
+    "UNVERIFIED"
+   ],
+   "degradation": "UNVERIFIED（01 §7 降級表與 04 §3 登記表均無此模組）",
+   "colsByDevice": {
+    "desktop": "UNVERIFIED",
+    "tablet": "PENDING-09",
+    "mobile": "PENDING-09"
+   },
+   "ga4": {
+    "module_id": "editor_topic（UNVERIFIED——M-2 入登記表待裁決；GA4 v2.0 通用事件已覆蓋、追蹤不再空白）",
+    "events": [
+     "product_click",
+     "entry_click"
+    ],
+    "eventsNote": "v2.0（2026-07-28 G-2 經 G-7 B 案吸收）：product_click＝編輯精選商品牆 12 件（slot_id=editorial）；entry_click（entry_type=editor_circle）＝品牌圓卡 ×2（brand／brand_id 選填參數）"
+   },
+   "sheetsFields": [
+    "模組主圖：themeImages.background.editorTile（FrameTest L950-952，null＝預設 assets/editor-grid-tile.png 方格紙）",
+    "商品標籤（01_GoogleSheets_欄位需求備忘.md §2.3.1，prototype 對應：tuple offer 欄；2026-07-16 使用者定義）：每件商品必有標籤；AI 自動撰寫規則（2026-07-16 v2）⓪商品頁「商品特色」第一行優先 ①來源有活動標籤→逐字照用 ②有真實原價且市價比 ≥0.4→計算折數 ③市價比 <0.4 或無折扣→品名/屬性擷取特色標籤；人工可覆寫；鐵律：特色標籤逐字取自商品頁「商品特色」欄位、折數/優惠類標籤必為真值；樣式備註：grey/100 底＋grey/600 字、14px、位置＝標題上方"
+   ],
+   "interactions": [],
+   "version": "1.0.0-draft",
+   "status": "pending_decision",
+   "figmaComponentId": null,
+   "figmaComponentNote": "NOT_BUILT——05-DS Modules 頁實測為空（2026-07-16），模組元件待建（P1-1 殘項）",
+   "figmaTemplateNodeId": "148:1358",
+   "figmaTemplateNote": "Editor-Topic-sections"
+  }
+ ],
+ "cellConfigurations": {
+  "D1-brand-curation": {
+   "cell": "品牌質感型（D）× 目的1 品牌導流",
+   "verifiedBy": "Le Creuset cid29588048（cases/LeCreuset_cid29588048_Case_Baseline.md；03 §5：「品牌敘事 Hero + 系列分區（已驗證：Le Creuset 33/15/8/4）」；03 §9：「主要 reference implementation，商品分組 33/15/8/4」）",
+   "sourceUrl": "https://tw.buy.yahoo.com/brands/41166677?cid=29588048",
+   "productPoolTotal": 60,
+   "modules": [
+    {
+     "module_id": "hero",
+     "count": "1 件（取代表性高、乾淨商品圖完整的商品）"
+    },
+    {
+     "module_id": "featured",
+     "count": "3 件（從餐盤組、鑄鐵鍋、馬克杯或烤盅各選 1 件）"
+    },
+    {
+     "module_id": "category_groups",
+     "count": "4 組：餐桌器皿 33（首版 12）／經典料理鍋具與配件 15（首版 8）／飲品杯具 8（首版 8）／烘焙與點心器皿 4（首版 4）"
+    },
+    {
+     "module_id": "promo",
+     "count": "優惠標籤商品 10+（首版 4–8，僅顯示資料可確認的折扣商品）"
+    },
+    {
+     "module_id": "extended_links",
+     "count": "品牌延伸與分類回流區（件數未載明＝UNVERIFIED）"
+    }
+   ],
+   "notes": "首版合計「約 40 - 44 件；其餘商品可放入「看更多」或串接商品列表」；「不再使用平均 8 件分組，而是依實際商品池配置」（baseline §3）。Banner 風格＝清爽品牌型（03 §4 目的1）。注意：baseline §5 的 10 區塊 IA 用敘事區塊名（如「商品資料總覽區」「活動規則與資料確認區」），與 04 §3 登記名的對照未在文件內明寫＝UNVERIFIED。"
+  },
+  "C4-task-curation": {
+   "cell": "生活情境型（C）× 目的4 分類策展",
+   "verifiedBy": "便當盒「每天好好帶飯計畫」（MVP_Phase1_便當盒_L2活動頁視覺設計規劃.md；03 §5：「任務型策展（已驗證：便當盒，策展邏輯層面）」；03 §9 警示：「便當盒 editorial prototype 僅作策展邏輯（任務型分組）參考，不作視覺排版參考」）",
+   "sourceUrl": "https://tw.buy.yahoo.com/category/31655755",
+   "productPoolTotal": "836 筆結果",
+   "modules": [
+    {
+     "module_id": "horizontal_uh",
+     "count": "1"
+    },
+    {
+     "module_id": "anchor_nav",
+     "count": "1"
+    },
+    {
+     "module_id": "hero",
+     "count": "「1 件主便當盒為視覺焦點，1 至 2 件輔助商品建立系列感」（§7.5）"
+    },
+    {
+     "module_id": "featured",
+     "count": "本期主打精選「3 至 4 件」（§10.1）"
+    },
+    {
+     "module_id": "promo",
+     "count": "本期活動商品（資料來源＝分類頁「精選活動」；件數未載明＝UNVERIFIED）"
+    },
+    {
+     "module_id": "category_groups",
+     "count": "情境分類推薦 5 組（上班帶飯／健康分隔餐／上學與親子／保溫外帶／便當袋與餐具收納；分組方式＝使用者任務而非後台分類；每組件數未載明＝UNVERIFIED）"
+    },
+    {
+     "module_id": "extended_links",
+     "count": "延伸探索 4 個入口（看更多便當盒／看更多便當袋‧保溫袋／看更多環保餐具／回碗盤‧餐具分類）"
+    },
+    {
+     "module_id": "footer",
+     "count": "1"
+    }
+   ],
+   "notes": "頁型＝「L2 分類策展頁 / 任務型選物活動頁」；跨裝置商品卡欄數 Mobile 兩欄／Tablet 三欄／Desktop 四欄（§11）。C 同時是判型 fallback 預設值（03 §2.1：「降級最安全、資料依賴最低、已有驗證案例」）。Banner 風格＝清爽品牌型／輕量節慶型（03 §4 目的4）。"
+  },
+  "_policy": "其餘格位 TBD——禁止自動推導，需走 03 §7 缺口單流程。03 §7 步驟 4 逐字：「以（主型態 × 活動目的）查 §5 格位狀態。已驗證 → 直接套用；已定義未驗證 → 以最近似已驗證格位（同型態優先、次為同目的）為基底生成 pilot 頁；未定義（如 E 列） → 禁止自動生成，開矩陣缺口單由設計補格位定義後放行。」E 列「格位未定義（未經設計補完與 pilot 驗證）前禁止自動生成」（03 §5）。"
+ },
+ "assemblyRules": {
+  "steps": [
+   "1. 判型：依 03 §6 訊號判定（主型態×副型態×旗標），輸出機器可讀 schema `{分類ID, 層級, 主型態, 副型態, 旗標[], confidence, 命中規則, 訊號值, 資料缺口[]}`（03 §6.3）；confidence < 0.7 或落入 fallback → 人工審核佇列，不得自動上線（Phase 1 全量人審不變）；人工 override（R14）恆優先於自動判定",
+   "2. 定目的與頁型：依 03 §4 目的軸取得對應頁面類型（01 §6）與 Banner 風格；目的軸機器 enum 值未定＝UNVERIFIED",
+   "3. 格位查核：以（主型態 × 活動目的）查 03 §5 矩陣格位；已驗證（僅 D×1、C×4）直接套用 cellConfigurations；已定義未驗證→最近似已驗證格位為基底生成 pilot 頁；未定義→禁止自動生成、開缺口單",
+   "4. 依骨架序組模組：pageSkeleton.order 為唯一版位事實（04 §6.1）；requiredModules 僅可列入有資料前置條件的型別（01 §4.1：「缺前置資料的型別不得列入 requiredModules」）；品類軸只控制 CategoryGroupModule 分組邏輯與 ProductCard 資訊標籤，目的軸控制 Hero 敘事與 PromoDealModule 有無/強度，不得越界（03 §8.2）",
+   "5. 槽位填值（真值鐵律）：每槽位依 slots[].contractPath 自 01 §4 契約物件取值；通過 01 §5 品質規則門檻；商品圖依 02 §10 取用順序（優先 ec_multi_images[1].url_large，備援 ec_image 或 ec_multi_images[0].url_large）",
+   "6. 降級檢查：逐模組執行 01 §7 降級表（11 列）與 04 §6.2 對照；「降級優先：資料驅動降級規則永遠壓過型態偏好」（03 §6.2）；分組備援鏈：主型態分組產出 <3 組或多數組 <4 件時先以副型態分組邏輯二次嘗試，降級判定在所有分組嘗試完成後執行一次且不可被型態邏輯推翻",
+   "7. AnchorNav 鏡射與防死錨：錨點由實際渲染模組序自動鏡射，被降級模組錨點同步移除；頁面 <4 樓層 AnchorNav 缺省僅留浮動 GoTop",
+   "8. 輸出：GeneratedPagePackage（01 §4.4）——modules[]（moduleId/anchorId/cols*/mode/surfaceToken/assetPair）＋theme token 集＋products/offers＋trackingPlan（01 §11 事件）＋qaReport{status, warnings, errors}"
+  ],
+  "ironRules": [
+   "「不可自行創造價格、折扣、活動期間或活動 URL。」（02 §11）",
+   "「商品圖不完整不得進入 Hero、Banner 或主打卡。」（02 §11）",
+   "「商品分組需依實際商品池，不可平均硬切。」（02 §11）",
+   "「若資料不足，需降級處理並列出 warning。」（02 §11）",
+   "「模板固定，內容可變。」（02 §2）",
+   "「商品、價格、折扣與活動 URL 必須來自來源資料。」（02 §2）",
+   "「文字、CTA、主題色與商品排序可由 AI 建議，但需保留 data confidence。」（02 §2）",
+   "「商品圖必須完整、不裁切、不含促銷字樣，才可進入 Hero、Banner 或 SceneCard。」（02 §2）",
+   "「正式畫面不得顯示 prompt、規格說明、風險註記或資料欄位名稱。」（02 §2）",
+   "salePrice 必填（AI 禁生成）；originalPrice 缺→整行隱藏（04 §4 PriceBlock）",
+   "TagBadge 文字僅來源資料；StatusBadge 僅來源 stockStatus 驅動（04 §4）",
+   "模組/atom 零硬編碼色彩，全綁 semantic token（04 §1 系統原則 2）"
+  ],
+  "degradationChain": "01 §7：商品池少於 12 件→「改為小型活動模組（見下方固定序），不生成完整活動頁」。小型活動模組（失效替補，Template/fallback-small，模板總數＝4 目的 × 3 裝置 + 1 = 13）固定序：「HorizontalUH → HeroModule（fallback 簡化 KV，1200x600）→ FeaturedDeal（3 件）→ ExtendedExplore（2–4 卡）→ Notice（極簡）→ Footer（極簡）。最低資料需求＝≥3 件過門檻商品＋≥2 個有效入口 URL；再降級＝BannerWall（full 單張）＋入口；有效入口 <2 時不生成頁面、302 導回原分類頁」（封閉降級鏈，不做死路）。03 §7 步驟 10 Fallback 總則：「訊號不足或無法分類 → C 型態＋low confidence 人審；格位未驗證且時效緊急（失效替補）→ 降用小型活動模組；資料缺口 → 依既有降級規則處理。整條鏈上不存在「無路可走」的狀態。」"
+ },
+ "knownGaps": [
+  "GAP-1【骨架序衝突】03 §8.2 戰略一為 8 模組序（HorizontalUH → AnchorNav → Hero → FeaturedDeal → PromoDeal → CategoryGroup → ExtendedExplore → Footer），與 01 §7 / 04 §6.1 的 15 模組骨架不一致（後者 PromoDeal 在機制帶尾、FeaturedDeal 之前）。本 manifest 採 01 §7（v1.1，明標「依 04 §3 模組登記表擴充」）；03 舊序待回寫＝UNVERIFIED。",
+  "GAP-2【EditorTopicModule 待裁決】僅存在於 FrameTest（sec-editortopic），01/02/04 全文零命中；是否入 04 §3 登記表、骨架位置、降級規則、GA4 事件全數 UNVERIFIED。本 manifest 以 status=pending_decision 收錄。",
+  "GAP-3【anchorId 格式偏差】01 §4.4 實例 sec-category_groups-1（保留底線＋數字 index）vs FrameTest sec-categorygroup-tableware（連寫＋語意後綴）；FrameTest 全部 sec-* id（sec-uh/sec-promodeal/sec-featureddeal-1/sec-anchornav-floating/sec-extendedexplore/sec-editortopic，以及 sec-hero（L693）/sec-notice（L772）/sec-footer（L782）——後三者 module_id 根與 01 §4.1 枚舉相符但缺 -<index> 後綴）均不符 01 §11 行336 sec-<module_id>-<index> 規格。統一方案待裁決。",
+  "GAP-4【商品資料形狀衝突】FrameTest 7 位置 tuple [name, role, image, price, offer, clean, url] 偏離 01 §4.2 ProductItem（21+ 欄，含 id/originalPrice/currency/stockStatus/canUseForHero/dataConfidence 等）；tuple[5] 三種用法（檔頭 cleanImage／FA·CAMP 註解「第 1 張情境圖 1000px」／LC 首件本地去背 PNG）＝正式語意 UNVERIFIED。另 FrameTest featuredProducts 物件陣列（L828-849，含 activityBadge key）定義後全檔未消費＝殘留物，不得作為契約依據。",
+  "GAP-5【七新模組在 02 無獨立契約節】02 §15 明文：「新模組（CategoryEntry、Mechanic、Coupon、FlashSale、BrandDay、BannerWall、Notice）的資料契約見 01_System_PRD.md §4，模組 IA 與變體見 04」——此七模組於 02 為 UNVERIFIED（無獨立契約章節）。",
+  "GAP-6【件數上下限缺口】FlashSale、BrandDay、BannerWall、PromoDeal（卡片數）、Notice（noticeItems 上限）、AnchorNav（anchorItems 上下限）、Hero productCarousel 件數，於 01/02/04 均未載明＝UNVERIFIED。已知者：featured 3–4、category_entry 4–12、coupon 2–8、mechanic registrationEntries 1–3、extended_links 2–4、category_groups 4–12/組。",
+  "GAP-7【tablet/mobile 欄數 PENDING-09】依起草指示標 PENDING-09；註：02 §13 欄數宣告制已有預設值（商品 4/3/2（≥1248 可 5）、券 3/2/1、banner full=1/half=2/third=3/small=4/3/2、品類宮格 6/4/4）且 04 §8.5 有全裝置矩陣，待 09 文件定版後回填。",
+  "GAP-8【目的軸機器值未定】03 §4 五目的僅有中文名＋序號 1–5，無機器 enum；04 §9 Figma variant 軸有 purpose=brand|festival|launch|curation|fallback，兩者對照（品牌導流=brand？節慶促銷=festival？…）未在文件內明寫＝UNVERIFIED。",
+  "GAP-9【D×1 IA 對照缺口】LC baseline §5 的 10 區塊 IA 用敘事區塊名（Hero 主視覺區／商品資料總覽區／主打商品區／…／活動規則與資料確認區），與 04 §3 登記名的逐一對照未在文件內明寫＝UNVERIFIED（本 manifest cellConfigurations 的 module_id 映射為起草者推導，需裁決確認）。",
+  "GAP-10【C×4 件數缺口】便當盒「本期活動商品」件數、情境分類推薦每組件數均未載明＝UNVERIFIED；且 03 §9 明文便當盒僅作策展邏輯參考、不作視覺排版參考。",
+  "GAP-11【頁型變體層級】03 §4 目的3 對應「品牌活動頁（新品變體）」，但 01 §6 頁型表無此獨立列（僅品牌活動頁）＝變體層級 UNVERIFIED。",
+  "GAP-12【04 §11 待回寫項】requiredModules 枚舉擴充 8 型別、GeneratedPagePackage.modules 增 anchorId/cols*/mode/surfaceToken/assetPair、GA4 新增 9 事件——04 §11 已列入待回寫清單，本 manifest 依 01 v1.1 現況記錄，回寫完成後需同步。",
+  "GAP-13【Atoms 數量】任務背景述 17 個 Atoms，04 §4 標題明寫「22 個最小單元」——以文件為準＝22 個（本 manifest 未含 atoms 頂層鍵，atom 規則已內嵌於各模組 slots.notes）。",
+  "GAP-14【FrameTest dock 偏差】dock 順序（品牌精選→主打推薦→本期活動→品類×2）與 DOM 序不同、未含 editortopic/extendedexplore/notice 錨點、target 固定指向 section id 不隨資料集改名（keyboard 資料集「電競鍵盤」按鈕仍指 sec-categorygroup-tableware）——與 02 §12「由實際渲染模組序自動鏡射」規格不符，屬原型偏差。→ 2026-07-20 結案（裁決④）：featured 樓層 h2 標題落點＝floors[].title 逐樓層注入（遵循 04 §3 titleSource 規則）；dock 錨點短標＝獨立欄位 dockFeaturedLabel（≤5 全形字，LC 預設「主打推薦」），兩者已登記於本 manifest featured.slots；dock 錨點鏡射仍依 02 §12 規格，原型鏡射偏差照錄不改。",
+  "GAP-15【FrameTest 機制帶缺席＋品類群組數量偏差】FrameTest 無 category_entry/mechanic/coupon/flash_sale/brand_day/banner_wall 對應 section，promodeal 直接接在 hero 後；格位配置僅 D×1 與 C×4 已驗證，其餘皆推導值。另 IA 偏差：FrameTest（L762-763/L991-993）實況僅 2 組品類群組（餐桌器皿、經典料理鍋具，各 slice(4,8)＝4 件），drinkware 8＋bakeware 4 被挪入 editorWall（L987 註解「商品牆＝drinkware 8＋bakeware 4」）；baseline §6 為 4 組（餐桌器皿 33／經典料理鍋具與配件 15／飲品杯具 8／烘焙與點心器皿 4，首版 12/8/8/4）——「2 組 vs 4 組＋兩樓層併入編輯精選牆」屬原型 IA 偏差。",
+  "GAP-16（2026-07-16 Figma 實掃新增）：05-DS Modules 頁為空——15 個模組尚無 component，figmaName 欄位目前是命名規範的目標值而非實存節點；模組元件建置（P1-1 殘項）應以本 manifest 為契約，先建 component 再拉 mobile/tablet 變體（詳 09 §3.2）"
+ ],
+ "figmaFile": {
+  "fileKey": "Pxl7ZCM08GdrkqUkWd3AAK",
+  "fileName": "2026-07-06 AI 自動化生成活動頁",
+  "scannedAt": "2026-07-16",
+  "scanMethod": "Figma MCP（use_figma / get_metadata）實測，非規格推測值",
+  "pages": [
+   {
+    "id": "0:1",
+    "name": "Cover"
+   },
+   {
+    "id": "1:106",
+    "name": "01- [ module 測試 ] Hero module banner design for ai"
+   },
+   {
+    "id": "16:92",
+    "name": "01. use case 定義"
+   },
+   {
+    "id": "50:2",
+    "name": "02 - Claude code 繪製 template",
+    "note": "模板 frame 所在頁"
+   },
+   {
+    "id": "61:48",
+    "name": "03 - DS Foundations"
+   },
+   {
+    "id": "61:49",
+    "name": "04 - DS Atoms",
+    "note": "18 個 atoms（9 component set＋9 standalone）"
+   },
+   {
+    "id": "61:50",
+    "name": "05 - DS Modules",
+    "note": "⚠ 實測 0 子節點＝模組元件庫尚未建立（P1-1 殘項），模組目前僅存在於 template frame 內"
+   },
+   {
+    "id": "81:48",
+    "name": "06 - EXP Editorial 對照組 ⚠ 不納入正式元件庫"
+   },
+   {
+    "id": "148:1736",
+    "name": "07 - 活動頁色彩主題規劃 ＆ template 套用檢視"
+   },
+   {
+    "id": "242:4447",
+    "name": "08 - 商品動畫測試"
+   }
+  ],
+  "atomComponents": {
+   "Atom/PriceBlock": {
+    "id": "66:53",
+    "kind": "COMPONENT_SET",
+    "variants": 2,
+    "props": [
+     "hasOriginal"
+    ]
+   },
+   "Atom/TagBadge": {
+    "id": "66:62",
+    "kind": "COMPONENT_SET",
+    "variants": 4,
+    "props": [
+     "type"
+    ]
+   },
+   "Atom/CTAButton": {
+    "id": "66:69",
+    "kind": "COMPONENT_SET",
+    "variants": 3,
+    "props": [
+     "role"
+    ]
+   },
+   "Atom/StatusBadge": {
+    "id": "67:62",
+    "kind": "COMPONENT_SET",
+    "variants": 2,
+    "props": [
+     "status"
+    ]
+   },
+   "Atom/AnchorItem": {
+    "id": "67:67",
+    "kind": "COMPONENT_SET",
+    "variants": 2,
+    "props": [
+     "state"
+    ]
+   },
+   "Atom/ProductCard": {
+    "id": "70:136",
+    "kind": "COMPONENT_SET",
+    "variants": 4,
+    "props": [
+     "soldout",
+     "showTagBadge",
+     "showEyebrow",
+     "size"
+    ]
+   },
+   "Atom/BannerItem": {
+    "id": "72:123",
+    "kind": "COMPONENT_SET",
+    "variants": 3,
+    "props": [
+     "sizeClass"
+    ]
+   },
+   "Atom/CategoryEntryItem": {
+    "id": "73:127",
+    "kind": "COMPONENT_SET",
+    "variants": 2,
+    "props": [
+     "display"
+    ]
+   },
+   "Atom/LogoLockup": {
+    "id": "118:158",
+    "kind": "COMPONENT_SET",
+    "variants": 2,
+    "props": [
+     "color"
+    ]
+   },
+   "Atom/CountdownUnit": {
+    "id": "67:48",
+    "kind": "COMPONENT"
+   },
+   "Atom/CouponCard": {
+    "id": "67:74",
+    "kind": "COMPONENT"
+   },
+   "Atom/SectionHeader": {
+    "id": "71:120",
+    "kind": "COMPONENT"
+   },
+   "Atom/KVTitleGroup": {
+    "id": "71:123",
+    "kind": "COMPONENT"
+   },
+   "Atom/GoTopButton": {
+    "id": "71:129",
+    "kind": "COMPONENT"
+   },
+   "Atom/PromoCard": {
+    "id": "72:124",
+    "kind": "COMPONENT"
+   },
+   "Atom/BrandDayCard": {
+    "id": "73:117",
+    "kind": "COMPONENT"
+   },
+   "Atom/NoticeList": {
+    "id": "73:128",
+    "kind": "COMPONENT"
+   },
+   "Atom/Disclosure": {
+    "id": "73:132",
+    "kind": "COMPONENT"
+   }
+  },
+  "templateFrames": [
+   {
+    "id": "98:48",
+    "name": "Template/brand/desktop-1200 · purpose=brand · clean-brand（Le Creuset D×1）"
+   },
+   {
+    "id": "101:196",
+    "name": "Template/brand-campaign/desktop-1200 · campaign=light（Le Creuset）"
+   },
+   {
+    "id": "110:488",
+    "name": "Template/brand-campaign/desktop-1200 · campaign=dark（Le Creuset）"
+   },
+   {
+    "id": "96:1483",
+    "name": "設計手動修改 - Template/brand-campaign/desktop-1200 · campaign=light（Le Creuset）"
+   },
+   {
+    "id": "148:1218",
+    "name": "設計手動修改 - …（Le Creuset）-for claude",
+    "note": "FrameTest prototype 的設計依據；per-module figmaTemplateNodeId 錨定於此 frame"
+   }
+  ],
+  "variableCollections": [
+   {
+    "id": "VariableCollectionId:58:48",
+    "name": "01 Primitives",
+    "varCount": 145,
+    "modes": [
+     "Value"
+    ]
+   },
+   {
+    "id": "VariableCollectionId:58:49",
+    "name": "02 Semantic · Theme",
+    "varCount": 62,
+    "modes": [
+     "clean-brand",
+     "promo-max",
+     "festive-light",
+     "mono-bw"
+    ]
+   },
+   {
+    "id": "VariableCollectionId:58:50",
+    "name": "03 Responsive · Device",
+    "varCount": 35,
+    "modes": [
+     "desktop",
+     "tablet",
+     "mobile"
+    ],
+    "note": "mobile/tablet modes 已存在，模組變體可直接綁"
+   },
+   {
+    "id": "VariableCollectionId:100:48",
+    "name": "04 Campaign · Surface",
+    "varCount": 21,
+    "modes": [
+     "pink-light",
+     "pink-dark",
+     "gold-light",
+     "gold-dark",
+     "green-light",
+     "green-dark",
+     "blue-light",
+     "blue-dark"
+    ]
+   },
+   {
+    "id": "VariableCollectionId:210:2174",
+    "name": "05 Campaign · CardContent",
+    "varCount": 9,
+    "modes": [
+     "pink",
+     "gold",
+     "green-sage",
+     "blue-calm"
+    ]
+   }
+  ]
+ }
+}

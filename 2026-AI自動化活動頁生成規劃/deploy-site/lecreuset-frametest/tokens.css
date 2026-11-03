@@ -1,0 +1,232 @@
+/* tokens.css —— 由 tokens.json 生成，不要手改（改 json 再跑 build-css.mjs） */
+/* 來源：Figma 檔 0kBvgdSpVUui1eQrwOIqRM・變數集合「活動頁色彩」｜同步：2026-08-21｜命名：CSS 命名＝42 號 v1 定案（--color-*／--surface-* 四族＋元件常數）；各變數定名見 colors[].css；工程異議走變更單不回退 */
+
+/* 預設・品牌藍＝Figma「Mode 1」 */
+:root {
+  --color-brand: #3E5BFD;
+  --color-brand-soft: #657AF2;
+  --color-brand-neon: #EBFB3E;
+  --color-pattern-soft: #9EADFF;
+  --color-pattern-line: #3E5BFD;
+  --color-brand-text: #3E5BFD;
+  --color-accent: #F26591;
+  --color-accent-bg: #FFC9E2;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #191919;
+  --color-text-brand-card: #3E5BFD;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #212732;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #FFFFFF;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 悠然綠 淺＝Figma「主題B・悠然綠」 */
+[data-campaign-theme="green-light"] {
+  --color-brand: #43714A;
+  --color-brand-soft: #417A4E;
+  --color-brand-neon: #FFB3D9;
+  --color-pattern-soft: #A9D9B1;
+  --color-pattern-line: #43714A;
+  --color-brand-text: #43714A;
+  --color-accent: #A94766;
+  --color-accent-bg: #E3F7E5;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #191919;
+  --color-text-brand-card: #43714A;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #1C3F27;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #FFFFFF;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 悠然綠 深＝Figma「主題C・悠然綠深色」 */
+[data-campaign-theme="green-dark"] {
+  --color-brand: #3F7F4C;
+  --color-brand-soft: #2E6B41;
+  --color-brand-neon: #FFB3D9;
+  --color-pattern-soft: #3F8455;
+  --color-pattern-line: #89E691;
+  --color-brand-text: #89E691;
+  --color-accent: #B05E77;
+  --color-accent-bg: #1B4327;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #DFF5E3;
+  --color-text-brand-card: #2E6B41;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #163B22;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #245238;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 金棕 淺＝Figma「主題D・金棕淺色」 */
+[data-campaign-theme="gold-light"] {
+  --color-brand: #9C6400;
+  --color-brand-soft: #99691C;
+  --color-brand-neon: #FFD97E;
+  --color-pattern-soft: #EAC97B;
+  --color-pattern-line: #9C6400;
+  --color-brand-text: #9C6400;
+  --color-accent: #8E2F3C;
+  --color-accent-bg: #FBEED2;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #191919;
+  --color-text-brand-card: #9C6400;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #3E2E0D;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #FFFFFF;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 金棕 深＝Figma「主題E・金棕深色」 */
+[data-campaign-theme="gold-dark"] {
+  --color-brand: #8F6017;
+  --color-brand-soft: #6B5313;
+  --color-brand-neon: #FFE1B8;
+  --color-pattern-soft: #8A6D2E;
+  --color-pattern-line: #FFD97A;
+  --color-brand-text: #FFD97A;
+  --color-accent: #B14A56;
+  --color-accent-bg: #4A3810;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #F7ECD2;
+  --color-text-brand-card: #7A5414;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #3E2E0D;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #5C4718;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 沉靜藍 淺＝Figma「主題F・沉靜藍淺色」 */
+[data-campaign-theme="blue-light"] {
+  --color-brand: #2C5C88;
+  --color-brand-soft: #3D719F;
+  --color-brand-neon: #FFBE8F;
+  --color-pattern-soft: #A9CCE8;
+  --color-pattern-line: #2C5C88;
+  --color-brand-text: #2C5C88;
+  --color-accent: #D96A4E;
+  --color-accent-bg: #E3F1FB;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #191919;
+  --color-text-brand-card: #2C5C88;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #132A3F;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #FFFFFF;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 沉靜藍 深（未採用）＝Figma「主題G・沉靜藍深色（未採用）」：2026-08-21 主題拍板未採用，留 tokens.json 存檔、不輸出 CSS */
+
+/* 撞色 深（未採用）＝Figma「主題K・撞色深色（未採用）」：2026-08-21 主題拍板未採用，留 tokens.json 存檔、不輸出 CSS */
+
+/* 日式傳統＝Figma「主題I・日式傳統」 */
+[data-campaign-theme="japanese"] {
+  --color-brand: #223A70;
+  --color-brand-soft: #165E83;
+  --color-brand-neon: #F8B500;
+  --color-pattern-soft: #BCE2E8;
+  --color-pattern-line: #165E83;
+  --color-brand-text: #223A70;
+  --color-accent: #973C3F;
+  --color-accent-bg: #F7F4EB;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #191919;
+  --color-text-brand-card: #223A70;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #0F2350;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #FFFFFF;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 撞色＝Figma「主題J・撞色」 */
+[data-campaign-theme="clash"] {
+  --color-brand: #4438CA;
+  --color-brand-soft: #6A61E0;
+  --color-brand-neon: #D9FF3D;
+  --color-pattern-soft: #C6C0F2;
+  --color-pattern-line: #4438CA;
+  --color-brand-text: #4438CA;
+  --color-accent: #E01E6F;
+  --color-accent-bg: #FFE9D6;
+  --color-price: #EB0F29; /* 恆定 */
+  --color-text: #191919; /* 恆定 */
+  --color-text-2: #232A31; /* 恆定 */
+  --color-text-muted: #5B636A; /* 恆定 */
+  --color-text-hint: #828A93; /* 恆定 */
+  --color-text-section: #191919;
+  --color-text-brand-card: #4438CA;
+  --surface-card: #FFFFFF; /* 恆定 */
+  --surface-product: #F0F3F5; /* 恆定 */
+  --surface-line: #E0E4E9; /* 恆定 */
+  --surface-dark: #2E2670;
+  --surface-title-bar: #191919; /* 恆定 */
+  --surface-module: #FFFFFF;
+  --color-s10-frame-dark: #DBE1FF; /* 恆定 */
+  --color-s10-badge: #7FB08E; /* 恆定 */
+  --color-s10-frame-light: #E6B59B; /* 恆定 */
+}
+
+/* 附註：surface-module 套用時容器透明度恆定 55%（43 號 §F）；price-red 為真值鐵律色，任何主題不得覆寫。 */

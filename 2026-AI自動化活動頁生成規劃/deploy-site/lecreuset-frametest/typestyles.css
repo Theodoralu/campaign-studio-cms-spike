@@ -1,0 +1,590 @@
+/* design-assets/typestyles/typestyles.css —— 活動標題字風・共用樣式表（真源）
+   換妝配方變數 --ts-costume（2026-09-05）：每款規則開頭一個，值＝登記簿 costumeMode（機器寫入；hero_combo.test 對帳）；缺＝generic。引擎 costume-engine.js 讀它自算換妝。
+   誰吃這份：①色彩策略工具（tools/sync-registry-to-colortool.mjs 注入 TYPESTYLES 標記塊＝機器複本，勿在工具頁手改）
+            ②活動頁引擎 FrameTest（deploy-site/sync.sh 複製為 lecreuset-frametest/typestyles.css，draft page.titleStyle 到場才動態掛載）
+   造型配方真值＝design-proposal-kit/deliverables/電商活動標題字風型錄.html（改配方先改型錄、再同步這裡）；
+   戶口／審查狀態＝同資料夾 manifest.json（68 號第二批 Q2／Q10，2026-09-04 開簿）。
+   掛法：本檔以 <link> 或獨立 <style> 載入——@import 必須位於 stylesheet 開頭，塞進既有 <style> 中段會整行被瀏覽器忽略。 */
+/* =====================================================================
+   CSS 動態字風 27 款移植（css-a2/a3/a4/a6/b2/b3/b6/c6/d2/d4/f1/f2/f3/f5/g1/g3/h1/h2
+   + css-n1/n1b/n1c/n2/n3/n5/n6/n7/n7b）
+   真值來源＝kit 電商活動標題字風型錄.html；修改請先改型錄再同步此處。
+   貼法：整檔放「一個新的 <style> 區塊」，置於工具既有 <style> 之後
+   （@import 必須位於所屬 stylesheet 開頭；若貼進既有 <style> 中段，
+    @import 會被瀏覽器整行忽略、字型載不到）。
+   px→em 換算基準＝型錄示例字級 clamp 上限：A~G 系 40px、C6 主行 54px、H2 32px。
+   ===================================================================== */
+
+/* ———— 第一段：字型載入 ———— */
+/* Google Fonts（只含此工具實際用到的家族與權重） */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+TC:wght@900&family=Zen+Kaku+Gothic+New:wght@900&family=Zen+Maru+Gothic:wght@900&display=swap');
+/* 副標題字型庫（2026-08-17 擴充）：細字重常用組（Zen 黑/圓 300、霞鶩文楷 300、昭源黑宋 300）＋粉圓/芫荽/WDXL；思源黑宋的 300/200 已在工具主 style 載入 */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300&family=Zen+Maru+Gothic:wght@300;400&family=LXGW+WenKai+TC:wght@300&family=Huninn&family=Iansui&family=Chiron+Hei+HK:wght@300&family=Chiron+Sung+HK:wght@300&family=WDXL+Lubrifont+TC&display=swap');
+/* 第三方字型 CDN（font.emtech.cc）的 4 條 @import 已於 2026-09-08 自本檔拆除（CMS 字型版權盤點批）：
+   GenJyuuGothic／BoutiqueBitmap9x9SquareDot／TASAExplorer／MiSansTC 四家族只服務「待審」字風（A 系/D2/F 系/H2/N1B），
+   消費者頁不該為它們外連一個無 SLA、不逐款標授權的第三方站——現只在色彩策略工具頁自己的 <style> 載入供預覽。
+   規則（絆線＝pipeline/test/unit/fonts_registry.test.js）：本檔 @import 只准 fonts.googleapis.com；字風要 approved，
+   主字型得在本檔（Google css2 或 @font-face 自架）真的載得到。待審字風轉正時把載入路改成 Google Fonts／jsdelivr 鎖版本，別把 emfont 加回來。 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;800&family=Noto+Serif+TC:wght@200;400;700&family=LXGW+WenKai+TC:wght@700&display=swap'); /* 第七段純字形款要的粗細（2026-09-05）：引擎本身只載 Noto Sans TC 400/500/700/900、Noto Serif TC 700 */
+@import url('https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@800&family=Unbounded:wght@400&display=swap'); /* 待審字風主字型載入路（2026-09-08 使用者裁）：N1B＝TASA Explorer（OFL、純歐文）、Y10／Y19＝Unbounded（OFL、純歐文）——載到＝fontLoaded 條件成立，審不審由負責人 */
+
+/* ———— 第二段：偽元素骨架修正 ————
+   型錄 .specimen 疊層架構：本體 z-index:0 建立堆疊環境，
+   ::before/::after content:attr(data-text) 絕對定位鋪滿、逐層上下疊。
+   預設仍隱藏（display:none）＝不影響 y-系列與 web-系列既有字風（註：註解內不可寫「星號斜線」相連，會提前終結註解吃掉下一條規則）；
+   只在下方需要疊層的 css-* 款開啟。 */
+/* demo 骨架沿用第一個 style 區塊的 .font-preview::before/::after 宣告（單一真值） */
+/* hero 疊層掛在「行」上（每個 .line 帶自己的 data-text）：
+   跟折行走、繼承 line-cjk 的 0.9em 縮放與對齊——元素層單行複本的錯位類 bug 根治。
+   .line 只做定位錨、刻意不設 z-index：堆疊環境由元素層（.hero-font-preview）持有，
+   負 z 墊底層才會落在「全部行的文字」之後（型錄疊序），否則第二行 halo 會咬第一行字腳。 */
+.hero-font-preview .line{position:relative}
+.hero-font-preview .line::before,
+.hero-font-preview .line::after{content:attr(data-text);position:absolute;inset:0;white-space:nowrap;pointer-events:none;display:none;letter-spacing:inherit}
+
+/* 疊層開關：只有用到 ::before/::after 的款才開 */
+.font-preview.css-a2::before,.font-preview.css-a3::before,.font-preview.css-a4::before,.font-preview.css-a6::before,
+.font-preview.css-b2::before,.font-preview.css-b3::before,.font-preview.css-b6::before,.font-preview.css-d2::before,
+.font-preview.css-f1::before,.font-preview.css-f2::before,.font-preview.css-f3::before,.font-preview.css-f5::before,
+.font-preview.css-g3::before,
+.font-preview.css-n1::before,.font-preview.css-n1b::before,.font-preview.css-n1c::before,.font-preview.css-n2::before,
+.font-preview.css-n3::before,.font-preview.css-n6::before,
+.hero-font-preview.css-a2 .line::before,.hero-font-preview.css-a3 .line::before,.hero-font-preview.css-a4 .line::before,.hero-font-preview.css-a6 .line::before,
+.hero-font-preview.css-b2 .line::before,.hero-font-preview.css-b3 .line::before,.hero-font-preview.css-b6 .line::before,.hero-font-preview.css-d2 .line::before,
+.hero-font-preview.css-f1 .line::before,.hero-font-preview.css-f2 .line::before,.hero-font-preview.css-f3 .line::before,.hero-font-preview.css-f5 .line::before,
+.hero-font-preview.css-g3 .line::before,
+.hero-font-preview.css-n1 .line::before,.hero-font-preview.css-n1b .line::before,.hero-font-preview.css-n1c .line::before,.hero-font-preview.css-n2 .line::before,
+.hero-font-preview.css-n3 .line::before,.hero-font-preview.css-n6 .line::before,
+.font-preview.css-a3::after,.font-preview.css-a4::after,.font-preview.css-a6::after,
+.font-preview.css-f1::after,.font-preview.css-f2::after,.font-preview.css-f3::after,.font-preview.css-f5::after,
+.font-preview.css-n1::after,.font-preview.css-n1b::after,.font-preview.css-n1c::after,.font-preview.css-n2::after,
+.font-preview.css-n3::after,.font-preview.css-n6::after,
+.hero-font-preview.css-a3 .line::after,.hero-font-preview.css-a4 .line::after,.hero-font-preview.css-a6 .line::after,
+.hero-font-preview.css-f1 .line::after,.hero-font-preview.css-f2 .line::after,.hero-font-preview.css-f3 .line::after,.hero-font-preview.css-f5 .line::after{display:block}
+.hero-font-preview.css-n1 .line::after,.hero-font-preview.css-n1b .line::after,.hero-font-preview.css-n1c .line::after,.hero-font-preview.css-n2 .line::after,
+.hero-font-preview.css-n3 .line::after,.hero-font-preview.css-n6 .line::after{display:block}
+
+/* 舊近似版屬性歸零（本檔置於既有規則之後＝同權重後者勝；
+   把舊版寫死的 background/text-shadow/描邊/變形全部清掉，再由下方各款重建） */
+.font-preview[class*="css-"],
+.hero-font-preview[class*="css-"]{background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  -webkit-text-stroke:0 transparent;text-shadow:none;transform:none;filter:none;image-rendering:auto;
+  paint-order:stroke fill;font-weight:900;z-index:0}
+/* 型錄 .specimen 共用基準：letter-spacing .02em、line-height 1.22 */
+.font-preview[class*="css-"]{letter-spacing:.02em;line-height:1.22}
+/* hero 版保留工具的字距滑桿變數，疊加型錄基準 .02em */
+.hero-font-preview[class*="css-"]{letter-spacing:calc(var(--hero-title-tracking,0em) + .02em)}
+
+/* ———— 第三段：18 款 demo 版（.font-preview.css-XX）＝忠實還原型錄 .sty-XX ———— */
+
+/* A2 雙重描邊（sty-a2）：描邊外再包一層描邊，貼紙感最強 */
+.font-preview.css-a2{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#f7559b;-webkit-text-stroke:.15em #fff;paint-order:stroke fill}
+.font-preview.css-a2::before{color:#f26fa7;-webkit-text-stroke:.375em #f26fa7;z-index:-1;
+  filter:drop-shadow(0 .1em .2em rgba(214,106,158,.35))}
+
+/* A3 網點漸層（sty-a3）：淺藍實色底字＋細網點限字內（霧面印刷感）
+   ⚠ 字身填色不可放元素 background——負 z 偽元素（白邊）繪製順序在元素背景之上，
+   會整片蓋掉 background-clip 填色（2026-08-12 可讀性總修根因）＝實色底＋::after 紋理 */
+.font-preview.css-a3{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#8fc2e8}
+.font-preview.css-a3::before{color:#fff;-webkit-text-stroke:.275em #fff;z-index:-1;
+  filter:drop-shadow(0 .0875em .175em rgba(62,94,150,.24))}
+.font-preview.css-a3::after{color:transparent;z-index:1;
+  background:
+    radial-gradient(circle at .035em .035em,rgba(62,112,166,.36) .025em,transparent .0305em) 0 0/.145em .145em,
+    radial-gradient(circle at .035em .035em,rgba(178,129,206,.26) .0238em,transparent .0295em) .045em .0313em/.145em .145em,
+    radial-gradient(circle at .035em .035em,rgba(83,181,194,.22) .0225em,transparent .028em) -.0275em -.02em/.145em .145em;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.76}
+
+/* A4 暈染上色（sty-a4）：白實心字＋深框＝字重扎實，粉彩色斑限字內 */
+.font-preview.css-a4{--ts-costume:tint;font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#fff;-webkit-text-stroke:.2em #2952a0;paint-order:stroke fill}
+.font-preview.css-a4::before{color:#fff;-webkit-text-stroke:.425em #fff;z-index:-1;
+  filter:drop-shadow(0 .0875em .175em rgba(76,107,179,.3))}
+.font-preview.css-a4::after{color:transparent;z-index:1;-webkit-text-stroke:0 transparent;background:
+  radial-gradient(1.05em 1.05em at 15% 22%,rgba(158,219,184,.95),transparent 70%),
+  radial-gradient(1.15em 1.15em at 45% 60%,rgba(158,194,242,.95),transparent 70%),
+  radial-gradient(1.05em 1.05em at 72% 16%,rgba(148,217,217,.9),transparent 70%),
+  radial-gradient(1.1em 1.1em at 88% 58%,rgba(178,222,158,.9),transparent 70%),
+  radial-gradient(1.05em 1.05em at 30% 84%,rgba(166,196,242,.9),transparent 70%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* A6 彩虹漸層（sty-a6）：漸層中間色當實色底（降級保險）＋漸層疊回字上＋白貼紙邊 */
+.font-preview.css-a6{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#b08be8}
+.font-preview.css-a6::before{color:#fff;-webkit-text-stroke:.275em #fff;z-index:-1;
+  filter:drop-shadow(0 .1em .225em rgba(150,120,210,.35))}
+.font-preview.css-a6::after{color:transparent;z-index:1;
+  background:linear-gradient(90deg,#f78cc4,#a88ced 50%,#61adf2);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* B2 局部色影（sty-b2）：主體白字深靛框最上層；陪襯＝整句雙色剪影墊底 */
+.font-preview.css-b2{font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#fff;-webkit-text-stroke:.14em #303969;paint-order:stroke fill}
+.font-preview.css-b2::before{z-index:-1;transform:translate(.1em,.1em);color:transparent;
+  -webkit-text-stroke:0 transparent;
+  background:linear-gradient(105deg,#8d97c4 0 55%,#c99a7a 55%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* B3 斜紋陰影（sty-b3）：陪襯層＝淡色細斜紋，主字唯一焦點 */
+.font-preview.css-b3{--ts-costume:backdrop;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#ef838b}
+.font-preview.css-b3::before{z-index:-1;transform:translate(.15em,.15em);color:transparent;
+  background:repeating-linear-gradient(45deg,#f4a8af 0 .0375em,transparent .0375em .09em);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* B6 網點錯位（sty-b6）：字重靠 Noto Sans TC Black 本身；實色填色蓋住描邊雜線 */
+.font-preview.css-b6{--ts-costume:backdrop;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:#f29aa6;-webkit-text-stroke:.035em #e05666;paint-order:stroke fill}
+.font-preview.css-b6::before{z-index:-1;transform:translate(.175em,.175em);color:transparent;
+  -webkit-text-stroke:0 transparent;
+  background:radial-gradient(circle at .025em .025em,#f5bdc3 .0225em,transparent .0275em) 0 0/.09em .09em;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* C6 向前飛出（sty-c6-l2 主行）：白字紅框＋全彩實色影＋左傾（透視衝出）
+   型錄是上小下大兩行版面；預覽為單一標題＝只搬主行效果（換算基準 54px） */
+.font-preview.css-c6{font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#fff;-webkit-text-stroke:.056em #e8455a;paint-order:stroke fill;
+  transform:rotate(-5deg);transform-origin:center;text-shadow:.111em .13em 0 #e8455a;
+  letter-spacing:0;line-height:1.1}
+
+/* D2 星軌裝飾（sty-d2）：黑字＋字周同底色防護邊（型錄防護邊＝舞台底色 #f2f2f0）
+   軌道環（stage-d2::before）是舞台裝飾＝不搬 */
+.font-preview.css-d2{--ts-costume:glow;font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#141416}
+.font-preview.css-d2::before{color:#f2f2f0;-webkit-text-stroke:.225em #f2f2f0;z-index:-1}
+
+/* D4 復古機甲（sty-d4）：白字黑框＋層層堆疊黑厚度（掛牌 tagchip＝舞台裝飾不搬） */
+.font-preview.css-d4{--ts-costume:ink;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#fff;-webkit-text-stroke:.0625em #141416;paint-order:stroke fill;
+  text-shadow:.075em .075em 0 #141416,.15em .15em 0 #141416,.225em .225em 0 #141416,.3em .3em 0 #141416}
+
+/* F1 疊影錯位（sty-f1）：主體框加粗＝與殘影拉開，殘影線細化退後 */
+.font-preview.css-f1{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#fff;-webkit-text-stroke:.1125em #1ca0c8;paint-order:stroke fill}
+.font-preview.css-f1::before{color:rgba(255,255,255,.58);-webkit-text-stroke:.05em rgba(95,190,220,.58);z-index:-1;
+  transform:translateX(-.2em);paint-order:stroke fill}
+.font-preview.css-f1::after{color:rgba(255,255,255,.34);-webkit-text-stroke:.05em rgba(116,202,224,.34);z-index:-2;
+  transform:translateX(-.4em);paint-order:stroke fill}
+
+/* F2 漸層貼紙（sty-f2）：漸層中間色實色底＋漸層疊回字上＋白厚邊（灰細外線＝四方向 drop-shadow） */
+.font-preview.css-f2{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#b08be8}
+.font-preview.css-f2::before{color:#fff;-webkit-text-stroke:.275em #fff;z-index:-1;
+  filter:drop-shadow(.04em 0 0 #c4d3da) drop-shadow(-.04em 0 0 #c4d3da)
+    drop-shadow(0 .04em 0 #c4d3da) drop-shadow(0 -.04em 0 #c4d3da)
+    drop-shadow(0 .1em .175em rgba(90,140,180,.35))}
+.font-preview.css-f2::after{color:transparent;z-index:1;
+  background:linear-gradient(180deg,#4d86f0,#b08be8 55%,#f08bc8);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* F3 內凹陰影（sty-f3）：白實心字＋紫框＋白貼紙邊，字腔頂壓內凹暈（lh 單位＝原生相對值，照搬） */
+.font-preview.css-f3{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#fff;-webkit-text-stroke:.125em #8e7be8;paint-order:stroke fill}
+.font-preview.css-f3::before{color:#fff;-webkit-text-stroke:.375em #fff;z-index:-1;
+  filter:drop-shadow(0 .125em .175em rgba(140,122,229,.4))}
+.font-preview.css-f3::after{color:transparent;z-index:1;-webkit-text-stroke:0 transparent;
+  background:repeating-linear-gradient(180deg,rgba(128,107,224,.5) 0,rgba(128,107,224,0) .42lh,rgba(128,107,224,0) 1lh);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* F5 紋理字身（sty-f5）：粉實色底＋細斜紋限字內＋白內邊（水藍厚邊＝白邊的錯位 drop-shadow） */
+.font-preview.css-f5{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  color:#f7bcdd}
+.font-preview.css-f5::before{color:#fff;-webkit-text-stroke:.225em #fff;z-index:-1;
+  filter:drop-shadow(.075em .1125em 0 #6fbaeb) drop-shadow(.0375em .05em 0 #6fbaeb)}
+.font-preview.css-f5::after{color:transparent;z-index:1;
+  background:repeating-linear-gradient(45deg,#f293c4 0 .0625em,transparent .0625em .1375em);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* G1 交互描邊（sty-g1）：型錄以逐字 <span> 做英數交替鏤空；預覽是純文字節點無法逐字包 span
+   ＝依型錄「中文一律保留實心提高可讀性」原則，整句走實心＋細描邊版 */
+.font-preview.css-g1{font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#2e3663;-webkit-text-stroke:.0175em #2e3663;paint-order:stroke fill}
+
+/* G3 潮流雲朵（sty-g3）：黑字白邊黑外框（雲朵/微笑弧/氣泡 badge＝舞台裝飾不搬） */
+.font-preview.css-g3{--ts-costume:ink;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#141416;-webkit-text-stroke:.15em #fff;paint-order:stroke fill}
+.font-preview.css-g3::before{color:#fff;-webkit-text-stroke:.25em #141416;z-index:-1}
+
+/* H1 螢光氣泡標（sty-h1）：白字黑框斜切（黑底格線/白氣泡綠框＝舞台裝飾不搬） */
+.font-preview.css-h1{--ts-costume:outline;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  color:#fff;-webkit-text-stroke:.0625em #141416;paint-order:stroke fill;
+  transform:rotate(-6deg) skewX(-8deg);transform-origin:center}
+
+/* H2 像素電玩字（sty-h2）：只搬字體（點陣鏈）＋字距＋像素感核心；
+   兩行錯落/十字星/掌機 tag＝版面裝飾不搬；原設計白字配黑舞台＝字色維持工具標題色 */
+.font-preview.css-h2{font-family:'BoutiqueBitmap9x9SquareDot','DotGothic16','Zen Kaku Gothic New',monospace;
+  font-weight:400;letter-spacing:.06em;line-height:1.1}
+
+/* ———— 第四段：18 款 hero 版（.hero-font-preview.css-XX）＝同效果，保留 tracking 變數 ———— */
+
+/* A2 雙重描邊 hero */
+.hero-font-preview.css-a2{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#f7559b;-webkit-text-stroke:.15em #fff;paint-order:stroke fill}
+.hero-font-preview.css-a2 .line::before{color:#f26fa7;-webkit-text-stroke:.375em #f26fa7;z-index:-1;
+  filter:drop-shadow(0 .1em .2em rgba(214,106,158,.35))}
+
+/* A3 網點漸層 hero（字身填色同樣走 ::after，根因見第三段 A3 註解） */
+.hero-font-preview.css-a3{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);color:#8fc2e8}
+.hero-font-preview.css-a3 .line::before{color:#fff;-webkit-text-stroke:.275em #fff;z-index:-1;
+  filter:drop-shadow(0 .0875em .175em rgba(62,94,150,.24))}
+.hero-font-preview.css-a3 .line::after{color:transparent;z-index:1;
+  background:
+    radial-gradient(circle at .035em .035em,rgba(62,112,166,.36) .025em,transparent .0305em) 0 0/.145em .145em,
+    radial-gradient(circle at .035em .035em,rgba(178,129,206,.26) .0238em,transparent .0295em) .045em .0313em/.145em .145em,
+    radial-gradient(circle at .035em .035em,rgba(83,181,194,.22) .0225em,transparent .028em) -.0275em -.02em/.145em .145em;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.76}
+
+/* A4 暈染上色 hero */
+.hero-font-preview.css-a4{--ts-costume:tint;font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#fff;-webkit-text-stroke:.2em #2952a0;paint-order:stroke fill}
+.hero-font-preview.css-a4 .line::before{color:#fff;-webkit-text-stroke:.425em #fff;z-index:-1;
+  filter:drop-shadow(0 .0875em .175em rgba(76,107,179,.3))}
+.hero-font-preview.css-a4 .line::after{color:transparent;z-index:1;-webkit-text-stroke:0 transparent;background:
+  radial-gradient(1.05em 1.05em at 15% 22%,rgba(158,219,184,.95),transparent 70%),
+  radial-gradient(1.15em 1.15em at 45% 60%,rgba(158,194,242,.95),transparent 70%),
+  radial-gradient(1.05em 1.05em at 72% 16%,rgba(148,217,217,.9),transparent 70%),
+  radial-gradient(1.1em 1.1em at 88% 58%,rgba(178,222,158,.9),transparent 70%),
+  radial-gradient(1.05em 1.05em at 30% 84%,rgba(166,196,242,.9),transparent 70%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* A6 彩虹漸層 hero */
+.hero-font-preview.css-a6{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);color:#b08be8}
+.hero-font-preview.css-a6 .line::before{color:#fff;-webkit-text-stroke:.275em #fff;z-index:-1;
+  filter:drop-shadow(0 .1em .225em rgba(150,120,210,.35))}
+.hero-font-preview.css-a6 .line::after{color:transparent;z-index:1;
+  background:linear-gradient(90deg,#f78cc4,#a88ced 50%,#61adf2);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* B2 局部色影 hero */
+.hero-font-preview.css-b2{font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#fff;-webkit-text-stroke:.14em #303969;paint-order:stroke fill}
+.hero-font-preview.css-b2 .line::before{z-index:-1;transform:translate(.1em,.1em);color:transparent;
+  -webkit-text-stroke:0 transparent;
+  background:linear-gradient(105deg,#8d97c4 0 55%,#c99a7a 55%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* B3 斜紋陰影 hero */
+.hero-font-preview.css-b3{--ts-costume:backdrop;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);color:#ef838b}
+.hero-font-preview.css-b3 .line::before{z-index:-1;transform:translate(.15em,.15em);color:transparent;
+  background:repeating-linear-gradient(45deg,#f4a8af 0 .0375em,transparent .0375em .09em);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* B6 網點錯位 hero */
+.hero-font-preview.css-b6{--ts-costume:backdrop;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:700;/* 900→700（2026-09-06 使用者：字重太重、中文筆畫黏在一起）＝降重讓筆畫分得開 */
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#f29aa6;-webkit-text-stroke:.035em #e05666;paint-order:stroke fill}
+.hero-font-preview.css-b6 .line::before{z-index:-1;transform:translate(.175em,.175em);color:transparent;
+  -webkit-text-stroke:0 transparent;
+  background:radial-gradient(circle at .025em .025em,#f5bdc3 .0225em,transparent .0275em) 0 0/.09em .09em;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* C6 向前飛出 hero（主行效果；hero 標題大、-5 度會明顯外擺＝風險見 notes） */
+.hero-font-preview.css-c6{font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:var(--hero-title-tracking,0em);
+  color:#fff;-webkit-text-stroke:.056em #e8455a;paint-order:stroke fill;
+  transform:rotate(-5deg);transform-origin:center;text-shadow:.111em .13em 0 #e8455a}
+/* C6：2026-09-05 曾試透視（兩行往中縫收），設計師看牆後裁「不要變形、回原本斜切」＝已撤，只留這行紀錄免得再做一次 */
+
+/* D2 星軌裝飾 hero（防護邊＝型錄舞台底色 #f2f2f0） */
+.hero-font-preview.css-d2{--ts-costume:glow;font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);color:#141416}
+.hero-font-preview.css-d2 .line::before{color:#f2f2f0;-webkit-text-stroke:.225em #f2f2f0;z-index:-1}
+
+/* D4 復古機甲 hero */
+.hero-font-preview.css-d4{--ts-costume:ink;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#fff;-webkit-text-stroke:.0625em #141416;paint-order:stroke fill;
+  text-shadow:.075em .075em 0 #141416,.15em .15em 0 #141416,.225em .225em 0 #141416,.3em .3em 0 #141416}
+
+/* F1 疊影錯位 hero */
+.hero-font-preview.css-f1{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#fff;-webkit-text-stroke:.1125em #1ca0c8;paint-order:stroke fill}
+.hero-font-preview.css-f1 .line::before{color:rgba(255,255,255,.58);-webkit-text-stroke:.05em rgba(95,190,220,.58);z-index:-1;
+  transform:translateX(-.2em);paint-order:stroke fill}
+.hero-font-preview.css-f1 .line::after{color:rgba(255,255,255,.34);-webkit-text-stroke:.05em rgba(116,202,224,.34);z-index:-2;
+  transform:translateX(-.4em);paint-order:stroke fill}
+
+/* F2 漸層貼紙 hero */
+.hero-font-preview.css-f2{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);color:#b08be8}
+.hero-font-preview.css-f2 .line::before{color:#fff;-webkit-text-stroke:.275em #fff;z-index:-1;
+  filter:drop-shadow(.04em 0 0 #c4d3da) drop-shadow(-.04em 0 0 #c4d3da)
+    drop-shadow(0 .04em 0 #c4d3da) drop-shadow(0 -.04em 0 #c4d3da)
+    drop-shadow(0 .1em .175em rgba(90,140,180,.35))}
+.hero-font-preview.css-f2 .line::after{color:transparent;z-index:1;
+  background:linear-gradient(180deg,#4d86f0,#b08be8 55%,#f08bc8);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* F3 內凹陰影 hero */
+.hero-font-preview.css-f3{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#fff;-webkit-text-stroke:.125em #8e7be8;paint-order:stroke fill}
+.hero-font-preview.css-f3 .line::before{color:#fff;-webkit-text-stroke:.375em #fff;z-index:-1;
+  filter:drop-shadow(0 .125em .175em rgba(140,122,229,.4))}
+.hero-font-preview.css-f3 .line::after{color:transparent;z-index:1;-webkit-text-stroke:0 transparent;
+  background:repeating-linear-gradient(180deg,rgba(128,107,224,.5) 0,rgba(128,107,224,0) .42lh,rgba(128,107,224,0) 1lh);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* F5 紋理字身 hero */
+.hero-font-preview.css-f5{font-family:'GenJyuuGothic','Zen Maru Gothic','Hiragino Maru Gothic ProN','Yuanti TC','Noto Sans TC',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);color:#f7bcdd}
+.hero-font-preview.css-f5 .line::before{color:#fff;-webkit-text-stroke:.225em #fff;z-index:-1;
+  filter:drop-shadow(.075em .1125em 0 #6fbaeb) drop-shadow(.0375em .05em 0 #6fbaeb)}
+.hero-font-preview.css-f5 .line::after{color:transparent;z-index:1;
+  background:repeating-linear-gradient(45deg,#f293c4 0 .0625em,transparent .0625em .1375em);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* G1 交互描邊 hero（同 demo：整句實心＋細描邊，逐字鏤空需 span 結構＝不可行） */
+.hero-font-preview.css-g1{font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#2e3663;-webkit-text-stroke:.0175em #2e3663;paint-order:stroke fill}
+
+/* G3 潮流雲朵 hero */
+.hero-font-preview.css-g3{--ts-costume:ink;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#141416;-webkit-text-stroke:.15em #fff;paint-order:stroke fill}
+.hero-font-preview.css-g3 .line::before{color:#fff;-webkit-text-stroke:.25em #141416;z-index:-1}
+
+/* H1 螢光氣泡標 hero */
+.hero-font-preview.css-h1{--ts-costume:outline;font-family:'Zen Kaku Gothic New','Noto Sans TC','PingFang TC','Hiragino Sans',sans-serif;
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);
+  color:#fff;-webkit-text-stroke:.0625em #141416;paint-order:stroke fill;
+  transform:rotate(-6deg) skewX(-8deg);transform-origin:center}
+
+/* H2 像素電玩字 hero */
+.hero-font-preview.css-h2{font-family:'BoutiqueBitmap9x9SquareDot','DotGothic16','Zen Kaku Gothic New',monospace;
+  font-weight:400;letter-spacing:calc(var(--hero-title-tracking,0em) + .06em);color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+
+/* ———— 第五段：N 系霓虹與銀光底標 demo / hero 版（2026-08-16 型錄同步；N4 已移除不入庫） ———— */
+.font-preview.css-n1,.hero-font-preview.css-n1{--ts-costume:hue;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:800;
+  color:#050508;-webkit-text-fill-color:#050508;letter-spacing:calc(var(--hero-title-tracking,0em) + .045em);
+  line-height:1.03;transform:scaleX(.88);transform-origin:center;-webkit-text-stroke:.006em #050508;paint-order:stroke fill;text-shadow:none}
+.font-preview.css-n1::before,.hero-font-preview.css-n1 .line::before{z-index:-2;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.16em rgba(255,252,232,.50);paint-order:stroke fill;
+  text-shadow:0 0 .06em rgba(255,255,255,.94),0 0 .16em rgba(255,255,245,.78),
+    0 .08em .22em rgba(255,255,245,.54),0 .22em .52em rgba(255,255,245,.34);filter:none}
+.font-preview.css-n1::after,.hero-font-preview.css-n1 .line::after{z-index:-1;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.105em rgba(255,254,242,.96);paint-order:stroke fill;
+  text-shadow:0 -.018em .018em rgba(255,255,255,.92),0 .018em .026em rgba(176,169,142,.58),
+    0 0 .035em rgba(255,255,255,.88),0 0 .09em rgba(255,255,235,.62);
+  filter:drop-shadow(0 .018em .018em rgba(255,255,255,.82))}
+
+.font-preview.css-n1b,.hero-font-preview.css-n1b{--ts-costume:hue;font-family:'TASA Explorer','Noto Sans TC',sans-serif;font-weight:800;
+  color:#000;-webkit-text-fill-color:#000;letter-spacing:calc(var(--hero-title-tracking,0em) - .02em);
+  line-height:.92;transform:skewX(-5deg) scaleX(.98);transform-origin:center;
+  -webkit-text-stroke:.006em #000;paint-order:stroke fill;text-shadow:none}
+.font-preview.css-n1b::before,.font-preview.css-n1b::after,.hero-font-preview.css-n1b .line::before,.hero-font-preview.css-n1b .line::after{letter-spacing:inherit;line-height:inherit}
+.font-preview.css-n1b::before,.hero-font-preview.css-n1b .line::before{z-index:-2;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.17em rgba(255,252,232,.48);paint-order:stroke fill;
+  text-shadow:0 0 .06em rgba(255,255,255,.96),0 0 .16em rgba(255,255,245,.78),
+    0 .08em .22em rgba(255,255,245,.56),0 .22em .52em rgba(255,255,245,.35)}
+.font-preview.css-n1b::after,.hero-font-preview.css-n1b .line::after{z-index:1;color:transparent;-webkit-text-fill-color:transparent;
+  font-weight:360;-webkit-text-stroke:.006em rgba(255,255,255,.66);paint-order:stroke fill;
+  opacity:.28;text-shadow:0 0 .01em rgba(255,255,255,.34),0 0 .026em rgba(255,255,235,.16);filter:none}
+
+.font-preview.css-n1c,.hero-font-preview.css-n1c{--ts-costume:hue;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:#050508;-webkit-text-fill-color:#050508;letter-spacing:calc(var(--hero-title-tracking,0em) - .02em);
+  line-height:.9;transform:skewX(-2deg) scaleX(1.02);transform-origin:center;
+  -webkit-text-stroke:.006em #050508;paint-order:stroke fill;text-shadow:none}
+.font-preview.css-n1c::before,.font-preview.css-n1c::after,.hero-font-preview.css-n1c .line::before,.hero-font-preview.css-n1c .line::after{letter-spacing:inherit;line-height:inherit}
+.font-preview.css-n1c::before,.hero-font-preview.css-n1c .line::before{z-index:-2;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.15em rgba(255,252,232,.50);paint-order:stroke fill;
+  text-shadow:0 0 .055em rgba(255,255,255,.94),0 0 .15em rgba(255,255,245,.76),
+    0 .075em .20em rgba(255,255,245,.52),0 .20em .46em rgba(255,255,245,.32)}
+.font-preview.css-n1c::after,.hero-font-preview.css-n1c .line::after{z-index:-1;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.092em rgba(255,254,242,.96);paint-order:stroke fill;
+  text-shadow:0 -.016em .016em rgba(255,255,255,.9),0 .017em .024em rgba(176,169,142,.54),
+    0 0 .032em rgba(255,255,255,.86),0 0 .082em rgba(255,255,235,.58);
+  filter:drop-shadow(0 .016em .016em rgba(255,255,255,.78))}
+
+.font-preview.css-n2,.hero-font-preview.css-n2{--ts-costume:hue;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:rgba(20,210,255,.28);-webkit-text-fill-color:rgba(20,210,255,.28);
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .01em);line-height:1;
+  -webkit-text-stroke:.045em #49f3ff;paint-order:stroke fill;
+  text-shadow:.025em .035em 0 rgba(4,12,44,.86),0 0 .05em #fff,
+    0 0 .14em #49f3ff,0 0 .32em rgba(0,179,255,.62),0 0 .58em rgba(0,68,255,.38)}
+/* N2 深色襯邊（2026-09-05 使用者：主題套上後字糊成一片、要把邊框清楚勾出來）：
+   原後層是偏藍半透明粗描邊（明度 0.19），換妝時被當中間色換成淡色＝輪廓消失；位移陰影同病。
+   改成近黑深藍（明度 <0.14＝換妝一律保留）、描邊收窄不模糊＝任何主題下都有一圈深色勾邊。 */
+.font-preview.css-n2::before,.hero-font-preview.css-n2 .line::before{z-index:-1;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.095em rgba(4,12,44,.88)}
+.font-preview.css-n2::after,.hero-font-preview.css-n2 .line::after{z-index:2;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.012em rgba(210,255,255,.92);
+  background:repeating-linear-gradient(0deg,transparent 0 .12em,rgba(180,255,255,.42) .12em .145em),
+    linear-gradient(100deg,transparent 0 30%,rgba(255,255,255,.7) 42%,transparent 56%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.78}
+
+.font-preview.css-n3,.hero-font-preview.css-n3{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:#06102d;-webkit-text-fill-color:#06102d;letter-spacing:calc(var(--hero-title-tracking,0em) + .03em);
+  line-height:1;transform:skewX(-5deg) perspective(420px) rotateY(10deg);transform-origin:center; /* rotateY -8→+10（2026-09-05 使用者畫框：左高右矮＝右側往後退；負角度是左側退、方向反了） */
+  -webkit-text-stroke:.038em #d8ffff;paint-order:stroke fill;
+  text-shadow:0 0 .018em rgba(255,255,255,.68),0 0 .09em #00eaff,
+    .05em 0 0 #0877ff,.1em 0 0 #075de0,.16em 0 0 #0438a8,
+    .22em 0 0 rgba(2,22,86,.95),0 0 .16em rgba(0,234,255,.72),
+    0 0 .42em rgba(0,234,255,.55),0 .16em .28em rgba(0,0,0,.72)}
+.font-preview.css-n3::before,.hero-font-preview.css-n3 .line::before{z-index:-2;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.14em rgba(13,77,255,.34);transform:translate(.1em,.04em);filter:blur(.01em)}
+.font-preview.css-n3::after,.hero-font-preview.css-n3 .line::after{z-index:-1;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.07em rgba(18,238,255,.88);opacity:.84;
+  text-shadow:0 0 .026em rgba(255,255,255,.58),0 0 .1em rgba(0,234,255,.42)}
+
+.font-preview.css-n5,.hero-font-preview.css-n5{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:transparent;-webkit-text-fill-color:transparent;letter-spacing:calc(var(--hero-title-tracking,0em) + .09em);line-height:.96;
+  background:linear-gradient(180deg,#c7ffff 0%,#55e7ff 24%,#128cd4 58%,#053f7c 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:0 transparent;paint-order:stroke fill;
+  text-shadow:0 .045em 0 rgba(0,20,54,.86),.035em .035em 0 rgba(0,91,170,.82),
+    -.018em 0 0 rgba(173,255,255,.72),.018em 0 0 rgba(86,232,255,.62),
+    0 -.018em 0 rgba(219,255,255,.72),0 0 .07em rgba(35,219,255,.46),
+    0 0 .18em rgba(0,132,255,.28)}
+
+.font-preview.css-n6,.hero-font-preview.css-n6{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:rgba(31,171,255,.38);-webkit-text-fill-color:rgba(31,171,255,.38);
+  letter-spacing:calc(var(--hero-title-tracking,0em) + .07em);line-height:.98; /* .005→.07em（2026-09-05 使用者：預設字會疊在一起——右伸 .1em 的立體影吃進下一字） */
+  transform:skewX(-9deg) scaleX(1.04);transform-origin:center;
+  -webkit-text-stroke:.036em rgba(205,249,255,.95);paint-order:stroke fill;
+  text-shadow:.05em .06em 0 rgba(0,37,105,.82),.1em .12em 0 rgba(0,18,62,.82),
+    0 0 .08em #fff,0 0 .28em #27e9ff,0 0 .72em rgba(0,92,255,.7)}
+.font-preview.css-n6::before,.hero-font-preview.css-n6 .line::before{z-index:-1;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.13em rgba(0,101,255,.48);transform:translate(.04em,.05em);filter:blur(.012em)}
+.font-preview.css-n6::after,.hero-font-preview.css-n6 .line::after{z-index:2;color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.012em rgba(255,255,255,.75);
+  background:linear-gradient(90deg,transparent 0 6%,rgba(255,255,255,.82) 7%,transparent 9%),
+    linear-gradient(180deg,rgba(255,255,255,.34) 0 18%,rgba(0,255,255,.38) 42%,rgba(0,79,255,.42) 74%,rgba(255,255,255,.18) 100%),
+    repeating-linear-gradient(0deg,transparent 0 .12em,rgba(180,242,255,.32) .12em .145em);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.82;mix-blend-mode:screen}
+
+.font-preview.css-n7,.hero-font-preview.css-n7{--ts-costume:keep;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;
+  color:#111113;-webkit-text-fill-color:#111113;letter-spacing:calc(var(--hero-title-tracking,0em) - .025em);
+  line-height:.9;transform:none;-webkit-text-stroke:.012em #111113;paint-order:stroke fill;text-shadow:none}
+.font-preview.css-n7{--ts-costume:keep;display:inline-block;padding:4px 4px 8px;background:
+    linear-gradient(100deg,rgba(55,55,57,.92) 0%,#f4f4ef 14%,#d4d4cf 34%,#fff 52%,#b9b9b4 72%,#f7f7f2 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,transparent 1px 18px)}
+.hero-font-preview.css-n7 .line{margin-bottom:8px}
+.hero-font-preview.css-n7 .line-inner{display:inline-block;padding:4px 4px 8px;background:
+    linear-gradient(100deg,rgba(55,55,57,.92) 0%,#f4f4ef 14%,#d4d4cf 34%,#fff 52%,#b9b9b4 72%,#f7f7f2 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,transparent 1px 18px)}
+
+.font-preview.css-n7b,.hero-font-preview.css-n7b{--ts-costume:keep;font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:300;
+  color:#151518;-webkit-text-fill-color:#151518;letter-spacing:calc(var(--hero-title-tracking,0em) + .18em);
+  line-height:1.05;transform:none;text-shadow:none}
+.font-preview.css-n7b{--ts-costume:keep;display:inline-block;padding:4px 4px 8px;background:
+    linear-gradient(100deg,rgba(55,55,57,.92) 0%,#f4f4ef 14%,#d4d4cf 34%,#fff 52%,#b9b9b4 72%,#f7f7f2 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,transparent 1px 18px)}
+.hero-font-preview.css-n7b .line{margin-bottom:8px}
+.hero-font-preview.css-n7b .line-inner{display:inline-block;padding:4px 4px 8px;background:
+    linear-gradient(100deg,rgba(55,55,57,.92) 0%,#f4f4ef 14%,#d4d4cf 34%,#fff 52%,#b9b9b4 72%,#f7f7f2 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,transparent 1px 18px)}
+
+
+/* ———— 第六段：引擎專用掛點（2026-09-04 字風落地批）————
+   ⚠ 本檔同時注入色彩工具頁（TYPESTYLES 塊）：這一段只准寫給引擎（body.shell-v2＝引擎 v2 殼、工具頁永遠沒有這個 class）。
+   2026-09-04 傍晚病例：這段一度寫成不帶宿主前綴的 `.hero-font-preview .line{display:inline}`，注回工具頁後蓋掉工具原本
+   「每行各佔一列」的規則（工具主 style 349 行），引言色塊型（layout-008）的色塊只蓋到前半行、後半白字壓白照——設計師在工具預覽看到「排版壞掉」。
+   守門＝tools/sync-registry-to-colortool.mjs 注入前檢查本段每條選擇器都以 body.shell-v2 開頭，漏了直接拒絕注入。
+   .hero-font-preview＝字風容器（引擎把它掛在各版式主標節點上）；.line＝每一行文字（帶 data-text 給偽元素疊層；引擎的行間以 \n 文字節點＋white-space:pre 斷行，span 維持預設 inline 即可，不設 display）。
+   .measuring＝吸字量測中：帶位移的疊層會把 scrollWidth 撐大一截，量字時先關（工具頁自己有同一條規則＝這裡也圈在引擎下不重複）。 */
+/* ===ENGINE-ONLY:BEGIN=== */
+body.shell-v2 .hero-font-preview{position:relative}
+/* 行盒結構＝跟工具頁 349-350 行同構（2026-09-04 傍晚實測：行內 span 的盒高＝字型內容高 110px＞行高 62px，inset:0 的疊層貼著這個盒畫＝整層上飄 24px＝CMS 霓虹鬼影錯位；
+   工具的每行是 block、盒高＝行高，疊層對得準）。line-height:inherit＝字風的行高由容器決定、行盒不自己長。不設 white-space：引擎吸字的折行退路仍由容器決定。 */
+body.shell-v2 .hero-font-preview .line{display:block;position:relative;line-height:inherit}
+/* 行內段（2026-09-06 使用者裁「做」）：005 膠囊款主標＝「首字[膠囊]其餘」——文字段各自包成行內 .line，
+   才能在段上畫花紋疊層（.line::before/::after），同時膠囊維持在中間同一行。故這種 .line 改 inline-block、對齊中線。 */
+body.shell-v2 .hero-font-preview .line.line-inline{display:inline-block;vertical-align:middle;white-space:nowrap}/* 段內不折行＝真字與疊層（nowrap 的 attr(data-text)）對齊、不鬼影；膠囊款本就一行、由 fit 縮字塞下 */
+/* 膠囊字＝跟副標題字型走、不吃標題字風（2026-09-05 裁決；2026-09-06 使用者「膠囊不要套標題字風」補齊裝飾繼承）：
+   字風的發光／描邊／填色／字距／濾鏡會沿 .css-XX 容器繼承進膠囊（004 .l4-cap／005 .l5-cap）——逐項還原成膠囊自己的妝。 */
+body.shell-v2 .hero-font-preview .l4-cap,
+body.shell-v2 .hero-font-preview .l5-cap{text-shadow:none;-webkit-text-stroke:0;-webkit-text-fill-color:currentColor;letter-spacing:normal;filter:none;background:none}
+body.shell-v2 .hero-font-preview .line-inner{display:inline-block;line-height:inherit}
+body.shell-v2 .measuring::before,body.shell-v2 .measuring::after,body.shell-v2 .measuring .line::before,body.shell-v2 .measuring .line::after{display:none!important}
+/* ===ENGINE-ONLY:END=== */
+
+/* 純字形款的字身色（2026-09-05 使用者裁 Q4-B）：規則裡沒有自己顏色的款（H2＋下面 21 款），字身讀「hero 真底色感應墨色」
+   --campaign-hero-ink（＝主色保色相、對 hero 真底色壓深或提亮到 4.5:1；引擎 hv2ApplyHeroInk 算）；
+   量不到底色時退主題標題色 --campaign-title，兩者都沒有＝inherit 版式原色。
+   這條把「②型版式主標不吃主題」（2026-08-30 設計師配色優先制）對純字形款開了例外：純字形沒有妝可換，
+   設計師挑了主題就該跟——型錄款（自帶字色）不受影響。 */
+/* ═══ 第七段：純字形款（Y 系 18 款＋免費字型骨架 4 款）——2026-09-05 自色彩工具頁遷入 ═══
+   為什麼搬：這 22 款原本只活在工具頁自己的模擬 CSS（.hero-font-preview.y-*／.web-*），第一批「預覽改跑真引擎」後
+   工具只把 css-* 送進引擎＝這些款切了預覽完全沒變化（設計師 2026-09-05 回報）。搬進共用樣式表＝引擎、工具、CMS 三處同一份。
+   改動：工具專用變數換成引擎變數（--preview-price→--campaign-price 等）；var(--font-serif) 寫死成 Noto Serif TC；
+   楷書骨架的 BiauKai／DFKai-SB 是系統字、網頁載不到＝改楷體 web font（LXGW WenKai TC）打頭；Yazelin／Unbounded 是本機 TTF、
+   引擎載不到＝登記簿 fontLoaded:false、審查 pending（CP-27），畫面會退成 Noto Sans TC。 */
+.font-preview.css-y1{font-family:'Unbounded Sans','Noto Sans TC','PingFang TC',sans-serif;font-weight:400;font-style:normal;letter-spacing:-.035em;transform:skewX(-10deg);line-height:.96}
+.hero-font-preview.css-y1{font-family:'Unbounded Sans','Noto Sans TC','PingFang TC',sans-serif;font-weight:400;font-style:normal;letter-spacing:calc(var(--hero-title-tracking,0em) - .018em);transform:skewX(-8deg);line-height:.98;text-shadow:none;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y2{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:.015em;transform:skewX(-6deg);color:var(--preview-title,#3E5BFD);-webkit-text-stroke:.45px #111;text-shadow:2px 2px 0 var(--campaign-accent,#657AF2),3.2px 3.2px 0 rgba(17,17,17,.62)}
+.hero-font-preview.css-y2{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:calc(var(--hero-title-tracking,0em) + .006em);transform:skewX(-5deg);color:var(--campaign-brand-ink,var(--campaign-title,var(--campaign-brand,#3E5BFD)));-webkit-text-stroke:.35px color-mix(in srgb,#111 70%,transparent);text-shadow:1.6px 1.6px 0 color-mix(in srgb,var(--campaign-accent,#657AF2) 78%,transparent)} /* Y2 字身色（2026-09-05 使用者裁）：促購字不用預設紅，以主題色為主＝讀引擎的可讀墨色 --campaign-brand-ink（保色相往深壓），沒主題時退品牌藍 */
+.font-preview.css-y3{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:700;letter-spacing:.06em;line-height:1.1}
+.hero-font-preview.css-y3{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .05em);line-height:1.08;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y4{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:200;letter-spacing:.32em;line-height:1.15}
+.hero-font-preview.css-y4{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:300;letter-spacing:calc(var(--hero-title-tracking,0em) + .16em);line-height:1.16;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y5{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:-.07em;transform:scaleX(.9) scaleY(1.08);line-height:.86;-webkit-text-stroke:.12px currentColor}
+.hero-font-preview.css-y5{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:calc(var(--hero-title-tracking,0em) - .025em);transform:scaleX(.95) scaleY(1.04);line-height:.94;-webkit-text-stroke:.08px currentColor;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y6{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:.025em;transform:skewX(-2deg);line-height:1}
+.hero-font-preview.css-y6{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:calc(var(--hero-title-tracking,0em) + .02em);line-height:1.02;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y7{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:-.048em;transform:skewX(-10deg) scaleX(1.01);line-height:.94}
+.hero-font-preview.css-y7{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:900;letter-spacing:calc(var(--hero-title-tracking,0em) - .02em);transform:skewX(-8deg);line-height:.98;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y8{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:400;letter-spacing:.14em;line-height:1.1}
+.hero-font-preview.css-y8{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:400;letter-spacing:calc(var(--hero-title-tracking,0em) + .1em);line-height:1.12;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y10{font-family:'Unbounded','Noto Sans TC',sans-serif;font-weight:400;letter-spacing:.16em;line-height:1.05;text-shadow:3px 0 0 color-mix(in srgb,var(--campaign-accent,#657AF2) 46%,transparent),-3px 0 0 color-mix(in srgb,var(--campaign-brand,#3E5BFD) 42%,transparent)}
+.hero-font-preview.css-y10{font-family:'Unbounded','Noto Sans TC',sans-serif;font-weight:400;letter-spacing:calc(var(--hero-title-tracking,0em) + .08em);line-height:1.06;text-shadow:2px 0 0 color-mix(in srgb,var(--campaign-accent,#657AF2) 28%,transparent),-2px 0 0 color-mix(in srgb,var(--campaign-brand,#3E5BFD) 24%,transparent);color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y11{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:.08em;transform:scaleX(.98);line-height:1.06}
+.hero-font-preview.css-y11{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .07em);line-height:1.1;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y12{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:.13em;transform:scaleX(.92);line-height:1.04}
+.hero-font-preview.css-y12{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .09em);transform:scaleX(.94);line-height:1.08;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y14{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:.12em;transform:scaleX(.93);line-height:1.04}
+.hero-font-preview.css-y14{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .08em);transform:scaleX(.96);line-height:1.08;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y15{font-family:"Noto Serif TC","BiauKai","DFKai-SB",serif;font-weight:900;letter-spacing:-.08em;transform:skewX(-6deg) rotate(-1.3deg) scaleX(1.06);line-height:.92;text-shadow:.7px 0 0 currentColor}
+.hero-font-preview.css-y15{font-family:"Noto Serif TC","BiauKai","DFKai-SB",serif;font-weight:900;letter-spacing:calc(var(--hero-title-tracking,0em) - .018em);transform:skewX(-4deg) rotate(-.4deg);line-height:.98;text-shadow:.36px 0 0 currentColor;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y16{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:.14em;line-height:1.08;filter:contrast(1.06)}
+.hero-font-preview.css-y16{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .08em);line-height:1.08;filter:contrast(1.04);color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y18{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:800;letter-spacing:.12em;line-height:1.02}
+.hero-font-preview.css-y18{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:800;letter-spacing:calc(var(--hero-title-tracking,0em) + .06em);line-height:1.08;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y19{font-family:'Unbounded','Noto Sans TC',sans-serif;font-weight:400;letter-spacing:-.02em;transform:scaleX(.98);line-height:.94}
+.hero-font-preview.css-y19{font-family:'Unbounded','Noto Sans TC',sans-serif;font-weight:400;letter-spacing:calc(var(--hero-title-tracking,0em) + .01em);line-height:1.04;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y20{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:200;letter-spacing:.36em;transform:scaleX(1.16) scaleY(1.18);line-height:.86}
+.hero-font-preview.css-y20{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:200;letter-spacing:calc(var(--hero-title-tracking,0em) + .16em);transform:scaleX(1.1) scaleY(1.08);line-height:1.18;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-y23{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:200;letter-spacing:.22em;transform:scaleX(1.08) scaleY(1.1);line-height:1.04}
+.hero-font-preview.css-y23{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:200;letter-spacing:calc(var(--hero-title-tracking,0em) + .18em);transform:scaleX(1.06) scaleY(1.06);line-height:1.12;max-width:min(100%,15em);color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-w2{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:.1em}
+.hero-font-preview.css-w2{font-family:'Noto Serif TC','Chiron Sung HK',serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .08em);color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-w3{font-family:'LXGW WenKai TC',"BiauKai","DFKai-SB",serif;font-weight:700;letter-spacing:.08em}
+.hero-font-preview.css-w3{font-family:'LXGW WenKai TC',"BiauKai","DFKai-SB",serif;font-weight:700;letter-spacing:calc(var(--hero-title-tracking,0em) + .07em);line-height:1.1;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-w4{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:800;letter-spacing:.08em;border-radius:999px}
+.hero-font-preview.css-w4{font-family:'Noto Sans TC','PingFang TC',sans-serif;font-weight:800;letter-spacing:calc(var(--hero-title-tracking,0em) + .04em);line-height:1.1;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+.font-preview.css-w5{font-family:'Cubic 11','DotGothic16',monospace;font-weight:400;letter-spacing:.12em}
+.hero-font-preview.css-w5{font-family:'Cubic 11','DotGothic16',monospace;font-weight:400;letter-spacing:calc(var(--hero-title-tracking,0em) + .08em);line-height:1.12;color:var(--campaign-hero-ink,var(--campaign-title,inherit))}
+@font-face{font-family:'Cubic 11';font-display:swap;src:url('https://cdn.jsdelivr.net/gh/ACh-K/Cubic-11@1.500/fonts/web/Cubic_11.woff2') format('woff2')} /* W5 點陣像素骨架主字型（font-012；工具頁同一條）*/
+@font-face{font-family:'Unbounded Sans';font-display:swap;src:url('https://cdn.jsdelivr.net/gh/maoken-fonts/unbounded-sans@v1.100/fonts/UnboundedSans-Regular.ttf') format('truetype')} /* Y1 主字型（無界黑，font-020；2026-09-08 載入路改 jsdelivr 鎖版本 v1.100＝上游原檔 4.2MB 未子集化，approved 前建議另批子集化自架）*/
+
+/* ═══ 第八段：亮底自適應（2026-09-06 使用者裁「主題自適應」；同日「測底根除」加局部色塊例外）═══
+   淡粉彩型錄款（原為深底設計）在亮底洗白＝對比不足。做法：整頁亮底（:not(.surface-dark)）把字身色
+   保色相壓深到對白底 ≥4.5:1——這條沿用原制、跟著 surface-dark 即時重算、照片／頁面款零回歸。
+   ⚠ 例外 :not(.hv2-on-block)：008 這種「標題坐在實色塊上」（.q-block 紫藍）的無照片款，整頁雖亮、字底
+   其實是深色塊，壓深會 misfire＝同色相更糊。引擎 hv2ApplyTypestyleSurface() 只對這種款掛 .hv2-on-block
+   把壓深關掉、維持型錄原妝（＝原本預覽狀態）。第一批＝6 款實色字身；白字＋描邊款見第二輪。 */
+/* A3 不進亮底壓深（2026-09-06 使用者：網點沒正確呈現）：A3 的網點是「淺藍底＋中藍點」，靠底淺點深的明度差顯形；
+   壓深把底變成深藍後，中藍點對深藍底幾乎無對比＝網點消失。A3 的識別本來就是這層霧面網點，故維持型錄淺藍底、不壓深。 */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-a6{color:#8649E2;-webkit-text-fill-color:#8649E2} /* #b08be8→#8649E2（對白底 4.6:1） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-f2{color:#8649E2;-webkit-text-fill-color:#8649E2} /* #b08be8→#8649E2（對白底 4.6:1） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-b3{color:#D91423;-webkit-text-fill-color:#D91423} /* #ef838b→#D91423（對白底 4.5:1） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-b6{color:#D5142E;-webkit-text-fill-color:#D5142E} /* #f29aa6→#D5142E（對白底 4.7:1） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-f5{color:#CC1179;-webkit-text-fill-color:#CC1179} /* #f7bcdd→#CC1179（對白底 4.7:1） */
+
+/* ═══ 亮底自適應第二輪（2026-09-06）：白字＋描邊款——整頁亮底填色壓深成該款色相的深色，實色塊款（.hv2-on-block）維持原妝 ═══ */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-a2{color:#D60A62;-webkit-text-fill-color:#D60A62;-webkit-text-stroke-color:#FFFFFF} /* 雙描邊：深桃填＋白內框（對白底 4.5） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-a4{color:#26407F;-webkit-text-fill-color:#26407F;-webkit-text-stroke-color:#fff} /* 暈染：深藍填＋白框（2026-09-06 使用者：混濁不可讀）＝框改白讓深藍字在亮底描得出來 */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-a4 .line::after{opacity:.38} /* 亮底把粉彩暈染降透明＝當淡淡上色、不糊住深藍本體（型錄深底維持原濃度） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-c6{color:#D11A31;-webkit-text-fill-color:#D11A31} /* 飛出：深紅填、紅陰影保留（4.7） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-f3{color:#4526D9;-webkit-text-fill-color:#4526D9} /* 內凹：深紫填；框留型錄淺紫 #8e7be8（2026-09-06 使用者：框與本體同色＝筆畫交融）＝框比本體淺、筆畫分得開 */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-h1{color:#CE1D6F;-webkit-text-fill-color:#CE1D6F;-webkit-text-stroke-color:#141416} /* 氣泡：亮桃填＋深框（4.6） */
+body.shell-v2:not(.surface-dark) .hero-font-preview:not(.hv2-on-block).css-h2{color:var(--campaign-hero-ink,var(--campaign-brand-ink,#1F3A6B));-webkit-text-fill-color:var(--campaign-hero-ink,var(--campaign-brand-ink,#1F3A6B))} /* 像素＝純字形款、字色跟主題（2026-09-07 使用者：套金棕主題標題仍深藍＝09-06 這行寫死 #1F3A6B 兜底、權重蓋掉主題色，連「妝容跟主題走」生出的規則也輸它）。改：亮底先吃 hero 真底色墨色 --campaign-hero-ink；量不到底色（非照片版式）退對商品卡白量的主色墨色 --campaign-brand-ink（永遠偏深＝亮底必讀得清、仍是主題色相）；兩者都沒有才退深藍 */

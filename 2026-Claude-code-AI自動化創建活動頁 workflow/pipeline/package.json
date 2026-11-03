@@ -1,0 +1,25 @@
+{
+  "name": "pipeline",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "check": "bash dod-check.sh static",
+    "check:full": "bash dod-check.sh full",
+    "guard": "node tools/dod-guards.js",
+    "test": "node tools/dod-guards.js && (find test -name '*.test.js' 2>/dev/null | grep -q . && node --test || echo 'ⓘ 尚無 test/（Phase 2 補）')",
+    "test:unit": "node --test test/unit/*.test.js",
+    "selftest": "bash dod-check.sh full",
+    "gates": "bash dod-check.sh full",
+    "design:qa": "node tools/design_qa.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "playwright-core": "^1.61.1",
+    "sharp": "^0.35.3"
+  }
+}

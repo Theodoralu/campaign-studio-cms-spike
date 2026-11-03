@@ -1,0 +1,51 @@
+{
+  "_fixture": "hermetic 最小 fonts 登記簿（W1-E 測試專用；gate CP-25/27 不驗字體，僅供 loadRegistries 五本齊讀）。",
+  "meta": {
+    "name": "字體資料庫（測試複本）",
+    "version": "0.0.0-fixture",
+    "note": "2026-09-08 E8：font-002～005＝CP-27 字風／副標字體授權分支樣本（B 無複查／C／B 已複查／A 不可選）"
+  },
+  "assets": [
+    {
+      "id": "font-001",
+      "name": "（測試值）字體貨號",
+      "family": "Noto Sans TC",
+      "license": "A",
+      "pickable": true
+    },
+    {
+      "id": "font-002",
+      "name": "（測試值）B 級無複查",
+      "family": "SampleB",
+      "displayName": "樣本B未複查",
+      "license": "B",
+      "pickable": false
+    },
+    {
+      "id": "font-003",
+      "name": "（測試值）C 級",
+      "family": "SampleC",
+      "displayName": "樣本C級",
+      "license": "C",
+      "pickable": false
+    },
+    {
+      "id": "font-004",
+      "name": "（測試值）B 級已複查",
+      "family": "SampleB2",
+      "displayName": "樣本B已複查",
+      "license": "B",
+      "qaStatus": "pass",
+      "reviewDate": "2026-09-08",
+      "pickable": false
+    },
+    {
+      "id": "font-005",
+      "name": "（測試值）A 級不可選",
+      "family": "SampleA2",
+      "displayName": "樣本A不可選",
+      "license": "A",
+      "pickable": false
+    }
+  ]
+}
