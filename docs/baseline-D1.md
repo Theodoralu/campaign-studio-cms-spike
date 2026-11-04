@@ -27,13 +27,13 @@
 | D | **分享站鏡像頁同步檢查**（`tools/gen-flow-guide.mjs --check`，deploy-site 鏡像不在包內） | ui_brief_flow 之一 | 1 | **不搬**。D5 刪 |
 | E | **退役檔案的檔頭檢查**：`price_watch.sh`、`overview_sheet.js` 不在工作包；Netlify 登入退役訊息 | legacy_pipelines_archived ×2、netlify_auth ×1 | 3 | **不搬**（都是已退役功能的墓碑測試）。D5 刪 |
 | F | **Node 版本相關**：`net_tuning` 斷言 Node 預設 autoSelectFamilyAttemptTimeout＝250；Node 22 是 250（過）、Node 26 是 500（紅） | net_tuning ×1 | 0（22）／1（26） | 已確認。P21 的第一筆證據：**以 22 為準**，`.nvmrc` 釘 22，CI 跑 22；本機裝 26 的人會看到這條紅，是預期的 |
-| G | spec 機讀欄 vs HERO_LEN 不一致 | spec_field_limits_vs_hero_len ×1 | 1 | 待查：可能同 A（spec 檔在設計側）。D2 看一眼 |
+| G | spec 機讀欄 vs HERO_LEN：`design-assets/layouts/spec/` 不在工作包，測試對缺檔是跳過，所以全判「沒真源」 | spec_field_limits_vs_hero_len ×1 | 1 | 已查（D2）：**歸 A 類，不搬**；要保留規則的話 D10 把數字抄進 manifest.json |
 
 **結論**（以 Node 22 的 40 個為準）：失敗裡 **29 個是「驗 Alice 工作環境裡才有的東西」，不搬**（A 的 14＋C 9＋D 1＋E 3，再加 B 的 10 個第二階段功能）；真正要我們處理的是 **B 的 2 個價格夾具（D4）、A 的 ga_tracking（D10）、F／G 各 1（Node 22 重跑）**。
 
 ## 待補
 - [x] Node 22 重跑（2026-11-02）：917 過／40 紅，見上表。
-- [ ] G 類查原因（D2）。
+- [x] G 類查原因（D2，2026-11-04）：spec 資料夾不在包內，歸 A 類。
 - [ ] 22 比 26 慢 4 倍（36.6 vs 8.4 秒），原因待查，不擋 D1。
 
 ## 環境備忘
