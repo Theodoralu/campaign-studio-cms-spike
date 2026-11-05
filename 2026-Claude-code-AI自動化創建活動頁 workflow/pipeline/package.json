@@ -11,7 +11,9 @@
     "test:unit": "node --test test/unit/*.test.js",
     "selftest": "bash dod-check.sh full",
     "gates": "bash dod-check.sh full",
-    "design:qa": "node tools/design_qa.js"
+    "design:qa": "node tools/design_qa.js",
+    "schema:check": "node tools/schema/validate.js schemas test/fixtures/gate_pass_draft.json test/fixtures/gate_fail_draft.json test/fixtures/gate_pass_layout006_draft.json test/fixtures/gate_pass_snapshot.json",
+    "schema:run": "node tools/schema/validate.js schemas"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +23,9 @@
     "exceljs": "^4.4.0",
     "playwright-core": "^1.61.1",
     "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
   }
 }

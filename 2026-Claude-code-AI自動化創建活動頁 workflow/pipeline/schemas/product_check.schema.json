@@ -1,0 +1,212 @@
+{
+ "type": "object",
+ "properties": {
+  "checkedAt": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "summary": {
+   "type": "object",
+   "properties": {
+    "online": {
+     "type": "integer"
+    },
+    "drift": {
+     "type": "integer"
+    },
+    "offline": {
+     "type": "integer"
+    },
+    "dead": {
+     "type": "integer"
+    },
+    "unverified": {
+     "type": "integer"
+    },
+    "snapMissing": {
+     "type": "integer"
+    },
+    "stashed": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": true
+  },
+  "results": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "gdid": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "where": {
+      "type": "string"
+     },
+     "draftPrice": {
+      "type": "integer"
+     },
+     "evidence": {
+      "type": "object",
+      "properties": {
+       "fetchUrl": {
+        "type": "string"
+       },
+       "httpStatus": {
+        "type": "integer"
+       },
+       "pageTitle": {
+        "type": "string"
+       },
+       "hasProductEntity": {
+        "type": "boolean"
+       },
+       "asked": {
+        "type": "integer"
+       },
+       "attempts": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "properties": {
+          "url": {
+           "type": "string"
+          },
+          "httpStatus": {
+           "type": "integer"
+          },
+          "pageTitle": {
+           "type": "string"
+          },
+          "hasProductEntity": {
+           "type": "boolean"
+          },
+          "status": {
+           "type": "string"
+          },
+          "ms": {
+           "type": "integer"
+          }
+         },
+         "additionalProperties": true
+        }
+       },
+       "fetchedAt": {
+        "type": "string"
+       }
+      },
+      "additionalProperties": true
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "online",
+       "drift",
+       "dead",
+       "offline",
+       "unverified",
+       "snapMissing",
+       "stashed"
+      ]
+     },
+     "livePrice": {
+      "type": "integer"
+     },
+     "liveMarketPrice": {
+      "type": "integer"
+     },
+     "marketDrift": {
+      "type": "boolean"
+     },
+     "drift": {
+      "type": "boolean"
+     },
+     "snapPrice": {
+      "type": "integer"
+     },
+     "snapDrift": {
+      "type": "boolean"
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "links": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "module": {
+      "type": "string"
+     },
+     "where": {
+      "type": "string"
+     },
+     "label": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string"
+     },
+     "img": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "online",
+       "expired",
+       "empty",
+       "dead",
+       "unverified"
+      ]
+     },
+     "imgStatus": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "linksSummary": {
+   "type": "object",
+   "properties": {
+    "online": {
+     "type": "integer"
+    },
+    "expired": {
+     "type": "integer"
+    },
+    "empty": {
+     "type": "integer"
+    },
+    "dead": {
+     "type": "integer"
+    },
+    "unverified": {
+     "type": "integer"
+    },
+    "imgDead": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": true
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "campaign-studio/product_check.schema.json",
+ "title": "product_check.json（商品狀態檢查）",
+ "description": "第一版改由 uther 判：查不到＝dead；stockStatus；價格 drift＝與 snapshot/draft 不一致",
+ "required": [
+  "checkedAt",
+  "summary",
+  "results"
+ ]
+}

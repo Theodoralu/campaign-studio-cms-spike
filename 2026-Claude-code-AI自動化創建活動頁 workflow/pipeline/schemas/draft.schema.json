@@ -1,0 +1,1070 @@
+{
+ "type": "object",
+ "properties": {
+  "page": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}-wb-\\d{6}$",
+     "description": "run id，建立時由日期時間產生，之後不變（S3 prefix）"
+    },
+    "pageName": {
+     "type": "string",
+     "description": "A2 管理名；契約寫 name，程式用 pageName"
+    },
+    "status": {
+     "type": "string",
+     "enum": [
+      "草稿",
+      "調修中",
+      "待建置",
+      "已建置"
+     ]
+    },
+    "template": {
+     "type": "string",
+     "enum": [
+      "MVP-v1"
+     ]
+    },
+    "inputTier": {
+     "type": "string",
+     "enum": [
+      "T1",
+      "T2",
+      "T3"
+     ],
+     "readOnly": true,
+     "x-permission": "🔒（推導）"
+    },
+    "curationGoal": {
+     "type": "string",
+     "x-permission": "✍️"
+    },
+    "curationTheme": {
+     "type": "string",
+     "x-permission": "✍️"
+    },
+    "theme": {
+     "type": "object",
+     "properties": {
+      "hueFamily": {
+       "type": "string"
+      },
+      "colorTheme": {
+       "type": "string"
+      },
+      "surfaceMode": {
+       "type": "string",
+       "enum": [
+        "light",
+        "dark"
+       ]
+      },
+      "kvTitleStyle": {
+       "type": "string"
+      },
+      "moduleBorderStyle": {
+       "type": "string"
+      },
+      "labelStyle": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true,
+     "required": [
+      "hueFamily",
+      "colorTheme",
+      "surfaceMode"
+     ],
+     "x-permission": "🎚"
+    },
+    "kv": {
+     "type": "object",
+     "properties": {
+      "eyebrow": {
+       "type": "string",
+       "x-permission": "✍️"
+      },
+      "eyebrowZh": {
+       "type": "string",
+       "x-permission": "✍️"
+      },
+      "titleLine1": {
+       "type": "string",
+       "x-permission": "✍️"
+      },
+      "titleLine2": {
+       "type": "string",
+       "x-permission": "✍️"
+      },
+      "titleSource": {
+       "type": "string",
+       "enum": [
+        "promo-truth",
+        "ai-curated"
+       ]
+      },
+      "showSuffix": {
+       "type": "boolean"
+      },
+      "titleFlip": {
+       "type": "boolean"
+      },
+      "showMarquee": {
+       "type": "boolean"
+      },
+      "actid": {
+       "type": "string",
+       "readOnly": true,
+       "x-permission": "🔒",
+       "description": "🔒 活動編號；空＝無活動"
+      },
+      "dateValue": {
+       "type": "string",
+       "readOnly": true,
+       "x-permission": "🔒",
+       "description": "🔒 檔期真值（CP-02）；空＝整行降級隱藏，不得捏造"
+      },
+      "images": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "keyProductGdids": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "eyebrowCnMobile": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    },
+    "ctaText": {
+     "type": "string",
+     "x-permission": "✍️"
+    },
+    "dockFeaturedLabel": {
+     "type": "string",
+     "x-permission": "✍️",
+     "maxLength": 5
+    },
+    "footerTitle": {
+     "type": "string",
+     "x-permission": "✍️"
+    },
+    "noticeText": {
+     "type": "string",
+     "x-permission": "✍️"
+    },
+    "floors": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "pos": {
+        "type": "string",
+        "pattern": "^featured-[1-3]$"
+       },
+       "title": {
+        "type": "string"
+       },
+       "titleSource": {
+        "type": "string",
+        "enum": [
+         "promo-truth",
+         "ai-curated"
+        ]
+       },
+       "subtitle": {
+        "type": "string"
+       },
+       "sceneCopy": {
+        "type": "object",
+        "properties": {
+         "tag": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "sub": {
+          "type": "string"
+         }
+        },
+        "additionalProperties": true
+       },
+       "productGdids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        },
+        "description": "契約名 productRefs；程式落地形 productGdids。每層 3～15 件（gate ZONE_PRODUCT_RANGE.floors，3/7/11/15 節奏）",
+        "minItems": 3,
+        "maxItems": 15
+       },
+       "sceneImg": {
+        "type": "string"
+       },
+       "sceneUrl": {
+        "type": "string",
+        "readOnly": true,
+        "x-permission": "🔒",
+        "description": "🔒 代表品商品頁；全頁唯一（U12）"
+       },
+       "moreLink": {
+        "type": "object",
+        "properties": {
+         "enabled": {
+          "type": "string",
+          "enum": [
+           "on",
+           "off"
+          ]
+         },
+         "url": {
+          "type": "string"
+         }
+        },
+        "additionalProperties": true
+       }
+      },
+      "additionalProperties": true,
+      "required": [
+       "pos",
+       "title",
+       "productGdids"
+      ]
+     },
+     "minItems": 1,
+     "maxItems": 3
+    },
+    "walls": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "pos": {
+        "type": "string",
+        "pattern": "^(category|wall)-[1-5]$",
+        "description": "現行引擎產 category-N；舊檔 wall-N（2026-08 大體檢前）仍要讀得懂"
+       },
+       "title": {
+        "type": "string"
+       },
+       "titleSource": {
+        "type": "string"
+       },
+       "productGdids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        },
+        "description": "每牆 4～12 件；{4,8,12} 最整齊，非倍數＝WARN 不擋（2026-10-05 裁）",
+        "minItems": 4,
+        "maxItems": 12
+       },
+       "moreLink": {
+        "type": "object",
+        "properties": {
+         "enabled": {
+          "type": "string"
+         },
+         "url": {
+          "type": "string"
+         }
+        },
+        "additionalProperties": true
+       },
+       "wallProductCount": {
+        "type": "string"
+       }
+      },
+      "additionalProperties": true,
+      "required": [
+       "pos",
+       "title",
+       "productGdids"
+      ]
+     },
+     "minItems": 1,
+     "maxItems": 3,
+     "description": "品類牆 1～3 面（gate CATEGORY_WALL_COUNT，2026-08-27 裁決；契約 14 號快照仍寫 3～5）"
+    },
+    "categoryWallCount": {
+     "type": [
+      "integer",
+      "string"
+     ],
+     "deprecated": true,
+     "description": "[deprecated 2026-11-05 裁] 由 walls.length 推，寫入端不再產生；舊檔仍可能帶（整數或數字字串），讀入忽略"
+    },
+    "editorial": {
+     "type": "object",
+     "properties": {
+      "title": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       },
+       "description": "契約寫 {line1,line2,tagline} 物件；程式落地形為三行字串陣列"
+      },
+      "circles": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "tag": {
+          "type": "string"
+         },
+         "copy": {
+          "type": "string"
+         },
+         "date": {
+          "type": "string"
+         },
+         "img": {
+          "type": "string"
+         },
+         "url": {
+          "type": "string",
+          "readOnly": true,
+          "x-permission": "🔒",
+          "description": "🔒 圓卡目的地（現行一律商品頁，規格留活動路）"
+         }
+        },
+        "additionalProperties": true,
+        "required": [
+         "img",
+         "url"
+        ]
+       },
+       "minItems": 0,
+       "maxItems": 2
+      }
+     },
+     "additionalProperties": true
+    },
+    "explore": {
+     "type": "object",
+     "properties": {
+      "moreUrl": {
+       "type": "string"
+      },
+      "ctaText": {
+       "type": "string"
+      },
+      "items": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "label": {
+          "type": "string"
+         },
+         "sub": {
+          "type": "string"
+         },
+         "img": {
+          "type": "string"
+         },
+         "url": {
+          "type": "string",
+          "readOnly": true,
+          "x-permission": "🔒",
+          "description": "🔒 真值 URL 限定（來源頁或在線活動）"
+         }
+        },
+        "additionalProperties": true
+       },
+       "maxItems": 2
+      }
+     },
+     "additionalProperties": true
+    },
+    "kvVariant": {
+     "type": "string",
+     "pattern": "^(new|legacy|layout-\\d{3})$",
+     "description": "版式貨號（主視覺＋整頁版型）。值域真源＝modules.json hero variants（CP-25 runtime 讀登記簿）；layout-001~012 現役；new/legacy 為舊拼法；缺席＝舊 draft legacy 態（51 §2.8）"
+    },
+    "hero": {
+     "type": "object",
+     "properties": {
+      "product-left": {
+       "type": "object",
+       "properties": {
+        "gdids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        }
+       },
+       "additionalProperties": true
+      },
+      "title-center": {
+       "type": "string"
+      },
+      "product-right": {
+       "type": "object",
+       "properties": {
+        "gdids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        }
+       },
+       "additionalProperties": true
+      }
+     },
+     "additionalProperties": true
+    },
+    "colors": {
+     "type": "object",
+     "properties": {
+      "source": {
+       "type": "string"
+      },
+      "seed": {
+       "type": "string"
+      },
+      "overrides": {
+       "type": "object",
+       "properties": {},
+       "additionalProperties": true
+      },
+      "themeDraft": {
+       "type": "object",
+       "properties": {
+        "mainColorSource": {
+         "type": "string"
+        },
+        "brandColor": {
+         "type": "string"
+        },
+        "themeMode": {
+         "type": "string"
+        },
+        "accent": {
+         "type": "string"
+        },
+        "cta": {
+         "type": "string"
+        },
+        "price": {
+         "type": "string"
+        },
+        "cardBadge": {
+         "type": "string"
+        },
+        "titleBadge": {
+         "type": "string"
+        },
+        "latticeLine": {
+         "type": "string"
+        },
+        "brand": {
+         "type": "string"
+        },
+        "brandSoft": {
+         "type": "string"
+        },
+        "brandNeon": {
+         "type": "string"
+        },
+        "componentColors": {
+         "type": "object",
+         "properties": {
+          "title": {
+           "type": "string"
+          },
+          "subtitle": {
+           "type": "string"
+          },
+          "eventLabel": {
+           "type": "string"
+          },
+          "eventDate": {
+           "type": "string"
+          }
+         },
+         "additionalProperties": true
+        },
+        "designerOverrides": {
+         "type": "object",
+         "properties": {
+          "colorOverrides": {
+           "type": "object",
+           "properties": {},
+           "additionalProperties": true
+          },
+          "moduleMapping": {
+           "type": "object",
+           "properties": {},
+           "additionalProperties": true
+          }
+         },
+         "additionalProperties": true
+        },
+        "backgroundModules": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "key": {
+            "type": "string"
+           },
+           "label": {
+            "type": "string"
+           },
+           "hex": {
+            "type": "string"
+           },
+           "usage": {
+            "type": "string"
+           }
+          },
+          "additionalProperties": true
+         }
+        },
+        "bgOverrides": {
+         "type": "object",
+         "properties": {
+          "light": {
+           "type": "object",
+           "properties": {
+            "page": {
+             "type": "string"
+            },
+            "hero": {
+             "type": "string"
+            },
+            "section": {
+             "type": "string"
+            },
+            "card": {
+             "type": "string"
+            },
+            "product": {
+             "type": "string"
+            }
+           },
+           "additionalProperties": true
+          },
+          "dark": {
+           "type": "object",
+           "properties": {
+            "page": {
+             "type": "string"
+            },
+            "hero": {
+             "type": "string"
+            },
+            "section": {
+             "type": "string"
+            },
+            "card": {
+             "type": "string"
+            },
+            "product": {
+             "type": "string"
+            }
+           },
+           "additionalProperties": true
+          }
+         },
+         "additionalProperties": true
+        },
+        "qaStatus": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": true
+      },
+      "seedOrigin": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    },
+    "dockPromoLabel": {
+     "type": "string",
+     "maxLength": 5,
+     "x-permission": "✍️"
+    },
+    "refreshPolicy": {
+     "type": "object",
+     "properties": {
+      "products": {
+       "type": "string"
+      },
+      "theme": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    },
+    "promoModuleTitle": {
+     "type": "string",
+     "x-permission": "✍️"
+    },
+    "promoSourceMode": {
+     "type": "string",
+     "enum": [
+      "auto",
+      "promo-activity",
+      "brand-recommend",
+      "product-fallback",
+      "manual"
+     ],
+     "description": "E0；缺值視為 auto"
+    }
+   },
+   "additionalProperties": true,
+   "required": [
+    "id",
+    "pageName",
+    "status",
+    "template"
+   ]
+  },
+  "products": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "gdid": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 商品編號（uther productId）"
+     },
+     "position": {
+      "type": "string",
+      "pattern": "^(kv(-main|-sub[12])?|featured-[1-3](-scene)?|category-[1-5]|wall-[1-5]|editorial-wall)$"
+     },
+     "order": {
+      "type": "integer"
+     },
+     "name": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 品名（uther title）"
+     },
+     "price": {
+      "type": "integer",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 實付價＝uther currentPrice ?? marketPrice；存檔時照伺服器（14 號 §2.15）"
+     },
+     "url": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 商品頁（uther productURL）",
+      "pattern": "^https://(tw\\.buy\\.yahoo\\.com|img\\.yec\\.tw|s\\.yimg\\.com)/"
+     },
+     "img": {
+      "type": "string",
+      "pattern": "^https://(tw\\.buy\\.yahoo\\.com|img\\.yec\\.tw|s\\.yimg\\.com)/"
+     },
+     "sceneImg": {
+      "type": "string"
+     },
+     "offer": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "tag": {
+      "type": "string",
+      "x-permission": "✍️（manual 時）"
+     },
+     "tagSource": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "offer",
+       "feature",
+       "manual",
+       null
+      ]
+     },
+     "tagOriginal": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "marketPrice": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 劃線價＝有 currentPrice 時的 uther marketPrice；契約範例寫 listPrice"
+     },
+     "kvShortName": {
+      "type": [
+       "null",
+       "string"
+      ],
+      "x-permission": "✍️（manual 時）"
+     },
+     "imgOptions": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "additionalProperties": true,
+    "required": [
+     "gdid",
+     "name",
+     "price",
+     "url",
+     "img"
+    ]
+   },
+   "minItems": 1,
+   "description": "P2 商品主檔，一品一列，模組以 gdid 引用；重複 gdid＝閘阻擋"
+  },
+  "meta": {
+   "type": "object",
+   "properties": {
+    "generatedBy": {
+     "type": "string"
+    },
+    "engine": {
+     "type": "string"
+    },
+    "scenario": {
+     "type": "string"
+    },
+    "theme": {
+     "type": "string"
+    },
+    "sourceUrl": {
+     "type": "string"
+    },
+    "generatedAt": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "briefSelection": {
+     "type": "object",
+     "properties": {
+      "exclude": {
+       "type": "object",
+       "properties": {
+        "words": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "before": {
+         "type": "integer"
+        },
+        "removed": {
+         "type": "integer"
+        },
+        "after": {
+         "type": "integer"
+        },
+        "zeroHit": {
+         "type": "boolean"
+        }
+       },
+       "additionalProperties": true
+      },
+      "include": {
+       "type": "object",
+       "properties": {
+        "words": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "boosted": {
+         "type": "integer"
+        },
+        "zeroHit": {
+         "type": "boolean"
+        }
+       },
+       "additionalProperties": true
+      },
+      "priority": {
+       "type": "null"
+      },
+      "kv": {
+       "type": "object",
+       "properties": {
+        "fromFloors": {
+         "type": "array",
+         "items": {
+          "type": "integer"
+         }
+        },
+        "matched": {
+         "type": "integer"
+        },
+        "filled": {
+         "type": "integer"
+        },
+        "protectedCount": {
+         "type": "integer"
+        }
+       },
+       "additionalProperties": true
+      },
+      "floors": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "title": {
+          "type": "string"
+         },
+         "words": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         },
+         "machine": {
+          "type": "boolean"
+         },
+         "matched": {
+          "type": "integer"
+         },
+         "filled": {
+          "type": "integer"
+         },
+         "zeroHit": {
+          "type": "boolean"
+         }
+        },
+        "additionalProperties": true
+       }
+      },
+      "walls": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "title": {
+          "type": "string"
+         },
+         "words": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          }
+         },
+         "machine": {
+          "type": "boolean"
+         },
+         "matched": {
+          "type": "integer"
+         },
+         "filled": {
+          "type": "integer"
+         },
+         "zeroHit": {
+          "type": "boolean"
+         }
+        },
+        "additionalProperties": true
+       }
+      }
+     },
+     "additionalProperties": true
+    },
+    "briefFile": {
+     "type": "string"
+    },
+    "layoutChoice": {
+     "type": "object",
+     "properties": {
+      "by": {
+       "type": "string"
+      },
+      "reason": {
+       "type": "string"
+      },
+      "reasonDisplay": {
+       "type": "string"
+      },
+      "useWhen": {
+       "type": "string"
+      },
+      "substitutedFrom": {
+       "type": "null"
+      },
+      "byTheme": {
+       "type": "null"
+      },
+      "engineNote": {
+       "type": "null"
+      },
+      "decidedAt": {
+       "type": "string"
+      },
+      "heroPrefill": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    },
+    "themeBridge": {
+     "type": "object",
+     "properties": {
+      "mode": {
+       "type": "string"
+      },
+      "note": {
+       "type": "string"
+      },
+      "at": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    },
+    "brief": {
+     "type": "object",
+     "properties": {
+      "file": {
+       "type": "string"
+      },
+      "version": {
+       "type": "integer"
+      },
+      "appliedAt": {
+       "type": "string"
+      },
+      "applied": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "autoTitles": {
+       "type": "array"
+      },
+      "provenance": {
+       "type": "object",
+       "properties": {
+        "overview": {
+         "type": "string"
+        },
+        "title": {
+         "type": "string"
+        },
+        "floors": {
+         "type": "string"
+        },
+        "tone": {
+         "type": "string"
+        },
+        "selection": {
+         "type": "string"
+        },
+        "walls": {
+         "type": "string"
+        },
+        "editorial": {
+         "type": "string"
+        },
+        "eyebrow": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": true
+      },
+      "fit": {
+       "type": "object",
+       "properties": {
+        "hit": {
+         "type": "integer"
+        },
+        "total": {
+         "type": "integer"
+        },
+        "ratio": {
+         "type": "number"
+        },
+        "threshold": {
+         "type": "number"
+        },
+        "low": {
+         "type": "boolean"
+        }
+       },
+       "additionalProperties": true
+      },
+      "notices": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "section": {
+          "type": "string"
+         },
+         "say": {
+          "type": "string"
+         },
+         "how": {
+          "type": "string"
+         }
+        },
+        "additionalProperties": true
+       }
+      }
+     },
+     "additionalProperties": true
+    },
+    "__fixture": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": true,
+   "description": "不進渲染；系統與引擎註記"
+  },
+  "assets": {
+   "type": "object",
+   "properties": {},
+   "additionalProperties": true,
+   "description": "人工節點（§4）；整區可缺＝全走 fallback"
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "campaign-studio/draft.schema.json",
+ "title": "draft.json（活動草稿）",
+ "description": "依 Alice 14 號《活動資料層 JSON 契約》0.5.0-draft §2 與 2026-10-27 真實 run、test/fixtures 推得。D3 草稿：欄位名以程式實際落地形為準，與契約不一致處列於 docs/schema-D3.md。",
+ "required": [
+  "page",
+  "products"
+ ]
+}

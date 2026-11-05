@@ -1,0 +1,194 @@
+{
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string"
+  },
+  "stage": {
+   "type": "string",
+   "enum": [
+    "fetching",
+    "curating",
+    "gating",
+    "ready",
+    "error",
+    "running",
+    "build",
+    "done"
+   ],
+   "description": "run 主狀態（server.js writeMeta 彙整；deploy／export／publish 子流程的 stage 在各自子物件）"
+  },
+  "input": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string"
+    },
+    "scenario": {
+     "type": "string"
+    },
+    "theme": {
+     "type": "string"
+    },
+    "ownerEmail": {
+     "type": "string"
+    },
+    "ownerDept": {
+     "type": "string"
+    },
+    "engine": {
+     "type": "string"
+    },
+    "themeColor": {
+     "type": "string"
+    },
+    "themeMode": {
+     "type": "string"
+    },
+    "kvVariant": {
+     "type": "string"
+    },
+    "briefFile": {
+     "type": "string"
+    },
+    "proposalPack": {
+     "type": "null"
+    },
+    "packDeviated": {
+     "type": "boolean"
+    },
+    "layoutChoice": {
+     "type": "object",
+     "properties": {
+      "by": {
+       "type": "string"
+      },
+      "reason": {
+       "type": "string"
+      },
+      "reasonDisplay": {
+       "type": "string"
+      },
+      "useWhen": {
+       "type": "string"
+      },
+      "substitutedFrom": {
+       "type": "null"
+      },
+      "byTheme": {
+       "type": "null"
+      },
+      "engineNote": {
+       "type": "null"
+      },
+      "decidedAt": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    }
+   },
+   "additionalProperties": true
+  },
+  "engine": {
+   "type": "string"
+  },
+  "createdAt": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "updatedAt": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "engineUsed": {
+   "type": "string"
+  },
+  "priceTruth": {
+   "type": "object",
+   "properties": {
+    "stage": {
+     "type": "string"
+    },
+    "startedAt": {
+     "type": "string"
+    },
+    "finishedAt": {
+     "type": "string"
+    },
+    "total": {
+     "type": "integer"
+    },
+    "applied": {
+     "type": "integer"
+    },
+    "unverified": {
+     "type": "integer"
+    },
+    "offline": {
+     "type": "boolean"
+    },
+    "mode": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": true
+  },
+  "sysDraftWriteAt": {
+   "type": "integer",
+   "format": "date-time"
+  },
+  "redo": {
+   "type": "object",
+   "properties": {
+    "startedAt": {
+     "type": "string"
+    },
+    "backup": {
+     "type": "string"
+    },
+    "briefFile": {
+     "type": "string"
+    },
+    "doneAt": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": true
+  },
+  "approved": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "description": "核可紀錄：{at, by, fingerprint}；核可失效＝設 null（invalidateApproval）",
+   "properties": {
+    "at": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "by": {
+     "type": "string"
+    },
+    "approvedFingerprint": {
+     "type": "string"
+    }
+   }
+  },
+  "fingerprint": {
+   "type": "string",
+   "description": "draft 內容指紋（draft_fingerprint.js，鍵排序 sha256）；PUT 帶 x-draft-fingerprint 比對，不同＝409"
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "campaign-studio/wb_meta.schema.json",
+ "title": "wb_meta.json（活動狀態）",
+ "description": "run 的狀態機與建立輸入；第一版搬進 core/store，多 replica 前仍是單一寫入者",
+ "required": [
+  "id",
+  "stage",
+  "createdAt",
+  "updatedAt"
+ ]
+}

@@ -1,0 +1,126 @@
+{
+ "type": "object",
+ "properties": {
+  "checkedAt": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "draftSha256": {
+   "type": "string"
+  },
+  "snapshotSha256": {
+   "type": "string"
+  },
+  "result": {
+   "type": "string",
+   "enum": [
+    "PASS",
+    "WARN",
+    "FAIL"
+   ]
+  },
+  "registrySource": {
+   "type": "string"
+  },
+  "registries": {
+   "type": "object",
+   "properties": {
+    "sha": {
+     "type": "string"
+    },
+    "files": {
+     "type": "object",
+     "properties": {
+      "modules": {
+       "type": "string"
+      },
+      "layouts": {
+       "type": "string"
+      },
+      "backgrounds": {
+       "type": "string"
+      },
+      "pendingBackgrounds": {
+       "type": "string"
+      },
+      "fonts": {
+       "type": "string"
+      },
+      "motion": {
+       "type": "string"
+      },
+      "tokens": {
+       "type": "string"
+      },
+      "typestyles": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": true
+    }
+   },
+   "additionalProperties": true
+  },
+  "counts": {
+   "type": "object",
+   "properties": {
+    "FAIL": {
+     "type": "integer"
+    },
+    "WARN": {
+     "type": "integer"
+    },
+    "INFO": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": true
+  },
+  "findings": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "level": {
+      "type": "string",
+      "enum": [
+       "FAIL",
+       "WARN",
+       "INFO"
+      ]
+     },
+     "code": {
+      "type": "string",
+      "pattern": "^CP-\\d{2}$"
+     },
+     "msg": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": true,
+    "required": [
+     "level",
+     "code",
+     "msg"
+    ]
+   }
+  },
+  "rowResults": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "campaign-studio/gate_report.schema.json",
+ "title": "gate_report.json（合規檢查結果）",
+ "required": [
+  "checkedAt",
+  "draftSha256",
+  "result",
+  "counts",
+  "findings"
+ ]
+}

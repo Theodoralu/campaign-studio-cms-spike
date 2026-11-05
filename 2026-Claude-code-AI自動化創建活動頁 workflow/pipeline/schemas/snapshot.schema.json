@@ -1,0 +1,284 @@
+{
+ "type": "object",
+ "properties": {
+  "sourceUrl": {
+   "type": "string",
+   "pattern": "^https://(tw\\.buy\\.yahoo\\.com|img\\.yec\\.tw|s\\.yimg\\.com)/"
+  },
+  "fetchedAt": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "brand": {
+   "type": [
+    "null",
+    "string"
+   ]
+  },
+  "promotions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "actid": {
+      "type": "string"
+     },
+     "title": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "short": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "startTs": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "endTs": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "period": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "url": {
+      "type": "string"
+     },
+     "banner": {
+      "type": [
+       "null",
+       "string"
+      ]
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "activities": {
+   "type": "object",
+   "description": "以活動編號 actid 為鍵",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "meta": {
+      "type": "object",
+      "properties": {
+       "resultsTotal": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       }
+      },
+      "additionalProperties": true
+     },
+     "count": {
+      "type": "integer"
+     },
+     "title": {
+      "type": "string"
+     },
+     "period": {
+      "type": "string"
+     },
+     "startTs": {
+      "type": "integer"
+     },
+     "endTs": {
+      "type": "integer"
+     },
+     "pageStartTs": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "pageEndTs": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "pagePeriod": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "liveness": {
+      "type": "string"
+     },
+     "archived": {
+      "type": "boolean"
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "products": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "gdid": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 uther productId"
+     },
+     "name": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 uther title"
+     },
+     "desc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "price": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 實付價＝currentPrice ?? marketPrice"
+     },
+     "currentPrice": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "promotionPrice": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "marketPrice": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 劃線價（uther marketPrice，僅有 currentPrice 時）"
+     },
+     "vendorMarketPrice": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "disc": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "折數；uther 有 discountWording 可直接用"
+     },
+     "url": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 uther productURL"
+     },
+     "imgs": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 uther productImages[].large.url 順序"
+     },
+     "offer": {
+      "type": "null"
+     },
+     "source": {
+      "type": "string",
+      "description": "來源標記：stage1 / R3:workbench-swap / uther:<endpoint>（第一版新增）"
+     },
+     "actid": {
+      "type": "string",
+      "readOnly": true,
+      "x-permission": "🔒",
+      "description": "🔒 uther productActData[].id"
+     }
+    },
+    "additionalProperties": true,
+    "required": [
+     "gdid",
+     "name",
+     "price",
+     "url",
+     "imgs"
+    ]
+   },
+   "minItems": 1
+  },
+  "hits": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "cat": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string"
+     },
+     "subcat": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "warnings": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "subcatDist": {
+   "type": "object",
+   "description": "子分類→件數",
+   "additionalProperties": {
+    "type": "integer"
+   }
+  },
+  "minDisc": {
+   "type": "integer"
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "campaign-studio/snapshot.schema.json",
+ "title": "snapshot.json（來源商品池快照）",
+ "description": "由 core/source 產出（第一版改由 uther 餵）。不是唯讀：建立期對價（patchSnapshotPrice）會改 products[].price。",
+ "required": [
+  "sourceUrl",
+  "fetchedAt",
+  "products"
+ ]
+}
