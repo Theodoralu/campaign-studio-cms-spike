@@ -17,6 +17,8 @@
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+const clock = require("./lib/clock"); // D4：唯一時鐘（CS_NOW 可固定）
+const httpReplay = require("./lib/http_replay"); // D4：對外 HTTP 錄製／回放
 const { ATTEMPT_TIMEOUT_MS } = require("./lib/net_tuning"); // 對外連線預算（唯一一份＝lib/net_tuning.js）：預設 250ms 太短會讓「人點得開、工具抓不到」
 const { errKind, errText } = require("./lib/err_text.js"); // 2026-09-24：連線層失敗判準與可讀原因（CMS-OFFLINE-HONESTY）
 const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -32,7 +34,7 @@ const MAX_PRODUCTS_PER_ACT = 60; // R3：商品池抓取上限（現況＝內嵌
  * （頁內「活動時間」檔期 vs 現在＋呼叫端提供的來源頁 ec_promotions 檔期）。
  */
 function fetchOnce(url, opts = {}) {
-  const get = opts.get || https.get;
+  const get = opts.get || httpReplay.get; // D4：live＝https.get；CS_HTTP_MODE=record|replay 走卡帶
   const reqOpts = { headers: { "User-Agent": UA } };
   if (opts.agent) reqOpts.agent = opts.agent;
   if (opts.autoSelectFamilyAttemptTimeout) reqOpts.autoSelectFamilyAttemptTimeout = opts.autoSelectFamilyAttemptTimeout;
@@ -86,17 +88,20 @@ async function fetchPage(url, opts = {}) {
   }
 }
 
+// D4（2026-11-06）：頁面上的檔期一律是台灣時間，但舊寫法用「機器本地時區」換算——在 UTC 的 CI／容器上會差 8 小時，
+// 回放對不上。這裡改成寫死 +08:00（台灣無夏令時間），不再看 process.env.TZ。
+const TPE_OFFSET_MS = 8 * 3600 * 1000;
 const fmtTs = (unix) => {
-  const d = new Date(unix * 1000);
+  const d = new Date(unix * 1000 + TPE_OFFSET_MS);
   const p = (n) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}.${p(d.getMonth() + 1)}.${p(d.getDate())}`;
+  return `${d.getUTCFullYear()}.${p(d.getUTCMonth() + 1)}.${p(d.getUTCDate())}`;
 };
 
-/** 「YYYY/MM/DD」＋「HH:MM」（本地時區＝Asia/Taipei）→ unix 秒；缺時刻用 fallbackTime */
+/** 「YYYY/MM/DD」＋「HH:MM」（Asia/Taipei，固定 +08:00）→ unix 秒；缺時刻用 fallbackTime */
 function slashDateToTs(dateStr, timeStr, fallbackTime) {
   const [y, mo, d] = dateStr.split("/").map(Number);
   const [h, mi] = (timeStr || fallbackTime).split(":").map(Number);
-  return Math.floor(new Date(y, mo - 1, d, h, mi).getTime() / 1000);
+  return Math.floor((Date.UTC(y, mo - 1, d, h, mi) - TPE_OFFSET_MS) / 1000);
 }
 
 /**
@@ -127,7 +132,7 @@ function extractActivityPeriod(rawHtml) {
  * @param {object} [opts] - { now?: ms, listedPeriod?: {startTs,endTs}（unix 秒，來源頁 ec_promotions） }
  */
 function classifyLiveness(rawHtml, statusCode, opts = {}) {
-  const now = opts.now ?? Date.now();
+  const now = opts.now ?? clock.now();
   const html = rawHtml || "";
   const pagePeriod = extractActivityPeriod(html);
   const t = html.match(/<title>([^<]*)<\/title>/);
@@ -155,7 +160,7 @@ function classifyLiveness(rawHtml, statusCode, opts = {}) {
  * 快照是否含「在線」活動資料——ec_promotions 任一檔期含現在，
  * 或任一活動頁本身檔期含現在（且未標 archived）；過期一律 false。
  */
-function hasActivityData(snapshot, now = Date.now()) {
+function hasActivityData(snapshot, now = clock.now()) {
   if (!snapshot || typeof snapshot !== "object") return false;
   const inRange = (startTs, endTs) => Number.isFinite(endTs) && endTs * 1000 >= now &&
     (!Number.isFinite(startTs) || startTs * 1000 <= now);
@@ -382,7 +387,7 @@ async function main() {
   if (!/(^|\.)tw\.buy\.yahoo\.com$/.test(u.hostname)) { console.error(`非法網域：${u.hostname}（僅接受 tw.buy.yahoo.com）`); process.exit(1); }
 
   fs.mkdirSync(path.join(outDir, "raw"), { recursive: true });
-  const snapshot = { sourceUrl: url, fetchedAt: new Date().toISOString(), brand: null, promotions: [], activities: {}, products: [], hits: [], warnings: [] };
+  const snapshot = { sourceUrl: url, fetchedAt: clock.iso(), brand: null, promotions: [], activities: {}, products: [], hits: [], warnings: [] };
 
   console.log(`[1/3] 抓取來源頁 ${url}`);
   const { html: mainHtml, statusCode: mainStatus } = await fetchPage(url);
@@ -459,7 +464,7 @@ async function main() {
             ...(pr.store ? { store: pr.store } : {}), // 賣場名稱（2026-08-26 店名欄）：頁面實有才帶、缺席不留空字串
           });
         }
-        try { fs.writeFileSync(path.join(outDir, "price_truth_seed.json"), JSON.stringify({ fetchedAt: new Date().toISOString(), source: "listing-enrich", rows: seedRows }, null, 1)); }
+        try { fs.writeFileSync(path.join(outDir, "price_truth_seed.json"), JSON.stringify({ fetchedAt: clock.iso(), source: "listing-enrich", rows: seedRows }, null, 1)); }
         catch (e) { console.log(`      ⚠ 價格對真種子沒寫成（${e.message}）——建立期會照舊逐件抓，只是慢、不是錯`); }
         const noImg = snapshot.products.filter((p) => p.source === "listing" && !p.imgs.length).length;
         snapshot.warnings.push(
@@ -523,7 +528,7 @@ async function main() {
         if (live.archived) {
           snapshot.warnings.push(`actid ${promo.actid}：頁內檔期（${pagePeriod ?? "無"}）與來源頁列載檔期（${promo.period ?? "無列載"}）皆已過＝封存頁，標 archived:true、商品不入池（${products.length} 件略過——過期檔價格已失真值時效）`);
           continue; // 2026-07-30 根治（連結型來源常見：catL2 實證 NIKE 771331 過期檔 20 件曾入池）：封存檔商品一律不入池
-        } else if (pageEndTs && pageEndTs * 1000 < Date.now()) {
+        } else if (pageEndTs && pageEndTs * 1000 < clock.now()) {
           snapshot.warnings.push(`actid ${promo.actid}：頁內檔期已過（${pagePeriod}）但 ec_promotions 仍列且未過期＝判 online（雙證據衝突，人工覆核）`);
         }
         for (const p of products) {
