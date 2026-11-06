@@ -22,6 +22,7 @@ const https = require("https");
 const http = require("http");
 const crypto = require("crypto");
 const { PassThrough, EventEmitter } = require("stream");
+require("../lib/net_tuning"); // 絆線（net_tuning.test.js）：會對外抓的門都要接上同一份連線預算
 
 const MODE = () => (process.env.CS_HTTP_MODE || "live").toLowerCase();
 const DIR = () => process.env.CS_HTTP_CASSETTE_DIR || path.join(__dirname, "..", "test", "fixtures", "http");

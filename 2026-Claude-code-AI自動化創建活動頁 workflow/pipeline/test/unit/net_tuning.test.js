@@ -63,6 +63,7 @@ test("環境變數是壞字面＝退回預設並出聲，不靜默降級（鐵�
 const KNOWN_DOORS = [
   "fetch_parse.js",
   "gate.js",
+  "lib/http_replay.js", // D4（2026-11-06）：對外 HTTP 的錄製／回放門，正式＝https.get 本人
   "make_cutouts.js",
   "workbench/img_probe.js",
   "workbench/server.js",

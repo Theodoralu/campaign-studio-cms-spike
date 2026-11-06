@@ -36,3 +36,13 @@ node --test test/unit/server_price_truth_flow.test.js   # 2 pass（基線時紅�
 - `gate.js:1581` 圖片 fetch、`workbench/img_probe.js`、`server.js:1277` 連結檢查還走原生 https；D10 搬 gate 時換 `httpReplay`
 - `workbench/server.js` 73 處 `Date.now()`／`new Date()` 留到 D11 拆檔時一起換
 - `product_fetch.js` 的 `attempts[].ms` 是耗時量測，不改（product_check 本來就不要求可重現）
+
+## 基線變化（Node 22，2026-11-06 使用者終端機實跑）
+| | 基線 D1 | D4 |
+|---|---|---|
+| tests | 975 | 982（+7 新測試） |
+| pass | 917 | 925 → 926（絆線補登記後） |
+| fail | 40 | 39 → 38 |
+| skipped | 18 | 18 |
+
+轉綠：`server_price_truth_flow` ×2。曾新增一個紅燈：`net_tuning.test.js` 的絆線（掃到 `lib/http_replay.js` 會對外抓、沒登記）→ 已在該檔 `require("../lib/net_tuning")` 並加進 `KNOWN_DOORS`。其餘 38 紅與基線清單相同（29 個 Alice 環境測試 D5 移除、ga_tracking D10…）。
