@@ -12,6 +12,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const clock = require("../lib/clock"); // D4：唯一時鐘（CS_NOW 可固定）
 
 const RULES = require(path.join(__dirname, "..", "rules.json"));
 const GATE_RULES = require(path.join(__dirname, "..", "gate.js")).RULES; // CP-20 詞庫單一來源＝gate.js（鐵律：不另寫規則）
@@ -120,7 +121,7 @@ function bridgeThemeForV2(draft, availableThemeIds) {
   const th = (page.theme && typeof page.theme === "object") ? page.theme : {};
   const stamp = (mode, note) => {
     draft.meta = draft.meta || {};
-    draft.meta.themeBridge = { mode, note, at: new Date().toISOString() };
+    draft.meta.themeBridge = { mode, note, at: clock.iso() };
     return { applied: true, mode, note };
   };
   /* ①自訂 hex（建立表單調色盤）＝deriveThemeDraft 單一真源；欄形與 hero_combo customColor 路同形，
@@ -232,7 +233,7 @@ async function main() { // async 化（2026-08-26）：圓 img 解析度探測�
   const snap = JSON.parse(fs.readFileSync(path.join(runDir, "snapshot.json"), "utf8"));
   const scenario = opt.scenario || "";
   const theme = opt.theme || "";
-  const now = Math.floor(Date.now() / 1000);
+  const now = clock.unix();
   const notes = [];
   /* 本期活動入口先過主題契合尺（ENTRY-THEMEFIT-SELF-CHECK，2026-09-28）：--themeFit <feedback_patch.json>＝讀 themeFitRule，
      用 gate CP-14 同一支 lib/theme_fit 判每個候選；硬判不過（池 ≥5 件、命中率 < 門檻）＝不選、換下一檔並出聲。沒帶＝逐位元組舊行為。
@@ -430,7 +431,7 @@ async function main() { // async 化（2026-08-26）：圓 img 解析度探測�
   walls.forEach((w, i) => pushProducts(w.items, `category-${i + 1}`));
   if (editorialWallItems) pushProducts(editorialWallItems, "editorial-wall"); // loader 既有契約入口（position=editorial-wall）
 
-  const d = new Date();
+  const d = clock.date();
   const ym = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
   const draft = {
     page: {
@@ -474,7 +475,7 @@ async function main() { // async 化（2026-08-26）：圓 img 解析度探測�
     products,
     meta: {
       generatedBy: "curate_auto v0（機械策展：只挑選不生成；moreLink 全 off＝U28 目的地驗證需網路/人工）",
-      engine: "auto", scenario, theme, sourceUrl: snap.sourceUrl || "", generatedAt: new Date().toISOString(),
+      engine: "auto", scenario, theme, sourceUrl: snap.sourceUrl || "", generatedAt: clock.iso(),
       notes,
       /* 策略檔選品的帳（沒帶策略檔＝鍵不存在，draft 形狀與舊版一致）：applyBriefToDraft 折成人話進 meta.brief.notices、畫面揭示區讀。
          floors 只留真的建出來的那幾層（容量判定與上面 for 迴圈同條，這裡再對一次帳） */

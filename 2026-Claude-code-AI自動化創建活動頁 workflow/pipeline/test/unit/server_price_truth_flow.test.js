@@ -15,14 +15,14 @@ const path = require("node:path");
 const { spawn } = require("node:child_process");
 
 const PIPE = path.resolve(__dirname, "..", "..");
-const SEED = "2026-09-14-wb-143442";
+const SEED = "2026-10-27-wb-085823"; // D4：夾具改為 repo 內的真活動（test/fixtures/runs）
 const BRIEF = "built-in/05-時事主題-情境選品.md";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function waitFor(fn, ms, what) { const t0 = Date.now(); let last = null; while (Date.now() - t0 < ms) { try { const v = await fn(); if (v) return v; } catch (e) { last = e; } await sleep(400); } throw new Error(`等不到 ${what}${last ? "：" + last.message : ""}`); }
 
 async function withServer(priceTruthEnv, body) {
   const runs = fs.mkdtempSync(path.join(os.tmpdir(), "wb-pt-runs-")); const briefs = fs.mkdtempSync(path.join(os.tmpdir(), "wb-pt-briefs-"));
-  fs.cpSync(path.join(PIPE, "runs", SEED), path.join(runs, SEED), { recursive: true });
+  fs.cpSync(path.join(PIPE, "test", "fixtures", "runs", SEED), path.join(runs, SEED), { recursive: true });
   /* 種子是活的真實 run，它的 wb.log 會被日常使用一直往後接——把別人的舊紀錄留在考卷上，
      斷言「這一輪有沒有寫某句話」就會被歷史汙染（2026-10-10 病例：使用者當天早上在 CMS 實測建置，
      寫進 48 筆「價格改用商品頁現價」，直接讓 offline 樁紅燈、pre-commit 全擋）。

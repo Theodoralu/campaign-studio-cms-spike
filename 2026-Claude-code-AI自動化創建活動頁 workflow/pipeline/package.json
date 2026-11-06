@@ -13,7 +13,9 @@
     "gates": "bash dod-check.sh full",
     "design:qa": "node tools/design_qa.js",
     "schema:check": "node tools/schema/validate.js schemas test/fixtures/gate_pass_draft.json test/fixtures/gate_fail_draft.json test/fixtures/gate_pass_layout006_draft.json test/fixtures/gate_pass_snapshot.json",
-    "schema:run": "node tools/schema/validate.js schemas"
+    "schema:run": "node tools/schema/validate.js schemas",
+    "test:replay": "node --test test/unit/snapshot_replay.test.js test/unit/clock_http_replay.test.js",
+    "cassette:from-raw": "node tools/cassette_from_raw.js"
   },
   "keywords": [],
   "author": "",

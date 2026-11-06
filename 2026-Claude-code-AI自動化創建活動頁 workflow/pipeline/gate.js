@@ -184,6 +184,7 @@
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+const clock = require("./lib/clock"); // D4：唯一時鐘（CS_NOW 可固定）
 require("./lib/net_tuning"); // 對外連線預算（唯一一份＝lib/net_tuning.js）：預設 250ms 太短會讓「人點得開、工具抓不到」
 const crypto = require("crypto");
 const ownBgLib = require("./lib/hero_bg_license"); /* 「你上傳的背景」（78 號 2026-09-27）：own 哨兵與三檔齊判定＝與寫入端同一支 */
@@ -1004,7 +1005,7 @@ async function main() {
 
   /* ---------- 本期活動入口（promoEntries）：2026-07-20 U1/U2/U3/U5 裁決 ---------- */
   const entries = draft.page.promoEntries || [];
-  const buildTime = Date.now(); // U3（2026-07-20）：「建置時刻取執行當下」
+  const buildTime = clock.now(); // U3（2026-07-20）：「建置時刻取執行當下」
 
   /* --- CP-15 入口數量（U17⑰，2026-07-20；2026-08-26 使用者裁決＝上限 4→12）：「本期活動」內容數量＝3~12 則 ---
    * 有效項（具 url/actid）<3 或 >12＝FAIL；<3 訊息載明遞補義務（U8 三層優先序遞補後仍不足才成立）；
@@ -1636,7 +1637,7 @@ async function main() {
   /* ---------- 報告（含指紋，write_xlsx 據此拒收過期報告） ---------- */
   const fails = findings.filter((f) => f.level === "FAIL");
   const report = {
-    checkedAt: new Date().toISOString(),
+    checkedAt: clock.iso(),
     draftSha256: crypto.createHash("sha256").update(draftRaw).digest("hex"),
     snapshotSha256: crypto.createHash("sha256").update(snapRaw).digest("hex"),
     result: fails.length ? "FAIL" : "PASS",
