@@ -1,0 +1,952 @@
+{
+ "page": {
+  "id": "2026-10-27-wb-085823",
+  "pageName": "本檔_同品類×跨品牌-優惠銷售_2026-10",
+  "status": "草稿",
+  "template": "MVP-v1",
+  "inputTier": "T2",
+  "curationGoal": "同品類×跨品牌-優惠銷售",
+  "curationTheme": "",
+  "theme": {
+   "hueFamily": "pink",
+   "colorTheme": "pink-light",
+   "surfaceMode": "light",
+   "kvTitleStyle": "deep",
+   "moduleBorderStyle": "theme",
+   "labelStyle": "deep-plate"
+  },
+  "kv": {
+   "eyebrow": "CURATED SELECTION",
+   "eyebrowZh": "一起來吃喝",
+   "titleLine1": "兒童節同樂會",
+   "titleLine2": "",
+   "titleSource": "ai-curated",
+   "showSuffix": false,
+   "titleFlip": true,
+   "showMarquee": true,
+   "actid": "",
+   "dateValue": "",
+   "images": [
+    "https://img.yec.tw/zp/MerchandiseImages/9A3D7DAF3B-SP-21304259.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/900B5D3ED3-SP-22178121.jpg",
+    "https://img.yec.tw/zp/MerchandiseImages/2DD7732468-SP-21557749.jpg"
+   ],
+   "keyProductGdids": [
+    "11848655",
+    "12003731",
+    "11896870"
+   ],
+   "eyebrowCnMobile": "auto"
+  },
+  "ctaText": "看更多本檔選品",
+  "dockFeaturedLabel": "主打精選",
+  "footerTitle": "本檔選品",
+  "noticeText": "商品價格、優惠條件、活動期間與可售狀態，請以商品頁與結帳頁顯示為準。\n不同商品可能適用不同優惠、配送方式與庫存狀態。\n點擊商品卡後可前往商品頁查看完整規格、付款方式、配送資訊與最新優惠。",
+  "floors": [
+   {
+    "pos": "featured-1",
+    "title": "同樂會必備飲品",
+    "titleSource": "ai-curated",
+    "subtitle": "一人一罐剛剛好",
+    "sceneCopy": {
+     "tag": "嚴選",
+     "title": "同樂會必備飲品",
+     "sub": "一人一罐剛剛好"
+    },
+    "productGdids": [
+     "12202304",
+     "12063112",
+     "11812997"
+    ],
+    "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/6fc32297c3-Gd-5980032.jpg",
+    "sceneUrl": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=5980032",
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "featured-2",
+    "title": "孩子最愛點心",
+    "titleSource": "ai-curated",
+    "subtitle": "秒殺款大家搶",
+    "sceneCopy": {
+     "tag": "人氣",
+     "title": "孩子最愛點心",
+     "sub": "秒殺款大家搶"
+    },
+    "productGdids": [
+     "12034634",
+     "11938379",
+     "10331579"
+    ],
+    "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/550046500C-Gd-8276905.jpg",
+    "sceneUrl": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8276905&sw=6602d368b2c2a6b2",
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "featured-3",
+    "title": "健康解嘴饞",
+    "titleSource": "ai-curated",
+    "subtitle": "家長安心發",
+    "sceneCopy": {
+     "tag": "質感",
+     "title": "健康解嘴饞",
+     "sub": "家長安心發"
+    },
+    "productGdids": [
+     "6628028",
+     "6628072",
+     "6643648"
+    ],
+    "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/33ec200953-Gd-6628023.jpg",
+    "sceneUrl": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6628023",
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   }
+  ],
+  "walls": [
+   {
+    "pos": "category-1",
+    "title": "大家都在喝",
+    "titleSource": "ai-curated",
+    "productGdids": [
+     "11812932",
+     "11812931",
+     "11812818",
+     "11812810"
+    ],
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "category-2",
+    "title": "拆開馬上分",
+    "titleSource": "ai-curated",
+    "productGdids": [
+     "5887371",
+     "12032109",
+     "12051463",
+     "12003735"
+    ],
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   },
+   {
+    "pos": "category-3",
+    "title": "營養小零嘴",
+    "titleSource": "ai-curated",
+    "productGdids": [
+     "6643639",
+     "6643647",
+     "11939273",
+     "11031571"
+    ],
+    "moreLink": {
+     "enabled": "off",
+     "url": ""
+    }
+   }
+  ],
+  "categoryWallCount": 3,
+  "editorial": {
+   "title": [
+    "家長免煩惱",
+    "同樂會必備",
+    "編輯室嚴選提案"
+   ],
+   "circles": [
+    {
+     "tag": "真實果粒添加，",
+     "copy": "格力高 Pocky百奇 果粒優格棒系列 38g ",
+     "date": "",
+     "img": "https://img.yec.tw/zp/MerchandiseImages/D52C10A876-Gd-12003795.jpg",
+     "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12003795"
+    },
+    {
+     "tag": "紅茶中加入焙炒",
+     "copy": "統一 麥香紅茶(300mlx24入/箱)",
+     "date": "",
+     "img": "https://img.yec.tw/zp/MerchandiseImages/D68FDE5654-SP-20602318.jpg",
+     "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11702823"
+    }
+   ]
+  },
+  "explore": {
+   "moreUrl": "https://tw.buy.yahoo.com/?sub=1035",
+   "ctaText": "看更多本檔選品",
+   "items": [
+    {
+     "label": "前往本檔來源頁",
+     "sub": "完整選品一次看",
+     "img": "https://img.yec.tw/zp/MerchandiseImages/A622AF62A5-Gd-12011320.jpg",
+     "url": "https://tw.buy.yahoo.com/?sub=1035"
+    }
+   ]
+  },
+  "kvVariant": "layout-005",
+  "hero": {
+   "product-left": {
+    "gdids": [
+     "11848655",
+     "12003731"
+    ]
+   },
+   "title-center": "兒童節同樂會",
+   "product-right": {
+    "gdids": [
+     "11896870",
+     "11812924"
+    ]
+   }
+  },
+  "colors": {
+   "source": "custom",
+   "seed": "#BF1047",
+   "overrides": {},
+   "themeDraft": {
+    "mainColorSource": "cms-custom",
+    "brandColor": "#BF1047",
+    "themeMode": "light",
+    "accent": "#BF1047",
+    "cta": "#bf1047",
+    "price": "#EB0F29",
+    "cardBadge": "#BF1047",
+    "titleBadge": "#BF1047",
+    "latticeLine": "#ebadc1",
+    "brand": "#BF1047",
+    "brandSoft": "#D11C55",
+    "brandNeon": "#94F9DA",
+    "componentColors": {
+     "title": "#BF1047",
+     "subtitle": "#943855",
+     "eventLabel": "#943855",
+     "eventDate": "#BF1047"
+    },
+    "designerOverrides": {
+     "colorOverrides": {},
+     "moduleMapping": {}
+    },
+    "backgroundModules": [
+     {
+      "key": "page",
+      "label": "活動頁底色",
+      "hex": "#fcf3f6",
+      "usage": "活動頁底色"
+     },
+     {
+      "key": "hero",
+      "label": "主視覺舞台底色",
+      "hex": "#f2d9e1",
+      "usage": "主視覺舞台底色"
+     },
+     {
+      "key": "section",
+      "label": "內容區塊底色",
+      "hex": "#f6e4ea",
+      "usage": "內容區塊底色"
+     },
+     {
+      "key": "card",
+      "label": "商品卡白底（恆定）",
+      "hex": "#FFFFFF",
+      "usage": "商品卡白底（恆定）"
+     },
+     {
+      "key": "product",
+      "label": "商品圖底（恆定）",
+      "hex": "#F0F3F5",
+      "usage": "商品圖底（恆定）"
+     }
+    ],
+    "bgOverrides": {
+     "light": {
+      "page": "#fcf3f6",
+      "hero": "#f2d9e1",
+      "section": "#f6e4ea",
+      "card": "#FFFFFF",
+      "product": "#F0F3F5"
+     },
+     "dark": {
+      "page": "#3d1421",
+      "hero": "#4d192a",
+      "section": "#541c2e",
+      "card": "#FFFFFF",
+      "product": "#F0F3F5"
+     }
+    },
+    "qaStatus": "candidate-pass"
+   },
+   "seedOrigin": "auto-hue-pass:pink-light"
+  }
+ },
+ "products": [
+  {
+   "gdid": "11848655",
+   "position": "kv-main",
+   "order": 1,
+   "name": "麥香奶茶CAN(340mlx24入/箱)",
+   "price": 380,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11848655",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6A08378288-SP-21304259.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/9A3D7DAF3B-SP-21304259.jpg",
+   "offer": "",
+   "tag": "獨特大麥香,讓",
+   "tagSource": "feature",
+   "tagOriginal": "獨特大麥香,讓人回味無窮",
+   "marketPrice": 399,
+   "kvShortName": "麥香奶茶CAN(340mlx24入/箱)"
+  },
+  {
+   "gdid": "12003731",
+   "position": "kv-main",
+   "order": 2,
+   "name": "格力高 Pocky百奇 經典分享包系列(口味任選)-牛奶口味/巧克力/草莓",
+   "price": 89,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12003731",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/94e31cf110-Gd-12003731.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/900B5D3ED3-SP-22178121.jpg",
+   "offer": "",
+   "tag": "日本經典百奇，",
+   "tagSource": "feature",
+   "tagOriginal": "日本經典百奇，全球熱銷不敗",
+   "marketPrice": 169,
+   "kvShortName": "格力高 Pocky百奇 經典分享包系列"
+  },
+  {
+   "gdid": "11896870",
+   "position": "kv-main",
+   "order": 3,
+   "name": "統一生機 ORIGINAL葡萄乾隨手包-袋(25g*8包)",
+   "price": 113,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11896870",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/C3843445F8-SP-21557749.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/2DD7732468-SP-21557749.jpg",
+   "offer": "",
+   "tag": "選用智利Jumbo",
+   "tagSource": "feature",
+   "tagOriginal": "選用智利Jumbo規格",
+   "marketPrice": 150,
+   "kvShortName": "統一生機 ORIGINAL葡萄乾隨手包-"
+  },
+  {
+   "gdid": "11812924",
+   "position": "kv-main",
+   "order": 4,
+   "name": "麥香 阿薩姆紅茶(600mlx24入)_1+1組合(共2箱48入)",
+   "price": 949,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11812924",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6E63A0CF5F-Gd-11812924.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/6fc32297c3-Gd-5980032.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香 最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香 最對味",
+   "marketPrice": 998,
+   "kvShortName": "麥香 阿薩姆紅茶(600mlx24入)_1+"
+  },
+  {
+   "gdid": "5980032",
+   "position": "featured-1-scene",
+   "order": 1,
+   "name": "麥香 阿薩姆紅茶(600mlx24入)",
+   "price": 484,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=5980032",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6fc32297c3-Gd-5980032.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/d590d325f3-Gd-5980032.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香 最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香 最對味",
+   "marketPrice": 509
+  },
+  {
+   "gdid": "12202304",
+   "position": "featured-1",
+   "order": 1,
+   "name": "統一 麥香奶茶(300mlx24入/箱)",
+   "price": 240,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12202304",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/092F2DF65E-SP-23199820.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/932E66B1A3-SP-23199820.jpg",
+   "offer": "",
+   "tag": "經典國民奶茶飲",
+   "tagSource": "feature",
+   "tagOriginal": "經典國民奶茶飲料"
+  },
+  {
+   "gdid": "12063112",
+   "position": "featured-1",
+   "order": 2,
+   "name": "統一 麥香紅茶/綠茶/奶茶(300mlx24入/箱) 任選",
+   "price": 240,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12063112&sw=c684146f7b2cbd65",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/7DE7702EB1-Product-39868984.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/7DE7702EB1-Product-39868984.jpg",
+   "offer": "",
+   "tag": "經典國民綠茶飲",
+   "tagSource": "feature",
+   "tagOriginal": "經典國民綠茶飲料"
+  },
+  {
+   "gdid": "11812997",
+   "position": "featured-1",
+   "order": 3,
+   "name": "麥香 綠茶(300mlx6入)_1+1組合(共2組)",
+   "price": 120,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11812997",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/BB9338750A-Gd-11812997.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/544dd90447-Gd-6679744.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香，最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香，最對味"
+  },
+  {
+   "gdid": "8276905",
+   "position": "featured-2-scene",
+   "order": 1,
+   "name": "SEAHWA 韓國Enaak 香辣/香脆 點心麵隨手包 2款任選1盒",
+   "price": 175,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8276905&sw=6602d368b2c2a6b2",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/550046500C-Gd-8276905.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/AF7211DBB4-Gd-8276905.jpg",
+   "offer": "",
+   "tag": "超夯!超搶手!辣",
+   "tagSource": "feature",
+   "tagOriginal": "超夯!超搶手!辣小雞麵來啦~",
+   "marketPrice": 259
+  },
+  {
+   "gdid": "12034634",
+   "position": "featured-2",
+   "order": 1,
+   "name": "POCKY 經典款分享包 任選 6入超值組",
+   "price": 499,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12034634",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/B48FEB6C5C-Gd-12034634.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/94e31cf110-Gd-12003731.jpg",
+   "offer": "",
+   "tag": "日本經典百奇，",
+   "tagSource": "feature",
+   "tagOriginal": "日本經典百奇，全球熱銷不敗",
+   "marketPrice": 525
+  },
+  {
+   "gdid": "11938379",
+   "position": "featured-2",
+   "order": 2,
+   "name": "樂天小熊餅超值分享組148g★",
+   "price": 129,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11938379",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/0867EAFABA-SP-21786430.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/0867EAFABA-SP-21786430.jpg",
+   "offer": "",
+   "tag": "大人小孩都喜愛",
+   "tagSource": "feature",
+   "tagOriginal": "大人小孩都喜愛的樂天小熊促銷包",
+   "marketPrice": 156
+  },
+  {
+   "gdid": "10331579",
+   "position": "featured-2",
+   "order": 3,
+   "name": "Calbee卡樂比 薯條三兄弟(180g)",
+   "price": 380,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=10331579",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/f4a881a4c4-Gd-10331579.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/f4a881a4c4-Gd-10331579.jpg",
+   "offer": "",
+   "tag": "添加鄂霍次克焙",
+   "tagSource": "feature",
+   "tagOriginal": "添加鄂霍次克焙製精鹽",
+   "marketPrice": 399
+  },
+  {
+   "gdid": "6628023",
+   "position": "featured-3-scene",
+   "order": 1,
+   "name": "每日優果 敏豆脆條(100g)",
+   "price": 168,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6628023",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/33ec200953-Gd-6628023.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/8bef11ccaf-Gd-6628023.jpg",
+   "offer": "",
+   "tag": "無添加人工色素",
+   "tagSource": "feature",
+   "tagOriginal": "無添加人工色素、香精、防腐劑",
+   "marketPrice": 250
+  },
+  {
+   "gdid": "6628028",
+   "position": "featured-3",
+   "order": 1,
+   "name": "每日優果 南瓜脆片(160g)",
+   "price": 168,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6628028",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/7775fc4212-Gd-6628028.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/2777436c09-Gd-6628028.jpg",
+   "offer": "",
+   "tag": "無添加人工色素",
+   "tagSource": "feature",
+   "tagOriginal": "無添加人工色素、香精、防腐劑",
+   "marketPrice": 250
+  },
+  {
+   "gdid": "6628072",
+   "position": "featured-3",
+   "order": 2,
+   "name": "每日優果 秋葵脆片(100G)",
+   "price": 168,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6628072",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/4827d8468b-Gd-6628072.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/1648f21153-Gd-6628072.jpg",
+   "offer": "",
+   "tag": "無添加人工色素",
+   "tagSource": "feature",
+   "tagOriginal": "無添加人工色素、香精、防腐劑",
+   "marketPrice": 250
+  },
+  {
+   "gdid": "6643648",
+   "position": "featured-3",
+   "order": 3,
+   "name": "每日優果 綜合葡萄乾(250g)",
+   "price": 185,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6643648",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/480106694e-Gd-6643648.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/c26092f977-Gd-6643648.jpg",
+   "offer": "",
+   "tag": "保留葡萄天然風",
+   "tagSource": "feature",
+   "tagOriginal": "保留葡萄天然風味，柔軟香Q！",
+   "marketPrice": 275
+  },
+  {
+   "gdid": "11812932",
+   "position": "category-1",
+   "order": 1,
+   "name": "麥香 紅茶(300mlx6入)_1+2組合(共3組)",
+   "price": 180,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11812932",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/9048427BA5-Gd-11812932.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/835fc52c26-Gd-6670109.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香，最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香，最對味"
+  },
+  {
+   "gdid": "11812931",
+   "position": "category-1",
+   "order": 2,
+   "name": "麥香 紅茶(300mlx6入)_1+1組合(共2組)",
+   "price": 120,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11812931",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/C7516F405A-Gd-11812931.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/835fc52c26-Gd-6670109.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香，最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香，最對味"
+  },
+  {
+   "gdid": "11812818",
+   "position": "category-1",
+   "order": 3,
+   "name": "麥香 奶茶(300mlx6入)_1+2組合(共3組)",
+   "price": 180,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11812818",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/B6A68627A8-Gd-11812818.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/009e7bcfc7-Gd-6679743.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香，最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香，最對味"
+  },
+  {
+   "gdid": "11812810",
+   "position": "category-1",
+   "order": 4,
+   "name": "麥香 奶茶(300mlx6入)_1+1組合(共2組)",
+   "price": 120,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11812810",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6AFD3E9022-Gd-11812810.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/009e7bcfc7-Gd-6679743.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香，最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香，最對味"
+  },
+  {
+   "gdid": "5887371",
+   "position": "category-2",
+   "order": 1,
+   "name": "OYATSU優雅食 星太郎點心條餅-中雞汁分享包(32gx4入)",
+   "price": 89,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=5887371",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/36e747af3e-Gd-5887371.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/36e747af3e-Gd-5887371.jpg",
+   "offer": "",
+   "tag": "以條餅搭配暢銷",
+   "tagSource": "feature",
+   "tagOriginal": "以條餅搭配暢銷雞汁口味",
+   "marketPrice": 100
+  },
+  {
+   "gdid": "12032109",
+   "position": "category-2",
+   "order": 2,
+   "name": "POCKY 經典款餅乾棒四款任選 6入超值組",
+   "price": 195,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12032109",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/E79A608A01-Gd-12032109.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/E79A608A01-Gd-12032109.jpg",
+   "offer": "",
+   "tag": "日本經典百奇，",
+   "tagSource": "feature",
+   "tagOriginal": "日本經典百奇，全球熱銷不敗",
+   "marketPrice": 205
+  },
+  {
+   "gdid": "12051463",
+   "position": "category-2",
+   "order": 3,
+   "name": "POCKY 水果優格棒 任選 6入超值組",
+   "price": 266,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12051463",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/30F48C5988-Gd-12051463.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/30F48C5988-Gd-12051463.jpg",
+   "offer": "",
+   "tag": "真實果粒添加，",
+   "tagSource": "feature",
+   "tagOriginal": "真實果粒添加，酸甜優格新體驗",
+   "marketPrice": 279
+  },
+  {
+   "gdid": "12003735",
+   "position": "category-2",
+   "order": 4,
+   "name": "格力高 Pocky百奇 經典款口味 巧克力/草莓/抹茶/牛奶餅乾棒",
+   "price": 45,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12003735",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/0594420f13-Gd-12003735.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/25E39C1819-SP-22177886.jpg",
+   "offer": "",
+   "tag": "日本經典百奇，",
+   "tagSource": "feature",
+   "tagOriginal": "日本經典百奇，全球熱銷不敗"
+  },
+  {
+   "gdid": "6643639",
+   "position": "category-3",
+   "order": 1,
+   "name": "每日優果 椰棗核桃(150g)",
+   "price": 190,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6643639",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1c492469af-Gd-6643639.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/ce532bd9cf-Gd-6643639.jpg",
+   "offer": "",
+   "tag": "中東椰棗 x香脆",
+   "tagSource": "feature",
+   "tagOriginal": "中東椰棗 x香脆核桃",
+   "marketPrice": 199
+  },
+  {
+   "gdid": "6643647",
+   "position": "category-3",
+   "order": 2,
+   "name": "每日優果 若羌紅棗乾(200g)",
+   "price": 190,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6643647",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/4ddebe9c58-Gd-6643647.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/ad46acd4ea-Gd-6643647.jpg",
+   "offer": "",
+   "tag": "皮薄、肉厚、籽",
+   "tagSource": "feature",
+   "tagOriginal": "皮薄、肉厚、籽小、味甘。",
+   "marketPrice": 200
+  },
+  {
+   "gdid": "11939273",
+   "position": "category-3",
+   "order": 3,
+   "name": "LOTTE PEPERO 巧克力口味餅乾棒分享盒180g★",
+   "price": 119,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11939273",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/FC26C6E57B-SP-21687445.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/66CD0F9F7F-SP-21687445.jpg",
+   "offer": "",
+   "tag": "韓國原裝進口",
+   "tagSource": "feature",
+   "tagOriginal": "韓國原裝進口",
+   "marketPrice": 155
+  },
+  {
+   "gdid": "11031571",
+   "position": "category-3",
+   "order": 4,
+   "name": "味味一品-天香川味牛肉麵176克 (3包)x4袋/箱 (共計12包)★",
+   "price": 502,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11031571",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/6267613D6D-SP-16638764.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/6267613D6D-SP-16638764.jpg",
+   "offer": "",
+   "tag": "12道工序直火慢",
+   "tagSource": "feature",
+   "tagOriginal": "12道工序直火慢燉",
+   "marketPrice": 528
+  },
+  {
+   "gdid": "6679744",
+   "position": "editorial-wall",
+   "order": 1,
+   "name": "麥香 綠茶(300mlx6入)",
+   "price": 60,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6679744",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/544dd90447-Gd-6679744.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/544dd90447-Gd-6679744.jpg",
+   "offer": "",
+   "tag": "獨特大麥香味讓",
+   "tagSource": "feature",
+   "tagOriginal": "獨特大麥香味讓人回味無窮"
+  },
+  {
+   "gdid": "6679743",
+   "position": "editorial-wall",
+   "order": 2,
+   "name": "麥香 奶茶(300mlx6入)",
+   "price": 60,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6679743",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/009e7bcfc7-Gd-6679743.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/009e7bcfc7-Gd-6679743.jpg",
+   "offer": "",
+   "tag": "醇厚紅茶結合大",
+   "tagSource": "feature",
+   "tagOriginal": "醇厚紅茶結合大麥香氣與乳粉調配"
+  },
+  {
+   "gdid": "6670109",
+   "position": "editorial-wall",
+   "order": 3,
+   "name": "麥香 紅茶(300mlx6入)",
+   "price": 60,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=6670109",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/835fc52c26-Gd-6670109.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/835fc52c26-Gd-6670109.jpg",
+   "offer": "",
+   "tag": "醇厚紅茶結合獨",
+   "tagSource": "feature",
+   "tagOriginal": "醇厚紅茶結合獨特大麥風味"
+  },
+  {
+   "gdid": "5980031",
+   "position": "editorial-wall",
+   "order": 4,
+   "name": "麥香 阿薩姆奶茶(600mlx24入)",
+   "price": 541,
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=5980031",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/1a1883d301-Gd-5980031.jpg",
+   "sceneImg": "https://img.yec.tw/zp/MerchandiseImages/ef85236fb4-Gd-5980031.jpg",
+   "offer": "",
+   "tag": "熟悉的麥香 最",
+   "tagSource": "feature",
+   "tagOriginal": "熟悉的麥香 最對味",
+   "marketPrice": 569
+  }
+ ],
+ "meta": {
+  "generatedBy": "curate_auto v0（機械策展：只挑選不生成；moreLink 全 off＝U28 目的地驗證需網路/人工）",
+  "engine": "auto",
+  "scenario": "同品類×跨品牌-優惠銷售",
+  "theme": "",
+  "sourceUrl": "https://tw.buy.yahoo.com/?sub=1035",
+  "generatedAt": "2026-10-27T01:37:45.239Z",
+  "notes": [
+   "策略檔選品：避開 {味霸} 排掉 1 件（36→35）；多放 {分享包、隨手包} 提前 5 件；第 1 層照「麥香、紅茶、綠茶、奶茶」對到 4、第 2 層照「Pocky、百奇、小熊餅、點心麵、薯條三兄弟」對到 4、第 3 層照「每日優果、脆片、葡萄乾、核桃、紅棗」對到 4",
+   "主打商品：有餘量的層出代表 4 件（第 1、2、3、1 層）；沒餘量的層要的 0 件不拿",
+   "主打商品預留 4 件，樓層從第 5 件起分。",
+   "策略檔牆：第 1 面照「麥香」對到 4、第 2 面照「點心麵、分享包、Pocky」對到 4、第 3 面照「每日優果」對到 2＋補 2",
+   "編輯精選＝圓×2＋牆 4 件（餘池生成、未曝光品）",
+   "在線活動入口 0 則 <3（U17/U19）＝promoEntries 整組省略、loader 維持現值",
+   "延伸探索＝1 卡（真值 URL：來源頁）"
+  ],
+  "briefSelection": {
+   "exclude": {
+    "words": [
+     "味霸"
+    ],
+    "before": 36,
+    "removed": 1,
+    "after": 35,
+    "zeroHit": false
+   },
+   "include": {
+    "words": [
+     "分享包",
+     "隨手包"
+    ],
+    "boosted": 5,
+    "zeroHit": false
+   },
+   "priority": null,
+   "kv": {
+    "fromFloors": [
+     0,
+     1,
+     2,
+     0
+    ],
+    "matched": 4,
+    "filled": 0,
+    "protectedCount": 0
+   },
+   "floors": [
+    {
+     "title": "同樂會必備飲品",
+     "words": [
+      "麥香",
+      "紅茶",
+      "綠茶",
+      "奶茶"
+     ],
+     "machine": false,
+     "matched": 4,
+     "filled": 0,
+     "zeroHit": false
+    },
+    {
+     "title": "孩子最愛點心",
+     "words": [
+      "Pocky",
+      "百奇",
+      "小熊餅",
+      "點心麵",
+      "薯條三兄弟"
+     ],
+     "machine": false,
+     "matched": 4,
+     "filled": 0,
+     "zeroHit": false
+    },
+    {
+     "title": "健康解嘴饞",
+     "words": [
+      "每日優果",
+      "脆片",
+      "葡萄乾",
+      "核桃",
+      "紅棗"
+     ],
+     "machine": false,
+     "matched": 4,
+     "filled": 0,
+     "zeroHit": false
+    }
+   ],
+   "walls": [
+    {
+     "title": "大家都在喝",
+     "words": [
+      "麥香"
+     ],
+     "machine": false,
+     "matched": 4,
+     "filled": 0,
+     "zeroHit": false
+    },
+    {
+     "title": "拆開馬上分",
+     "words": [
+      "點心麵",
+      "分享包",
+      "Pocky"
+     ],
+     "machine": false,
+     "matched": 4,
+     "filled": 0,
+     "zeroHit": false
+    },
+    {
+     "title": "營養小零嘴",
+     "words": [
+      "每日優果"
+     ],
+     "machine": false,
+     "matched": 2,
+     "filled": 2,
+     "zeroHit": false
+    }
+   ]
+  },
+  "briefFile": "策略檔-2026-10-27.md",
+  "layoutChoice": {
+   "by": "ai",
+   "reason": "AI 代選：活動情境「先不指定」→ 用途標籤「依資料盤點（04 號 §4.2）」→ 版式「攻略・銀棚」（layout-005）。依據＝51 號附錄 B 映射表 v0。",
+   "reasonDisplay": "你沒有指定活動型態，先用「攻略・銀棚」版面開始——之後在編修頁隨時可以換。",
+   "useWhen": "依資料盤點（04 號 §4.2）",
+   "substitutedFrom": null,
+   "byTheme": null,
+   "engineNote": null,
+   "decidedAt": "2026-10-27T00:58:23.783Z",
+   "heroPrefill": "骨架預填 3 槽（建立期機器預設、可編修）"
+  },
+  "themeBridge": {
+   "mode": "family-seed",
+   "note": "建立配色家族 pink-light＝token 主題沒有這款 → 家族代表色走 colors.themeDraft（代表色 #F26591 檢查不過＝自動改用通過版 #BF1047；2026-08-27 裁決）",
+   "at": "2026-10-27T01:37:46.894Z"
+  },
+  "brief": {
+   "file": "mine/策略檔-2026-10-27.md",
+   "version": 2,
+   "appliedAt": "2026-10-27T01:37:46.897Z",
+   "applied": [
+    "title",
+    "floors",
+    "walls",
+    "editorial",
+    "selection"
+   ],
+   "autoTitles": [],
+   "provenance": {
+    "overview": "brief",
+    "title": "brief",
+    "floors": "brief",
+    "tone": "brief",
+    "selection": "brief",
+    "walls": "brief",
+    "editorial": "brief",
+    "eyebrow": "brief"
+   },
+   "fit": {
+    "hit": 34,
+    "total": 36,
+    "ratio": 0.9444444444444444,
+    "threshold": 0.3,
+    "low": false
+   },
+   "notices": [
+    {
+     "section": "主標上面那行小字",
+     "say": "這款版型的主視覺沒有小字的位置，那一行沒有套用。",
+     "how": "換一款有眉標的版型，或就讓主標自己撐。"
+    },
+    {
+     "section": "三面牆的標題",
+     "say": "「營養小零嘴」這面牆照你寫的「每日優果」只找到 2 件，另外 2 件是機器補的——交付前看一眼。",
+     "how": ""
+    }
+   ]
+  }
+ },
+ "assets": {}
+}

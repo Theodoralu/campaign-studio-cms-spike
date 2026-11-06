@@ -1,0 +1,116 @@
+{
+  "checkedAt": "2026-10-27T01:38:21.545Z",
+  "draftSha256": "d66df465e48bcb4f6c7fae594d582329d529d43a27a5617225c40006a31a8f3a",
+  "snapshotSha256": "aeb9f9731a65d4339a4f3c6b0b1dd1d5810010280c7ef70b1ce72e412a1b514d",
+  "result": "PASS",
+  "registrySource": "registries",
+  "registries": {
+    "sha": "6d9e035b3b7aa99a",
+    "files": {
+      "modules": "4fc4f83864a97b4c",
+      "layouts": "620807f7d6142e7c",
+      "backgrounds": "91df58864ca3810f",
+      "pendingBackgrounds": "8b211242c0eebfe0",
+      "fonts": "bcebe5ffde306033",
+      "motion": "e1d422eb89bdffd9",
+      "tokens": "19b810b19c2e4c31",
+      "typestyles": "f8552081a5e96052"
+    }
+  },
+  "counts": {
+    "FAIL": 0,
+    "WARN": 1,
+    "INFO": 10
+  },
+  "findings": [
+    {
+      "level": "INFO",
+      "code": "CP-25",
+      "msg": "page.kvVariant「layout-005」＝灰度試用版式（rollout=trial）——出貨背景過灰度門票（見 CP-27）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-11",
+      "msg": "新版式頁：舊 KV 商品槽與圓圖（休眠、不渲染）不列入檢查——主視覺商品與圖的真值由 hero 槽照常把關"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-15",
+      "msg": "promoEntries 欄位缺席——視同 04 §7 第 3 層整模組隱藏（商品池不足編組），U17 數量規則略過（模組缺席＝不誤殺）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-20",
+      "msg": "curationTheme「（缺）」未命中基底詞同義表（CP20_BASE_SYNONYMS）——主從一致檢查略過（詞庫不可推導＝不誤殺；新垂直請補同義表）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-22",
+      "msg": "樓層 #1「同樂會必備飲品」 看更多 off（U28b：該位置不渲染；url 留值備用合法）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-22",
+      "msg": "樓層 #2「孩子最愛點心」 看更多 off（U28b：該位置不渲染；url 留值備用合法）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-22",
+      "msg": "樓層 #3「健康解嘴饞」 看更多 off（U28b：該位置不渲染；url 留值備用合法）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-22",
+      "msg": "品類牆 #1「大家都在喝」 看更多 off（U28b：該位置不渲染；url 留值備用合法）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-22",
+      "msg": "品類牆 #2「拆開馬上分」 看更多 off（U28b：該位置不渲染；url 留值備用合法）"
+    },
+    {
+      "level": "INFO",
+      "code": "CP-22",
+      "msg": "品類牆 #3「營養小零嘴」 看更多 off（U28b：該位置不渲染；url 留值備用合法）"
+    },
+    {
+      "level": "WARN",
+      "code": "CP-04",
+      "msg": "已跳過圖片 HTTP 檢查（GATE_SKIP_HTTP=1）"
+    }
+  ],
+  "rowResults": [
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK"
+  ]
+}

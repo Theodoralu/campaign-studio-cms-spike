@@ -1,0 +1,49 @@
+{
+ "id": "2026-10-27-wb-085823",
+ "stage": "ready",
+ "input": {
+  "url": "https://tw.buy.yahoo.com/?sub=1035",
+  "scenario": "同品類×跨品牌-優惠銷售",
+  "theme": "",
+  "ownerEmail": "menghsuan.lu@yahootwec.com",
+  "ownerDept": "AEM",
+  "engine": "auto",
+  "themeColor": "",
+  "themeMode": "light",
+  "kvVariant": "layout-005",
+  "briefFile": "mine/策略檔-2026-10-27.md",
+  "proposalPack": null,
+  "packDeviated": false,
+  "layoutChoice": {
+   "by": "ai",
+   "reason": "AI 代選：活動情境「先不指定」→ 用途標籤「依資料盤點（04 號 §4.2）」→ 版式「攻略・銀棚」（layout-005）。依據＝51 號附錄 B 映射表 v0。",
+   "reasonDisplay": "你沒有指定活動型態，先用「攻略・銀棚」版面開始——之後在編修頁隨時可以換。",
+   "useWhen": "依資料盤點（04 號 §4.2）",
+   "substitutedFrom": null,
+   "byTheme": null,
+   "engineNote": null,
+   "decidedAt": "2026-10-27T00:58:23.783Z"
+  }
+ },
+ "engine": "auto",
+ "createdAt": "2026-10-27T00:58:23.785Z",
+ "updatedAt": "2026-10-27T01:38:21.551Z",
+ "engineUsed": "auto（照策略檔重做）",
+ "priceTruth": {
+  "stage": "done",
+  "startedAt": "2026-10-27T01:37:46.898Z",
+  "finishedAt": "2026-10-27T01:38:21.289Z",
+  "total": 32,
+  "applied": 1,
+  "unverified": 0,
+  "offline": false,
+  "mode": "live"
+ },
+ "sysDraftWriteAt": 1793065101289,
+ "redo": {
+  "startedAt": "2026-10-27T01:37:44.966Z",
+  "backup": "draft.v2.json",
+  "briefFile": "mine/策略檔-2026-10-27.md",
+  "doneAt": "2026-10-27T01:38:21.551Z"
+ }
+}

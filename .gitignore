@@ -22,6 +22,8 @@ node_modules/
 
 # ── 每檔活動的產出資料（S3 之後才有家；本機開發放這裡）──
 **/runs/
+!**/test/fixtures/runs/
+# D4：真活動夾具（test/fixtures/runs）要入庫，其餘 runs/ 仍不入
 **/live-drafts/
 **/price_qa_report.json
 **/workbench/online-url.txt

@@ -1,0 +1,1044 @@
+{
+ "checkedAt": "2026-10-27T01:38:21.282Z",
+ "summary": {
+  "online": 32,
+  "drift": 0,
+  "offline": 0,
+  "dead": 0,
+  "unverified": 0,
+  "snapMissing": 0,
+  "stashed": 0
+ },
+ "results": [
+  {
+   "gdid": "11848655",
+   "name": "麥香奶茶CAN(340mlx24入/箱)",
+   "where": "主視覺槽 product-left #1",
+   "draftPrice": 380,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11848655.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香奶茶CAN(340mlx24入/箱) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11848655.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香奶茶CAN(340mlx24入/箱) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2636
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:53.521Z"
+   },
+   "status": "online",
+   "livePrice": 380,
+   "liveMarketPrice": 399,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 380,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12003731",
+   "name": "格力高 Pocky百奇 經典分享包系列(口味任選)-牛奶口味/巧克力/草莓",
+   "where": "主視覺槽 product-left #2",
+   "draftPrice": 89,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-12003731.html",
+    "httpStatus": 200,
+    "pageTitle": "格力高 Pocky百奇 經典分享包系列(口味任選)-牛奶口味/巧克力/草莓 | 洋芋片 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-12003731.html",
+      "httpStatus": 200,
+      "pageTitle": "格力高 Pocky百奇 經典分享包系列(口味任選)-牛奶口味/巧克力/草莓 | 洋芋片 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 8443
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:59.577Z"
+   },
+   "status": "online",
+   "livePrice": 89,
+   "liveMarketPrice": 169,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 89,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11896870",
+   "name": "統一生機 ORIGINAL葡萄乾隨手包-袋(25g*8包)",
+   "where": "主視覺槽 product-right #1",
+   "draftPrice": 113,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11896870.html",
+    "httpStatus": 200,
+    "pageTitle": "統一生機 ORIGINAL葡萄乾隨手包-袋(25g*8包) | 堅果 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11896870.html",
+      "httpStatus": 200,
+      "pageTitle": "統一生機 ORIGINAL葡萄乾隨手包-袋(25g*8包) | 堅果 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 5624
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:57.010Z"
+   },
+   "status": "online",
+   "livePrice": 113,
+   "liveMarketPrice": 150,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 113,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11812924",
+   "name": "麥香 阿薩姆紅茶(600mlx24入)_1+1組合(共2箱48入)",
+   "where": "主視覺槽 product-right #2",
+   "draftPrice": 949,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11812924.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 阿薩姆紅茶(600mlx24入)_1+1組合(共2箱48入) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11812924.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 阿薩姆紅茶(600mlx24入)_1+1組合(共2箱48入) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 5978
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:57.612Z"
+   },
+   "status": "online",
+   "livePrice": 949,
+   "liveMarketPrice": 998,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 949,
+   "snapDrift": false
+  },
+  {
+   "gdid": "5980032",
+   "name": "麥香 阿薩姆紅茶(600mlx24入)",
+   "where": "樓層1 情境代表品",
+   "draftPrice": 484,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-5980032.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 阿薩姆紅茶(600mlx24入) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-5980032.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 阿薩姆紅茶(600mlx24入) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 6898
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:58.783Z"
+   },
+   "status": "online",
+   "livePrice": 484,
+   "liveMarketPrice": 509,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 484,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12202304",
+   "name": "統一 麥香奶茶(300mlx24入/箱)",
+   "where": "樓層1 卡1",
+   "draftPrice": 240,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-12202304.html",
+    "httpStatus": 200,
+    "pageTitle": "統一 麥香奶茶(300mlx24入/箱) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-12202304.html",
+      "httpStatus": 200,
+      "pageTitle": "統一 麥香奶茶(300mlx24入/箱) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2565
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:56.088Z"
+   },
+   "status": "online",
+   "livePrice": 240,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 240,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12063112",
+   "name": "統一 麥香紅茶/綠茶/奶茶(300mlx24入/箱) 任選",
+   "where": "樓層1 卡2",
+   "draftPrice": 240,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12063112&sw=c684146f7b2cbd65",
+    "httpStatus": 200,
+    "pageTitle": "Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12063112&sw=c684146f7b2cbd65",
+      "httpStatus": 200,
+      "pageTitle": "Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2081
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:37:58.171Z"
+   },
+   "status": "online",
+   "livePrice": 240,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 240,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11812997",
+   "name": "麥香 綠茶(300mlx6入)_1+1組合(共2組)",
+   "where": "樓層1 卡3",
+   "draftPrice": 120,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11812997.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 綠茶(300mlx6入)_1+1組合(共2組) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11812997.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 綠茶(300mlx6入)_1+1組合(共2組) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 4692
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:01.705Z"
+   },
+   "status": "online",
+   "livePrice": 120,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 120,
+   "snapDrift": false
+  },
+  {
+   "gdid": "8276905",
+   "name": "SEAHWA 韓國Enaak 香辣/香脆 點心麵隨手包 2款任選1盒",
+   "where": "樓層2 情境代表品",
+   "draftPrice": 175,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8276905&sw=6602d368b2c2a6b2",
+    "httpStatus": 200,
+    "pageTitle": "Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=8276905&sw=6602d368b2c2a6b2",
+      "httpStatus": 200,
+      "pageTitle": "Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3950
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:01.565Z"
+   },
+   "status": "online",
+   "livePrice": 175,
+   "liveMarketPrice": 259,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 175,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12034634",
+   "name": "POCKY 經典款分享包 任選 6入超值組",
+   "where": "樓層2 卡1",
+   "draftPrice": 499,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-12034634.html",
+    "httpStatus": 200,
+    "pageTitle": "POCKY 經典款分享包 任選 6入超值組 | 洋芋片 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-12034634.html",
+      "httpStatus": 200,
+      "pageTitle": "POCKY 經典款分享包 任選 6入超值組 | 洋芋片 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 1888
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:00.062Z"
+   },
+   "status": "online",
+   "livePrice": 499,
+   "liveMarketPrice": 525,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 499,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11938379",
+   "name": "樂天小熊餅超值分享組148g★",
+   "where": "樓層2 卡2",
+   "draftPrice": 129,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11938379.html",
+    "httpStatus": 200,
+    "pageTitle": "樂天小熊餅超值分享組148g★ | 夾心餅/派餅/蛋糕 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11938379.html",
+      "httpStatus": 200,
+      "pageTitle": "樂天小熊餅超值分享組148g★ | 夾心餅/派餅/蛋糕 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 5382
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:04.167Z"
+   },
+   "status": "online",
+   "livePrice": 129,
+   "liveMarketPrice": 156,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 129,
+   "snapDrift": false
+  },
+  {
+   "gdid": "10331579",
+   "name": "Calbee卡樂比 薯條三兄弟(180g)",
+   "where": "樓層2 卡3",
+   "draftPrice": 380,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-10331579.html",
+    "httpStatus": 200,
+    "pageTitle": "Calbee卡樂比 薯條三兄弟(180g) | 洋芋片 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-10331579.html",
+      "httpStatus": 200,
+      "pageTitle": "Calbee卡樂比 薯條三兄弟(180g) | 洋芋片 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 6292
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:05.872Z"
+   },
+   "status": "online",
+   "livePrice": 380,
+   "liveMarketPrice": 399,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 380,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6628023",
+   "name": "每日優果 敏豆脆條(100g)",
+   "where": "樓層3 情境代表品",
+   "draftPrice": 168,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6628023.html",
+    "httpStatus": 200,
+    "pageTitle": "每日優果 敏豆脆條(100g) | 棗類/無花果/其他 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6628023.html",
+      "httpStatus": 200,
+      "pageTitle": "每日優果 敏豆脆條(100g) | 棗類/無花果/其他 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2114
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:02.179Z"
+   },
+   "status": "online",
+   "livePrice": 168,
+   "liveMarketPrice": 250,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 168,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6628028",
+   "name": "每日優果 南瓜脆片(160g)",
+   "where": "樓層3 卡1",
+   "draftPrice": 168,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6628028.html",
+    "httpStatus": 200,
+    "pageTitle": "每日優果 南瓜脆片(160g) | 棗類/無花果/其他 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6628028.html",
+      "httpStatus": 200,
+      "pageTitle": "每日優果 南瓜脆片(160g) | 棗類/無花果/其他 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3732
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:05.299Z"
+   },
+   "status": "online",
+   "livePrice": 168,
+   "liveMarketPrice": 250,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 168,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6628072",
+   "name": "每日優果 秋葵脆片(100G)",
+   "where": "樓層3 卡2",
+   "draftPrice": 168,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6628072.html",
+    "httpStatus": 200,
+    "pageTitle": "每日優果 秋葵脆片(100G) | 棗類/無花果/其他 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6628072.html",
+      "httpStatus": 200,
+      "pageTitle": "每日優果 秋葵脆片(100G) | 棗類/無花果/其他 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 8159
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:09.977Z"
+   },
+   "status": "online",
+   "livePrice": 168,
+   "liveMarketPrice": 250,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 168,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6643648",
+   "name": "每日優果 綜合葡萄乾(250g)",
+   "where": "樓層3 卡3",
+   "draftPrice": 185,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6643648.html",
+    "httpStatus": 200,
+    "pageTitle": "每日優果 綜合葡萄乾(250g) | 堅果 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6643648.html",
+      "httpStatus": 200,
+      "pageTitle": "每日優果 綜合葡萄乾(250g) | 堅果 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2524
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:04.705Z"
+   },
+   "status": "online",
+   "livePrice": 185,
+   "liveMarketPrice": 275,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 185,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11812932",
+   "name": "麥香 紅茶(300mlx6入)_1+2組合(共3組)",
+   "where": "品類牆1 卡1",
+   "draftPrice": 180,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11812932.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 紅茶(300mlx6入)_1+2組合(共3組) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11812932.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 紅茶(300mlx6入)_1+2組合(共3組) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3361
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:07.530Z"
+   },
+   "status": "online",
+   "livePrice": 180,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 180,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11812931",
+   "name": "麥香 紅茶(300mlx6入)_1+1組合(共2組)",
+   "where": "品類牆1 卡2",
+   "draftPrice": 120,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11812931.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 紅茶(300mlx6入)_1+1組合(共2組) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11812931.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 紅茶(300mlx6入)_1+1組合(共2組) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2911
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:07.619Z"
+   },
+   "status": "online",
+   "livePrice": 120,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 120,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11812818",
+   "name": "麥香 奶茶(300mlx6入)_1+2組合(共3組)",
+   "where": "品類牆1 卡3",
+   "draftPrice": 180,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11812818.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 奶茶(300mlx6入)_1+2組合(共3組) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11812818.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 奶茶(300mlx6入)_1+2組合(共3組) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 4034
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:09.334Z"
+   },
+   "status": "online",
+   "livePrice": 180,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 180,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11812810",
+   "name": "麥香 奶茶(300mlx6入)_1+1組合(共2組)",
+   "where": "品類牆1 卡4",
+   "draftPrice": 120,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11812810.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 奶茶(300mlx6入)_1+1組合(共2組) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11812810.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 奶茶(300mlx6入)_1+1組合(共2組) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 4666
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:10.540Z"
+   },
+   "status": "online",
+   "livePrice": 120,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 120,
+   "snapDrift": false
+  },
+  {
+   "gdid": "5887371",
+   "name": "OYATSU優雅食 星太郎點心條餅-中雞汁分享包(32gx4入)",
+   "where": "品類牆2 卡1",
+   "draftPrice": 89,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-5887371.html",
+    "httpStatus": 200,
+    "pageTitle": "OYATSU優雅食 星太郎點心條餅-中雞汁分享包(32gx4入) | 點心麵/小點心 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-5887371.html",
+      "httpStatus": 200,
+      "pageTitle": "OYATSU優雅食 星太郎點心條餅-中雞汁分享包(32gx4入) | 點心麵/小點心 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2910
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:10.441Z"
+   },
+   "status": "online",
+   "livePrice": 89,
+   "liveMarketPrice": 100,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 89,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12032109",
+   "name": "POCKY 經典款餅乾棒四款任選 6入超值組",
+   "where": "品類牆2 卡2",
+   "draftPrice": 195,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-12032109.html",
+    "httpStatus": 200,
+    "pageTitle": "POCKY 經典款餅乾棒四款任選 6入超值組 | 洋芋片 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-12032109.html",
+      "httpStatus": 200,
+      "pageTitle": "POCKY 經典款餅乾棒四款任選 6入超值組 | 洋芋片 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3445
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:11.228Z"
+   },
+   "status": "online",
+   "livePrice": 195,
+   "liveMarketPrice": 205,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 195,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12051463",
+   "name": "POCKY 水果優格棒 任選 6入超值組",
+   "where": "品類牆2 卡3",
+   "draftPrice": 266,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-12051463.html",
+    "httpStatus": 200,
+    "pageTitle": "POCKY 水果優格棒 任選 6入超值組 | 洋芋片 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-12051463.html",
+      "httpStatus": 200,
+      "pageTitle": "POCKY 水果優格棒 任選 6入超值組 | 洋芋片 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 4126
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:13.465Z"
+   },
+   "status": "online",
+   "livePrice": 266,
+   "liveMarketPrice": 279,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 266,
+   "snapDrift": false
+  },
+  {
+   "gdid": "12003735",
+   "name": "格力高 Pocky百奇 經典款口味 巧克力/草莓/抹茶/牛奶餅乾棒",
+   "where": "品類牆2 卡4",
+   "draftPrice": 45,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-12003735.html",
+    "httpStatus": 200,
+    "pageTitle": "格力高 Pocky百奇 經典款口味 巧克力/草莓/抹茶/牛奶餅乾棒 | 洋芋片 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-12003735.html",
+      "httpStatus": 200,
+      "pageTitle": "格力高 Pocky百奇 經典款口味 巧克力/草莓/抹茶/牛奶餅乾棒 | 洋芋片 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3011
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:12.990Z"
+   },
+   "status": "online",
+   "livePrice": 45,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 45,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6643639",
+   "name": "每日優果 椰棗核桃(150g)",
+   "where": "品類牆3 卡1",
+   "draftPrice": 190,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6643639.html",
+    "httpStatus": 200,
+    "pageTitle": "每日優果 椰棗核桃(150g) | 棗類/無花果/其他 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6643639.html",
+      "httpStatus": 200,
+      "pageTitle": "每日優果 椰棗核桃(150g) | 棗類/無花果/其他 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3348
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:13.791Z"
+   },
+   "status": "online",
+   "livePrice": 190,
+   "liveMarketPrice": 199,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 190,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6643647",
+   "name": "每日優果 若羌紅棗乾(200g)",
+   "where": "品類牆3 卡2",
+   "draftPrice": 190,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6643647.html",
+    "httpStatus": 200,
+    "pageTitle": "每日優果 若羌紅棗乾(200g) | 棗類/無花果/其他 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6643647.html",
+      "httpStatus": 200,
+      "pageTitle": "每日優果 若羌紅棗乾(200g) | 棗類/無花果/其他 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3447
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:14.141Z"
+   },
+   "status": "online",
+   "livePrice": 190,
+   "liveMarketPrice": 200,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 190,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11939273",
+   "name": "LOTTE PEPERO 巧克力口味餅乾棒分享盒180g★",
+   "where": "品類牆3 卡3",
+   "draftPrice": 119,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11939273.html",
+    "httpStatus": 200,
+    "pageTitle": "LOTTE PEPERO 巧克力口味餅乾棒分享盒180g★ | 捲心酥/蛋捲/穀物棒 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11939273.html",
+      "httpStatus": 200,
+      "pageTitle": "LOTTE PEPERO 巧克力口味餅乾棒分享盒180g★ | 捲心酥/蛋捲/穀物棒 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2758
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:13.989Z"
+   },
+   "status": "online",
+   "livePrice": 119,
+   "liveMarketPrice": 155,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 119,
+   "snapDrift": false
+  },
+  {
+   "gdid": "11031571",
+   "name": "味味一品-天香川味牛肉麵176克 (3包)x4袋/箱 (共計12包)★",
+   "where": "品類牆3 卡4",
+   "draftPrice": 502,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-11031571.html",
+    "httpStatus": 200,
+    "pageTitle": "味味一品-天香川味牛肉麵176克 (3包)x4袋/箱 (共計12包)★ | 泡麵 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-11031571.html",
+      "httpStatus": 200,
+      "pageTitle": "味味一品-天香川味牛肉麵176克 (3包)x4袋/箱 (共計12包)★ | 泡麵 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2843
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:15.835Z"
+   },
+   "status": "online",
+   "livePrice": 502,
+   "liveMarketPrice": 528,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 502,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6679744",
+   "name": "麥香 綠茶(300mlx6入)",
+   "where": "—",
+   "draftPrice": 60,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6679744.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 綠茶(300mlx6入) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6679744.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 綠茶(300mlx6入) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 3049
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:16.516Z"
+   },
+   "status": "online",
+   "livePrice": 60,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 60,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6679743",
+   "name": "麥香 奶茶(300mlx6入)",
+   "where": "—",
+   "draftPrice": 60,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6679743.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 奶茶(300mlx6入) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6679743.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 奶茶(300mlx6入) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2435
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:16.229Z"
+   },
+   "status": "online",
+   "livePrice": 60,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 60,
+   "snapDrift": false
+  },
+  {
+   "gdid": "6670109",
+   "name": "麥香 紅茶(300mlx6入)",
+   "where": "—",
+   "draftPrice": 60,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-6670109.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 紅茶(300mlx6入) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-6670109.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 紅茶(300mlx6入) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2718
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:16.763Z"
+   },
+   "status": "online",
+   "livePrice": 60,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 60,
+   "snapDrift": false
+  },
+  {
+   "gdid": "5980031",
+   "name": "麥香 阿薩姆奶茶(600mlx24入)",
+   "where": "—",
+   "draftPrice": 541,
+   "evidence": {
+    "fetchUrl": "https://tw.buy.yahoo.com/gdsale/p-5980031.html",
+    "httpStatus": 200,
+    "pageTitle": "麥香 阿薩姆奶茶(600mlx24入) | 綠茶/烏龍茶 | Yahoo購物中心",
+    "hasProductEntity": true,
+    "asked": 1,
+    "attempts": [
+     {
+      "url": "https://tw.buy.yahoo.com/gdsale/p-5980031.html",
+      "httpStatus": 200,
+      "pageTitle": "麥香 阿薩姆奶茶(600mlx24入) | 綠茶/烏龍茶 | Yahoo購物中心",
+      "hasProductEntity": true,
+      "status": "online",
+      "ms": 2026
+     }
+    ],
+    "fetchedAt": "2026-10-27T01:38:16.322Z"
+   },
+   "status": "online",
+   "livePrice": 541,
+   "liveMarketPrice": 569,
+   "marketDrift": false,
+   "drift": false,
+   "snapPrice": 541,
+   "snapDrift": false
+  }
+ ],
+ "links": [
+  {
+   "module": "explore",
+   "where": "延伸探索 #1",
+   "label": "前往本檔來源頁",
+   "url": "https://tw.buy.yahoo.com/?sub=1035",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/A622AF62A5-Gd-12011320.jpg",
+   "kind": "other",
+   "status": "online",
+   "imgStatus": "ok"
+  },
+  {
+   "module": "explore",
+   "where": "延伸探索 看更多",
+   "label": "看更多本檔選品",
+   "url": "https://tw.buy.yahoo.com/?sub=1035",
+   "img": "",
+   "kind": "other",
+   "status": "online"
+  },
+  {
+   "module": "editorial",
+   "where": "編輯精選圓卡 #1",
+   "label": "格力高 Pocky百奇 果粒優格棒系列 38g ",
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=12003795",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/D52C10A876-Gd-12003795.jpg",
+   "kind": "product",
+   "status": "online",
+   "imgStatus": "ok"
+  },
+  {
+   "module": "editorial",
+   "where": "編輯精選圓卡 #2",
+   "label": "統一 麥香紅茶(300mlx24入/箱)",
+   "url": "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11702823",
+   "img": "https://img.yec.tw/zp/MerchandiseImages/D68FDE5654-SP-20602318.jpg",
+   "kind": "product",
+   "status": "online",
+   "imgStatus": "ok"
+  }
+ ],
+ "linksSummary": {
+  "online": 4,
+  "expired": 0,
+  "empty": 0,
+  "dead": 0,
+  "unverified": 0,
+  "imgDead": 0
+ }
+}
