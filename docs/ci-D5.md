@@ -35,10 +35,10 @@
 ## 密鑰／個人路徑掃描首跑：267 處 → 0
 | 來源 | 處理 |
 |---|---|
-| `docs/baseline-D1-*.txt` 238 處 `/Users/mlu01/...` | 取代為 `<repo>` |
+| `docs/baseline-D1-*.txt` 238 處使用者家目錄下的 repo 絕對路徑 | 取代為 `<repo>` |
 | `deploy-site/.../cutouts_report.json` 14 處 Alice 機器路徑 | 取代為 `<legacy-root>` |
 | `test/browser/{w1b-l006-shots,brief-journey}.js` 寫死 Alice 路徑 | 改讀 `CS_LEGACY_ROOT` |
-| `workbench/server.js` `NETLIFY_DEPLOY_EMAIL = "tofu@yahooinc.com"` | 改讀環境變數（函式已退役，D11 連 Netlify 死碼一起拿掉） |
+| `workbench/server.js` 寫死單機版作者的舊網域公司信箱（`NETLIFY_DEPLOY_EMAIL`） | 改讀環境變數（函式已退役，D11 連 Netlify 死碼一起拿掉） |
 | `design-tokens/palette-engine.js` `token:"campaign/page-bg"` ×5 | 誤判，掃描規則排除 design token 路徑 |
 | 測試資料裡的假信箱／假路徑 ×2 | 行尾 `secret-scan: allow ＋理由` |
 
