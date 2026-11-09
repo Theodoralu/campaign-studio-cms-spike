@@ -5,7 +5,7 @@ const fs = require("fs"), path = require("path");
 const Ajv = require("ajv/dist/2020"), addFormats = require("ajv-formats");
 const ajv = new Ajv({ allErrors: true, strict: false, allowUnionTypes: true }); addFormats(ajv);
 const [schemaDir, ...files] = process.argv.slice(2);
-const kindOf = (f) => { const b = path.basename(f, ".json"); if (/(^|_)draft(\.|$)/.test(b)) return "draft"; if (/(^|_)snapshot(\.|$)/.test(b)) return "snapshot"; return b; };
+const kindOf = (f) => { const b = path.basename(f, ".json").split(".")[0]; /* draft.golden.json → draft */ if (/(^|_)draft(\.|$)/.test(b)) return "draft"; if (/(^|_)snapshot(\.|$)/.test(b)) return "snapshot"; return b; };
 const cache = {};
 const validatorFor = (kind) => cache[kind] || (cache[kind] = ajv.compile(JSON.parse(fs.readFileSync(path.join(schemaDir, `${kind}.schema.json`), "utf8"))));
 let bad = 0;

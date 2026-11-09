@@ -1,4 +1,5 @@
 "use strict";
+const LEGACY_ROOT = process.env.CS_LEGACY_ROOT || "<legacy-root>"; // D5：單機版作者的設計源檔根目錄，不在 repo；要跑請設環境變數
 /* 活動策略檔旅程走查（71 號；2026-09-11）——照使用者的路真點擊：
      建立頁選策略檔 → 開始策展（快速草稿＝沒有 AI 那條路）→ 編修頁看文案有沒有照他寫的走。
    用法：node test/browser/brief-journey.js <port> <outDir>
@@ -9,7 +10,7 @@
      ②樓層區塊預設收合＝內容還沒渲染；而且 innerText 不含輸入框的值。要逐層開、讀 input.value。 */
 if (process.env.NODE_TEST_CONTEXT) { console.log("brief-journey：手動旅程走查（需 Chrome＋活 server＋外網），node --test 下跳過"); return; }
 const fs=require("fs"),path=require("path");
-const PIPE="/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline";
+const PIPE=`${LEGACY_ROOT}/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline`;
 const pw=require(PIPE+"/node_modules/playwright-core");
 const PASS=fs.readFileSync(path.join(PIPE,"workbench",".wb-pass"),"utf8").trim();
 const BRIEF="built-in/05-時事主題-情境選品.md", SRC="https://tw.buy.yahoo.com/category/4481524";

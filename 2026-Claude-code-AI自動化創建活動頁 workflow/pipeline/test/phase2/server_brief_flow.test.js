@@ -131,7 +131,7 @@ test("⑥ 照策略檔重做：先備份、同批商品重排、核可失效、m
    舊網域會走到後端的，幾乎只有升級前就開著的分頁：它只會 toast 這一句＝句子本身要帶出路。 */
 test("⑦ 建立活動：舊網域 @yahooinc.com 擋下並指路「重新整理」、外部信箱擋下指路 Outlook、新網域放行；擋下的不落檔", async () => {
   const before = fs.readdirSync(runs).length;
-  const old = await POST("/api/runs", { url: "https://tw.buy.yahoo.com/search/product?p=x", ownerEmail: "qa@yahooinc.com", ownerDept: "QA", engine: "auto" });
+  const old = await POST("/api/runs", { url: "https://tw.buy.yahoo.com/search/product?p=x", ownerEmail: "qa@yahooinc.com", ownerDept: "QA", engine: "auto" }); // secret-scan: allow 測試用假信箱，驗舊網域被擋
   assert.strictEqual(old.status, 400); assert.match(old.j.error, /頁面是舊版 → 重新整理頁面/); assert.match(old.j.error, /@yahootwec\.com/);
   const ext = await POST("/api/runs", { url: "https://tw.buy.yahoo.com/search/product?p=x", ownerEmail: "qa@gmail.com", ownerDept: "QA", engine: "auto" });
   assert.strictEqual(ext.status, 400); assert.match(ext.j.error, /需要公司帳號 → 填 Outlook 寄件人/);

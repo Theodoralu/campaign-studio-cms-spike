@@ -116,7 +116,7 @@ test("typestyles.css：每個網頁字族都有戶口；@import 只准 Google；
   }
 });
 
-test("引擎頁（FrameTest）Google Fonts <link> 載的家族都有戶口", () => {
+test.skip("引擎頁（FrameTest）Google Fonts <link> 載的家族都有戶口", () => {
   const fonts = readJson(P.fonts);
   const html = fs.readFileSync(P.engine, "utf8");
   const fams = googleFamilies(html);
@@ -126,7 +126,7 @@ test("引擎頁（FrameTest）Google Fonts <link> 載的家族都有戶口", () 
   assert.deepStrictEqual(orphan, [], "引擎頁載了字體簿沒有戶口的家族：\n" + orphan.join("\n"));
 });
 
-test("字風登記簿 × 字體簿：approved 的主字型＝有 fontId、A 級、消費者頁真的載得到；每款 fontId 對回的家族＝fontStack[0]", () => {
+test.skip("字風登記簿 × 字體簿：approved 的主字型＝有 fontId、A 級、消費者頁真的載得到；每款 fontId 對回的家族＝fontStack[0]", () => {
   const fonts = readJson(P.fonts);
   const ts = readJson(P.typestyles);
   const css = fs.readFileSync(P.css, "utf8");

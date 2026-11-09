@@ -1,3 +1,4 @@
+const LEGACY_ROOT = process.env.CS_LEGACY_ROOT || "<legacy-root>"; // D5：單機版作者的設計源檔根目錄，不在 repo；要跑請設環境變數
 /* W1-B 切片二視覺 QA：layout-006 舞台三連拍（1440 預設主題／1440 綠主題／1024 縮放）＋一張帶槽位資料
    跑法：node test/browser/w1b-l006-shots.js [outDir]   預設輸出 test/browser/.shots/（不進版控）
 
@@ -14,7 +15,7 @@ if (process.env.NODE_TEST_CONTEXT) { console.log("w1b-l006-shots：手動 design
 const { chromium } = require("playwright-core");
 const path = require("path");
 const fs = require("fs");
-const FILE = "/Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html";
+const FILE = `${LEGACY_ROOT}/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html`;
 const OUT = process.argv[2] ? path.resolve(process.argv[2]) : path.join(__dirname, ".shots");
 fs.mkdirSync(OUT, { recursive: true });
 (async () => {
@@ -38,10 +39,10 @@ fs.mkdirSync(OUT, { recursive: true });
     await page.close();
   }
   const demoDraft = { page: { kvVariant: "layout-006", hero: { "title-center": "NEW IN\n秋季新品搶先看\nAUTUMN COLLECTION\nNEW ARRIVAL", "item-ring": { gdids: ["11", "22", "33", "44"] } } }, products: [
-    { gdid: "11", name: "測試品 1", img: "file:///Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg", tag: "One-Piece" },
-    { gdid: "22", name: "測試品 2", img: "file:///Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg", tag: "Bra Top" },
-    { gdid: "33", name: "測試品 3", img: "file:///Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg", tag: "Tops" },
-    { gdid: "44", name: "測試品 4", img: "file:///Users/tofu/Documents/Codex/2026.06.15 - 內容自動運營專案( W:Yu-ting )/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg", tag: "Blouse" },
+    { gdid: "11", name: "測試品 1", img: `file://${LEGACY_ROOT}/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg`, tag: "One-Piece" },
+    { gdid: "22", name: "測試品 2", img: `file://${LEGACY_ROOT}/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg`, tag: "Bra Top" },
+    { gdid: "33", name: "測試品 3", img: `file://${LEGACY_ROOT}/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg`, tag: "Tops" },
+    { gdid: "44", name: "測試品 4", img: `file://${LEGACY_ROOT}/2026-AI自動化活動頁生成規劃/assets/lecreuset-hero-source.jpg`, tag: "Blouse" },
   ] };
   await shot("l006-empty-1440.png", 1440, null, null);
   await shot("l006-green-1440.png", 1440, "green-light", null);

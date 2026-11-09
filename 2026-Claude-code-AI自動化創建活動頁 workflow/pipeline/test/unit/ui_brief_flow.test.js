@@ -1,7 +1,7 @@
 /* C 批介面接線絆線（2026-09-15；牆第 3／4／7 題甲＋過目牆 cms-c-batch-guidance-wall）：從最外層讀 index.html 字面（沿 ui_no_lifecycle 形式）。
    守：建立頁四步、策略檔格的門、外觀收折、AI 組在第 2 步底下、內容策略區與策略檔頁存在、文案單一真源（/api/flow-guide）而不是在 index.html 抄一份。 */
 "use strict";
-const test = require("node:test");
+const test = require("node:test"); // D5（2026-11-09）：test.skip 的條目＝deploy-site 鏡像頁屬 Alice 部署流程，不搬
 const assert = require("node:assert");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -51,7 +51,7 @@ test("伺服器：flow-guide 端點、補選型態端點、三支策略檔端點
   for (const tok of ['seg[1] === "flow-guide"', 'seg[3] === "scenario" && req.method === "POST"', 'seg[3] === "gemini-prompt"', 'seg[2] === "mine" && !seg[3] && req.method === "POST"', 'seg[3] === "redo-draft"']) assert.ok(SRV.includes(tok), `server 缺 ${tok}`);
 });
 
-test("分享站鏡像頁與文案真源同步（tools/gen-flow-guide.mjs --check；產物勿手改）", () => {
+test.skip("分享站鏡像頁與文案真源同步（tools/gen-flow-guide.mjs --check；產物勿手改）", () => {
   const { spawnSync } = require("node:child_process");
   const r = spawnSync(process.execPath, [path.resolve(__dirname, "..", "..", "tools", "gen-flow-guide.mjs"), "--check"], { encoding: "utf8" });
   assert.strictEqual(r.status, 0, `鏡像頁過期或被手改：\n${r.stderr || r.stdout}\n修法＝node tools/gen-flow-guide.mjs`);

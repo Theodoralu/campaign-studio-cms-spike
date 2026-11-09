@@ -1,0 +1,67 @@
+name: ci
+
+# Campaign Studio CMS spike —— D5（2026-11-09）
+# 三個 job 分開，一眼看出是哪一段紅：secret-scan（密鑰／個人路徑）、check（schema＋黃金對照：回放 snapshot、端到端 draft 與 gate_report 都要和存好的標準答案逐字相同）、unit（全部測試）。
+# Actions 一律 pin 到 full commit SHA（SHA 取自 ai-tool-sandbox 同版）。
+# runner 先用 ubuntu-latest（spike repo 在個人帳號，連不到公司 global-runner）；搬進 YahooTWEC 時改 runs-on 並加 setup-codeartifact-npm。
+# 這個 repo 不裝 Playwright 瀏覽器：CP-32 三裝置對板（selftest_run.js）屬 check:full，不在 PR CI；D10 再評估。
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PIPELINE_DIR: 2026-Claude-code-AI自動化創建活動頁 workflow/pipeline
+  TZ: UTC # 刻意用 UTC：D4 抓到檔期換算吃時區的 bug，CI 要能再抓到同類問題
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+      - run: node "$PIPELINE_DIR/tools/secret_scan.js" .
+
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: 2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/package-lock.json
+      - run: npm ci
+      - run: npm run schema:check
+      - run: npm run test:replay
+      - run: npm run test:golden
+
+  unit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: 2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - name: npm audit（只報不擋；D5 先看清單）
+        run: npm audit --audit-level=high || true

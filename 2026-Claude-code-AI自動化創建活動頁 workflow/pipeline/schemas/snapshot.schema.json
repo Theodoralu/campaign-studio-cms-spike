@@ -268,7 +268,11 @@
    }
   },
   "minDisc": {
-   "type": "integer"
+   "type": [
+    "integer",
+    "null"
+   ],
+   "description": "池內最低折數；沒有任何折數＝null（fetch_parse）"
   }
  },
  "additionalProperties": true,

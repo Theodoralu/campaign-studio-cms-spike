@@ -461,9 +461,9 @@ node:fs:624
     return binding.readFileUtf8(path, stringToFlags(options.flag));
                    ^
 
-Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
     at Object.readFileSync (node:fs:624:20)
-    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/engine_twin_tables.test.js:19:16)
+    at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/engine_twin_tables.test.js:19:16)
     at Module._compile (node:internal/modules/cjs/loader:1968:14)
     at Object..js (node:internal/modules/cjs/loader:2108:10)
     at Module.load (node:internal/modules/cjs/loader:1690:32)
@@ -474,7 +474,7 @@ Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studi
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
 }
 
 Node.js v26.12.0
@@ -488,9 +488,9 @@ node:fs:624
     return binding.readFileUtf8(path, stringToFlags(options.flag));
                    ^
 
-Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
     at Object.readFileSync (node:fs:624:20)
-    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/explore_cap_sync.test.js:14:19)
+    at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/explore_cap_sync.test.js:14:19)
     at Module._compile (node:internal/modules/cjs/loader:1968:14)
     at Object..js (node:internal/modules/cjs/loader:2108:10)
     at Module.load (node:internal/modules/cjs/loader:1690:32)
@@ -501,7 +501,7 @@ Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studi
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
 }
 
 Node.js v26.12.0
@@ -556,9 +556,9 @@ node:internal/test_runner/harness:124
       throw err;
       ^
 
-Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
     at Object.readFileSync (node:fs:624:20)
-    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/ga_tracking.test.js:91:22)
+    at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/ga_tracking.test.js:91:22)
     at Module._compile (node:internal/modules/cjs/loader:1968:14)
     at Object..js (node:internal/modules/cjs/loader:2108:10)
     at Module.load (node:internal/modules/cjs/loader:1690:32)
@@ -569,7 +569,7 @@ Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studi
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
 }
 
 Node.js v26.12.0
@@ -612,9 +612,9 @@ node:fs:624
     return binding.readFileUtf8(path, stringToFlags(options.flag));
                    ^
 
-Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
     at Object.readFileSync (node:fs:624:20)
-    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_bg_own_doors.test.js:17:16)
+    at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_bg_own_doors.test.js:17:16)
     at Module._compile (node:internal/modules/cjs/loader:1968:14)
     at Object..js (node:internal/modules/cjs/loader:2108:10)
     at Module.load (node:internal/modules/cjs/loader:1690:32)
@@ -625,7 +625,7 @@ Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studi
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
 }
 
 Node.js v26.12.0
@@ -676,9 +676,9 @@ node:fs:624
     return binding.readFileUtf8(path, stringToFlags(options.flag));
                    ^
 
-Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
     at Object.readFileSync (node:fs:624:20)
-    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_stages_twin.test.js:16:16)
+    at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_stages_twin.test.js:16:16)
     at Module._compile (node:internal/modules/cjs/loader:1968:14)
     at Object..js (node:internal/modules/cjs/loader:2108:10)
     at Module.load (node:internal/modules/cjs/loader:1690:32)
@@ -689,7 +689,7 @@ Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studi
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
 }
 
 Node.js v26.12.0
@@ -1070,9 +1070,9 @@ node:fs:624
     return binding.readFileUtf8(path, stringToFlags(options.flag));
                    ^
 
-Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
     at Object.readFileSync (node:fs:624:20)
-    at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/typo_steps_three_copies.test.js:20:17)
+    at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/typo_steps_three_copies.test.js:20:17)
     at Module._compile (node:internal/modules/cjs/loader:1968:14)
     at Object..js (node:internal/modules/cjs/loader:2108:10)
     at Module.load (node:internal/modules/cjs/loader:1690:32)
@@ -1083,7 +1083,7 @@ Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studi
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  path: '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
 }
 
 Node.js v26.12.0
@@ -1190,10 +1190,10 @@ Node.js v26.12.0
 
 test at test/unit/bg_map_resolves_used_backgrounds.test.js:75:1
 ✖ 每一檔已完成活動用到的背景，背景地圖都還解析得開 (0.41725ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
       at Object.readFileSync (node:fs:624:20)
-      at mapIds (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:33:18)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:76:15)
+      at mapIds (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:33:18)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:76:15)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.start (node:internal/test_runner/test:1262:17)
@@ -1201,14 +1201,14 @@ test at test/unit/bg_map_resolves_used_backgrounds.test.js:75:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
   }
 
 test at test/unit/bg_map_resolves_used_backgrounds.test.js:89:1
 ✖ 審核過的待審背景仍留在地圖，但標成不供挑選 (0.092708ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:90:18)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/bg_map_resolves_used_backgrounds.test.js:90:18)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1218,14 +1218,14 @@ test at test/unit/bg_map_resolves_used_backgrounds.test.js:89:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/assets/hero-bg/bg-map.js'
   }
 
 test at test/unit/colortool_env.test.js:23:1
 ✖ ① 源頭工具頁有環境格且留空（環境中立） (1.0655ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:24:19)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:24:19)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.start (node:internal/test_runner/test:1262:17)
@@ -1233,14 +1233,14 @@ test at test/unit/colortool_env.test.js:23:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
   }
 
 test at test/unit/colortool_env.test.js:29:1
 ✖ ② injectEnv：填得進、讀得回、冪等、找不到格出聲 (0.090459ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:30:19)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:30:19)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1250,14 +1250,14 @@ test at test/unit/colortool_env.test.js:29:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
   }
 
 test at test/unit/colortool_env.test.js:40:1
 ✖ ③ CLI 就地改寫（部署腳本走的那條路） (0.222333ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:43:26)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:43:26)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1267,14 +1267,14 @@ test at test/unit/colortool_env.test.js:40:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
   }
 
 test at test/unit/colortool_env.test.js:51:1
 ✖ ④ 工具頁不得再寫死 localhost:8787 的 API 呼叫 (0.073292ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:52:19)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/colortool_env.test.js:52:19)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1284,7 +1284,7 @@ test at test/unit/colortool_env.test.js:51:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/活動頁色彩策略工具.html'
   }
 
 test at test/unit/deploy_dirty_tree_guard.test.js:52:3
@@ -1293,7 +1293,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:52:3
   
   127 !== 1
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:57:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:57:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.start (node:internal/test_runner/test:1262:17)
@@ -1317,7 +1317,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:64:3
   
   127 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:70:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:70:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1340,7 +1340,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:75:3
   
   127 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:81:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:81:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1361,7 +1361,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:85:3
   
   127 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:90:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:90:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1382,7 +1382,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:96:3
   
   127 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:100:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:100:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1403,7 +1403,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:105:3
   
   127 !== 1
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:112:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:112:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1424,7 +1424,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:119:3
   
   127 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:124:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:124:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1445,7 +1445,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:129:3
   
   127 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:133:14)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:133:14)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1466,7 +1466,7 @@ test at test/unit/deploy_dirty_tree_guard.test.js:138:3
   
   127 !== 2
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:140:12)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/deploy_dirty_tree_guard.test.js:140:12)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Suite.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1491,9 +1491,9 @@ test at test/unit/explore_cap_sync.test.js:1:1
 
 test at test/unit/fonts_registry.test.js:119:1
 ✖ 引擎頁（FrameTest）Google Fonts <link> 載的家族都有戶口 (0.264792ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/fonts_registry.test.js:121:19)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/fonts_registry.test.js:121:19)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1503,14 +1503,14 @@ test at test/unit/fonts_registry.test.js:119:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
   }
 
 test at test/unit/fonts_registry.test.js:129:1
 ✖ 字風登記簿 × 字體簿：approved 的主字型＝有 fontId、A 級、消費者頁真的載得到；每款 fontId 對回的家族＝fontStack[0] (0.553458ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/fonts_registry.test.js:133:19)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/fonts_registry.test.js:133:19)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1520,7 +1520,7 @@ test at test/unit/fonts_registry.test.js:129:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
   }
 
 test at test/unit/ga_tracking.test.js:1:1
@@ -1533,9 +1533,9 @@ test at test/unit/hero_bg_own_doors.test.js:1:1
 
 test at test/unit/hero_combo.test.js:166:1
 ✖ 四支排版控制的檔位表與渲染端 hv2TypoMul 的複本同值（人肉同步的斷裂偵測） (1.562792ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_combo.test.js:168:17)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/hero_combo.test.js:168:17)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1545,7 +1545,7 @@ test at test/unit/hero_combo.test.js:166:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
+    path: '<repo>/2026-AI自動化活動頁生成規劃/MVP_Phase1_LeCreuset_活動頁Prototype_FrameTest.html'
   }
 
 test at test/unit/hero_stages_twin.test.js:1:1
@@ -1554,9 +1554,9 @@ test at test/unit/hero_stages_twin.test.js:1:1
 
 test at test/unit/legacy_pipelines_archived.test.js:17:3
 ✖ price_watch.sh 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.111708ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/price_watch.sh'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/price_watch.sh'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/legacy_pipelines_archived.test.js:18:21)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/legacy_pipelines_archived.test.js:18:21)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1566,14 +1566,14 @@ test at test/unit/legacy_pipelines_archived.test.js:17:3
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/price_watch.sh'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/price_watch.sh'
   }
 
 test at test/unit/legacy_pipelines_archived.test.js:17:3
 ✖ overview_sheet.js 檔頭寫明 2026-09-14 停用／封存與回來的條件 (0.05525ms)
-  Error: ENOENT: no such file or directory, open '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/overview_sheet.js'
+  Error: ENOENT: no such file or directory, open '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/overview_sheet.js'
       at Object.readFileSync (node:fs:624:20)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/legacy_pipelines_archived.test.js:18:21)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/legacy_pipelines_archived.test.js:18:21)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1583,7 +1583,7 @@ test at test/unit/legacy_pipelines_archived.test.js:17:3
     errno: -2,
     code: 'ENOENT',
     syscall: 'open',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/overview_sheet.js'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/overview_sheet.js'
   }
 
 test at test/unit/net_tuning.test.js:26:1
@@ -1592,7 +1592,7 @@ test at test/unit/net_tuning.test.js:26:1
   
   500 !== 250
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/net_tuning.test.js:35:10)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/net_tuning.test.js:35:10)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.start (node:internal/test_runner/test:1262:17)
@@ -1608,14 +1608,14 @@ test at test/unit/net_tuning.test.js:26:1
 test at test/unit/netlify_auth.test.js:19:1
 ✖ 退役：source 回非零且訊息明確（不靜默） (34.478ms)
   AssertionError [ERR_ASSERTION]: stderr 應含退役訊息
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/netlify_auth.test.js:22:10)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/netlify_auth.test.js:22:10)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.start (node:internal/test_runner/test:1262:17)
       at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
     generatedMessage: false,
     code: 'ERR_ASSERTION',
-    actual: 'zsh:source:1: no such file or directory: /Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/workbench/netlify-auth.sh\n',
+    actual: 'zsh:source:1: no such file or directory: <repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/workbench/netlify-auth.sh\n',
     expected: /已退役/,
     operator: 'match',
     diff: 'simple'
@@ -1623,182 +1623,182 @@ test at test/unit/netlify_auth.test.js:19:1
 
 test at test/unit/server_brief_flow.test.js:48:1
 ✖ ① /api/briefs：內建五份都帶第一行的型態與主題 (0.296125ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:56:1
 ✖ ② 組「給 Gemini 的話」：帶卡名、主題、真實商品名清單、該型態範本正文 (0.033167ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:65:1
 ✖ ③ 貼上就存＋對帳：型態寫成別張卡＝算出 different；檔存進 mine 且同名不覆蓋 (0.06075ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:77:1
 ✖ ③b 貼上夾價格＝400 不存、白話講哪一段 (0.0365ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:85:1
 ✖ ④ 選檔對帳：內建 05 對這檔＝型態 same (0.037541ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:90:1
 ✖ ⑤ 建立帶策略檔但沒選型態＝從策略檔第一行補型態（09-15 下午翻案：策略檔是型態真源） (0.027958ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:100:1
 ✖ ⑤b 人有填主題＝人的優先，策略檔不覆蓋 (0.025917ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:107:1
 ✖ ⑥ 照策略檔重做：先備份、同批商品重排、核可失效、meta.brief 落檔、跑完 ready (0.02675ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_brief_flow.test.js:132:1
 ✖ ⑦ 建立活動：舊網域 @yahooinc.com 擋下並指路「重新整理」、外部信箱擋下指路 Outlook、新網域放行；擋下的不落檔 (0.041541ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:25:6)
       at TestHook.runInAsyncScope (node:async_hooks:226:14)
       at TestHook.run (node:internal/test_runner/test:1402:25)
       at TestHook.run (node:internal/test_runner/test:1757:18)
       at TestHook.run (node:internal/util:581:20)
       at Test.createHook (node:internal/test_runner/test:1117:33)
       at test.before (node:internal/test_runner/harness:426:12)
-      at Object.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
+      at Object.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_brief_flow.test.js:23:6) {
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_price_truth_flow.test.js:52:1
 ✖ report 樁：有變價＝快照與草稿同批改用商品頁現價、gate CP-02 0、wb.log 逐件＋總結、meta.priceTruth 記帳、stage ready (1.622041ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at withServer (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:25:6)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:53:9)
+      at withServer (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:53:9)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.start (node:internal/test_runner/test:1262:17)
@@ -1806,16 +1806,16 @@ test at test/unit/server_price_truth_flow.test.js:52:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/server_price_truth_flow.test.js:88:1
 ✖ offline 樁：全部連不上＝一件都不改、出聲、不擋建立（stage ready）、meta.priceTruth.offline (0.771375ms)
-  Error: ENOENT: no such file or directory, lstat '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+  Error: ENOENT: no such file or directory, lstat '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
       at cpSyncFn (node:internal/fs/cp/cp-sync:56:13)
       at Object.cpSync (node:fs:3854:3)
-      at withServer (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:25:6)
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:89:9)
+      at withServer (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:25:6)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/server_price_truth_flow.test.js:89:9)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1825,7 +1825,7 @@ test at test/unit/server_price_truth_flow.test.js:88:1
     errno: -2,
     code: 'ENOENT',
     syscall: 'lstat',
-    path: '/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
+    path: '<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/runs/2026-09-14-wb-143442'
   }
 
 test at test/unit/spec_field_limits_vs_hero_len.test.js:83:1
@@ -1849,7 +1849,7 @@ test at test/unit/spec_field_limits_vs_hero_len.test.js:83:1
   + ]
   - []
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/spec_field_limits_vs_hero_len.test.js:93:10)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/spec_field_limits_vs_hero_len.test.js:93:10)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
@@ -1877,7 +1877,7 @@ test at test/unit/ui_brief_flow.test.js:54:1
   
   1 !== 0
   
-      at TestContext.<anonymous> (/Users/mlu01/Code/campaign-studio/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/ui_brief_flow.test.js:57:10)
+      at TestContext.<anonymous> (<repo>/2026-Claude-code-AI自動化創建活動頁 workflow/pipeline/test/unit/ui_brief_flow.test.js:57:10)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
       at Test.processPendingSubtests (node:internal/test_runner/test:974:18)

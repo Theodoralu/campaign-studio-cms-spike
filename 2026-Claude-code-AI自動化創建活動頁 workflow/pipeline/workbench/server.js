@@ -677,12 +677,12 @@ const NETLIFY_SITE_ID = "7392e5fe-6051-4295-9313-85775a48566c"; // 已退役（�
 const LIVE_BASE = "https://solid-pancake-38klg7k.pages.github.io"; // 遷移 #5（2026-08-04）：GHE 轉正＝唯一守門部署站；liveUrl＝內網確認頁（Okta 門）
 
 /* 帳號解耦（2026-07-28）：netlify CLI「現用帳號」是全域可變狀態——他處 netlify login/switch 就被切走
-   ＝部署停擺（07-27/07-28 兩度發生）。一律改用 CLI 設定檔內 tofu@yahooinc.com 的 token
+   ＝部署停擺（07-27/07-28 兩度發生）。一律改用 CLI 設定檔內部署帳號（NETLIFY_DEPLOY_EMAIL）的 token
    （NETLIFY_AUTH_TOKEN 環境變數優先於現用帳號）；每次呼叫現讀設定檔＝重新 login 後免重啟。
    ⚠ 遷移 #5（2026-08-04）退役：Netlify 站已刪、deployRun 改走 deploy-ghe-pages.sh——本函式已無活呼叫端
    （僅 publishPublic 退役死碼後方仍引用），與 workbench/netlify-auth.sh 同步保留為歷史參考。
    shell 端同邏輯＝workbench/netlify-auth.sh——修改判定規則時兩處要一起動。 */
-const NETLIFY_DEPLOY_EMAIL = "tofu@yahooinc.com";
+const NETLIFY_DEPLOY_EMAIL = process.env.NETLIFY_DEPLOY_EMAIL || ""; // D5：原寫死個人信箱；函式已退役（遷移 #5），D11 連同 Netlify 死碼一起拿掉
 function netlifyAuthEnv(id) {
   // 出聲但不擋路：log 寫不進（run 目錄異常）退 console＝進 /tmp/wb-server.log，不讓日誌問題打斷部署
   const warn = (msg) => { try { appendLog(id, msg); } catch (e) { console.error(msg); } };

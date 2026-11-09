@@ -18,6 +18,7 @@
  * 前端 applySwap 圓卡替換路（public/index*.html）＝使用者親眼挑圖、本批禁區不動（列帳交裁決）。
  */
 const https = require("https");
+const httpReplay = require("../lib/http_replay"); // D5：圓卡圖探測也要能錄製回放，否則黃金對照在有網路的機器上會變
 require("../lib/net_tuning"); // 對外連線預算（唯一一份＝lib/net_tuning.js）：預設 250ms 太短會讓「人點得開、工具抓不到」
 
 /** 編輯精選圓顯示尺寸＝300 級（設計板圓徑）：候選圖寬低於此＝放大糊圖或原寸縮一坨，一律不合格 */
@@ -101,7 +102,7 @@ function probeImageSize(url, opts = {}) {
     if (u.protocol !== "https:") return reject(new Error("僅支援 https 圖址"));
     let settled = false;
     const done = (fn, v) => { if (!settled) { settled = true; fn(v); } };
-    const req = https.get(u.href, { timeout: timeoutMs, headers: { Range: `bytes=0-${maxBytes - 1}` } }, (res) => {
+    const req = httpReplay.get(u.href, { timeout: timeoutMs, headers: { Range: `bytes=0-${maxBytes - 1}` } }, (res) => { // D5：走錄製／回放門（live＝https.get）
       if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location && redirectsLeft > 0) {
         res.resume(); req.destroy();
         let r2; try { r2 = new URL(res.headers.location, u.href); } catch (e) { return done(reject, new Error(`轉址位置無效（HTTP ${res.statusCode}）`)); }

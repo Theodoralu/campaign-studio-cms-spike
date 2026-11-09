@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/suzuki-shunsuke/pinact/refs/heads/main/json-schema/pinact.json
+# D5（2026-11-09）：Actions 一律 pin full commit SHA；第一方 YahooTWEC org 例外（搬進組織後用到）。
+# 更新 pin：在能上網的機器 `pinact run`。
+ignore_actions:
+  - name: YahooTWEC/.*

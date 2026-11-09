@@ -43,5 +43,5 @@ for (const f of fs.readdirSync(rawDir)) {
   n++;
   console.log(`${key}  ←  raw/${f}\n           ${url}`);
 }
-fs.writeFileSync(path.join(dir, "index.json"), JSON.stringify(idx, Object.keys(idx).sort(), 2));
+fs.writeFileSync(path.join(dir, "index.json"), JSON.stringify(Object.fromEntries(Object.keys(idx).sort().map((k) => [k, idx[k]])), null, 2));
 console.log(`完成：${n} 份卡帶 → ${dir}`);

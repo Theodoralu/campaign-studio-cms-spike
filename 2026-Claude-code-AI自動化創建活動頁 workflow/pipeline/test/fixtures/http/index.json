@@ -1,5 +1,37 @@
 {
-  "39352f3de145ad5c5442d73605fcdae9b5398007": {},
-  "81c5e8f6369fd364bafcab591a9c2068e5b78d36": {},
-  "ae56e8ba80a7df950835b398d08a39ba43cb3314": {}
+  "2275d104bbc17fa092d1a29c4ec92e61caa2aede": {
+    "method": "GET",
+    "url": "https://img.yec.tw/zp/MerchandiseImages/009e7bcfc7-Gd-6679743.jpg",
+    "statusCode": 206,
+    "recordedAt": "2026-11-09T02:09:31.329Z",
+    "partial": true
+  },
+  "39352f3de145ad5c5442d73605fcdae9b5398007": {
+    "method": "GET",
+    "url": "https://tw.buy.yahoo.com/activity/onsale?actid=796420",
+    "statusCode": 200,
+    "recordedAt": "2026-10-27T00:58:24.018Z",
+    "source": "2026-10-27-wb-085823/raw/act_796420.html"
+  },
+  "3f00402d4265665039aa57f3ad6fb9725cfd5d7d": {
+    "method": "GET",
+    "url": "https://img.yec.tw/zp/MerchandiseImages/D68FDE5654-SP-20602318.jpg",
+    "statusCode": 206,
+    "recordedAt": "2026-11-09T02:09:31.516Z",
+    "partial": true
+  },
+  "81c5e8f6369fd364bafcab591a9c2068e5b78d36": {
+    "method": "GET",
+    "url": "https://tw.buy.yahoo.com/activity/onsale?actid=789017",
+    "statusCode": 200,
+    "recordedAt": "2026-10-27T00:58:24.018Z",
+    "source": "2026-10-27-wb-085823/raw/act_789017.html"
+  },
+  "ae56e8ba80a7df950835b398d08a39ba43cb3314": {
+    "method": "GET",
+    "url": "https://tw.buy.yahoo.com/?sub=1035",
+    "statusCode": 200,
+    "recordedAt": "2026-10-27T00:58:24.018Z",
+    "source": "2026-10-27-wb-085823/raw/source_page.html"
+  }
 }

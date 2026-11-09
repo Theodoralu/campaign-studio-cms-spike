@@ -135,7 +135,7 @@ test("已登記負責人＝單發該負責人＋操作者副本；未登記者�
 test("零外部連結機械強制：⛔ 信體的伺服器錯誤訊息＝URL 與本機路徑被遮蔽；docs.google.com 放行", () => {
   const env = loadGs({
     overview: sheet(null, [
-      row({ 1: "run-a", 2: "活動甲", 7: "⛔ 巡檢失敗", 14: "巡檢異常：HTTP 503 for https://tw.buy.yahoo.com/gdsale/x.html（ENOENT /Users/tofu/x/draft.json）" }),
+      row({ 1: "run-a", 2: "活動甲", 7: "⛔ 巡檢失敗", 14: "巡檢異常：HTTP 503 for https://tw.buy.yahoo.com/gdsale/x.html（ENOENT /Users/tofu/x/draft.json）" }), // secret-scan: allow 測試資料：驗出口會遮蔽 /Users/ 路徑
     ]),
   });
   env.run();

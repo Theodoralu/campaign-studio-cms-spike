@@ -46,7 +46,7 @@ function writeCassette(method, url, rec) {
   let idx = {};
   try { idx = JSON.parse(fs.readFileSync(idxFile, "utf8")); } catch (_) { /* 第一次 */ }
   idx[keyOf(method, url)] = { method: method.toUpperCase(), url, statusCode: rec.statusCode, recordedAt: rec.recordedAt };
-  fs.writeFileSync(idxFile, JSON.stringify(idx, Object.keys(idx).sort(), 2));
+  fs.writeFileSync(idxFile, JSON.stringify(Object.fromEntries(Object.keys(idx).sort().map((k) => [k, idx[k]])), null, 2));
 }
 
 function pickHeaders(h) {
@@ -95,15 +95,18 @@ function get(url, options, cb) {
     tee.headers = res.headers;
     tee.statusMessage = res.statusMessage;
     res.on("data", (c) => chunks.push(Buffer.isBuffer(c) ? c : Buffer.from(c)));
-    res.on("end", () => {
+    let saved = false; // 部分下載（img_probe 讀到圖頭就 destroy）不會有 end，改在 close 時以收到的部分存檔
+    const save = () => {
+      if (saved) return; saved = true;
       const body = Buffer.concat(chunks);
       const text = isText(res.headers["content-type"]);
       writeCassette("GET", href, {
         url: href, statusCode: res.statusCode, headers: pickHeaders(res.headers),
         encoding: text ? "utf8" : "base64", body: text ? body.toString("utf8") : body.toString("base64"),
-        recordedAt: new Date().toISOString(),
+        recordedAt: new Date().toISOString(), partial: res.complete === false || undefined,
       });
-    });
+    };
+    res.on("end", save); res.on("close", save);
     res.pipe(tee);
     cb && cb(tee);
   });
