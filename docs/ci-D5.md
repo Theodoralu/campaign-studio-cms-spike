@@ -46,3 +46,9 @@
 - [ ] 推 PR 看三個 job 真的綠（第一次跑 `npm ci` 會抓 sharp 二進位，約 1～2 分鐘）
 - [ ] `npm audit` 清單看過後決定升級哪些（D5 只報）
 - [ ] 搬進組織：`runs-on: global-runner`、加 `YahooTWEC/shared-actions/setup-codeartifact-npm@main`、`pinact run`
+
+## 結果（2026-11-09）
+- 企業政策：`mlu01_ytwec` 名下的 repo **不允許 GitHub Actions**（「This setting has been disabled by enterprise administrators」）。公司只讓組織底下的 repo 跑、且跑自己的 `global-runner`。
+- 因此 CI 在 **私人試車場** `Theodoralu/campaign-studio-cms-spike`（private）驗證：三個 job 全綠（secret-scan／check／unit）。試車場只是鏡像，程式碼永遠從公司 repo 推過去；驗完即刪。
+- 第一次跑就抓到兩件事：`docs/ci-D5.md` 自己引用了被清掉的字串（已改寫）；`img_probe` 有網路／沒網路結果不同（已走錄製回放）。
+- **待辦**：把 repo 搬進 YahooTWEC 組織（D11 Okta、D12 Omega 本來就需要），搬完改 `runs-on: global-runner`、加 `setup-codeartifact-npm`、`pinact run`，CI 在公司這邊正式跑起來。

@@ -11,3 +11,10 @@
 | ga_tracking | GA4 三層注入 | D10 用 fixture 重寫（GA4 第一版預設關閉） |
 
 要看它們在有源檔的機器上跑：`npm run test:legacy-env`。
+
+## 2026-11-09 追加（CI 首跑抓到）
+| 檔 | 原本驗什麼 | 為什麼不跑 |
+|---|---|---|
+| install_sh_netcheck | 單機版安裝腳本 `install.sh` 的 Yahoo 連線探測 | 用 `zsh` 跑 Mac 安裝腳本；Ubuntu runner 沒有 zsh，spawn ENOENT 變 uncaughtException，假伺服器留著不關 → **整個 node --test 掛 4 小時不結束**。單機版發行流程，不搬 |
+| pack_unmerged_guard | 打包前「做完沒合併」健檢 | 同上，單機版打包機 |
+| pick_port | start-editor.sh 挑埠 | 同上，單機版啟動腳本 |

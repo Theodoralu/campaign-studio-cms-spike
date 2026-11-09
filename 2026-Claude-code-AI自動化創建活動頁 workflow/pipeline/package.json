@@ -7,8 +7,8 @@
     "check": "bash dod-check.sh static",
     "check:full": "bash dod-check.sh full",
     "guard": "node tools/dod-guards.js",
-    "test": "node --test \"test/*.test.js\" \"test/unit/*.test.js\"",
-    "test:unit": "node --test \"test/unit/*.test.js\"",
+    "test": "node --test --test-timeout=120000 \"test/*.test.js\" \"test/unit/*.test.js\"",
+    "test:unit": "node --test --test-timeout=120000 \"test/unit/*.test.js\"",
     "selftest": "bash dod-check.sh full",
     "gates": "bash dod-check.sh full",
     "design:qa": "node tools/design_qa.js",
@@ -21,7 +21,10 @@
     "ci": "npm run secret:scan && npm run schema:check && npm run test:replay && npm run test:golden && npm test",
     "test:golden": "node --test test/e2e_golden.test.js",
     "golden:regen": "bash tools/golden_regen.sh",
-    "secret:scan": "node tools/secret_scan.js"
+    "secret:scan": "node tools/secret_scan.js",
+    "test:uther": "node --test test/unit/uther_client.test.js test/unit/source_build_snapshot.test.js",
+    "snapshot:diff": "node tools/snapshot_diff.js",
+    "uther:probe": "node tools/uther_probe.js"
   },
   "keywords": [],
   "author": "",
