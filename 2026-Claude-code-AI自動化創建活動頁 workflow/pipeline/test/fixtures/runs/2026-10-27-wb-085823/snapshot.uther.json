@@ -1,0 +1,4705 @@
+{
+  "sourceUrl": "https://tw.buy.yahoo.com/?sub=1035",
+  "fetchedAt": "2026-11-09T07:00:00.000Z",
+  "brand": "統一企業  品牌旗艦店",
+  "promotions": [
+    {
+      "actid": "784492",
+      "title": "中元普渡拜拜箱 豪華澎湃保平安8件組(統一麵/義美/樂米/新東陽)",
+      "short": null,
+      "startTs": 1786356780,
+      "endTs": 1853895600,
+      "period": "2026.08.10 ~ 2028.09.30",
+      "url": "https://tw.buy.yahoo.com/activity/onsale/combo?actid=784492",
+      "banner": null
+    },
+    {
+      "actid": "803102",
+      "title": "統一旗艦店茶裏王指定滿499現折40!",
+      "short": "滿$499折$40",
+      "startTs": 1793498400,
+      "endTs": 1796090399,
+      "period": "2026.11.01 ~ 2026.12.01",
+      "url": "https://tw.buy.yahoo.com/activity/onsale?actid=803102",
+      "banner": "https://img.yec.tw/zp/MipBanners/4D66831729-803102.jpg"
+    },
+    {
+      "actid": "795645",
+      "title": "統一LP33腸道守護者限時特價",
+      "short": "任選1件$2999",
+      "startTs": 1794189600,
+      "endTs": 1794794399,
+      "period": "2026.11.09 ~ 2026.11.16",
+      "url": "https://tw.buy.yahoo.com/activity/onsale?actid=795645",
+      "banner": "https://img.yec.tw/zp/MipBanners/1DDAADE39A-795645.jpg"
+    }
+  ],
+  "activities": {
+    "784492": {
+      "meta": {
+        "resultsTotal": null
+      },
+      "count": 1,
+      "title": "中元普渡拜拜箱 豪華澎湃保平安8件組(統一麵/義美/樂米/新東陽)",
+      "period": "2026.08.10 ~ 2028.09.30",
+      "startTs": 1786356780,
+      "endTs": 1853895600,
+      "pageStartTs": 1786356780,
+      "pageEndTs": 1853895600,
+      "pagePeriod": "2026.08.10 ~ 2028.09.30",
+      "liveness": "online",
+      "archived": false
+    },
+    "795645": {
+      "meta": {
+        "resultsTotal": null
+      },
+      "count": 1,
+      "title": "統一LP33腸道守護者限時特價",
+      "period": "2026.11.09 ~ 2026.11.16",
+      "startTs": 1794189600,
+      "endTs": 1794794399,
+      "pageStartTs": 1794189600,
+      "pageEndTs": 1794794399,
+      "pagePeriod": "2026.11.09 ~ 2026.11.16",
+      "liveness": "online",
+      "archived": false
+    },
+    "803102": {
+      "meta": {
+        "resultsTotal": null
+      },
+      "count": 16,
+      "title": "統一旗艦店茶裏王指定滿499現折40!",
+      "period": "2026.11.01 ~ 2026.12.01",
+      "startTs": 1793498400,
+      "endTs": 1796090399,
+      "pageStartTs": 1793498400,
+      "pageEndTs": 1796090399,
+      "pagePeriod": "2026.11.01 ~ 2026.12.01",
+      "liveness": "online",
+      "archived": false
+    }
+  },
+  "products": [
+    {
+      "gdid": "6424386",
+      "name": "阿Q桶麵 紅椒牛肉風味桶(101gx3入)",
+      "desc": [
+        "享受嗆辣的口味時，更享受味蕾"
+      ],
+      "price": 91,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/阿Q桶麵-紅椒牛肉風味桶101g-3入-組-6424386.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/fb6780f9c8-Gd-6424386.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/fb6780f9c8-Gd-6424386.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 225,
+      "ratingCount": 59,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11907576",
+      "name": "PH9.0 鹼性離子水1450mlx12入/箱",
+      "desc": [
+        "體質加鹼顧",
+        "健康好鹼單",
+        "天天喝統一PH9鹼性離子水"
+      ],
+      "price": 399,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/PH9-0-鹼性離子水1450mlx12入-箱-11907576.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/47A6A10F77-SP-21580225.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9D44AA817F-SP-21580225.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5121C63133-SP-21580225.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 142,
+      "ratingCount": 9,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "8993309",
+      "name": "滿漢大餐 珍味牛肉麵(3入/袋)",
+      "desc": [
+        "遵循傳統保留風味純樸的原汁原味",
+        "嚴選多種香辛料與牛肉共同烹調",
+        "濃濃台灣風味的珍貴美味"
+      ],
+      "price": 139,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-珍味牛肉麵-3入-袋-8993309.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/1a075da346-Gd-8993309.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1a075da346-Gd-8993309.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 266,
+      "ratingCount": 81,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "8273203",
+      "name": "統一 大豆沙拉油-760ml/罐",
+      "desc": [
+        "信賴安心的好油",
+        "採用充氮保鮮技術",
+        "適合煎煮炒炸"
+      ],
+      "price": 79,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-大豆沙拉油-760ml-罐-8273203.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/6F28B0CA24-SP-6748822.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6F28B0CA24-SP-6748822.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 88,
+      "ratingCount": 6,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11930381",
+      "name": "小林煎餅 林桑手燒分享包 300g/包",
+      "desc": [
+        "日式煎餅風格，原始簡單",
+        "多種口味，個別包裝"
+      ],
+      "price": 155,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/小林煎餅-林桑手燒分享包-300g-包-11930381.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/E20CF86ED2-SP-21699514.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2E3F745AAF-SP-21699514.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 208,
+      "ratingCount": 16,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6718940",
+      "name": "滿漢大餐 麻辣鍋牛肉麵(3入/袋)",
+      "desc": [
+        "麻辣鍋精華湯底"
+      ],
+      "price": 139,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-麻辣鍋牛肉麵-3入-袋--6718940.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/4026df91a1-Gd-6718940.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4026df91a1-Gd-6718940.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 224,
+      "ratingCount": 64,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11951127",
+      "name": "滿漢大餐系列風味泡麵(3入/袋，口味任選共3組)",
+      "desc": [
+        "遵循傳統保留風味純樸的原汁原味",
+        "嚴選多種香辛料與牛肉共同烹調",
+        "濃濃台灣風味的珍貴美味"
+      ],
+      "price": 388,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-珍味牛肉-蔥燒牛肉-麻辣鍋牛肉-蔥燒豬肉-3入-袋-任選3袋-11951127.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/A1EF20CBCF-Gd-11951127.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A1EF20CBCF-Gd-11951127.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/797065A6E2-Gd-11951127.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/797065A6E2-Gd-11951127.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 2541,
+      "ratingCount": 275,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11767278",
+      "name": "來一客 肉燥菠菜/京燉肉骨/川辣牛肉/韓式泡菜/蔬菜牛肉/鮮蝦魚板  風味杯(3入) 任選",
+      "desc": [
+        "肉燥菠菜/京燉肉骨/川辣牛肉",
+        "紅蔥頭爆炒肉燥蛋片菠菜精緻豐富",
+        "爆炒紅蔥頭高麗菜等配料醬香味濃",
+        "川辣牛肉特製豆瓣醬,過癮又順口"
+      ],
+      "price": 65,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-肉燥菠菜-京燉肉骨-川辣牛肉-風味杯-3入-任選-11767278.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3896a27c1b-Gd-6424380.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3896a27c1b-Gd-6424380.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 3694,
+      "ratingCount": 352,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "12063093",
+      "name": "統一 麥香紅茶/麥香綠茶/麥香奶茶(300mlx24入/箱) 任選3箱",
+      "desc": [
+        "紅茶中加入焙炒大麥",
+        "增香去澀、茶香清甜",
+        "經典大麥國民飲料"
+      ],
+      "price": 559,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-麥香紅茶-麥香綠茶-300mlx24入-箱-任選3箱-12063093.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/B8B3402E9D-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B8B3402E9D-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4E30AFA3CF-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4E30AFA3CF-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/845A85A356-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E6D5AF6F18-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DBD164FE63-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7DF16D9D9A-Gd-12063093.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6DF4C3FD0C-Gd-12063093.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 2123,
+      "ratingCount": 262,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11907579",
+      "name": "統一H2O Water純水無標籤600mlx24入/箱",
+      "desc": [
+        "去標隨手微減碳",
+        "中央山脈甘甜水源",
+        "7道核心淨水製程每一口都純淨"
+      ],
+      "price": 199,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一H2O-Water純水無標籤600mlx24入-箱-11907579.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/DC5D5D3AA6-SP-21577103.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/44AF94F0EB-SP-21577103.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D7130E9DB5-SP-21577103.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/68A5A42F9B-SP-21577103.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1279,
+      "ratingCount": 77,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11949574",
+      "name": "茶裏王 日式無糖綠茶/白毫烏龍茶/英式紅茶/台式綠茶/青心烏龍茶(600mlx24入)任選2箱",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "經動物實驗證明可延緩低密度脂蛋白(LDL)之氧化，茶裏王建議您多加飲用",
+        "建議攝取量:每日飲用1200毫升可達保健功效"
+      ],
+      "price": 758,
+      "currentPrice": 758,
+      "marketPrice": 798,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-日式無糖綠茶-白毫烏龍茶-英式紅茶-台式綠茶-青心烏龍茶-600mlx24入-任選2箱-11949574.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/C593BFC000-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C593BFC000-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A5D5BAF27F-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A5D5BAF27F-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7C103E5967-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A79F5D19E4-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/EC31B079C9-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/BF37C19476-Gd-11949574.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A68D0E8F8A-Gd-11949574.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 1113,
+      "ratingCount": 125,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11951344",
+      "name": "統一麵系列風味泡麵(5入/袋，口味任選共3組)",
+      "desc": [
+        "在熬夜讀書、加班的時候",
+        "暢快地吃碗統一麵蔥燒牛肉風味麵",
+        "馬上提振委靡的精神"
+      ],
+      "price": 229,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-蔥燒牛肉風味-肉燥風味特大袋-鮮蝦風味-肉骨茶風味-米粉-肉燥風味-5入-袋-3組-11951344.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F185DA390C-Product-17211628.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CC097FE145-Product-17211628.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/797603C415-Product-17211628.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 854,
+      "ratingCount": 104,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11815935",
+      "name": "滿漢大餐 珍味牛肉/蔥燒牛肉/ 麻辣鍋牛肉/蔥燒豬肉 (3入/袋)任選一組",
+      "desc": [
+        "遵循傳統保留風味純樸的原汁原味",
+        "嚴選多種香辛料與牛肉共同烹調",
+        "濃濃台灣風味的珍貴美味"
+      ],
+      "price": 139,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-珍味牛肉-蔥燒牛肉-麻辣鍋牛肉-蔥燒豬肉-任選一組-11815935.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/A6DCCB3007-Product-18108682.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A6DCCB3007-Product-18108682.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 709,
+      "ratingCount": 46,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11806877",
+      "name": "統一 PH9.0鹼性離子水(580mlx24入)x2箱，(共48入)",
+      "desc": [
+        "適鹼性PH9.0-9.5鹼性水",
+        "適度補充天然礦物質與微量元素",
+        "體質加鹼顧，外食族必備"
+      ],
+      "price": 699,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-PH9-0鹼性離子水-580mlx24入-1-1組合-共2箱--11806877.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/5570C81BED-Gd-11806877.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5570C81BED-Gd-11806877.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4C8B904436-Gd-11806877.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8EAFD09C64-Gd-11806877.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 862,
+      "ratingCount": 92,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "6424388",
+      "name": "統一麵 肉燥風味特大袋(85gx5入)",
+      "desc": [
+        "颱風夜裡、異鄉求學時",
+        "一碗親切的「統一麵肉燥風味麵」",
+        "帶來家鄉般的溫暖"
+      ],
+      "price": 78,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-肉燥風味特大袋85g-5入-袋-6424388.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/e8fdc215b8-Gd-6424388.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/80f4bc9c11-Gd-6424388.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1378,
+      "ratingCount": 180,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products",
+      "bestseller7d": true
+    },
+    {
+      "gdid": "11897781",
+      "name": "統一 陽光無加糖豆奶250mlx24入/箱_1+1組合(共2箱)",
+      "desc": [
+        "首瓶A.A.驗證100%無添加",
+        "非基改黃豆與兩道活性碳過濾水",
+        "減壓脫氣專利 去除黃豆腥味"
+      ],
+      "price": 559,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-陽光無加糖豆奶250mlx24入-箱-1-1組合-共2箱--11897781.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2ED03A321B-Gd-11897781.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2ED03A321B-Gd-11897781.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9FB2C40046-Gd-11897781.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8A8983B7AE-Gd-11897781.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DDD9E3A13C-Gd-11897781.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/AF6497904F-Gd-11897781.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1017,
+      "ratingCount": 132,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808788",
+      "name": "H2O Water純水(5800mlx2入)_1+1組合(共2箱4入)",
+      "desc": [
+        "值得信賴的純水"
+      ],
+      "price": 299,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/H2O-Water純水-5800mlx2入-1-1組合-共2箱4入--11808788.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/086945A00E-Gd-11808788.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/41922bcdd8-Gd-6329559.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7ab298b37d-Gd-6329559.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1050,
+      "ratingCount": 57,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11656389",
+      "name": "大補帖 當歸鴨風味細麵碗102gx2入/組",
+      "desc": [
+        "當歸鴨補膳美食風味的湯頭",
+        "搭配軟Q細麵麵身及酒香包的珍味"
+      ],
+      "price": 53,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/大補帖-當歸鴨風味細麵碗102gx2入-組-11656389.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/95D65BC7F5-SP-20296568.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DFEC096A84-SP-20296568.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1032,
+      "ratingCount": 133,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808851",
+      "name": "PH9.0 鹼性離子水(800mlx20入)x3箱(1+2組合 共60入)",
+      "desc": [
+        "體質加鹼顧",
+        "健康好鹼單",
+        "天天喝統一PH9鹼性離子水"
+      ],
+      "price": 999,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/PH9-0-鹼性離子水-800mlx20入-x3箱-1-2組合-共60入--11808851.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/C7CF06FFA3-Gd-11808851.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C7CF06FFA3-Gd-11808851.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9769DAF6C2-Gd-11808851.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9769DAF6C2-Gd-11808851.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A99B4663D8-Gd-11808851.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3F61CEB3E5-Gd-11808851.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 483,
+      "ratingCount": 65,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11907577",
+      "name": "H2O Water純水2200mlx8入/箱",
+      "desc": [
+        "嚴格品質把關",
+        "源自礦泉 高等級過濾",
+        "輕鬆選擇, 安心飲用"
+      ],
+      "price": 199,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一H2O-Water純水2200mlx24入-箱-11907577.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/19E58E6852-SP-21576101.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8D84891C5F-SP-21576101.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/68A5A42F9B-SP-21576101.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 783,
+      "ratingCount": 36,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808847",
+      "name": "PH9.0 鹼性離子水(800mlx20入)_1+1組合(共2箱40入)",
+      "desc": [
+        "體質加鹼顧",
+        "健康好鹼單",
+        "天天喝統一PH9鹼性離子水"
+      ],
+      "price": 699,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/PH9-0-鹼性離子水-800mlx20入-1-1組合-共2箱40入--11808847.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/0EC793D09A-Gd-11808847.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A99B4663D8-Gd-5942422.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/feeab5768b-Gd-5942422.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 266,
+      "ratingCount": 28,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6329559",
+      "name": "H2O Water純水(5800mlx2入)",
+      "desc": [
+        "值得信賴的純水"
+      ],
+      "price": 159,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/H2O-Water純水-5800mlx2入--6329559.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/7ab298b37d-Gd-6329559.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/41922bcdd8-Gd-6329559.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "HAS_THUMBNAIL",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 868,
+      "ratingCount": 264,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "9621581",
+      "name": "統一麵 肉燥/ 蔥燒牛肉/鮮蝦/ 肉骨茶 風味 袋裝 任選",
+      "desc": [
+        "颱風夜裡、異鄉求學時",
+        "一碗親切的「統一麵肉燥風味麵」",
+        "帶來家鄉般的溫暖"
+      ],
+      "price": 79,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-袋裝-任選-9621581.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2058ad529a-Gd-6424384.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3858466A11-Product-39270854.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "784492",
+      "actIds": [
+        "784492"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 2048,
+      "ratingCount": 211,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808923",
+      "name": "水事紀麥飯石礦泉水(5000mlx2入)_1+1組合(共2箱4入)",
+      "desc": [
+        "經麥飯石礦脈層層濾淨，天然、甘甜的好水"
+      ],
+      "price": 300,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/水事紀麥飯石礦泉水-5000mlx2入-1-1組合-共2箱4入--11808923.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/CDCD90E124-Gd-11808923.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/12CBD50656-Gd-6329560.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/d59e477171-Gd-6329560.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 915,
+      "ratingCount": 18,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "8824214",
+      "name": "統一LP33益生菌膠囊(60顆x2盒)免疫調節認標章/輔助調整過敏體質",
+      "desc": [
+        "健康食品雙認證A00301號",
+        "低溫免費宅配到府"
+      ],
+      "price": 2999,
+      "currentPrice": 2999,
+      "marketPrice": 3820,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/時時樂-LP33益生菌膠囊-60顆x2盒--8824214.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3c0a9cfdc8-Gd-8824214.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/913a0a68aa-Gd-8824214.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3e6289461a-Gd-8824214.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5a509d0c8b-Gd-8824214.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6dce8b324c-Gd-8824214.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/47144c1923-Gd-8824214.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "HAS_THUMBNAIL",
+        "SHOW_CART",
+        "HAS_DISCOUNT",
+        "HAS_COUPON"
+      ],
+      "actid": "795645",
+      "actIds": [
+        "795645"
+      ],
+      "sellerId": null,
+      "salesVolume": 511,
+      "ratingCount": 122,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "7460050",
+      "name": "滿漢大餐 蔥燒牛肉袋(187gx3入)",
+      "desc": [
+        "青蔥以熱油爆炒獨特香氣",
+        "搭配數種香辛料、發酵醬料、牛肉",
+        "熬出敦厚嗆辣風味"
+      ],
+      "price": 139,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/活動-滿漢大餐-蔥燒牛肉袋-187gx3入--7460050.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/a2bdfb3cd0-Gd-7460050.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a2bdfb3cd0-Gd-7460050.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 547,
+      "ratingCount": 147,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11656390",
+      "name": "大補帖 麻油雞風味細麵碗105gx2入/組",
+      "desc": [
+        "承襲補膳調味精神",
+        "麻油雞~補膳美食風味湯",
+        "搭配軟Q細麵麵身及酒香包的珍味"
+      ],
+      "price": 53,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/大補帖-麻油雞風味細麵碗105gx2入-組-11656390.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/D094CDAD61-SP-20296271.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A323541E4D-SP-20296271.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 431,
+      "ratingCount": 48,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12071988",
+      "name": "【統一】健康好時光-純淨暢快益生菌(30包/30天份)1盒",
+      "desc": [
+        "益生菌+益生元+後生元，全滿足",
+        "多國專利8益菌，株株有菌種編號",
+        "四大需求一包滿足，從根本調體質"
+      ],
+      "price": 299,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-健康好時光純-淨暢快益生菌-30包-30天份-1盒-12071988.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2e2b96c734-Gd-12071988.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/be9ea876a6-Gd-12071988.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/80b0a3eafe-Gd-12071988.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8d008891a3-Gd-12071988.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0fb20e82e5-Gd-12071988.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": null,
+      "salesVolume": 1212,
+      "ratingCount": 85,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808673",
+      "name": "統一 UNI SPARKLING氣泡水(500mlx24入)_1+1組合(共500mlx48入)",
+      "desc": [
+        "口感刺激且順口，帶來無比的享受",
+        "無糖0熱量，讓日常飲水增添暢快",
+        "口感刺激最適化佐餐與消暑皆適合"
+      ],
+      "price": 688,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-UNI-SPARKLING氣泡水-500mlx24入-1-1組合-共500mlx48入--11808673.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/53CB259E89-Gd-11808673.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/53CB259E89-Gd-11808673.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7be0be1dd8-Gd-11082198.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1037d7fef5-Gd-11808673.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 592,
+      "ratingCount": 45,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11949256",
+      "name": "來一客 系列風味杯麵(12入/箱)任選2箱",
+      "desc": [
+        "來自大海的清甜蝦仁，搭配小巧可愛的魚板，再佐以海帶嫩芽的鮮美湯頭，清爽風味獨樹一格。"
+      ],
+      "price": 520,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-肉燥菠菜-京燉肉骨-川辣牛肉-韓式泡菜-牛肉蔬菜-鮮蝦魚板-風味杯-12入-箱-任選-11949256.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/753A81BAAC-Gd-11949256.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/753A81BAAC-Gd-11949256.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5BFC73EF38-Gd-11949256.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5BFC73EF38-Gd-11949256.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9ED9E9A729-Gd-11949256.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/45FE3E622E-Gd-11949256.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/00F1D631B1-Gd-11949256.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1502,
+      "ratingCount": 194,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424380",
+      "name": "來一客 鮮蝦魚板風味(63gx3入)",
+      "desc": [
+        "來自大海的清甜蝦仁",
+        "搭配小巧可愛的魚板",
+        "佐以海帶嫩芽的鮮美湯頭"
+      ],
+      "price": 65,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-鮮蝦魚板風味63g-3入-組-6424380.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3896a27c1b-Gd-6424380.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3896a27c1b-Gd-6424380.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 885,
+      "ratingCount": 176,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808778",
+      "name": "H2O Water純水(1500mlx12入)_1+1組合(共2箱24入)",
+      "desc": [
+        "源自礦源",
+        "高等級過濾",
+        "統一用心監製"
+      ],
+      "price": 450,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/H2O-Water純水-1500mlx12入-1-1組合-共2箱24入--11808778.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/CB221FD714-Gd-11808778.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A67D9C8175-Gd-10707243.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/f37b096908-Gd-5942423.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 170,
+      "ratingCount": 13,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11814253",
+      "name": "統一清爽家 芥花油2Lx1入/瓶_1+1組合(共2瓶)",
+      "desc": [
+        "非基因改造原料使用",
+        "煎煮炒炸涼拌皆適用",
+        "油質清爽不黏膩"
+      ],
+      "price": 410,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一清爽家-芥花油2Lx1入-瓶-1-1組合-共2瓶--11814253.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/84DACB5BFC-Gd-11814253.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A75600A69A-SP-21085517.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/ED3EA67817-SP-21085517.jpg"
+      ],
+      "stockStatus": "OUT_OF_STOCK",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 102,
+      "ratingCount": 14,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808689",
+      "name": "統一UNI SPARKLING檸檬風味氣泡水 PET(500mlx24入/箱)_1+1組合(共500mlx48入)",
+      "desc": [
+        "獨特清新的檸檬果香",
+        "口感刺激且順口，帶來無比的享受",
+        "無糖0熱量，讓日常飲水增添暢快"
+      ],
+      "price": 788,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/UNI-SPARKLING檸檬風味氣泡水-PET-500mlx24入-箱-1-1組合-共500mlx-11808689.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/7685190670-Gd-11808689.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7685190670-Gd-11808689.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9E3160C649-Gd-11808689.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9E3160C649-Gd-11808689.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F898EF5BEB-Gd-11808689.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/38A73775AC-Gd-11808689.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 486,
+      "ratingCount": 36,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "5942436",
+      "name": "茶裏王 日式無糖綠茶(600mlx24入)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "低溫精萃引出綠茶精華，鮮爽回甘",
+        "國家健康食品調節血脂功能認證"
+      ],
+      "price": 399,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一茶堣-日式無糖綠茶-600mlx24入--5942436.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/29cad65347-Gd-5942436.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a06f1a7374-Gd-5942436.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 898,
+      "ratingCount": 210,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11920129",
+      "name": "巷口乾麵-麻醬風味100gx4入/袋",
+      "desc": [
+        "創新麵身 保証麵攤現煮口感",
+        "部落客爭相討論 網路大人氣",
+        "輕鬆料理美味大餐"
+      ],
+      "price": 80,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/巷口乾麵-麻醬風味100gx4入-袋-11920129.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/f9c5c40ffc-Gd-11920129.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4d9262b3d8-Gd-11920129.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9b4c2f78c8-Gd-11920129.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 291,
+      "ratingCount": 31,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424387",
+      "name": "阿Q桶麵 雞汁排骨風味桶(107gx3入)",
+      "desc": [
+        "香醇雞汁",
+        "濃郁排骨風味湯頭",
+        "最在地的口味"
+      ],
+      "price": 91,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/阿Q桶麵-雞汁排骨風味桶107g-3入-組-6424387.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/a69ac1a175-Gd-6424387.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a69ac1a175-Gd-6424387.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 265,
+      "ratingCount": 62,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11813431",
+      "name": "茶裏王 四季春茶/綠茶玉露/半熟金萱/伯爵紅茶 600mlX24入/箱, 任選1+1組合(共2箱)",
+      "desc": [
+        "無糖無香料",
+        "自然蜜香，順口回甘",
+        "小綠葉蟬的點心"
+      ],
+      "price": 840,
+      "currentPrice": 840,
+      "marketPrice": 880,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-四季春茶-綠茶玉露-半熟金萱-伯爵紅茶-600mlX24入-箱-任選2箱組-11813431.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/619B48AFAE-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/619B48AFAE-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/030DACDFE8-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/030DACDFE8-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B510E57150-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1CEAE30747-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E54DDC8478-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2D8274DE73-Gd-11813431.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/763FB80334-Gd-11813431.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 470,
+      "ratingCount": 48,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11813673",
+      "name": "科學麵 原味40gx5入/袋_1+1組合(共2袋)",
+      "desc": [
+        "國民的零嘴科學麵經典原味",
+        "碎麵加上重重的胡椒鹹味調料",
+        "口中的幸福滋味久久不散"
+      ],
+      "price": 100,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/科學麵-原味40gx5入-袋-1-1組合-共2袋--11813673.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/17006B74F7-Gd-11813673.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A81D42FD32-SP-21100867.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A81D42FD32-SP-21100867.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4D39C3AD08-SP-21100867.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 676,
+      "ratingCount": 78,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11951639",
+      "name": "來一客杯湯 香菇雞/紫菜蛋花湯杯x1入(口味任選共5入)",
+      "desc": [
+        "低熱量無負擔，料感、口感豐富",
+        "暖心暖胃，幸福隨時加溫",
+        "經典湯品風味香醇美味",
+        "簡單沖泡3分鐘輕鬆上桌"
+      ],
+      "price": 105,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客杯湯-香菇雞-紫菜蛋花湯杯-11-2gx1入-共5入--11951639.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/7E3D546A16-SP-21084995.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7E3D546A16-SP-21084995.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8F1939514B-SP-21084995.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 520,
+      "ratingCount": 39,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11810702",
+      "name": "來一客 鮮蝦魚板風味(63gx3入)_1+1組合(共2組6入)",
+      "desc": [
+        "來自大海的清甜蝦仁",
+        "搭配小巧可愛的魚板",
+        "佐以海帶嫩芽的鮮美湯頭"
+      ],
+      "price": 130,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-鮮蝦魚板風味-63gx3入-1-1組合-共2組6入--11810702.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2287B5C217-Gd-11810702.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2287B5C217-Gd-11810702.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3896A27C1B-Gd-11810702.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 501,
+      "ratingCount": 50,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12220810",
+      "name": "來一客 鮮蝦魚板/京燉肉骨/川辣牛肉/韓式泡菜/蔬菜牛肉 風味杯(3入) 任選3組(共9入)",
+      "desc": [
+        "來自大海的清甜蝦仁",
+        "搭配小巧可愛的魚板",
+        "佐以海帶嫩芽的鮮美湯頭"
+      ],
+      "price": 195,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-鮮蝦魚板-肉燥菠菜-京燉肉骨-川辣牛肉-韓式泡菜-蔬菜牛肉-風味杯-3入-任選3組-共9入--12220810.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3896a27c1b-Gd-6424380.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3896a27c1b-Gd-6424380.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 195,
+      "ratingCount": 15,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11920130",
+      "name": "巷口乾麵 炸醬風味100gx4入/袋",
+      "desc": [
+        "多層次麵體非油炸麵",
+        "創新麵身 保証麵攤現煮口感",
+        "部落客爭相討論 網路大人氣"
+      ],
+      "price": 80,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/巷口乾麵-炸醬風味100gx4入-袋-11920130.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/68f94d5416-Gd-11920130.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/e0ec0ac082-Gd-11920130.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9b4c2f78c8-Gd-11920130.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 273,
+      "ratingCount": 37,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11810443",
+      "name": "統一UNI Water(550mlx24入)x3箱 (1+2組合共72入)",
+      "desc": [
+        "純淨好水,喝出個性"
+      ],
+      "price": 888,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一UNI-Water-550mlx24入-x3箱-1-2組合共72入--11810443.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/51013DC951-Gd-11810443.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/118717EB6C-Gd-10707291.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/f71e5b4b01-Gd-5942420.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 93,
+      "ratingCount": 18,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11082198",
+      "name": "統一 UNI SPARKLING氣泡水(500mlx24入)",
+      "desc": [
+        "口感刺激且順口，帶來無比的享受",
+        "無糖0熱量，讓日常飲水增添暢快",
+        "口感刺激最適化佐餐與消暑皆適合"
+      ],
+      "price": 399,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/Uni-Sparking-氣泡水-500mlx24入-11082198.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/7be0be1dd8-Gd-11082198.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D39FCB54B2-SP-16937333.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 301,
+      "ratingCount": 92,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12096312",
+      "name": "滿漢大餐Gold 熗牛肉麵紙碗198gx1入",
+      "desc": [
+        "刀口紅油、熗麻川辣",
+        "師法道地「川蜀工藝」",
+        "特選辣椒,紅花椒及青花椒",
+        "香麻帶勁層次分明,愴出川魂特色",
+        "非油炸直麵,特選牛腱肉"
+      ],
+      "price": 89,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐Gold-熗牛肉麵紙碗198gx1入-12096312.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/AFE5402EE7-SP-22661527.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DA9A95F289-SP-22661527.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/25954BDB07-SP-22661527.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 74,
+      "ratingCount": 6,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807245",
+      "name": "拉麵道 日式味噌風味袋101gx4入/袋",
+      "desc": [
+        "採用老鋪味噌增添湯頭韻味層次",
+        "麵條多道製程創造特殊的Q彈口感",
+        "呈現拉麵道所堅持的和風好味道"
+      ],
+      "price": 73,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/拉麵道-日式味噌風味袋101gx4入-袋-11807245.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/4BDC807157-SP-21100842.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4BDC807157-SP-21100842.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C822C72151-SP-21100842.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/731A702490-SP-21100842.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 293,
+      "ratingCount": 34,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12071559",
+      "name": "【阿爸ㄟ土豆】花生系列260g(香蔥/蔥辣/麻辣/日本海鹽)x任選4罐組",
+      "desc": [
+        "嚴選粒粒飽滿花生仁",
+        "職人級調味",
+        "香炒不油膩，越吃越順口"
+      ],
+      "price": 556,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/阿爸-土豆-花生系列260g-香蔥-蔥辣-麻辣-日本海鹽-x任選4罐組-12071559.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/756E3E0EA9-Product-39920211.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/756E3E0EA9-Gd-12071559.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B54E874674-Gd-12071559.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5E19AABE30-Gd-12071559.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 209,
+      "ratingCount": 28,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6937382",
+      "name": "拉麵道 日式豚骨風味拉麵(4入/袋)",
+      "desc": [
+        "特製豬肉、豚骨抽出物，以黃金比例製作出濃厚日式湯頭",
+        "麵條經過多道製程，創造出特殊的Q彈口感"
+      ],
+      "price": 73,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/拉麵道-日式豚骨風味拉麵-4入-袋--6937382.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/58c592d40b-Gd-6937382.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/58c592d40b-Gd-6937382.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 404,
+      "ratingCount": 81,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12041675",
+      "name": "UNI Water(330mlx24入)",
+      "desc": [
+        "水晶般完美六角透明瓶身",
+        "簡約設計融合彩虹七色",
+        "品味生活不可或缺的最佳選擇"
+      ],
+      "price": 265,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/UNI-Water-330mlx24入-12041675.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/538DED6C42-SP-22384783.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D966C8B567-SP-22384783.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/31460F260B-SP-22384783.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 139,
+      "ratingCount": 2,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12096314",
+      "name": "滿漢大餐Gold 金牛肉麵紙碗220gx1入",
+      "desc": [
+        "黃金湯頭、酸爽勁辣",
+        "蒜、薑、辣椒、花椒等香辛料爆香",
+        "加入多種發酵酸融入湯頭",
+        "打造層次豐富酸爽勁辣的辛味體驗",
+        "非油炸直麵,特選牛腱肉"
+      ],
+      "price": 89,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐Gold-金牛肉麵紙碗220gx1入-12096314.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2B19EBBACF-SP-22660619.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DE8846FE19-SP-22660619.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/396B82466A-SP-22660619.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 73,
+      "ratingCount": 2,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807241",
+      "name": "科學麵 香蔥雞汁40gx5入/袋",
+      "desc": [
+        "時下最喜愛之香蔥雞汁風味",
+        "一入口多層次的調味",
+        "讓人忍不住再三吮指回味"
+      ],
+      "price": 50,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/科學麵-香蔥雞汁40gx5入-袋-11807241.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/B23CA9EB9A-SP-21100877.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B23CA9EB9A-SP-21100877.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4D39C3AD08-SP-21100877.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 278,
+      "ratingCount": 35,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11814247",
+      "name": "統一脆麵 55gx5入/袋_1+1組合(共2袋)",
+      "desc": [
+        "最對味的休閒零食",
+        "熟悉的酥炸麵香灑上調味粉包",
+        "口口爽脆感 一吃就上癮"
+      ],
+      "price": 99,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一脆麵-55gx5入-袋-1-1組合-共2袋--11814247.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/58AE7705AC-Gd-11814247.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A599D6AEC4-SP-21100859.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A599D6AEC4-SP-21100859.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6BB548A398-SP-21100859.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 287,
+      "ratingCount": 37,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11347635",
+      "name": "統一 UNI SPARKLING檸檬風味氣泡水 PET(500mlx24入/箱)",
+      "desc": [
+        "獨特清新的檸檬果香",
+        "口感刺激且順口，帶來無比的享受",
+        "無糖0熱量，讓日常飲水增添暢快"
+      ],
+      "price": 399,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/UNI-SPARKLING檸檬風味氣泡水-PET500mlx24入-箱-11347635.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F6B4784902-Gd-11347635.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F898EF5BEB-Gd-11347635.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/38A73775AC-Gd-11347635.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 521,
+      "ratingCount": 60,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11812684",
+      "name": "統一麵 肉燥風味特大袋(85gx5入)_1+2組合(共3袋)",
+      "desc": [
+        "颱風夜裡、異鄉求學時",
+        "一碗親切的「統一麵肉燥風味麵」",
+        "帶來家鄉般的溫暖"
+      ],
+      "price": 229,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-肉燥風味特大袋-85gx5入-1-2組合-共3袋--11812684.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/63825D75D6-Gd-11812684.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CC097FE145-Gd-11812684.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/797603C415-Gd-11812684.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 156,
+      "ratingCount": 18,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11491927",
+      "name": "統一牛乳 原味保久乳(200mlx24入/箱)(常溫牛乳)",
+      "desc": [
+        "1039種食安檢驗層層把關",
+        "成分無調整隨時補充營養",
+        "溫柔而堅定的陪伴與守護"
+      ],
+      "price": 611,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一牛乳-原味保久乳-200mlx24入-箱-常溫牛乳-11491927.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/6672AAD93A-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6672AAD93A-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/FF55D9C72E-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3ADF66958E-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CB64E570F6-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/44C67395FF-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F772C9C425-Gd-11491927.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5B14264D7C-Gd-11491927.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 530,
+      "ratingCount": 83,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808660",
+      "name": "統一 PH9.0鹼性離子水(580mlx24入)_超值3箱組(1+2 共72入)",
+      "desc": [
+        "適鹼性PH9.0-9.5鹼性水",
+        "適度補充天然礦物質與微量元素",
+        "體質加鹼顧，外食族必備"
+      ],
+      "price": 1197,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-PH9-0鹼性離子水-580mlx24入-超值3入組-1-2-共72入--11808660.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/C4C39E5CE3-Gd-11808660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C4C39E5CE3-Gd-11808660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CA3DB0A508-Gd-11808660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B3504D5899-SP-16949395.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 847,
+      "ratingCount": 92,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12028691",
+      "name": "科學麵 原味Mini包15g (20入/袋)",
+      "desc": [
+        "香酥碎麵搭配經典胡椒鹽調味",
+        "熟悉的麵香味撲鼻而來",
+        "口中幸福滋味久久不散"
+      ],
+      "price": 65,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/科學麵-原味Mini包15g-20入-袋-12028691.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/D7B33B7813-SP-22322523.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D7B33B7813-SP-22322523.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 193,
+      "ratingCount": 23,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11820742",
+      "name": "統一 陽光無加糖豆奶250mlx24入/箱",
+      "desc": [
+        "首瓶A.A.驗證100%無添加",
+        "非基改黃豆與兩道活性碳過濾水",
+        "減壓脫氣專利 去除黃豆腥味"
+      ],
+      "price": 299,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-陽光無加糖豆奶250mlx24入-箱-11820742.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/52e4587a7b-Gd-11820742.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/9fb47f23d9-Gd-11820742.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/210d79ff6c-Gd-11820742.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 251,
+      "ratingCount": 36,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11813915",
+      "name": "茶裏王 四季春茶600mlX24入/箱_1+2組合(共3箱)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "無糖無香料",
+        "四季春茶回甘就像現泡"
+      ],
+      "price": 1250,
+      "currentPrice": 1250,
+      "marketPrice": 1290,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-四季春茶600mlX24入-箱-1-2組合-共3箱--11813915.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/8C7F949A32-Gd-11813915.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D4D0950EEC-Gd-11813915.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E54DDC8478-Gd-11813915.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3D9F9921BE-Gd-11813915.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 62,
+      "ratingCount": 1,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12076119",
+      "name": "來一客 辛辣香菇風味杯(69gx3入)",
+      "desc": [
+        "升級韓式麵體，Q彈帶勁耐沖泡",
+        "韓國原料與精選香菇成就濃郁湯底",
+        "不含動物性成分，輕鬆蔬食享美味"
+      ],
+      "price": 89,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-辛辣香菇風味杯-69gx3入-12076119.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F34DEC2ED4-SP-22544333.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DEF7B1666B-SP-22544333.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1987587AAD-SP-22544333.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 208,
+      "ratingCount": 16,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424385",
+      "name": "來一客 韓式泡菜風味(67gx3入)",
+      "desc": [
+        "用辣椒和當季高麗菜精心醱酵成韓式風味泡菜，鮮甜酸爽、微帶辣味，讓胃口大開。"
+      ],
+      "price": 65,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-韓式泡菜風味67g-3入-組-6424385.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/a47b4640f7-Gd-6424385.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a47b4640f7-Gd-6424385.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 166,
+      "ratingCount": 59,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6718942",
+      "name": "茶裏王 英式紅茶(600mlx4入)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "茶香蒸餾技術，保留紅茶茶香",
+        "錫蘭小葉種紅茶，香氣芬芳優雅"
+      ],
+      "price": 75,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裡王-英式紅茶-600mlx4入--6718942.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3ead7d2c0d-Gd-6718942.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3ead7d2c0d-Gd-6718942.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 123,
+      "ratingCount": 32,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11813486",
+      "name": "茶裏王 四季春茶600mlX24入/箱_1+1組合(共2箱)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "無糖無香料",
+        "四季春茶回甘就像現泡"
+      ],
+      "price": 840,
+      "currentPrice": 840,
+      "marketPrice": 880,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-四季春茶600mlX24入-箱-1-1組合-共2箱--11813486.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/47FEFE85A6-Gd-11813486.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5E9867BFBF-SP-21124549.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/554B00E7C5-SP-21124549.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/D4A53C2A84-SP-21124549.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 80,
+      "ratingCount": 3,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11811083",
+      "name": "阿Q桶麵 雞汁排骨風味桶(107gx3入)_1+1組合(共2組6入)",
+      "desc": [
+        "香醇雞汁",
+        "濃郁排骨風味湯頭",
+        "最在地的口味"
+      ],
+      "price": 180,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/阿Q桶麵-雞汁排骨風味桶-107gx3入-1-1組合-共2組6入--11811083.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3580E95EFA-Gd-11811083.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a69ac1a175-Gd-7460152.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 169,
+      "ratingCount": 17,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11812660",
+      "name": "統一麵 肉骨茶風味(5入/袋)_1+1組合(共2袋)",
+      "desc": [
+        "香氣四溢的湯頭",
+        "帶點微辣的滋味"
+      ],
+      "price": 157,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-肉骨茶風味-5入-袋-1-1組合-共2袋--11812660.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/92D5D8D9C7-Gd-11812660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5FF1D3258C-Gd-11812660.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4010D55F19-Gd-11812660.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 77,
+      "ratingCount": 9,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11810657",
+      "name": "來一客 牛肉蔬菜風味(65gx3入)_1+1組合(共2組6入)",
+      "desc": [
+        "牛肉風味湯底 精緻美味",
+        "紐西蘭、澳洲牛肉製成牛肉片",
+        "菠菜、青蔥等綠色蔬菜"
+      ],
+      "price": 130,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-牛肉蔬菜風味-65gx3入-1-1組合-共2組6入--11810657.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/E30ED195B4-Gd-11810657.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E30ED195B4-Gd-11810657.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0CDA01E622-Gd-11810657.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 147,
+      "ratingCount": 11,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11114255",
+      "name": "統一 PH9.0鹼性離子水(580mlx24入)",
+      "desc": [
+        "適鹼性PH9.0-9.5鹼性水",
+        "適度補充天然礦物質與微量元素",
+        "體質加鹼顧，外食族必備"
+      ],
+      "price": 420,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-PH9-0鹼性離子水-580mlx24入--11114255.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/B3504D5899-SP-16949395.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/B3504D5899-SP-16949395.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 137,
+      "ratingCount": 18,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6718935",
+      "name": "滿漢大餐 蔥燒豬肉麵(3入/袋)",
+      "desc": [
+        "豬肉鮮甜高湯，搭配豆瓣川辣，輔以直火爆香過的青蔥共同燉煮，湯頭微辣正好。"
+      ],
+      "price": 139,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-蔥燒豬肉麵-3入-袋--6718935.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/A6DCCB3007-Product-18108682.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A6DCCB3007-Product-18108682.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 175,
+      "ratingCount": 32,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424378",
+      "name": "阿Q桶麵 韓式泡菜風味桶(102gx3入)",
+      "desc": [
+        "嗆辣有勁的泡菜風味湯頭震撼",
+        "令人食指大動"
+      ],
+      "price": 91,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/阿Q桶麵-韓式泡菜風味桶102g-3入-組-6424378.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/86ccc1811b-Gd-6424378.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/86ccc1811b-Gd-6424378.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 149,
+      "ratingCount": 43,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6740148",
+      "name": "統一麵 肉骨茶風味碗裝(3入/組)",
+      "desc": [
+        "香氣四溢的湯頭",
+        "帶點微辣的滋味"
+      ],
+      "price": 58,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-肉骨茶風味碗裝-3入-組--6740148.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/ad50ce822d-Gd-6740148.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/450280C62F-Gd-6740148.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 170,
+      "ratingCount": 40,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11811197",
+      "name": "茶裏王 英式紅茶(600mlx4入)x3組(1+2組合共12入)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "茶香蒸餾技術，保留紅茶茶香",
+        "錫蘭小葉種紅茶，香氣芬芳優雅"
+      ],
+      "price": 219,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-英式紅茶-600mlx4入-x3組-1-2組合共12入--11811197.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/4B1F21B823-Gd-11811197.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3ead7d2c0d-Gd-6718942.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 82,
+      "ratingCount": 7,
+      "globalRating": 4.4,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11811048",
+      "name": "咖啡廣場TP300mlx24入/箱",
+      "desc": [
+        "低溫無菌充填技術",
+        "不苦不澀的咖啡風味"
+      ],
+      "price": 312,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/咖啡廣場TP300mlx24入-箱-11811048.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F268AE80F6-SP-21148308.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/002FD27C6D-SP-21148308.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 84,
+      "ratingCount": 11,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11814214",
+      "name": "統一 大豆沙拉油-760ml/罐_1+1組合(共2罐)",
+      "desc": [
+        "信賴安心的好油",
+        "採用充氮保鮮技術",
+        "適合煎煮炒炸"
+      ],
+      "price": 152,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-大豆沙拉油-760ml-罐-1-1組合-共2罐--11814214.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/19B518B861-Gd-11814214.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6F28B0CA24-SP-6748822.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 41,
+      "ratingCount": 6,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12184453",
+      "name": "【美濃農會】白玉蘿蔔菜脯脆餅(原味/梅粉)",
+      "desc": [
+        "傳統菜脯風味 × 創新酥脆口感",
+        "製程不加一滴水、高蛋白天然純粹",
+        "酥不油膩，越吃越涮嘴"
+      ],
+      "price": 65,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/美濃農會-白玉蘿蔔菜脯脆餅-原味-梅粉-12184453.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/443DF4E7B1-SP-23110066.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F02C8B0B4B-SP-23110066.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DAF23CD1B2-SP-23110066.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 22,
+      "ratingCount": null,
+      "globalRating": null,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11864941",
+      "name": "【寶多福】美食犬餐15Kg（三款任選）",
+      "desc": [
+        "專業獸醫、營養師團隊研發",
+        "健康守護從腸道開始",
+        "十億級食安中心把關",
+        "30年專業納豆益生菌配方"
+      ],
+      "price": 615,
+      "currentPrice": 615,
+      "marketPrice": 749,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/寶多福-美食犬餐15Kg-三款任選--11864941.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/c028660fe9-Gd-11864941.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2E9BF36D16-SP-21244317.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2E9BF36D16-SP-21244317.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_DISCOUNT",
+        "HAS_COUPON"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": null,
+      "salesVolume": 88,
+      "ratingCount": 14,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807270",
+      "name": "好勁道 月見雞蛋 風味麵袋300gx12入/箱",
+      "desc": [
+        "澳洲黃金小麥精製",
+        "七道輪軸充分揉壓、熟成",
+        "三段溫度，歷時8.5小時晾乾",
+        "一口嚐到麵香更嚐得到十足勁道"
+      ],
+      "price": 288,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/好勁道-月見雞蛋-風味麵袋300gx12入-箱-11807270.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/84A843DE84-SP-21083118.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A464460AC7-SP-21083118.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 166,
+      "ratingCount": 44,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424381",
+      "name": "來一客 牛肉蔬菜風味(65gx3入)",
+      "desc": [
+        "牛肉風味湯底 精緻美味",
+        "紐西蘭、澳洲牛肉製成牛肉片",
+        "菠菜、青蔥等綠色蔬菜"
+      ],
+      "price": 65,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客-牛肉蔬菜風味65g-3入-組-6424381.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/0cda01e622-Gd-6424381.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0cda01e622-Gd-6424381.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 201,
+      "ratingCount": 58,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11811196",
+      "name": "茶裏王 英式紅茶(600mlx4入)x2組(1+1組合共8入)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "茶香蒸餾技術，保留紅茶茶香",
+        "錫蘭小葉種紅茶，香氣芬芳優雅"
+      ],
+      "price": 148,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-英式紅茶-600mlx4入-x2組-1-1組合共8入--11811196.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2CC0847E72-Gd-11811196.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3ead7d2c0d-Gd-6718942.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 88,
+      "ratingCount": 11,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11813675",
+      "name": "科學麵-香辣風味40gx5入/袋_1+1組合(共2袋)",
+      "desc": [
+        "熟悉的麵香味撲鼻而來",
+        "口中幸福滋味久久不散"
+      ],
+      "price": 100,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/科學麵-香辣風味40gx5入-袋-1-1組合-共2袋--11813675.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/78F947258A-Gd-11813675.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/17A878AE12-SP-21130799.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 129,
+      "ratingCount": 25,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11816369",
+      "name": "滿漢大餐 珍味牛肉碗/麻辣鍋牛肉碗/蔥燒牛肉麵-減鈉 (6入/箱)任選一組",
+      "desc": [
+        "遵循傳統保留風味純樸的原汁原味",
+        "嚴選多種香辛料與牛肉共同烹調",
+        "濃濃台灣風味的珍貴美味"
+      ],
+      "price": 299,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-珍味牛肉碗-麻辣鍋牛肉碗-蔥燒牛肉麵-減鈉-任選一組-11816369.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/ee364cb688-Gd-6718938.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/ee364cb688-Gd-6718938.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 243,
+      "ratingCount": 28,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424384",
+      "name": "統一麵 蔥燒牛肉風味(90gx5入)",
+      "desc": [
+        "在熬夜讀書、加班的時候",
+        "暢快地吃碗統一麵蔥燒牛肉風味麵",
+        "馬上提振委靡的精神"
+      ],
+      "price": 79,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-蔥燒牛肉風味85g-5入-袋-6424384.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/2058ad529a-Gd-6424384.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3858466A11-Gd-6424384.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 209,
+      "ratingCount": 57,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11810618",
+      "name": "好勁道 千羽拉麵320gx1入/包_1+1組合(共2包)",
+      "desc": [
+        "採用獨特製麵設備與技術。",
+        "精選澳洲小麥為原料",
+        "結合日式專業製麵精神"
+      ],
+      "price": 59,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/好勁道-千羽拉麵320gx1入-包-1-1組合-共2包--11810618.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/40A3706308-Gd-11810618.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/24FA5E092A-SP-19136481.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 116,
+      "ratingCount": 21,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11809427",
+      "name": "茶裏王 台式綠茶(600mlx24入)_1+1組合(共2箱)",
+      "desc": [
+        "單細胞生茶萃取技術"
+      ],
+      "price": 748,
+      "currentPrice": 748,
+      "marketPrice": 788,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-台式綠茶-600mlx24入-1-1組合-共2箱--11809427.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/C0555120A4-Gd-11809427.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/968b11b707-Gd-5942437.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/d65a5125ae-Gd-5942437.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 24,
+      "ratingCount": 2,
+      "globalRating": 3.5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11882984",
+      "name": "茶裏王 四季春茶600mlX4入/組",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "無糖無香料",
+        "四季春茶回甘就像現泡"
+      ],
+      "price": 96,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-四季春茶600mlX4入-組-11882984.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/787CE67645-SP-21453638.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F828F865F9-SP-21453638.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/AC1CB81691-SP-21453638.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 75,
+      "ratingCount": 4,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11966025",
+      "name": "統一 巷口拌麵紅油椒麻四合一袋/香辣厚麻醬四合一袋 任選兩袋",
+      "desc": [
+        "如同麵攤現煮的經典美味",
+        "多的是講究、拌的是享受",
+        "吃的是安心、品的是高級"
+      ],
+      "price": 299,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-巷口拌麵紅油椒麻四合一袋-香辣厚麻醬四合一袋-任選兩袋-11966025.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/D592A8BCDC-Product-37041798.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A3A331D8DF-Product-37041798.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A3A331D8DF-Product-37041798.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 79,
+      "ratingCount": 12,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424377",
+      "name": "滿漢大餐 蔥燒牛肉碗(192gx2入)",
+      "desc": [
+        "直火爆炒逼出青蔥香，依序拌炒川味豆瓣及香辛料，融合出濃郁中帶點嗆辣的口感。嚐一口醇厚，蔥香撲鼻，肉湯甜美，享受微辣尾韻！"
+      ],
+      "price": 105,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/滿漢大餐-蔥燒牛肉碗192g-2入-組-6424377.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/00d15ed7e1-Gd-6424377.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/00d15ed7e1-Gd-6424377.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 106,
+      "ratingCount": 46,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807278",
+      "name": "大補帖 藥燉排骨細麵紙碗218gx1入",
+      "desc": [
+        "獨門藥膳湯頭",
+        "特選軟骨肉塊",
+        "非油炸勁彈細麵"
+      ],
+      "price": 78,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/大補帖-藥燉排骨細麵紙碗235gx1入-11807278.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/BE3DDF391A-SP-21090801.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/BE3DDF391A-SP-21090801.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6d3657473e-Gd-11807278.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C23A5752D6-SP-21090801.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 374,
+      "ratingCount": 35,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12011320",
+      "name": "麥香 綠茶(300mlx24入)",
+      "desc": [
+        "經典國民綠茶飲料",
+        "麥Dear friends",
+        "熟悉的麥香 最對味"
+      ],
+      "price": 240,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/麥香-綠茶-300mlx24入-12011320.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/A41D73118C-Gd-12011320.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/C85F3AE771-Gd-12011320.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/7DF16D9D9A-Gd-12011320.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F43D525B78-Gd-12011320.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/952D18706B-Gd-12011320.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 180,
+      "ratingCount": 20,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11813446",
+      "name": "茶裏王 四季春茶/綠茶玉露/半熟金萱/伯爵紅茶 600mlX24入/箱 任選",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "無糖無香料",
+        "四季春茶回甘就像現泡"
+      ],
+      "price": 475,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-四季春茶-綠茶玉露-半熟金萱-伯爵紅茶-600mlX24入-箱-任選-11813446.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/A91F91AECD-Gd-11813446.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/A91F91AECD-Gd-11813446.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F88448BEBF-Gd-11813446.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1CEAE30747-Gd-11813446.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E54DDC8478-Gd-11813446.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/763FB80334-Gd-11813446.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2D8274DE73-Gd-11813446.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 322,
+      "ratingCount": 62,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12118580",
+      "name": "【統一】健康好時光-純淨暢快益生菌(30包/30天份)x2盒",
+      "desc": [
+        "益生菌+益生元+後生元，全滿足",
+        "多國專利8益菌，株株有菌種編號",
+        "四大需求一包滿足，從根本調體質"
+      ],
+      "price": 598,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-健康好時光-純淨暢快益生菌-30包-30天份-x2盒-12118580.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F923236D3D-Gd-12118580.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/97F9EFD693-Gd-12118580.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2DE5DFA092-Gd-12118580.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/83173F2A0C-Gd-12118580.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8CE8DE4FFA-Gd-12118580.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "HAS_GIFT"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": null,
+      "salesVolume": 261,
+      "ratingCount": 37,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807267",
+      "name": "阿Q桶麵 蒜香珍肉 風味桶106gx3入/組",
+      "desc": [
+        "麵條Q滑耐泡有咬勁",
+        "濃郁的蒜頭豬肉湯頭",
+        "過癮滿足！"
+      ],
+      "price": 91,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/阿Q桶麵-蒜香珍肉-風味桶106gx3入-組-11807267.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/6A6555CDCC-SP-21080687.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/6A6555CDCC-SP-21080687.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/44DAF37466-SP-21080687.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 226,
+      "ratingCount": 27,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6670109",
+      "name": "麥香 紅茶(300mlx6入)",
+      "desc": [
+        "醇厚紅茶結合獨特大麥風味",
+        "暢銷全台的紅茶飲料"
+      ],
+      "price": 60,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/麥香-紅茶-300mlx6入--6670109.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/512d5cb34e-Gd-6670109.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/512d5cb34e-Gd-6670109.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 289,
+      "ratingCount": 117,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11810626",
+      "name": "好勁道 千羽拉麵320gx1入/包_1+2組合(共3包)",
+      "desc": [
+        "採用獨特製麵設備與技術。",
+        "精選澳洲小麥為原料",
+        "結合日式專業製麵精神"
+      ],
+      "price": 88,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/好勁道-千羽拉麵320gx1入-包-1-2組合-共3包--11810626.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/6022DFD1E5-Gd-11810626.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/24FA5E092A-SP-19136481.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 117,
+      "ratingCount": 19,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6740147",
+      "name": "統一米粉 肉燥風味(5入/袋)",
+      "desc": [
+        "無人能擋香味與湯頭(肉燥香)",
+        "最平易近人、最善良的好朋友",
+        "給予熟悉、安心的感覺"
+      ],
+      "price": 79,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一米粉-肉燥風味-5入-袋--6740147.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/b801607f86-Gd-6740147.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1537D58DBF-Gd-6740147.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 423,
+      "ratingCount": 94,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6670115",
+      "name": "茶裏王 台式綠茶(600mlx4入)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "具備濃郁茉莉花清香",
+        "低溫萃茶技術",
+        "花香綻放與茶韻完美融合"
+      ],
+      "price": 75,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶堣-台式綠茶-600mlx4入--6670115.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/72f725cc6a-Gd-6670115.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/72f725cc6a-Gd-6670115.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 125,
+      "ratingCount": 53,
+      "globalRating": 4.5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11812119",
+      "name": "統一米粉 肉燥風味(5入/袋)_1+1組合(共2袋)",
+      "desc": [
+        "無人能擋香味與湯頭(肉燥香)",
+        "最平易近人、最善良的好朋友",
+        "給予熟悉、安心的感覺"
+      ],
+      "price": 157,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一米粉-肉燥風味-5入-袋-1-1組合-共2袋--11812119.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/0095FDA131-Gd-11812119.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1537d58dbf-Gd-7460193.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/481BAF4B2A-Product-18164399.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 220,
+      "ratingCount": 37,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807272",
+      "name": "來一客杯湯 紫菜蛋花湯杯 7.6gx1入",
+      "desc": [
+        "低熱量無負擔，料感、口感豐富",
+        "純香鮮甜，美味細品悠悠",
+        "經典湯品風味香醇美味",
+        "簡單沖泡3分鐘輕鬆上桌"
+      ],
+      "price": 22,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/來一客杯湯-紫菜蛋花湯杯-7-6gx1入-11807272.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/04230BC810-SP-21085062.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/04230BC810-SP-21085062.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/8F1939514B-SP-21085062.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1025,
+      "ratingCount": 34,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11493238",
+      "name": "歐典生機Odean 養生黑木耳180mlx24入/箱",
+      "desc": [
+        "國家健康食品認證",
+        "低糖、低熱量、營養無負擔",
+        "有助於促進腸道運動，使排便順暢"
+      ],
+      "price": 499,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/歐典生機Odean-養生黑木耳180mlx24入-箱-11493238.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3fe1cbc84d-Gd-11493238.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/d9f576c031-Gd-11493238.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/72446110b7-Gd-11493238.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 253,
+      "ratingCount": 51,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11837208",
+      "name": "茶裏王 英式紅茶/青心烏龍茶/白毫烏龍茶/台式綠茶 箱購任選均一價",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "茶香蒸餾技術，保留紅茶茶香",
+        "錫蘭小葉種紅茶，香氣芬芳優雅"
+      ],
+      "price": 395,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-英式紅茶-青心烏龍茶-白毫烏龍茶-台式綠茶-任選均一價-11837208.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F3033B05A9-Gd-11837208.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a06f1a7374-Gd-5942436.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/29cad65347-Gd-5942436.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 254,
+      "ratingCount": 44,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11832237",
+      "name": "統一 綺麗健康油652mlx1入",
+      "desc": [
+        "中日雙認證，日本原裝進口",
+        "經實驗證實，不易形成體脂肪",
+        "日本厚生省特定保健食品許可"
+      ],
+      "price": 185,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-綺麗健康油652mlx1入-11832237.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/3FA0CC2820-SP-21224285.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3FA0CC2820-SP-21224285.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 103,
+      "ratingCount": 18,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11811036",
+      "name": "拉麵道 日式豚骨風味拉麵(4入/袋)_1+1組合(共2袋)",
+      "desc": [
+        "特製豬肉、豚骨抽出物，以黃金比例製作出濃厚日式湯頭",
+        "麵條經過多道製程，創造出特殊的Q彈口感"
+      ],
+      "price": 145,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/拉麵道-日式豚骨風味拉麵-4入-袋-1-1組合-共2袋--11811036.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/C78E1F90CE-Gd-11811036.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/1932BB1344-Product-18774216.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 161,
+      "ratingCount": 26,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6679743",
+      "name": "麥香 奶茶(300mlx6入)",
+      "desc": [
+        "醇厚紅茶結合大麥香氣與乳粉調配",
+        "暢銷全台的奶茶飲料",
+        "經典大麥國民飲料",
+        "my麥dear friends"
+      ],
+      "price": 60,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/麥香-奶茶-300mlx6入--6679743.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/5c3254ff28-Gd-6679743.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5c3254ff28-Gd-6679743.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 206,
+      "ratingCount": 69,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6740149",
+      "name": "統一麵 鮮蝦風味(5入/袋)",
+      "desc": [
+        "清爽甘甜的湯頭，",
+        "讓偶爾吃膩重口味的大魚大肉您，",
+        "來碗「統一麵鮮蝦風味麵」",
+        "讓味蕾放鬆一下"
+      ],
+      "price": 79,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-鮮蝦風味-5入-袋--6740149.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/71d2477d2a-Gd-6740149.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/10297C0257-Gd-6740149.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 340,
+      "ratingCount": 63,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11807282",
+      "name": "統一 肉燥風味醬737gx1入(罐)",
+      "desc": [
+        "熟悉的經典好味道",
+        "傳承統一麵經典肉燥香",
+        "香氣四溢的迷人紅蔥頭",
+        "罐百搭,提香又提味"
+      ],
+      "price": 225,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-肉燥風味醬737gx1入-罐-11807282.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/FA766B83DD-SP-21080238.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/FA766B83DD-SP-21080238.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/572EA06A71-SP-21080238.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 76,
+      "ratingCount": 12,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808691",
+      "name": "UNI SPARKLING檸檬風味氣泡水 PET(500mlx24入/箱)_超值3入組(1+2 共72入)",
+      "desc": [
+        "獨特清新的檸檬果香",
+        "口感刺激且順口，帶來無比的享受",
+        "無糖0熱量，讓日常飲水增添暢快"
+      ],
+      "price": 1199,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/UNI-SPARKLING檸檬風味氣泡水-PET-500mlx24入-箱-超值3入組-1-2-共72-11808691.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/0F43A7C936-Gd-11808691.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F898EF5BEB-Gd-11347635.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/38A73775AC-Gd-11347635.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 68,
+      "ratingCount": 3,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11809049",
+      "name": "茶裏王 日式無糖綠茶(600mlx24入)_1+1組合(共2箱)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "可延緩低密度脂蛋白之氧化",
+        "每日飲用1200毫升達保健功效"
+      ],
+      "price": 798,
+      "currentPrice": 798,
+      "marketPrice": 838,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-日式無糖綠茶-600mlx24入-1-1組合-共2箱--11809049.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F3033B05A9-Gd-11809049.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/a06f1a7374-Gd-5942436.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/29cad65347-Gd-5942436.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 150,
+      "ratingCount": 25,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11809001",
+      "name": "茶裏王 日式無糖綠茶(1250mlx12入)_1+1組合(共2箱)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "榮獲國家健康食品調節血脂功能認",
+        "每日飲用1200毫升達保健功效",
+        "可延緩低密度脂蛋白之氧化"
+      ],
+      "price": 780,
+      "currentPrice": 780,
+      "marketPrice": 820,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶堣-日式無糖綠茶-1250mlx12入-1-1組合-共2箱--11809001.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/F437637CB7-Gd-11809001.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4d6d413a3e-Gd-9543719.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/e591865dc4-Gd-9543719.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_DISCOUNT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 34,
+      "ratingCount": 6,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "12202304",
+      "name": "統一 麥香奶茶(300mlx24入/箱)",
+      "desc": [
+        "經典國民奶茶飲料",
+        "麥Dear friends",
+        "醇厚紅茶+焙炒大麥+乳粉",
+        "獨特焦糖風味"
+      ],
+      "price": 240,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一-麥香奶茶-300mlx24入-箱-12202304.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/07D981039D-SP-23199820.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/E974D052A5-SP-23199820.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3535ECE44A-SP-23199820.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 26,
+      "ratingCount": 1,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6718944",
+      "name": "茶裏王 白毫烏龍茶(600mlx4入)",
+      "desc": [
+        "單細胞生茶萃取技術",
+        "茶葉高溫萃取茶香低溫萃取茶感",
+        "新鮮及純真的東方美人茶風味"
+      ],
+      "price": 75,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裡王-白毫烏龍茶-600mlx4入--6718944.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/f46434fb0e-Gd-6718944.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/f46434fb0e-Gd-6718944.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "HAS_ACTIVITY",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "803102",
+      "actIds": [
+        "803102"
+      ],
+      "sellerId": "1035",
+      "salesVolume": 189,
+      "ratingCount": 43,
+      "globalRating": 4.7,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6329560",
+      "name": "水事紀麥飯石礦泉水 （5000mlx2入）",
+      "desc": [
+        "以山為天然濾心經麥飯石岩層濾淨",
+        "含天然礦物質，口感甘甜順口",
+        "符合國家水CNS12700標準"
+      ],
+      "price": 155,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/水事紀-麥飯石天然礦泉水-5000mlx2入--6329560.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/d59e477171-Gd-6329560.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/12CBD50656-Gd-6329560.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 1035,
+      "ratingCount": 137,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "6424382",
+      "name": "統一麵 肉燥風味特大碗(85gx3入)",
+      "desc": [
+        "颱風夜裡、異鄉求學時",
+        "一碗親切的「統一麵肉燥風味麵」",
+        "帶來家鄉般的溫暖"
+      ],
+      "price": 58,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-肉燥風味特大碗85g-3入-袋-6424382.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/05c0cf73fe-Gd-6424382.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 260,
+      "ratingCount": 45,
+      "globalRating": 4.8,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11503089",
+      "name": "好勁道 千羽拉麵320gx1入/包",
+      "desc": [
+        "採用獨特製麵設備與技術。",
+        "精選澳洲小麥為原料",
+        "結合日式專業製麵精神"
+      ],
+      "price": 30,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/好勁道-千羽拉麵320gx1入-包-11503089.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/24FA5E092A-SP-19136481.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/24FA5E092A-SP-19136481.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 264,
+      "ratingCount": 34,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "10707320",
+      "name": "水事紀麥飯石礦泉水(1500mlx12入)(活動)",
+      "desc": [
+        "以山為天然濾心經麥飯石岩層濾淨",
+        "含天然礦物質，口感甘甜順口",
+        "符合國家水CNS12700標準"
+      ],
+      "price": 309,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/活動-水事紀麥飯石礦泉水-1500mlx12入--10707320.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/0b5e2c391f-Gd-10707320.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2819C9D707-Gd-10707320.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 286,
+      "ratingCount": 11,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "7864004",
+      "name": "拉麵道 日式豚骨拉麵(3杯/組)",
+      "desc": [
+        "特製豬肉抽出物與豚骨抽出物以黃金比例製作出濃厚的日式湯頭，麵條經過多道製程，創造出特殊的Q彈口感，加上香甜玉米與特製豬肉塊(片)，再灑上微辣口感的七味唐辛子，就是一杯堅持和風的日式豚骨風味拉麵。"
+      ],
+      "price": 85,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/拉麵道-日式豚骨拉麵-3杯-組--7864004.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/add4c98754-Gd-7864004.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/59f6a01992-Gd-7864004.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 158,
+      "ratingCount": 35,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808903",
+      "name": "水事紀麥飯石礦泉水(1500mlx12入)_1+1組合(共2箱24入)",
+      "desc": [
+        "麥飯石天然礦泉水，經火成岩麥飯石礦脈層層濾淨，具有天然的礦物質"
+      ],
+      "price": 599,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/水事紀麥飯石礦泉水-1500mlx12入-1-1組合-共2箱24入--11808903.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/079470DC8A-Gd-11808903.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/2819C9D707-Gd-10707320.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0b5e2c391f-Gd-10707320.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 186,
+      "ratingCount": 30,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808704",
+      "name": "統一牛乳 原味保久乳(200mlx24入/箱)(常溫牛乳) x2箱(1+1組合)",
+      "desc": [
+        "1039種食安檢驗層層把關",
+        "成分無調整隨時補充營養",
+        "溫柔而堅定的陪伴與守護"
+      ],
+      "price": 1111,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一牛乳-原味保久乳-200mlx24入-箱-常溫牛乳-1-1組合-共2箱--11808704.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/4CA3EBB891-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/4CA3EBB891-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CB64E570F6-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/5B14264D7C-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/3ADF66958E-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/FF55D9C72E-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/44C67395FF-Gd-11808704.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/F772C9C425-Gd-11808704.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "HAS_VIDEO",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 73,
+      "ratingCount": 13,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11812667",
+      "name": "統一麵 肉燥風味特大袋(85gx5入)_1+1組合(共2袋)",
+      "desc": [
+        "颱風夜裡、異鄉求學時",
+        "一碗親切的「統一麵肉燥風味麵」",
+        "帶來家鄉般的溫暖"
+      ],
+      "price": 157,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/統一麵-肉燥風味特大袋-85gx5入-1-1組合-共2袋--11812667.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/9FDE2A4699-Gd-11812667.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/CC097FE145-Gd-11812667.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/797603C415-Gd-11812667.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 236,
+      "ratingCount": 32,
+      "globalRating": 5,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "9490677",
+      "name": "濃韻 烏龍茶(975mlx12入)",
+      "desc": [
+        "榮獲健康食品不易形成體脂肪認證",
+        "榮獲健康食品調節血脂認證",
+        "有助於減少體脂肪之形成",
+        "延緩低密度脂蛋白之氧化",
+        "選用阿里山烏龍茶,健康好喝的茶"
+      ],
+      "price": 399,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/茶裏王-濃韻烏龍茶-975mlx12入-9490677.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/352e5e7fbf-Gd-9490677.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/da1bd01bc1-Gd-9490677.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/0697733de3-Gd-9490677.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "HAS_VIDEO",
+        "IS_EXPRESS",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 84,
+      "ratingCount": 28,
+      "globalRating": 4.9,
+      "offer": null,
+      "source": "uther:v3/products"
+    },
+    {
+      "gdid": "11808887",
+      "name": "大補帖 當歸鴨風味細麵碗102gx2入/組_1+1組合(共2組4入)",
+      "desc": [
+        "當歸鴨補膳美食風味的湯頭",
+        "搭配軟Q細麵麵身及酒香包的珍味"
+      ],
+      "price": 115,
+      "currentPrice": null,
+      "marketPrice": null,
+      "disc": null,
+      "discountWording": null,
+      "url": "https://tw.buy.yahoo.com/gdsale/大補帖-當歸鴨風味細麵碗102gx2入-組-1-1組合-共2組4入--11808887.html",
+      "imgs": [
+        "https://img.yec.tw/zp/MerchandiseImages/FCC9F7ADF9-Gd-11808887.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/DFEC096A84-SP-20296568.jpg",
+        "https://img.yec.tw/zp/MerchandiseImages/95D65BC7F5-SP-20296568.jpg"
+      ],
+      "stockStatus": "NORMAL",
+      "flags": [
+        "DEALER",
+        "SHOW_CART",
+        "HAS_SHIP_FEE",
+        "HAS_THUMBNAIL",
+        "IS_EXPRESS",
+        "HAS_GIFT",
+        "IS_FLAGSHIP"
+      ],
+      "actid": "",
+      "actIds": [],
+      "sellerId": "1035",
+      "salesVolume": 19,
+      "ratingCount": 1,
+      "globalRating": 4,
+      "offer": null,
+      "source": "uther:v3/products"
+    }
+  ],
+  "hits": [],
+  "warnings": [],
+  "subcatDist": {},
+  "minDisc": null,
+  "meta": {
+    "source": "uther",
+    "kind": "store",
+    "uther": [
+      {
+        "url": "https://tw.search.ec.yahoo.com/api/uther/v1?property=sas&searchTarget=ecItem&isBackfillEnabled=0&isKeywordRefineEnabled=0&offset=0&hits=60&storeIds=1035&isStoreSearch=1&sort=-sales",
+        "status": 200,
+        "code": null
+      },
+      {
+        "url": "https://tw.search.ec.yahoo.com/api/uther/v1?property=sas&searchTarget=ecItem&isBackfillEnabled=0&isKeywordRefineEnabled=0&offset=60&hits=60&storeIds=1035&isStoreSearch=1&sort=-sales",
+        "status": 200,
+        "code": null
+      },
+      {
+        "url": "https://tw.search.ec.yahoo.com/api/uther/v3/shopping/getProductsByStoreId?storeId=1035&sort=bestsellingIn7days&hits=10",
+        "status": 200,
+        "code": "200001"
+      },
+      {
+        "url": "https://tw.search.ec.yahoo.com/api/uther/v3/shopping/products?productIds=11951127%2C11767278%2C12063093%2C11907579%2C11949574%2C11951344%2C11815935%2C8273203%2C11806877%2C6424388%2C11897781%2C11808788%2C11656389%2C11808851%2C11907577%2C11808847%2C6329559%2C9621581%2C11808923%2C8824214%2C7460050%2C11656390%2C12071988%2C11808673%2C11949256%2C6424380%2C11808778%2C11814253%2C11808689%2C5942436%2C11920129%2C11930381%2C6424387%2C11813431%2C11813673%2C11951639%2C11810702%2C12220810%2C11920130%2C11907576%2C6424386%2C11810443%2C11082198%2C12096312%2C11807245%2C12071559%2C6937382%2C12041675%2C12096314%2C11807241%2C11814247%2C11347635%2C11812684%2C11491927%2C6718940%2C11808660%2C12028691%2C11820742%2C8993309%2C11813915",
+        "status": 200,
+        "code": "200001"
+      },
+      {
+        "url": "https://tw.search.ec.yahoo.com/api/uther/v3/shopping/products?productIds=11966025%2C11882984%2C6740148%2C6424381%2C6424377%2C11807278%2C12011320%2C6424385%2C11813446%2C12118580%2C11811083%2C11807267%2C6670109%2C11810626%2C6740147%2C12184453%2C6670115%2C12076119%2C11813675%2C11812119%2C11810618%2C11807272%2C11493238%2C11837208%2C11832237%2C11811196%2C11809427%2C11811036%2C6679743%2C6740149%2C11807282%2C6424384%2C11816369%2C11864941%2C11807270%2C11808691%2C11809049%2C11809001%2C12202304%2C6718944%2C11810657%2C6329560%2C6424378%2C6718935%2C6424382%2C11811048%2C11811197%2C11503089%2C11114255%2C10707320%2C11813486%2C7864004%2C11812660%2C6718942%2C11808903%2C11808704%2C11812667%2C9490677%2C11808887%2C11814214",
+        "status": 200,
+        "code": "200001"
+      }
+    ],
+    "totalhitcount": 369
+  }
+}

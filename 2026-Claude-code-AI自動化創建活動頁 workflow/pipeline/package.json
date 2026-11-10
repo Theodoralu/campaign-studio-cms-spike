@@ -22,7 +22,7 @@
     "test:golden": "node --test test/e2e_golden.test.js",
     "golden:regen": "bash tools/golden_regen.sh",
     "secret:scan": "node tools/secret_scan.js",
-    "test:uther": "node --test test/unit/uther_client.test.js test/unit/source_build_snapshot.test.js",
+    "test:uther": "node --test test/unit/uther_client.test.js test/unit/source_build_snapshot.test.js test/unit/uther_replay.test.js",
     "snapshot:diff": "node tools/snapshot_diff.js",
     "uther:probe": "node tools/uther_probe.js"
   },

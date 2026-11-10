@@ -20,6 +20,18 @@
     "recordedAt": "2026-11-09T02:09:31.516Z",
     "partial": true
   },
+  "6e8f4bc997e5efa3448d66282ae8c2afdf70909a": {
+    "method": "GET",
+    "url": "https://tw.search.ec.yahoo.com/api/uther/v1?spaceId=shp_campaign_studio&property=sas&searchTarget=ecItem&isBackfillEnabled=0&isKeywordRefineEnabled=0&offset=60&hits=60&storeIds=1035&isStoreSearch=1&sort=-sales",
+    "statusCode": 200,
+    "recordedAt": "2026-11-10T02:25:10.520Z"
+  },
+  "79ca39d640682ea1a607d615b025e230af309d26": {
+    "method": "GET",
+    "url": "https://tw.search.ec.yahoo.com/api/uther/v3/shopping/getProductsByStoreId?spaceId=shp_campaign_studio&storeId=1035&sort=bestsellingIn7days&hits=10",
+    "statusCode": 200,
+    "recordedAt": "2026-11-10T02:25:10.776Z"
+  },
   "81c5e8f6369fd364bafcab591a9c2068e5b78d36": {
     "method": "GET",
     "url": "https://tw.buy.yahoo.com/activity/onsale?actid=789017",
@@ -27,11 +39,29 @@
     "recordedAt": "2026-10-27T00:58:24.018Z",
     "source": "2026-10-27-wb-085823/raw/act_789017.html"
   },
+  "9985e2f894c93694ee7dfe8fa4125f3eb7187bec": {
+    "method": "GET",
+    "url": "https://tw.search.ec.yahoo.com/api/uther/v1?spaceId=shp_campaign_studio&property=sas&searchTarget=ecItem&isBackfillEnabled=0&isKeywordRefineEnabled=0&offset=0&hits=60&storeIds=1035&isStoreSearch=1&sort=-sales",
+    "statusCode": 200,
+    "recordedAt": "2026-11-10T02:25:09.662Z"
+  },
+  "ac35b68a6930b9ee103b1a4becb054f205c75720": {
+    "method": "GET",
+    "url": "https://tw.search.ec.yahoo.com/api/uther/v3/shopping/products?spaceId=shp_campaign_studio&productIds=11951127%2C11767278%2C12063093%2C11907579%2C11949574%2C11951344%2C11815935%2C8273203%2C11806877%2C6424388%2C11897781%2C11808788%2C11656389%2C11808851%2C11907577%2C11808847%2C6329559%2C9621581%2C11808923%2C8824214%2C7460050%2C11656390%2C12071988%2C11808673%2C11949256%2C6424380%2C11808778%2C11814253%2C11808689%2C5942436%2C11920129%2C11930381%2C6424387%2C11813431%2C11813673%2C11951639%2C11810702%2C12220810%2C11920130%2C11907576%2C6424386%2C11810443%2C11082198%2C12096312%2C11807245%2C12071559%2C6937382%2C12041675%2C12096314%2C11807241%2C11814247%2C11347635%2C11812684%2C11491927%2C6718940%2C11808660%2C12028691%2C11820742%2C8993309%2C11813915",
+    "statusCode": 200,
+    "recordedAt": "2026-11-10T02:25:11.123Z"
+  },
   "ae56e8ba80a7df950835b398d08a39ba43cb3314": {
     "method": "GET",
     "url": "https://tw.buy.yahoo.com/?sub=1035",
     "statusCode": 200,
     "recordedAt": "2026-10-27T00:58:24.018Z",
     "source": "2026-10-27-wb-085823/raw/source_page.html"
+  },
+  "b11d9dff6ec3ba434699faef413d2b3aa924d46b": {
+    "method": "GET",
+    "url": "https://tw.search.ec.yahoo.com/api/uther/v3/shopping/products?spaceId=shp_campaign_studio&productIds=11966025%2C11882984%2C6740148%2C6424381%2C6424377%2C11807278%2C12011320%2C6424385%2C11813446%2C12118580%2C11811083%2C11807267%2C6670109%2C11810626%2C6740147%2C12184453%2C6670115%2C12076119%2C11813675%2C11812119%2C11810618%2C11807272%2C11493238%2C11837208%2C11832237%2C11811196%2C11809427%2C11811036%2C6679743%2C6740149%2C11807282%2C6424384%2C11816369%2C11864941%2C11807270%2C11808691%2C11809049%2C11809001%2C12202304%2C6718944%2C11810657%2C6329560%2C6424378%2C6718935%2C6424382%2C11811048%2C11811197%2C11503089%2C11114255%2C10707320%2C11813486%2C7864004%2C11812660%2C6718942%2C11808903%2C11808704%2C11812667%2C9490677%2C11808887%2C11814214",
+    "statusCode": 200,
+    "recordedAt": "2026-11-10T02:25:11.612Z"
   }
 }

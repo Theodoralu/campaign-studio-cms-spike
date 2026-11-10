@@ -52,3 +52,8 @@
 - 因此 CI 在 **私人試車場** `Theodoralu/campaign-studio-cms-spike`（private）驗證：三個 job 全綠（secret-scan／check／unit）。試車場只是鏡像，程式碼永遠從公司 repo 推過去；驗完即刪。
 - 第一次跑就抓到兩件事：`docs/ci-D5.md` 自己引用了被清掉的字串（已改寫）；`img_probe` 有網路／沒網路結果不同（已走錄製回放）。
 - **待辦**：把 repo 搬進 YahooTWEC 組織（D11 Okta、D12 Omega 本來就需要），搬完改 `runs-on: global-runner`、加 `setup-codeartifact-npm`、`pinact run`，CI 在公司這邊正式跑起來。
+
+## 2026-11-09 下午補：CI 首跑實際抓到的
+`unit` job 第一次在 Ubuntu 上**掛了 4 小時 37 分**沒結束：`install_sh_netcheck.test.js` 以 `zsh` 跑 Mac 安裝腳本，Ubuntu 無 zsh → `spawn zsh ENOENT` 成 uncaughtException，測試內的假 HTTP 伺服器沒關 → `node --test` 永不退出。
+處置：`install_sh_netcheck`、`pack_unmerged_guard`、`pick_port`（都是單機版安裝／打包／啟動腳本）搬 `test/legacy-env/`；`npm test` 加 `--test-timeout=120000`；三個 job 加 `timeout-minutes`。
+重跑：**911 測試／888 過／0 紅／23 跳過，13.6 秒**。
