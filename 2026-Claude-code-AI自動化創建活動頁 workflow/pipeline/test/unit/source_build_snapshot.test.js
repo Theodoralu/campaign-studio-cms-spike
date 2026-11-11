@@ -23,6 +23,8 @@ test("resolveSource：五種網址型判對、外域與商品頁擋下", () => {
   const s = resolveSource("https://tw.buy.yahoo.com/search/product?p=烤肉&brandIds=12&sort=-price");
   assert.deepStrictEqual([s.kind, s.keyword, s.extra], ["search", "烤肉", { brandIds: "12", sort: "-price" }]);
   assert.deepStrictEqual([resolveSource("https://tw.buy.yahoo.com/brands/nike").kind, resolveSource("https://tw.buy.yahoo.com/brands/nike").slug], ["brand", "nike"]);
+  assert.deepStrictEqual([resolveSource("https://tw.buy.yahoo.com/brands/41168929").kind, resolveSource("https://tw.buy.yahoo.com/brands/41168929").brandId], ["brand", "41168929"]);
+  assert.strictEqual(resolveSource("https://tw.buy.yahoo.com/brands/nike").brandId, null);
   assert.strictEqual(resolveSource("https://tw.buy.yahoo.com/gdsale/abc-123.html").kind, "product");
   assert.strictEqual(resolveSource("https://example.com/?sub=1").kind, "invalid");
   assert.strictEqual(resolveSource("https://tw.buy.yahoo.com/category/123").kind, "unsupported");

@@ -32,7 +32,7 @@ function resolveSource(rawUrl) {
   }
 
   const brand = p.match(/\/brands\/([^/?#]+)/);
-  if (brand) return { kind: "brand", slug: decodeURIComponent(brand[1]), url: u.href };
+  if (brand) { const slug = decodeURIComponent(brand[1]); return { kind: "brand", slug, brandId: /^\d+$/.test(slug) ? slug : null, url: u.href }; } // 數字 slug＝brandId（2026-11-11 實例 /brands/41168929），不用抓頁
 
   if (/\/gdsale\//.test(p)) return { kind: "product", reason: "單一商品頁只能用於換商品，不能當活動來源", url: u.href };
 

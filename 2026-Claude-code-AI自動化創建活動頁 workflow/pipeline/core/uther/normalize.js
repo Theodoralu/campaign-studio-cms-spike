@@ -20,6 +20,7 @@
  *   actIds[]    ← 全部活動 id（新欄）
  *   sellerId    ← sellerId（新欄）
  *   salesVolume／ratingCount／globalRating ← 同名（新欄；2026-11-10 裁：先存數字、策展排序 D8 才動）
+ *   filterTags  ← filterTags[] 轉成 { 名稱: [值…] }（新欄；D8 分類／品牌名用）
  *   source      ← "uther:<endpoint>"
  * uther 的數字都是字串（"488.00"），這裡轉成整數元（購中沒有小數）。
  */
@@ -50,6 +51,7 @@ function v3Product(p, { endpoint } = {}) {
     salesVolume: toInt(p.salesVolume),
     ratingCount: toInt(p.ratingCount),
     globalRating: p.globalRating != null && p.globalRating !== "" ? Number(p.globalRating) : null,
+    filterTags: Object.fromEntries((p.filterTags || []).filter((t) => t && t.name).map((t) => [t.name, Array.isArray(t.values) ? t.values : []])),
     offer: null,
     source: `uther:${endpoint || "v3"}`,
   };

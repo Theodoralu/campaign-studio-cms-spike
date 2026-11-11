@@ -33,8 +33,8 @@ async function buildSnapshot(plan, { uther, clock, fetchBrandId, log = () => {} 
 
   let ids = [], seed = [], actData = {}, bestsellers = new Set();
   if (plan.kind === "activity") {
-    const r = await uther.idsByMipId(plan.actid, { max: 120 });
-    ids = r.ids;
+    const r = await uther.idsByMipId(plan.actid, { max: MAX_POOL });
+    ids = r.ids; snapshot.meta.totalhitcount = r.total;
     if (!ids.length) warn(`活動 ${plan.actid} 在 uther 查無商品（v1 mipIds）＝活動不存在、已結束或未開始`);
   } else if (plan.kind === "store") {
     const r = await uther.idsByStoreId(plan.storeId, { max: MAX_POOL });
@@ -43,15 +43,15 @@ async function buildSnapshot(plan, { uther, clock, fetchBrandId, log = () => {} 
     try { const top = await uther.productsByStoreId(plan.storeId, { sort: "bestsellingIn7days" }); bestsellers = new Set(top.items.map((p) => p.gdid)); actData = { ...actData, ...top.actData }; }
     catch (e) { warn(`店家熱銷查詢失敗（${e.message}）＝不打 bestseller7d 標記，池子不受影響`); }
   } else if (plan.kind === "search") {
-    const r = await uther.searchByKeyword(plan.keyword, plan.extra, { max: 120 });
+    const r = await uther.searchByKeyword(plan.keyword, plan.extra, { max: MAX_POOL });
     ids = r.ids; snapshot.meta.totalhitcount = r.total;
     if (!ids.length) warn(`關鍵字「${plan.keyword}」在 uther 查無商品（已關 backfill）`);
   } else if (plan.kind === "brand") {
-    const b = await fetchBrandId(plan);
+    const b = plan.brandId ? { brandIds: [plan.brandId], brandName: null } : await fetchBrandId(plan);
     if (!b || !b.brandIds || !b.brandIds.length) throw new Error(`品牌頁 ${plan.url} 取不到 brandId（頁面結構變了？）`);
-    snapshot.brand = b.brandName || plan.slug; snapshot.meta.brandIds = b.brandIds;
-    const r = await uther.idsByBrandIds(b.brandIds, { max: 120 });
-    ids = r.ids;
+    snapshot.brand = b.brandName || (plan.brandId ? null : plan.slug); snapshot.meta.brandIds = b.brandIds; // 數字 slug 不是名字，下面從 filterTags 推
+    const r = await uther.idsByBrandIds(b.brandIds, { max: MAX_POOL });
+    ids = r.ids; snapshot.meta.totalhitcount = r.total;
   } else {
     throw new Error(plan.reason || `不支援的來源：${plan.kind}`);
   }
@@ -67,7 +67,13 @@ async function buildSnapshot(plan, { uther, clock, fetchBrandId, log = () => {} 
   const seen = new Set();
   snapshot.products = items.filter((p) => { if (seen.has(p.gdid)) return false; seen.add(p.gdid); return true; });
   if (bestsellers.size) for (const p of snapshot.products) if (bestsellers.has(p.gdid)) p.bestseller7d = true;
-  if (!snapshot.brand) { const sellerOf = (r) => r && r.sellers && r.sellers[0] && r.sellers[0].name; snapshot.brand = sellerOf(lastV3) || null; }
+  /* brand 欄語意（2026-11-11）：店家型＝店名（sellers[0]）；品牌型＝商品 filterTags「品牌」的多數值（slug 若是數字就不能當名字）；
+     活動型＝店名（活動屬於一家店）；搜尋型＝null（跨店，寫店名會誤導） */
+  if (!snapshot.brand && plan.kind !== "search") {
+    const sellerOf = (r) => r && r.sellers && r.sellers[0] && r.sellers[0].name;
+    if (plan.kind === "brand") { const cnt = new Map(); for (const p of snapshot.products) for (const v of ((p.filterTags || {})["品牌"] || [])) cnt.set(v, (cnt.get(v) || 0) + 1); snapshot.brand = [...cnt.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || sellerOf(lastV3) || null; }
+    else snapshot.brand = sellerOf(lastV3) || null;
+  }
   const noPrice = snapshot.products.filter((p) => p.price == null).length;
   if (noPrice) warn(`${noPrice} 件無 currentPrice 也無 marketPrice（uther 不出欄）＝進池但策展會略過`);
 
