@@ -40,7 +40,6 @@ for (const [label, file] of SNAPS) {
       if (dp.marketPrice != null) assert.strictEqual(dp.marketPrice, sp.marketPrice, `劃線價被改：${dp.gdid}`);
       assert.strictEqual(dp.url, sp.url, `網址被改：${dp.gdid}`);
       assert.ok(sp.imgs.includes(dp.img), `主圖不在快照圖庫：${dp.gdid}`);
-      if (dp.tagSource === "offer") assert.ok(sp.offer && String(sp.offer).includes(dp.tag.replace(/…$/, "")), `offer 標籤非逐字：${dp.gdid}`);
     }
     // 樓層／牆／主視覺引用的 gdid 都在草稿商品表裡，且不重複曝光
     const inDraft = new Set(draft.products.map((p) => String(p.gdid)));
@@ -49,11 +48,15 @@ for (const [label, file] of SNAPS) {
     for (const [slot, v] of Object.entries(draft.page.hero || {})) (v.gdids || []).forEach((g) => ref(`hero:${slot}`, g));
     draft.page.floors.forEach((f) => f.productGdids.forEach((g) => ref(f.pos, g)));
     draft.page.walls.forEach((w) => w.productGdids.forEach((g) => ref(w.pos, g)));
-    // 活動檔期與入口網址只能來自快照
-    const kv = draft.page.kv || {};
-    if (kv.dateValue) assert.ok(Object.values(snap.activities || {}).some((a) => a.period === kv.dateValue), `檔期非快照：${kv.dateValue}`);
-    if (kv.actid) assert.ok(snap.activities && snap.activities[kv.actid], `KV actid 非快照：${kv.actid}`);
-    for (const e of draft.page.promoEntries || []) assert.ok((snap.promotions || []).some((pr) => pr.url === e.url), `入口網址非快照：${e.url}`);
+    // 本期活動入口：活動編號、標題、檔期、網址逐字來自快照 promotions（規則引擎只在這裡寫檔期；主視覺檔期一律留空等人填）
+    assert.deepStrictEqual([draft.page.kv.dateValue, draft.page.kv.actid], ["", ""], "規則引擎不替主視覺填檔期／活動編號");
+    for (const e of draft.page.promoEntries || []) {
+      const pr = (snap.promotions || []).find((x) => String(x.actid) === String(e.actid));
+      assert.ok(pr, `入口活動不在快照：${e.actid}`);
+      assert.strictEqual(e.url, pr.url, `入口網址被改：${e.actid}`);
+      assert.strictEqual(e.title, pr.title, `入口標題被改：${e.actid}`);
+      assert.strictEqual(e.dateValue, pr.period || "", `入口檔期被改：${e.actid}`);
+    }
     // 標題不含數字（04 號：ai-curated 標題無數字＝避開優惠宣稱）
     for (const f of draft.page.floors) if (f.titleSource === "ai-curated") assert.ok(!/\d/.test(f.title), `樓層標題含數字：${f.title}`);
     // outline 形狀
@@ -61,6 +64,27 @@ for (const [label, file] of SNAPS) {
     assert.strictEqual(outline.pool.order, "disc");
   });
 }
+
+test("真值鐵律（有入口的快照至少兩份）：入口斷言不是空過", async () => {
+  let withEntries = 0;
+  for (const [, file] of SNAPS) { const { draft } = await createRulesEngine({ pickCircleImg: pick }).curate(read(file), { ...INPUT, runId: "t" }); if ((draft.page.promoEntries || []).length) withEntries++; }
+  assert.ok(withEntries >= 2, `只有 ${withEntries} 份快照產出入口`);
+});
+
+test("offer 逐字：快照有優惠短句＝標籤原字照抄（tagSource=offer）；太長才裁並留 tagOriginal", async () => {
+  const snap = read(SNAPS[0][1]);
+  snap.products.forEach((p, i) => { p.offer = i % 2 === 0 ? "超值組" : "這是一句非常非常長的優惠說明文字會超過標籤寬度預算"; });
+  const { draft } = await createRulesEngine({ pickCircleImg: pick }).curate(snap, { ...INPUT, runId: "t" });
+  const byId = new Map(snap.products.map((p) => [String(p.gdid), p]));
+  const tagged = draft.products.filter((p) => p.tagSource === "offer");
+  assert.ok(tagged.length >= 10, `offer 標籤太少：${tagged.length}`);
+  for (const dp of tagged) {
+    const offer = byId.get(String(dp.gdid)).offer;
+    if (dp.tagOriginal) { assert.strictEqual(dp.tagOriginal, offer); assert.ok(offer.startsWith(dp.tag.replace(/…$/, "")), `裁切後不是原字前綴：${dp.tag}`); }
+    else assert.strictEqual(dp.tag, offer, `offer 標籤被改寫：${dp.gdid}`);
+    assert.strictEqual(dp.offer, offer);
+  }
+});
 
 test("介面：plan → build 兩步可分開呼叫；build 沒拿 plan 的 outline＝出聲", async () => {
   const snap = read(SNAPS[1][1]);

@@ -23,3 +23,15 @@
 - D9：core/finish（`finishDraftAfterCurate` 收尾步驟拆開）
 - D10：CP 清單向 Alice 要最新版（她提議匯出）；`filterTags` 分類牆（wallGroupBy）第二階段
 - D11：`poolOrder` 預設要不要翻成 sales，業務確認後翻並 `golden:regen`
+
+## 2026-11-13 複核補記
+- 抽出前後逐行 diff：84 行差異全是 I/O 邊界（require 路徑、讀寫檔、exit→throw、圖片探測注入），選品／切層／標題邏輯零差異。
+- 漏改一條 require 路徑（策略檔第二段 `brief_selection.js`）：黃金對照只走「建立」路沒抓到，`server_price_truth_flow` 抓到，已修。教訓：D16 退場 workbench 前，每條活路都要有對照。
+- 真值鐵律原有三條斷言空過（主視覺檔期／活動編號、offer 標籤在五份快照都沒出現）→ 改成：主視覺檔期規則引擎一律留空（斷言它是空）、入口格的活動編號／標題／檔期／網址逐字對快照、另加 offer 逐字測試（快照塞 offer，驗標籤原字或原字前綴＋tagOriginal）。共 11 測試。
+- core 殘留一處讀檔：`themeFit` 仍傳檔案路徑給 `lib/theme_fit.loadThemeFitRule`，D9 改傳內容。
+
+## 範圍決定（2026-11-13，Dora）：維持「第一版＝單機版同等功能」
+以下三項不進第一版，列第二階段：
+- 手動貼上商品清單當來源（第五種來源型；uther by ids 一次查詢即可）
+- Google Sheets 連結當商品清單來源（另牽涉 P23）
+- uther `subtitle` 接成商品卡優惠短句（offer）——單機版只有品牌頁熱銷區抓得到 offer，uther 每件都有 subtitle
