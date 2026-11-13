@@ -348,7 +348,7 @@ async function curateRules(snap, opt = {}, deps = {}) { // async 化（2026-08-2
     /* 策略檔的牆「放什麼」（2026-09-14 使用者實走：「醬料與調味」底下不能是計時器）：件數已算好，把餘池照字重排，切法照舊。
        帳寫進 briefSelection.walls；一件都沒對到的牆＝applyBriefToDraft 不掛人寫的標題。 */
     if (briefSelection && briefData && Array.isArray(briefData.walls) && briefData.walls.length && sizes.length) {
-      const BS2 = require(path.join(__dirname, "..", "lib", "brief_selection.js"));
+      const BS2 = require(path.join(__dirname, "..", "..", "lib", "brief_selection.js"));
       const w = BS2.pickGroups(pool.slice(cursor), briefData.walls, sizes);
       pool = pool.slice(0, cursor).concat(...w.groups, w.rest);
       briefSelection.walls = w.report;
