@@ -1,0 +1,25 @@
+# D8 — core/curate：規則版策展抽出＋CurateEngine 介面＋真值鐵律斷言
+
+日期：2026-11-13 ｜ Jira ECSEARCH-39051
+
+## 做了什麼
+| 件 | 位置 | 說明 |
+|---|---|---|
+| 規則版引擎 | `pipeline/core/curate/rules.js` | 自 `workbench/curate_auto.js main()` 原樣抽出（522 行）。只改 I/O 邊界：snapshot 由參數進、draft 由回傳出、策略檔內容與圓卡圖探測由 deps 注入、`process.exit(2)` 改 `CurateError(code 2)`。選品、切層、標題、配色邏輯逐位元組不動 |
+| CurateEngine 介面 | `pipeline/core/curate/index.js` | `plan(snapshot, input) → outline`、`build(outline) → draft`、`curate()` ＝兩步。rules 引擎的 plan 一次做完、outline 當內部資料；第二階段 AI 引擎接同一介面，plan 是真大綱（給人核准）、build 才生成 |
+| 薄殼 | `workbench/curate_auto.js`（64 行） | CLI 讀寫檔＋注入 `img_probe`；`bridgeThemeForV2IntoDraft`（讀寫 draft 檔）留在殼給 server.js。D16 隨 workbench 退場 |
+| 真值鐵律斷言 | `test/unit/curate_engine.test.js` | 五份真快照（爬頁 1、uther 4）各跑一次：草稿每個品名／價格／劃線價／網址／主圖／offer 標籤／檔期／入口網址都要能在 snapshot 逐字找到；樓層牆主視覺引用的商品都在表裡且不重複曝光；ai-curated 標題無數字 |
+| 留洞（預設不變） | `preparePool()` | `poolOrder: disc\|sales`（P39）、`excludeOutOfStock`、`wallGroupBy`（只收參數，第二階段實作） |
+
+## 驗證
+- 黃金對照 `test:golden` 2/2 綠：抽出前後 draft 逐位元組相同
+- `test:curate`（真值鐵律 9＋黃金 2＋first_draft_no_red 6＋hero_count 4＋theme_bridge）全綠；`net_tuning` 絆線綠（core/curate 不對外抓）
+- 真值鐵律對 **uther 版四份快照也全過**＝ D6 說的「下游零改動」實證：uther 快照直接餵規則引擎，產出合法草稿
+
+## 對 Alice #24（ai-curate-read-scope）的對照
+單機版 AI 策展＝`spawn("claude -p")` 在 run 資料夾讀寫檔，#24 把它關進 run 資料夾（`Read(./**)`、停 Bash、參考檔複製進去）。CMS 的 CurateEngine 資料走參數、不碰檔案系統，第二階段 AI 引擎走 LLM API 不 spawn CLI，所以此題在 CMS 側不存在。取其結論：AI 引擎必讀兩檔（契約形範例＋04 號規則）列為明確輸入 `deps.contractExample`／`deps.curationRules`。
+
+## 待辦
+- D9：core/finish（`finishDraftAfterCurate` 收尾步驟拆開）
+- D10：CP 清單向 Alice 要最新版（她提議匯出）；`filterTags` 分類牆（wallGroupBy）第二階段
+- D11：`poolOrder` 預設要不要翻成 sales，業務確認後翻並 `golden:regen`

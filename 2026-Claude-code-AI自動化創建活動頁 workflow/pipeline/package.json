@@ -27,7 +27,8 @@
     "uther:probe": "node tools/uther_probe.js",
     "test:truth": "node --test test/unit/product_truth.test.js",
     "truth:crosscheck": "node tools/truth_crosscheck.js",
-    "golden:regen:uther": "bash tools/golden_regen_uther.sh"
+    "golden:regen:uther": "bash tools/golden_regen_uther.sh",
+    "test:curate": "node --test test/unit/curate_engine.test.js test/e2e_golden.test.js test/first_draft_no_red.test.js test/unit/curate_auto_hero_count.test.js test/unit/theme_bridge.test.js"
   },
   "keywords": [],
   "author": "",
