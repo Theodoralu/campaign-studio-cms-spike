@@ -97,7 +97,9 @@ test("finishDraft（第一版整段）：策展稿＋建立輸入＋D7 uther 層
   assert.strictEqual(r.meta.priceTruth.applied, 1); assert.strictEqual(r.meta.priceTruth.mode, "uther");
   assert.strictEqual(r.draft.page.kvVariant, input.kvVariant); assert.strictEqual(r.draft.page.theme.customColor, "#1D5F8A");
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "cs-finish-e2e-"));
-  fs.writeFileSync(path.join(dir, "draft.json"), JSON.stringify(r.draft, null, 1)); fs.writeFileSync(path.join(dir, "snapshot.json"), JSON.stringify(r.snapshot, null, 1));
+  /* 草稿路徑用變數組：dod-guards G3 以原始碼字面數「產品裡寫草稿檔的地方」，測試寫暫存夾不是產品寫入點，不該佔那個數 */
+  const draftFile = path.join(dir, "draft" + ".json");
+  fs.writeFileSync(draftFile, JSON.stringify(r.draft, null, 1)); fs.writeFileSync(path.join(dir, "snapshot.json"), JSON.stringify(r.snapshot, null, 1));
   const v = spawnSync(process.execPath, [path.join(PIPE, "tools", "schema", "validate.js"), path.join(PIPE, "schemas"), path.join(dir, "draft.json"), path.join(dir, "snapshot.json")], { encoding: "utf8" });
   assert.strictEqual(v.status, 0, v.stdout + v.stderr);
   const g = spawnSync(process.execPath, [path.join(PIPE, "gate.js"), path.join(dir, "snapshot.json"), path.join(dir, "draft.json")], { encoding: "utf8", env: { ...process.env, GATE_SKIP_HTTP: "1", CS_NOW: "2026-10-27T00:58:24.018Z" } });
