@@ -15,7 +15,7 @@
  *   變更只有 I/O 邊界：snapshot 由參數進、draft 由回傳出、策略檔與圓卡圖探測由 deps 注入、process.exit 改 throw CurateError。
  *   選品、切層、標題、配色……每一行邏輯逐位元組不動（黃金對照 test/e2e_golden.test.js 守）。
  *   入口：curateRules(snapshot, opt, deps) → { draft, notes, summary }
- *     opt  ：{ runId, scenario, theme, pageName, heroCount, themeFit?, brief?（策略檔內容字串）, briefFile? }
+ *     opt  ：{ runId, scenario, theme, pageName, heroCount, themeFitRule?（物件）, brief?（策略檔內容字串）, briefFile? }
  *     deps ：{ pickCircleImg(imgs) → {img, notes[]} }
  * ═══════════════════════════════════════════════════════════════════════════════════════ */
 const path = require("path");
@@ -227,9 +227,9 @@ async function curateRules(snap, opt = {}, deps = {}) { // async 化（2026-08-2
      用 gate CP-14 同一支 lib/theme_fit 判每個候選；硬判不過（池 ≥5 件、命中率 < 門檻）＝不選、換下一檔並出聲。沒帶＝逐位元組舊行為。
      病例＝140838：系統自己挑的 19788（百貨週年慶，20 件只 1 件星巴克）被自己的檢查判 5%＜30% FAIL，使用者無從修。 */
   let themeFitRule = null;
-  if (opt.themeFit) {
+  if (opt.themeFitRule) { // D9：core 不讀檔——殼把 feedback_patch.json 的 themeFitRule 讀好傳物件進來（讀不到＝傳 {}，照舊出聲）
     const TF = require(path.join(__dirname, "..", "..", "lib", "theme_fit.js"));
-    const r = TF.loadThemeFitRule(opt.themeFit, null);
+    const r = TF.normalizeThemeFitRule(opt.themeFitRule, null, opt.themeFitSource);
     if (r && r.keywords.length) themeFitRule = { ...r, TF, globalHits: TF.globalHits(snap.products, r) };
     else notes.push("主題契合尺：校準檔沒有詞組＝本期活動入口不過濾（照舊）");
   }

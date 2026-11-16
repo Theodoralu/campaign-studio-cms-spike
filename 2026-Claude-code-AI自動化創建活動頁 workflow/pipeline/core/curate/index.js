@@ -59,7 +59,7 @@ function outlineOf(draft, input, poolInfo, notes) {
 function createRulesEngine(deps = {}) {
   async function plan(snapshot, input = {}) {
     const pre = preparePool(snapshot, input);
-    const { draft, notes, summary } = await curateRules(pre.snapshot, { runId: input.runId, scenario: input.scenario, theme: input.theme, pageName: input.pageName, heroCount: input.heroCount, themeFit: input.themeFit, brief: input.brief, briefFile: input.briefFile }, deps);
+    const { draft, notes, summary } = await curateRules(pre.snapshot, { runId: input.runId, scenario: input.scenario, theme: input.theme, pageName: input.pageName, heroCount: input.heroCount, themeFitRule: input.themeFitRule, themeFitSource: input.themeFitSource, brief: input.brief, briefFile: input.briefFile }, deps);
     const outline = outlineOf(draft, input, { size: pre.snapshot.products.length, order: input.poolOrder || "disc" }, pre.notes.concat(notes));
     outline._draft = draft; outline._summary = summary; // rules 引擎：plan 已把整份做完，build 只是取出
     Object.defineProperty(outline, "_draft", { enumerable: false }); Object.defineProperty(outline, "_summary", { enumerable: false });

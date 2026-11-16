@@ -49,6 +49,10 @@ async function main() {
   const snap = JSON.parse(fs.readFileSync(path.join(runDir, "snapshot.json"), "utf8"));
   const input = { ...opt, runId: path.basename(runDir) };
   if (opt.brief) { input.brief = fs.readFileSync(opt.brief, "utf8"); input.briefFile = path.basename(opt.brief); } // 策略檔由殼讀檔、內容傳進 core
+  if (opt.themeFit) { // D9：主題契合校準檔也由殼讀；讀不到＝傳 {}（core 照舊出聲「校準檔沒有詞組」）
+    try { input.themeFitRule = JSON.parse(fs.readFileSync(opt.themeFit, "utf8")).themeFitRule || {}; } catch (e) { input.themeFitRule = {}; }
+    input.themeFitSource = `feedback_patch themeFitRule（${opt.themeFit}）`;
+  }
   const engine = core.createRulesEngine({ pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs) });
   const { draft, notes, summary } = await engine.curate(snap, input);
   fs.writeFileSync(path.join(runDir, "draft.json"), JSON.stringify(draft, null, 1));

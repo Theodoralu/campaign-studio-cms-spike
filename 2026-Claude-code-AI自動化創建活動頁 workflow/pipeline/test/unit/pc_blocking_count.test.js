@@ -10,10 +10,15 @@ const fs = require("fs"), path = require("path");
 const PIPE = path.resolve(__dirname, "..", "..");
 const SERVER = fs.readFileSync(path.join(PIPE, "workbench", "server.js"), "utf8");
 const INDEX = fs.readFileSync(path.join(PIPE, "workbench", "public", "index.html"), "utf8");
+/* D9（2026-11-16）：pcBlockingCount／pcBlockMessage 的本體搬到 core/product-truth/rows.js（blockingCount／blockMessage），
+   server.js 只留 require 改名。「只定義一次」的守門跟著搬：本體在 rows.js 恰一處、server.js 不得再自己定義一份。 */
+const ROWS = fs.readFileSync(path.join(PIPE, "core", "product-truth", "rows.js"), "utf8");
 
 test("server：pcBlockingCount 只定義一次、且把 unverified 算進去", () => {
-  const defs = SERVER.match(/const pcBlockingCount = \(s, badLinks\) =>[^\n]+/g) || [];
-  assert.strictEqual(defs.length, 1, "pcBlockingCount 應恰好一處定義");
+  const defs = ROWS.match(/const blockingCount = \(s, badLinks\) =>[^\n]+/g) || [];
+  assert.strictEqual(defs.length, 1, "blockingCount 應恰好一處定義（core/product-truth/rows.js）");
+  assert.deepStrictEqual(SERVER.match(/const pcBlockingCount = \(/g) || [], [], "server.js 不得再自己定義一份");
+  assert.match(SERVER, /blockingCount: pcBlockingCount/, "server.js 要從 core 取用同一支");
   assert.match(defs[0], /s\.unverified/);
   assert.match(defs[0], /s\.dead/); assert.match(defs[0], /s\.offline/); assert.match(defs[0], /s\.drift/); assert.match(defs[0], /s\.snapMissing/);
 });
@@ -26,9 +31,10 @@ test("server：三條交付路（發佈／匯出／製作 AEM）都改吃 pcBloc
 });
 
 test("server：擋下時的白話訊息會點名「連不上 Yahoo、沒能驗價」與件數，並告訴人怎麼辦", () => {
-  assert.match(SERVER, /const pcBlockMessage = \(s, n, verb\) =>/);
-  assert.match(SERVER, /連不上 Yahoo、沒能驗價（共 \$\{n\} 項要處理）/);
-  assert.match(SERVER, /按「重新檢查」後再/, "指路要用介面上那顆鈕的名字（介面叫「重新檢查」）");
+  assert.match(ROWS, /const blockMessage = \(s, n, verb\) =>/);
+  assert.match(SERVER, /blockMessage: pcBlockMessage/, "server.js 要從 core 取用同一支");
+  assert.match(ROWS, /連不上 Yahoo、沒能驗價（共 \$\{n\} 項要處理）/);
+  assert.match(ROWS, /按「重新檢查」後再/, "指路要用介面上那顆鈕的名字（介面叫「重新檢查」）");
   assert.match(SERVER, /parts\.push\(`連不上 Yahoo、沒能驗價 ×\$\{pc\.summary\.unverified\}`\)/, "deployRun 的逐項清單也要列 unverified");
 });
 

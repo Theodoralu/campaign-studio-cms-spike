@@ -173,39 +173,12 @@ const invalidateApproval = (id) => { const m = readMeta(id) || {}; if (m.approve
 const exploreFixLocks = new Set(); // 探索卡修復互斥（QA #5/#8：驗活 5–10 秒窗口、並發修復會互蓋）
 const EXPLORE_ITEMS_CAP = 4; /* 探索入口上限（2026-10-07 使用者需求「新增入口」＋三裝置實測定值：桌機 1440 單排整齊放到 4、5 起折兩排出孤兒卡；手機 2 欄雙數最整齊）。引擎 slice(0,4) 同值＝畫面端背板，這裡是寫入門。 */
 /* 套用實抓新價到快照商品（共用：單品 apply-live-price 與批次 apply-live-price-all；價格真值取自 product_check 伺服器實抓） */
-const patchSnapshotPrice = (snap, sp, row, checkedAt) => {
-  const oldP = sp.price, oldM = sp.marketPrice || null;
-  sp.price = row.livePrice;
-  if (row.liveMarketPrice && row.liveMarketPrice > row.livePrice) { sp.marketPrice = row.liveMarketPrice; sp.disc = Math.round((row.livePrice / row.liveMarketPrice) * 100); }
-  else { sp.marketPrice = null; sp.disc = null; }
-  snap.warnings = snap.warnings || [];
-  snap.warnings.push(`套用新價：gdid ${sp.gdid} price ${oldP}→${sp.price}、marketPrice ${oldM}→${sp.marketPrice}（真值＝product_check ${checkedAt || "?"} 伺服器實抓；Q4-A）`);
-  // minDisc 同口徑重算（fetch_parse 建快照公式；QA #3：套價清掉虛深折數後，write_xlsx 互證列不可殘留「實算最低 28 折」舊語意）
-  const _ds = (snap.products || []).map((p) => p.disc).filter((d) => d && d > 0 && d < 100);
-  snap.minDisc = _ds.length ? Math.min(..._ds) : null;
-  return { gdid: String(sp.gdid), price: sp.price, marketPrice: sp.marketPrice || null };
-};
+const { patchSnapshotPrice, summary: pcSummaryOf, blockingCount: pcBlockingCount, blockMessage: pcBlockMessage } = require("../core/product-truth/rows"); // D9：這四支的本體搬到 core/product-truth（D7 原樣抽出），這裡只留名字
 /* 商品狀態統計（productCheck 與 patchProductCheckFile 共用口徑；drift 含快照落後 snapDrift）。
    暫存品（僅存在 page.heroSlotStash＝不渲染不出貨；51 號 W1-D）不計主計數、另列 stashed N 件（14 §2.13）。 */
-const pcSummaryOf = (results) => {
-  const act = results.filter((r) => !r.stashed);
-  return {
-    online: act.filter((r) => r.status === "online" && !r.drift && !r.snapDrift).length,
-    drift: act.filter((r) => r.drift || r.snapDrift).length,
-    offline: act.filter((r) => r.status === "offline").length,
-    dead: act.filter((r) => r.status === "dead").length,
-    unverified: act.filter((r) => r.status === "unverified").length,
-    snapMissing: act.filter((r) => r.snapMissing).length,
-    stashed: results.length - act.length,
-  };
-};
 /* 「要處理幾件」單一口徑（2026-09-16 打包前總檢 C-H1／牆 P-9 甲）：unverified（連不上 Yahoo、沒能驗價）算問題、擋交付——
    原本 deployRun／exportZip／exportAem 三處各抄一份且都漏了它＝同事機沒網路時綠燈放行、出貨建檔當天的舊價，README 還寫「通過」。
    前端 pcBad（index.html）同口徑。 */
-const pcBlockingCount = (s, badLinks) => (s.dead || 0) + (s.offline || 0) + (s.drift || 0) + (s.snapMissing || 0) + (s.unverified || 0) + (badLinks || 0);
-const pcBlockMessage = (s, n, verb) => ((s.unverified || 0) > 0
-  ? `有 ${s.unverified} 件商品連不上 Yahoo、沒能驗價（共 ${n} 項要處理）——請確認這台電腦連得上 tw.buy.yahoo.com，按「重新檢查」後再${verb}`
-  : `商品狀態檢查未過（要處理 ${n} 項）——開「發佈前檢查」清單，照每條的按鈕與指引處理後再${verb}`);
 /* 套價／重建來源紀錄後回寫磁碟商品狀態報告（2026-07-27 QA #3/#5/#8）：只 patch snapshot 不回寫報告
    ＝F5 重載後 prefill 讀舊檔、snapDrift/snapMissing 殭屍復活（紅字＋幽靈「套用新價」鈕再打核可） */
 function patchProductCheckFile(runDir, gdid, patch) {
@@ -251,23 +224,14 @@ function runNode(id, script, args, cwd) { // pipeline 腳本橋接：stdout/stde
 
 /* 來源頁詞派生（2026-07-25 裁決 Q1-B1＝U23 同源）：搜尋 p= 詞＋來源頁 title 頭段分詞——
    抽象主題（拍出精彩人生）2-gram 全滅家族的主治：品類詞其實在輸入端就有（實測相機案 0%→50/60/100%） */
-function deriveSourceKeywords(runDir, srcUrl) {
-  const kws = new Set();
-  try { const u = new URL(srcUrl || ""); const q = u.searchParams.get("p");
-    if (q) decodeURIComponent(q).split(/[\s+]+/).forEach((w) => { const t = w.trim().toLowerCase(); if (t.length >= 2) kws.add(t); });
-  } catch (e) {}
-  try {
-    const raw = fs.readFileSync(path.join(runDir, "raw", "source_page.html"), "utf8");
-    const tm = raw.match(/<title>([^<]*)<\/title>/i);
-    if (tm) {
-      const head = tm[1].split(/[,，|｜]/)[0].replace(/優惠推薦.*$/, "").trim();
-      head.split(/[\/、\s\-]+/).forEach((w) => { const t = w.trim().toLowerCase(); if (t.length >= 2 && !/yahoo|購物中心/i.test(t)) kws.add(t); });
-    }
-  } catch (e) {}
-  return [...kws];
+function deriveSourceKeywords(runDir, srcUrl) { // D9：計算在 core/finish.deriveSourceKeywords；殼只負責把來源頁 <title> 讀出來
+  let title = "";
+  try { const tm = fs.readFileSync(path.join(runDir, "raw", "source_page.html"), "utf8").match(/<title>([^<]*)<\/title>/i); if (tm) title = tm[1]; } catch (e) { /* 沒有來源頁原文＝只用網址詞 */ }
+  return coreFinish.deriveSourceKeywords(srcUrl, title);
 }
 
 /* CP-14 主題契合詞組派生（單一實作＝createRun 與 promoLayerOptions 共用；2026-07-25 design QA 去重複） */
+const coreFinish = require("../core/finish"); // D9：收尾步驟的計算本體
 const { deriveThemeKeywords } = require("../lib/theme_keywords"); // 2026-09-11 搬進 lib：策略檔「來源對不對得上」預檢與 CP-14 詞組派生共用同一把切詞刀（勿在此重抄）
 const { stampDraftJson } = require("../lib/publish_stamp"); // 2026-09-16：發佈內網預覽時把「這一版當下核可了沒」蓋進送出去的資料（三題牆第 1 題甲）
 
@@ -283,8 +247,7 @@ function ensureThemeFitPatch(id, runDir, input) {
     const kws = [...new Set([...deriveThemeKeywords(input.theme), ...deriveSourceKeywords(runDir, input.url)])];
     if (!kws.length) return [];
     const fp = path.join(runDir, "feedback_patch.json");
-    const next = JSON.stringify({ themeFitRule: { keywords: kws, threshold: 0.3,
-      note: "機械派生＝curationTheme＋來源頁詞（2026-07-25 裁決 Q1-B1、U23 同源；30% 門檻不變；人工詞組可直接改本檔或經工作台「主題詞組」卡）" } }, null, 1);
+    const next = JSON.stringify({ themeFitRule: { keywords: kws, threshold: 0.3, note: coreFinish.THEME_FIT_NOTE } }, null, 1); // D9：note 文字單一來源＝core/finish
     let cur = null; try { cur = fs.readFileSync(fp, "utf8"); } catch (e) { /* 檔還不在＝第一次寫，cur=null 自然 !== next */ }
     if (cur !== next) { fs.writeFileSync(fp, next); appendLog(id, `CP-14 主題詞組校準檔產出（${kws.length} 詞＝主題派生＋來源頁詞）`); }
     return ["--themeFit", fp];
@@ -301,13 +264,8 @@ async function finishDraftAfterCurate(id, runDir, input) {
     /* 建置流程即選的自訂品牌色（2026-07-26 使用者需求：一開始就能設）：覆寫 curate 的 auto hue，保留其餘 theme 欄位。
        色碼合法才套；可讀性把關（2026-08-27 擋色制）＝表單端 /api/theme-check 同尺前置擋＋橋接端（curate_auto
        bridgeThemeForV2）擋級不過自動用通過版兜底——舊註解「前端 assessSeedColor 擋過」不實（那把尺只擋格式與極淺色＝薄荷綠漏網口）。 */
-    if (input.themeColor && /^#?[0-9a-fA-F]{6}$/.test(String(input.themeColor).replace("#", ""))) {
-      const hex = input.themeColor[0] === "#" ? input.themeColor : "#" + input.themeColor;
-      const mode = input.themeMode === "dark" ? "dark" : "light";
-      dj.page.theme = { ...(dj.page.theme || {}), hueFamily: "custom", colorTheme: `custom-${mode}`, surfaceMode: mode, customColor: hex };
-      fs.writeFileSync(dPath, JSON.stringify(dj, null, 1));
-      appendLog(id, `自訂主題色寫入：${hex}（${mode}）＝建置流程選定，覆寫 auto 配色`);
-    }
+    const rC = coreFinish.customThemeColor(dj, { input }); // D9：計算在 core/finish；殼負責落檔與 log
+    if (rC.changed) { fs.writeFileSync(dPath, JSON.stringify(dj, null, 1)); rC.logs.forEach((l) => appendLog(id, l)); }
   } catch (e) { appendLog(id, "自訂主題色寫入略過：" + errText(e)); }
   /* 版式與提案包寫入（51 號 W1-C，2026-08-24）：page.kvVariant 裸值（值已在建立端點過值域驗證）＋
      meta.layoutChoice 理由行履歷（by=ai|manual|pack；C3c）＋meta.proposalPack（W1-D 組合面板接手背景/主題/字體/動畫）。
@@ -414,7 +372,6 @@ async function finishDraftAfterCurate(id, runDir, input) {
       appendLog(id, "建立期價格對真：已關閉（CAMPAIGN_PRICE_TRUTH=off），發佈前檢查會驗價格");
     } else {
       try {
-        const { applyPriceTruth } = require(path.join(PIPE, "lib", "price_truth.js"));
         const productsP = (() => { try { return JSON.parse(fs.readFileSync(dPathP, "utf8")).products || []; } catch (e) { return []; } })();
         /* 種子（提速 A，2026-10-05 使用者裁 A＋B＋C）：清單逐品實抓幾分鐘前剛問過同一批商品頁（同一支探測器、
            同一次建置）＝新鮮度窗內直接用、同一頁不付兩次網路錢。窗＝10 分鐘（同一次建置內必然遠小於此；
@@ -450,25 +407,17 @@ async function finishDraftAfterCurate(id, runDir, input) {
         }
         const snapP = JSON.parse(fs.readFileSync(snapPathP, "utf8"));
         const djP = JSON.parse(fs.readFileSync(dPathP, "utf8"));
-        const rP = applyPriceTruth({ snap: snapP, draft: djP, rows: pcP.results, checkedAt: pcP.checkedAt, patchSnapshotPrice });
-        if (rP.applied.length) {
+        /* D9：套用規則與每一句訊息都在 core/finish.priceTruth（就地改 snapP／djP）；殼只做落檔、同步商品狀態報告、寫 log 與 meta */
+        const startedP = ((readMeta(id) || {}).priceTruth || {}).startedAt;
+        const fP = coreFinish.priceTruth(djP, { snapshot: snapP, rows: pcP.results, checkedAt: pcP.checkedAt, mode: modeP || "live", startedAt: startedP, finishedAt: new Date().toISOString() });
+        if (!fP.result) throw new Error(fP.meta.priceTruthError);
+        if (fP.applied.length) {
           fs.writeFileSync(snapPathP, JSON.stringify(snapP, null, 1));
           fs.writeFileSync(dPathP, JSON.stringify(djP, null, 1));
-          for (const a of rP.applied) {
-            patchProductCheckFile(runDir, a.gdid, (r0) => { r0.draftPrice = a.to.price; r0.drift = false; r0.marketDrift = false; delete r0.draftMarketPrice; r0.snapPrice = a.to.price; r0.snapDrift = false; });
-            appendLog(id, `價格改用商品頁現價：gdid ${a.gdid} $${a.from.price}→$${a.to.price}${a.to.marketPrice ? `、原價 ${a.to.marketPrice}` : a.from.marketPrice ? "、原價移除" : ""}`);
-          }
-          appendLog(id, `建立期價格對真：${rP.applied.length} 件改用商品頁現價，來源紀錄與草稿已同步（來源活動頁沒給促銷價）`);
-        } else if (rP.offline) {
-          appendLog(id, `⚠ 建立期價格對真：${rP.checked} 件都沒能連上商品頁，價格沒動。發佈前檢查會再驗`);
-        } else {
-          appendLog(id, `建立期價格對真：${rP.checked} 件與商品頁一致`);
+          for (const a of fP.applied) patchProductCheckFile(runDir, a.gdid, (r0) => { r0.draftPrice = a.to.price; r0.drift = false; r0.marketDrift = false; delete r0.draftMarketPrice; r0.snapPrice = a.to.price; r0.snapDrift = false; });
         }
-        if (rP.unverified && !rP.offline) appendLog(id, `⚠ 建立期價格對真：${rP.unverified} 件沒能連上商品頁，價格沒動。發佈前檢查會再驗`);
-        if (rP.skippedNotInPool.length) appendLog(id, `⚠ 建立期價格對真：${rP.skippedNotInPool.length} 件不在來源紀錄裡、沒改（gdid ${rP.skippedNotInPool.join("、")}）`);
-        if (rP.skippedNotInDraft.length) appendLog(id, `建立期價格對真：${rP.skippedNotInDraft.length} 件不在草稿上、沒動（報告多給的列）`);
-        const startedP = ((readMeta(id) || {}).priceTruth || {}).startedAt;
-        writeMeta(id, { priceTruth: { stage: "done", startedAt: startedP, finishedAt: new Date().toISOString(), total: rP.checked, applied: rP.applied.length, unverified: rP.unverified, offline: rP.offline, mode: modeP || "live" } });
+        fP.logs.forEach((l) => appendLog(id, l));
+        writeMeta(id, fP.meta);
       } catch (e) {
         appendLog(id, "⚠ 建立期價格對真沒有跑成，價格沒動。發佈前檢查會再驗（技術：" + e.message + "）");
         writeMeta(id, { priceTruth: { stage: "error", error: e.message, finishedAt: new Date().toISOString() }, priceTruthError: e.message });

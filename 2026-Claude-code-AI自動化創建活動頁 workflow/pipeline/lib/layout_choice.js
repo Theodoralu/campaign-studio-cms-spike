@@ -597,6 +597,18 @@ function writeLayoutChoiceIntoDraft(draftPath, input, overridePaths = {}) {
   } catch (e) {
     throw new Error(`版式選擇寫進草稿失敗（讀取 ${draftPath}）：${e.message}`);
   }
+  applyLayoutChoiceToDraft(dj, input, overridePaths);
+  try {
+    fs.writeFileSync(draftPath, JSON.stringify(dj, null, 1));
+  } catch (e) {
+    throw new Error(`版式選擇寫進草稿失敗（寫入 ${draftPath}）：${e.message}`);
+  }
+}
+/** D9（2026-11-16）：記憶體版——就地改 dj、不讀寫草稿檔（登記簿仍由 loadLayoutDeps 讀）；內容自 writeLayoutChoiceIntoDraft 原樣搬 */
+function applyLayoutChoiceToDraft(dj, input, overridePaths = {}) {
+  if (!input || !input.kvVariant || !input.layoutChoice) {
+    throw new Error("版式選擇寫進草稿失敗：缺 kvVariant 或 layoutChoice（呼叫端契約錯誤）");
+  }
   dj.page = dj.page || {};
   dj.page.kvVariant = input.kvVariant;
   dj.meta = dj.meta || {};
@@ -619,14 +631,11 @@ function writeLayoutChoiceIntoDraft(draftPath, input, overridePaths = {}) {
   if (input.proposalPack) {
     dj.meta.proposalPack = { pack: input.proposalPack, warnings: input.packWarnings || [], deviated: !!input.packDeviated };
   }
-  try {
-    fs.writeFileSync(draftPath, JSON.stringify(dj, null, 1));
-  } catch (e) {
-    throw new Error(`版式選擇寫進草稿失敗（寫入 ${draftPath}）：${e.message}`);
-  }
+  return dj;
 }
 
 module.exports = {
+  applyLayoutChoiceToDraft, // D9：記憶體版（core/finish 用）
   SCENARIO_LAYOUT_MAP,
   ENGINE_SUPPORTED, // 完工名單單一來源（gate 引擎完工閘＋面板同吃）
   HERO_TEXT_PIECES,

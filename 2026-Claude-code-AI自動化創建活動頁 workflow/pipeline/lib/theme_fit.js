@@ -13,15 +13,19 @@ const normText = (s) => String(s ?? "").replace(FULLWIDTH_DIGITS_RE, (c) => Stri
 /** 讀校準檔 themeFitRule（形制與 gate.loadThemeFit 相容：keywords 斜線別名展開＋小寫；threshold 數值或 {B_poolHitRate}）；讀不到＝fallback */
 function loadThemeFitRule(file, fallback = null) {
   try {
-    const r = JSON.parse(fs.readFileSync(file, "utf8")).themeFitRule;
-    if (r && Array.isArray(r.keywords) && r.keywords.length) {
-      const keywords = [...new Set(r.keywords.flatMap((k) => String(k).split("/")).map((s) => s.trim().toLowerCase()).filter(Boolean))];
-      const threshold = typeof r.threshold === "number" ? r.threshold
-        : typeof (r.threshold && r.threshold.B_poolHitRate) === "number" ? r.threshold.B_poolHitRate
-        : (fallback && typeof fallback.threshold === "number" ? fallback.threshold : 0.3);
-      return { keywords, threshold, source: `feedback_patch themeFitRule（${file}）` };
-    }
+    return normalizeThemeFitRule(JSON.parse(fs.readFileSync(file, "utf8")).themeFitRule, fallback, `feedback_patch themeFitRule（${file}）`);
   } catch (e) { /* 讀不到＝走 fallback（缺檔不誤殺） */ }
+  return fallback;
+}
+/** D9（2026-11-16）：純函式版——吃已解析的 themeFitRule 物件（core 不讀檔）；形制判定與上面原文一對一 */
+function normalizeThemeFitRule(r, fallback = null, source = "themeFitRule（記憶體）") {
+  if (r && Array.isArray(r.keywords) && r.keywords.length) {
+    const keywords = [...new Set(r.keywords.flatMap((k) => String(k).split("/")).map((s) => s.trim().toLowerCase()).filter(Boolean))];
+    const threshold = typeof r.threshold === "number" ? r.threshold
+      : typeof (r.threshold && r.threshold.B_poolHitRate) === "number" ? r.threshold.B_poolHitRate
+      : (fallback && typeof fallback.threshold === "number" ? fallback.threshold : 0.3);
+    return { keywords, threshold, source };
+  }
   return fallback;
 }
 
@@ -52,4 +56,4 @@ function entryFitVerdict({ actid, title, snap, themeFit, themeGlobalHits, norm =
   return { kind: rate < themeFit.threshold ? "fail" : "pass", hits, total: pool.length, rate };
 }
 
-module.exports = { normText, loadThemeFitRule, hitKw, globalHits, entryFitVerdict };
+module.exports = { normText, loadThemeFitRule, normalizeThemeFitRule, hitKw, globalHits, entryFitVerdict };

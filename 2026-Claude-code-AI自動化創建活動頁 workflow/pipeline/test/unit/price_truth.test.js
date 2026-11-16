@@ -12,10 +12,10 @@ const vm = require("vm");
 const { applyPriceTruth } = require("../../lib/price_truth");
 
 const serverSrc = fs.readFileSync(path.join(__dirname, "..", "..", "workbench", "server.js"), "utf8");
-const m = serverSrc.match(/\nconst patchSnapshotPrice = \(snap, sp, row, checkedAt\) => \{[\s\S]*?\n\};/);
-assert.ok(m, "server.js 要有 patchSnapshotPrice（快照那一刀的唯一實作）");
-const ctx = {}; vm.createContext(ctx); vm.runInContext(m[0] + "\n;globalThis.__p = patchSnapshotPrice;", ctx);
-const patchSnapshotPrice = ctx.__p;
+/* D9（2026-11-16）：快照那一刀的唯一實作搬到 core/product-truth/rows.js；server.js 只 require、不得再有第二份 */
+assert.deepStrictEqual(serverSrc.match(/\nconst patchSnapshotPrice = \(snap, sp, row, checkedAt\) => \{/g) || [], [], "server.js 不得再自己定義 patchSnapshotPrice");
+assert.match(serverSrc, /\{ patchSnapshotPrice, [^}]*\} = require\("\.\.\/core\/product-truth\/rows"\)/, "server.js 要從 core 取用同一把刀");
+const { patchSnapshotPrice } = require("../../core/product-truth/rows");
 
 const mk = () => ({
   snap: { products: [
