@@ -29,6 +29,7 @@ const RULES = [
   { id: "generic-secret-assignment", re: /\b(password|passwd|secret|api[_-]?key|client[_-]?secret|token)\b\s*[=:]\s*["'](?![a-z]+\/[a-z0-9-]+["'])[^"'\s]{12,}["']/i }, // 排除 design token 路徑 token:"campaign/page-bg"
   { id: "personal-path", re: /\/Users\/[a-z][a-z0-9._-]{1,30}\//i },
   { id: "home-path", re: /\/home\/[a-z][a-z0-9._-]{1,30}\//i },
+  { id: "session-scratch-path", re: /-Users-[a-z][a-z0-9._]{1,30}-|\/tmp\/claude-\d+\// }, // D10：AI 工作階段暫存夾（路徑把 /Users/<人名>/ 壓成 -Users-<人名>-，上面那條抓不到；gate.js 留過一條）
   { id: "yahoo-corp-email", re: /\b[a-z0-9._-]+@(yahooinc|yahoo-inc|verizonmedia)\.com\b/i },
 ];
 const SKIP_DIR = /(^|\/)(node_modules|\.git|dist|test\/fixtures\/http)(\/|$)/;

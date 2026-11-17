@@ -1,6 +1,6 @@
 {
   "version": "1.12.0",
-  "generatedAt": "2026-10-05T07:50:18.383Z",
+  "generatedAt": "2026-11-17T01:53:49.451Z",
   "sources": {
     "gateRules": "pipeline/gate.js（機器閘 v2 抽頂常數 N-16；v3 entryChecks＝U1–U5、v4 CP-10＝U8、v5 moduleChecks＝U10–U15、v6 entryCount＝U17⑰（CP-15 入口數量 3~4）、v7 categoryWallCount＝U18⑱（CP-16 品類牆數量 3~5）、v8 typeHomogeneity＝U19⑲（CP-17 選品單一來源制取代 R2）——皆 2026-07-20 裁決，規則數 17 → 32；v9（2026-07-21 落地 07-20 裁決㉒㉓㉗㉘）＝CP-18 全頁互斥＋CP-20 主從一致＋CP-21 牆件數 4 倍數＋CP-22 看更多，規則數 32 → 40、enums 增 wallProductCount/moreLinkToggle；v10（2026-07-22 裁決）＝tagSource 增 manual＝標籤 v6；v11（2026-07-23 收斂會裁決 23-1）＝CP-18 同樓層 scene×卡互斥，規則數 40 → 41；v12（2026-07-23 ②③定案）＝explore/editorial 檢查補課，規則數 41 → 45；v13（2026-07-23 四題裁決）＝本期活動 manual 通道（promoSourceMode+manual/entrySource 豁免與降級語意）＋商品型入口 gdid 兩式修，規則數 45 → 46；v15（2026-08-24 51 號 W1-E 裁決批）＝heroLayoutChecks 三閘＝CP-25 版式值域＋CP-26 佔位殘留＋CP-27 素材授權（含灰度門票／動畫欄），規則數 46 → 51；v15.1（2026-08-25 使用者實測批）＝CP-25 增引擎完工閘：kvVariant=layout-* 而真樣式未完工（不在 lib/layout_choice ENGINE_SUPPORTED 完工名單）＝FAIL 擋出貨，完工一款解鎖一款；v15.2（2026-08-25 CO-20260825-01）＝CP-28 主視覺真值連動：kv.cornerProducts 逐筆 gdid 必填（名稱/網址主檔帶出杜絕漂移），51 → 52；v16（2026-08-26 使用者裁決）＝CP-15 入口數量上限 4→12（規則數不變、規則值改：下限 3 不變、恰 3 等比放大語意保留；>3 全裝置左右滑動列＝渲染端互動另批；CP 登記表 v1.10＋14 號 §2.4 升版註記）",
     "charLimitsMobile": "03_GoogleSheets_Schema_v1.md §8.1 mobile 字元上限建議表（v1.2 提案，2026-07-19）"
@@ -323,7 +323,7 @@
       "patchChannel": {
         "env": "GATE_THEME_FIT_PATCH",
         "field": "themeFitRule{keywords[], threshold: number｜{B_poolHitRate}}",
-        "sessionPath": "/private/tmp/claude-503/-Users-tofu-Documents-Codex-2026-06-15-------------W-Yu-ting--/3bb4a5bf-8481-45f8-abe5-f6993182a64f/scratchpad/curation-20260720/feedback_patch.json",
+        "sessionPath": null,
         "rule": "策展 agent 校準值（feedback_patch.json themeFitRule）讀得到就以它為準；讀不到＝走抽頂預設（缺檔不誤殺）；keywords 斜線別名展開＋英文不分大小寫（keywordNote）；threshold 物件形取 B_poolHitRate（閘門實作訊號 B＝商品池品名命中率）"
       },
       "note": "U14⑭（2026-07-20）：出現在來源頁活動列表≠主題契合——不契合一律不入選（鈦案 772695 nile 戶外＝選錯品類錯誤示範、立即撤換）；契合活動不足額依 U8 三層混填；⚠ 主題詞＋門檻待 curationTheme 詞庫欄位化後改資料驅動"

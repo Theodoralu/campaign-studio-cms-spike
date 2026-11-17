@@ -29,7 +29,9 @@
     "truth:crosscheck": "node tools/truth_crosscheck.js",
     "golden:regen:uther": "bash tools/golden_regen_uther.sh",
     "test:curate": "node --test test/unit/curate_engine.test.js test/e2e_golden.test.js test/first_draft_no_red.test.js test/unit/curate_auto_hero_count.test.js test/unit/theme_bridge.test.js",
-    "test:finish": "node --test test/unit/finish_steps.test.js test/unit/price_truth.test.js test/unit/pc_blocking_count.test.js test/unit/server_price_truth_flow.test.js"
+    "test:finish": "node --test test/unit/finish_steps.test.js test/unit/price_truth.test.js test/unit/pc_blocking_count.test.js test/unit/server_price_truth_flow.test.js",
+    "test:gate": "node --test test/unit/cp_catalog.test.js test/gate_golden.test.js test/gate_hero_gates.test.js test/unit/export_build.test.js",
+    "aem:verify": "node tools/ci_aem_verify.js"
   },
   "keywords": [],
   "author": "",

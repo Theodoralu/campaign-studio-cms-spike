@@ -236,10 +236,9 @@ const THEME_FIT_DEFAULT = {                                  // U14 主題契合
   threshold: 0.3,                                            // 商品池品名命中率門檻 30%
   source: "gate.js 抽頂預設（2026-07-20 鈦案關鍵詞組＋30% 門檻）",
 };
-const THEME_FIT_PATCH_PATHS = [                              // U14 校準通道：策展 agent feedback_patch.json themeFitRule 讀得到就以它為準
-  process.env.GATE_THEME_FIT_PATCH,                          // 正式通道：環境變數指定校準檔
-  "/private/tmp/claude-503/-Users-tofu-Documents-Codex-2026-06-15-------------W-Yu-ting--/3bb4a5bf-8481-45f8-abe5-f6993182a64f/scratchpad/curation-20260720/feedback_patch.json", // 2026-07-20 session 暫時通道
-].filter(Boolean);
+/* D10（2026-11-17）：校準通道只剩環境變數一條——原第二條是 2026-07-20 某次工作階段的個人暫存路徑（寫死在原始碼裡），已移除。
+   路徑改成呼叫當下才讀 env（原本模組載入時就定死＝同一個程序內換不了校準檔，程式內呼叫 checkDraft 用不了）。 */
+const themeFitPatchPaths = (env) => [(env || process.env).GATE_THEME_FIT_PATCH].filter(Boolean);
 /* ---- 2026-07-20 U17⑰ 新增常數（CP-15 本期活動入口數量規則）---- */
 const PROMO_ENTRY_COUNT = { min: 3, max: 12 }; // U17⑰ 原「至多 4 則、不得少於 3 則」；2026-08-26 使用者裁決＝上限 4→12（「本期活動模組可以開放給用戶最多可以增加到 12 個內容入口」）——下限 3 維持（<3 依 U8 三層優先序遞補後仍不足＝FAIL）；=3 版型等比放大語意保留（渲染側 09 §2.10）；>3 全裝置左右滑動列＝渲染端互動另批
 /* ---- 2026-07-20 U18⑱ 新增常數（CP-16 品類牆數量規則）---- */
@@ -401,8 +400,14 @@ function categoryWalls(draft) {
 // 相容校準檔實際形制（2026-07-20 curation-20260720 實檔）：threshold 可為數值或 {B_poolHitRate}（閘門實作
 // 訊號 B＝商品池品名命中率，故取 B 門檻）；keywords 斜線別名展開（"titanium/TITANIUM"→兩詞）＋一律小寫
 // （keywordNote：「英文別名 titanium 不分大小寫」——命中比對端同步 toLowerCase，中文不受影響）
-function loadThemeFit() {
-  for (const p of THEME_FIT_PATCH_PATHS) {
+function loadThemeFit(env, inlineRule) {
+  /* D10：inlineRule＝呼叫端直接給 themeFitRule 物件（CMS 不落檔）；形狀與校準檔內的 themeFitRule 相同，正規化同一段 */
+  if (inlineRule && Array.isArray(inlineRule.keywords) && inlineRule.keywords.length) {
+    const keywords = [...new Set(inlineRule.keywords.flatMap((k) => String(k).split("/")).map((s) => s.trim().toLowerCase()).filter(Boolean))];
+    const threshold = typeof inlineRule.threshold === "number" ? inlineRule.threshold : typeof inlineRule.threshold?.B_poolHitRate === "number" ? inlineRule.threshold.B_poolHitRate : THEME_FIT_DEFAULT.threshold;
+    return { keywords, threshold, source: "themeFitRule（呼叫端傳入）" };
+  }
+  for (const p of themeFitPatchPaths(env)) {
     try {
       const r = JSON.parse(fs.readFileSync(p, "utf8")).themeFitRule;
       if (r && Array.isArray(r.keywords) && r.keywords.length) {
@@ -453,8 +458,8 @@ function isSubsequence(needle, hay) {
   return i >= needle.length;
 }
 // W1-E：GATE_REGISTRY_OVERRIDES 解析（inline JSON 或 JSON 檔路徑）——設定值壞＝throw 出聲（鐵律 3：不靜默忽略注入設定）
-function gateRegistryOverrides() {
-  const v = process.env.GATE_REGISTRY_OVERRIDES;
+function gateRegistryOverrides(env) {
+  const v = (env || process.env).GATE_REGISTRY_OVERRIDES;
   if (!v) return {};
   const raw = v.trim().startsWith("{") ? v : fs.readFileSync(v, "utf8");
   return JSON.parse(raw);
@@ -491,16 +496,18 @@ function httpStatus(url) {
   });
 }
 
-async function main() {
-  const [snapPath, draftPath] = process.argv.slice(2);
-  /* v20 輸出防呆：報告路徑＝把檔名 draft.json 換成 gate_report.json；檔名不是 draft.json 時 replace 不命中＝會把報告寫回輸入檔（覆寫草稿或版本備份）。
-     要檢查版本備份＝先複製成 <暫存夾>/draft.json 再跑。exit 2＝跟「有 FAIL」的 exit 1 分開，呼叫端不會誤判成檢查沒過。 */
-  if (!draftPath || path.resolve(draftPath.replace(/draft\.json$/, "gate_report.json")) === path.resolve(draftPath)) {
-    console.error(`機器閘：拒絕執行——草稿檔名必須是 draft.json（收到 ${draftPath || "（空）"}），否則報告會覆寫輸入檔。要檢查版本備份請先複製成 <資料夾>/draft.json 再跑。`);
-    process.exit(2);
-  }
-  const snapRaw = fs.readFileSync(snapPath);
-  const draftRaw = fs.readFileSync(draftPath);
+/**
+ * D10（2026-11-17）：檢查本體＝可在程式內呼叫的函式。不讀草稿檔、不寫報告、不 process.exit——那些留給下面的 main()（指令列殼）。
+ *   checkDraft({ snapRaw, draftRaw, meta, env, log, themeFitRule, fontCodepointsFile }) → report（與 gate_report.json 同形狀）
+ *   snapRaw／draftRaw：Buffer 或字串（報告的指紋對原始位元組算，所以收原文不收物件）
+ *   meta：wb_meta 物件（只用 heroBgLicenseConfirm；沒有＝當未確認）
+ *   env：環境開關（GATE_SKIP_HTTP／GATE_REGISTRY_OVERRIDES／GATE_THEME_FIT_PATCH），預設 process.env
+ *   log：進度訊息出口，預設 console.log
+ * 還會碰外面的地方（之後再收）：登記簿（lib/proposal_pack 自己讀檔）、圖片與搜尋目的地的 HTTP（env.GATE_SKIP_HTTP=1 可關）。
+ */
+async function checkDraft({ snapRaw, draftRaw, meta = null, env = process.env, log = console.log, themeFitRule = null, fontCodepointsFile = null } = {}) {
+  if (typeof snapRaw === "string") snapRaw = Buffer.from(snapRaw, "utf8");
+  if (typeof draftRaw === "string") draftRaw = Buffer.from(draftRaw, "utf8");
   const snap = JSON.parse(snapRaw.toString("utf8"));
   const draft = JSON.parse(draftRaw.toString("utf8"));
   const byGdid = new Map(snap.products.map((p) => [p.gdid, p]));
@@ -611,12 +618,12 @@ async function main() {
       let regError = null;
       // W1-E review F1：override 生效即出聲（措辭沿 GATE_SKIP_HTTP WARN 前例＝跳過/替代必留痕）——env 注入＝
       // 非正式登記簿，stdout WARN＋report.registrySource 記注入來源（路徑形＝記路徑；inline JSON＝記形式標記）。
-      const envOverride = (process.env.GATE_REGISTRY_OVERRIDES || "").trim();
+      const envOverride = (env.GATE_REGISTRY_OVERRIDES || "").trim();
       if (envOverride) {
         registrySource = envOverride.startsWith("{") ? "GATE_REGISTRY_OVERRIDES（inline JSON）" : envOverride;
         add("WARN", "CP-25", `值域來源＝GATE_REGISTRY_OVERRIDES 注入（非正式登記簿），本報告不得作為出貨依據：${registrySource}`);
       }
-      try { REG = loadRegistries(gateRegistryOverrides()); } catch (e) { regError = e.message; }
+      try { REG = loadRegistries(gateRegistryOverrides(env)); } catch (e) { regError = e.message; }
       if (regError) {
         add("FAIL", "CP-25", `page.kvVariant「${kvVariantRaw}」無法驗值域——登記簿讀取失敗：${regError}（值域真源缺席＝擋下不裝懂）`);
       } else if (!REG.heroVariantIds.includes(kvVariant)) {
@@ -630,7 +637,7 @@ async function main() {
         /* 引擎完工閘（2026-08-25 使用者實測揪出的誤放洞）：版式真樣式未完工＝渲染端只有骨架告示——
            絕不可上消費者頁。完工名單單一來源＝lib/layout_choice ENGINE_SUPPORTED（完工一款解鎖一款）。
            hermetic 測試可經 GATE_REGISTRY_OVERRIDES.engineReady 注入名單（同一條會 WARN 留痕的注入通道，不另開側門）。 */
-        const ovER = gateRegistryOverrides().engineReady;
+        const ovER = gateRegistryOverrides(env).engineReady;
         const engineReady = Array.isArray(ovER) ? new Set(ovER) : ENGINE_SUPPORTED;
         if (isLayoutVariant && !engineReady.has(kvVariant)) {
           add("FAIL", "CP-25", `版面「${kvVariant}」樣式製作中（引擎未完工）＝暫時不能上線——完工後自動解鎖，活動內容不受影響（技術：kvVariant 不在 ENGINE_SUPPORTED 完工名單）`);
@@ -666,8 +673,7 @@ async function main() {
             const own = draft.page.heroBgOwn && typeof draft.page.heroBgOwn === "object" ? draft.page.heroBgOwn : null;
             const miss = own ? ownBgLib.ownMissingSlots(own) : ["desktop", "768", "375"];
             let ownConfirm = null;
-            try { ownConfirm = JSON.parse(fs.readFileSync(path.join(path.dirname(draftPath), "wb_meta.json"), "utf8")).heroBgLicenseConfirm || null; }
-            catch (e) { /* wb_meta 讀不到（gate 對舊 run／裸 draft 跑）＝當未確認處理，不炸 gate */ }
+            ownConfirm = (meta && meta.heroBgLicenseConfirm) || null; /* D10：wb_meta 由呼叫端讀好傳進來（指令列殼讀草稿旁的 wb_meta.json；讀不到＝null＝當未確認） */
             const licLib = require("./lib/hero_bg_license");
             if (miss.length) add("FAIL", "CP-27", `這檔選了「你上傳的背景」但圖沒齊（缺 ${miss.join("、")}）——回編修頁補齊三張，或改回登記簿的背景（技術：backgroundId=own 而 heroBgOwn.files 不齊）`);
             else if (licLib.ownConfirmMatches(draft.page, ownConfirm)) add("INFO", "CP-27", `背景＝你上傳的背景，版權已由 ${String(ownConfirm.by).slice(0, 40)} 於 ${String(ownConfirm.at || "?").slice(0, 19)} 確認（指紋相符）——可製作 AEM、可發佈，不掛浮水印（來源自答：${String((own.attest || {}).source || "?").slice(0, 30)}）`);
@@ -1024,7 +1030,7 @@ async function main() {
       add("INFO", "CP-15", `本期活動恰 ${PROMO_ENTRY_COUNT.min} 則——觸發 3 則版型：保持內容間距不變、圓形圖與標題模組背景寬度等比放大、活動標題字級不變（U17；渲染側 09 §2.10；mobile 2×2 流式 2+1 尺寸不變＝預設）`);
     }
   }
-  const themeFit = loadThemeFit(); // U14（2026-07-20）：主題契合閘詞組＋門檻（校準檔優先，否則抽頂預設）
+  const themeFit = loadThemeFit(env, themeFitRule); // U14（2026-07-20）：主題契合閘詞組＋門檻（校準檔優先，否則抽頂預設）
   /* 2026-07-25 工程 QA 修：全池命中數改區域變數（原掛 themeFit._globalHits＝loadThemeFit 無校準檔時回傳共用常數
      THEME_FIT_DEFAULT 的參照，快取會跨 run 別名污染；雖現況單 run/process 不觸發，改區域變數杜絕潛在 bug） */
   const themeGlobalHits = (snap.products || []).filter((p) => { const t = norm(p.name || "").toLowerCase(); return themeFit.keywords.some((k) => t.includes(String(k).toLowerCase())); }).length;
@@ -1574,8 +1580,8 @@ async function main() {
       // search 型 GET 驗證（totalhitcount>0 非 backfill）；GATE_SKIP_HTTP=1 → INFO 未驗
       // 編碼怪癖（U23 GET 履歷既載）：search/product 對某些編碼形式間歇回 500、重試/改百分比編碼即成功——
       // 一律以 URL/searchParams 重組（CJK 百分比編碼、空白＝+），仍失敗補一次 700ms 退避重試後才判 FAIL
-      if (searchToProbe.length && process.env.GATE_SKIP_HTTP !== "1") {
-        console.log(`CP-22：GET 驗證 ${searchToProbe.length} 個看更多搜尋目的地（節流 350ms、失敗退避重試 1 次）…`);
+      if (searchToProbe.length && env.GATE_SKIP_HTTP !== "1") {
+        log(`CP-22：GET 驗證 ${searchToProbe.length} 個看更多搜尋目的地（節流 350ms、失敗退避重試 1 次）…`);
         const probeOnce = async (url) => {
           const x = new URL(url);
           const q = x.searchParams.get("p"); if (q != null) x.searchParams.set("p", q); // 重組＝強制標準編碼形
@@ -1603,7 +1609,7 @@ async function main() {
   }
 
   /* ---------- CP-01 KV 字型缺字（Mochiy Pop One 碼點快照；缺字＝降級 Noto Sans TC＝WARN） ---------- */
-  const cpFile = path.join(__dirname, "fonts", "mochiy-pop-one.codepoints.json");
+  const cpFile = fontCodepointsFile || path.join(__dirname, "fonts", "mochiy-pop-one.codepoints.json");
   if (fs.existsSync(cpFile)) {
     const cps = new Set(JSON.parse(fs.readFileSync(cpFile, "utf8")));
     const kvText = [kv.eyebrowZh, kv.titleLine1, kv.titleLine2].filter(Boolean).join("");
@@ -1614,14 +1620,14 @@ async function main() {
   }
 
   /* ---------- CP-04 圖片 HTTP 200（GATE_SKIP_HTTP=1 跳過） ---------- */
-  if (process.env.GATE_SKIP_HTTP !== "1") {
+  if (env.GATE_SKIP_HTTP !== "1") {
     const urls = new Set();
     for (const r of draft.products || []) { if (r.img) urls.add(r.img); if (r.sceneImg) urls.add(r.sceneImg); }
     (kv.images || []).forEach((u) => u && urls.add(u));
     (draft.page.promoEntries || []).forEach((e) => e.img && urls.add(e.img));
     (draft.page.floors || []).forEach((f) => f.sceneImg && urls.add(f.sceneImg));
     const list = [...urls];
-    console.log(`CP-04：檢查 ${list.length} 個圖片 URL HTTP 狀態…`);
+    log(`CP-04：檢查 ${list.length} 個圖片 URL HTTP 狀態…`);
     const CONC = 8;
     for (let i = 0; i < list.length; i += CONC) {
       const statuses = await Promise.all(list.slice(i, i + CONC).map((u) => httpStatus(u).then((s) => [u, s])));
@@ -1647,14 +1653,34 @@ async function main() {
     counts: { FAIL: fails.length, WARN: findings.filter((f) => f.level === "WARN").length, INFO: findings.filter((f) => f.level === "INFO").length },
     findings, rowResults,
   };
+  return report;
+}
+
+/* 指令列殼（單機版與既有測試都 spawn 這個）：讀檔 → checkDraft → 寫 gate_report.json → 印結果 → exit 0/1/2。行為與 D10 前逐字相同。 */
+async function main() {
+  const [snapPath, draftPath] = process.argv.slice(2);
+  /* v20 輸出防呆：報告路徑＝把檔名 draft.json 換成 gate_report.json；檔名不是 draft.json 時 replace 不命中＝會把報告寫回輸入檔（覆寫草稿或版本備份）。
+     要檢查版本備份＝先複製成 <暫存夾>/draft.json 再跑。exit 2＝跟「有 FAIL」的 exit 1 分開，呼叫端不會誤判成檢查沒過。 */
+  if (!draftPath || path.resolve(draftPath.replace(/draft\.json$/, "gate_report.json")) === path.resolve(draftPath)) {
+    console.error(`機器閘：拒絕執行——草稿檔名必須是 draft.json（收到 ${draftPath || "（空）"}），否則報告會覆寫輸入檔。要檢查版本備份請先複製成 <資料夾>/draft.json 再跑。`);
+    process.exit(2);
+  }
+  const snapRaw = fs.readFileSync(snapPath);
+  const draftRaw = fs.readFileSync(draftPath);
+  let meta = null;
+  try { meta = JSON.parse(fs.readFileSync(path.join(path.dirname(draftPath), "wb_meta.json"), "utf8")); } catch (e) { /* wb_meta 讀不到（對舊 run／裸 draft 跑）＝當未確認處理，不炸 gate */ }
+  const report = await checkDraft({ snapRaw, draftRaw, meta });
+  const findings = report.findings;
   const outPath = draftPath.replace(/draft\.json$/, "gate_report.json");
   fs.writeFileSync(outPath, JSON.stringify(report, null, 2));
   console.log(`機器閘：${report.result}（FAIL ${report.counts.FAIL}／WARN ${report.counts.WARN}）→ ${outPath}`);
   for (const f of findings) console.log(`  [${f.level}] ${f.code} ${f.msg}`);
-  process.exit(fails.length ? 1 : 0);
+  process.exit(report.counts.FAIL ? 1 : 0);
 }
 
+
 /* ---------- 規則匯出（export_rules.js 用；require 本檔不觸發 main） ---------- */
+module.exports.checkDraft = checkDraft;
 module.exports.RULES = {
   widthModel: { ...WIDTH_MODEL, unit: "em", note: "近似模型：全形1em／半形0.55em／空格0.3em；極端字符（emoji 等）不在模型內" },
   pxBudgets: {
@@ -1771,7 +1797,7 @@ module.exports.RULES = {
       default: THEME_FIT_DEFAULT,
       patchChannel: {
         env: "GATE_THEME_FIT_PATCH", field: "themeFitRule{keywords[], threshold: number｜{B_poolHitRate}}",
-        sessionPath: THEME_FIT_PATCH_PATHS[THEME_FIT_PATCH_PATHS.length - 1] || null,
+        sessionPath: null, // D10：個人暫存路徑通道已移除，只剩 env
         rule: "策展 agent 校準值（feedback_patch.json themeFitRule）讀得到就以它為準；讀不到＝走抽頂預設（缺檔不誤殺）；keywords 斜線別名展開＋英文不分大小寫（keywordNote）；threshold 物件形取 B_poolHitRate（閘門實作訊號 B＝商品池品名命中率）",
       },
       note: "U14⑭（2026-07-20）：出現在來源頁活動列表≠主題契合——不契合一律不入選（鈦案 772695 nile 戶外＝選錯品類錯誤示範、立即撤換）；契合活動不足額依 U8 三層混填；⚠ 主題詞＋門檻待 curationTheme 詞庫欄位化後改資料驅動",

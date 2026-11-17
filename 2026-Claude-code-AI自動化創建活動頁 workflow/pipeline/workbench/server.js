@@ -928,30 +928,21 @@ async function exportAem(id, runDir) {
   if (g.exit !== 0) { setExportAem(id, { stage: "error", error: "合規檢查發現必修問題，已停止製作（把關交付品質）——請開「發佈前檢查」清單修正必修項目後再製作" }); return; }
   setExportAem(id, { stage: "build" });
   appendLog(id, "② 組裝單一 HTML（只裝這頁用到的版型／字風／背景；素材內嵌；剝內部說明與工具程式）");
-  const aem = require("../lib/aem_export");
-  const FRAME = path.join(DEPLOY_SITE, "lecreuset-frametest");
+  /* D10：組裝與說明檔搬到 core/export（不依賴 run 目錄的計算）；這裡只剩落檔與進度。log 文字沿原碼。 */
+  const coreExport = require("../core/export");
   const outDir = path.join(runDir, "export", "aem");
   let dj, slimPath, fullPath, layout, report;
   try {
-    const tpl = fs.readFileSync(path.join(FRAME, "index.html"), "utf8");
     dj = JSON.parse(fs.readFileSync(path.join(runDir, "draft.json"), "utf8"));
-    layout = String((dj.page || {}).kvVariant || "").trim();
-    let defaultBackground = null;
-    try { const rec = layoutLib.loadLayoutDeps().registries.layoutRecords.get(layout); defaultBackground = rec && rec.defaultBackground; } catch (e) { appendLog(id, "AEM 製作：版型預設背景解析失敗（照背景地圖預設表）：" + errText(e)); }
-    const deps = aem.loadDeps({ frameDir: FRAME, projectRoot: path.join(DEPLOY_SITE, "..", ".."), defaultBackground });
-    const holdOpts = { confirm: (readMeta(id) || {}).heroBgLicenseConfirm || null }; /* 78 號 §六：出 AEM 的確認真源＝wb_meta.heroBgLicenseConfirm（sha 相符才算） */
-    const slim = await aem.assembleAemHtml({ template: tpl, draft: dj, deps, mode: "slim", opts: { runDir, holdOpts } });
-    const full = await aem.assembleAemHtml({ template: tpl, draft: dj, deps, mode: "full", opts: { runDir, holdOpts } });
+    const built = await coreExport.buildAem({ id, draft: dj, meta: readMeta(id), assetRoots: coreExport.defaultAssetRoots(PIPE), runDir, onWarn: (m) => appendLog(id, m) });
+    layout = built.layout; report = built.report;
     fs.rmSync(outDir, { recursive: true, force: true }); fs.mkdirSync(outDir, { recursive: true });
-    const fileName = `activity-${id}.html`;
-    slimPath = path.join(outDir, fileName); fullPath = path.join(outDir, "_reference-full.html");
-    fs.writeFileSync(slimPath, slim.html); fs.writeFileSync(fullPath, full.html);
-    report = slim.report;
+    slimPath = path.join(outDir, built.fileName); fullPath = path.join(outDir, "_reference-full.html");
+    fs.writeFileSync(slimPath, built.slimHtml); fs.writeFileSync(fullPath, built.fullHtml);
     fs.writeFileSync(path.join(outDir, "aem-build-report.json"), JSON.stringify(report, null, 1));
-    appendLog(id, `組裝完成：${fileName} ${Math.round(report.bytes / 1024)} KB（模板 ${Math.round(report.steps[0].bytes / 1024)} KB；舞台移除 ${(report.removedStages || []).length} 款、他款版型函式 ${(report.stubbedOtherLayoutFns || []).length} 支空殼、示範資料 ${(report.nulledConsts || []).length} 組置空）` + (report.warnings.length ? `；警告：${report.warnings.join("；")}` : ""));
-    if (report.aemBudget) appendLog(id, `AEM 頁面編輯上限的尺（2026-09-17 起只量不擋）：編碎後 ${report.aemBudget.encoded}／上限 ${report.aemBudget.cap}＝${report.aemBudget.ratio} 倍${report.aemBudget.fits ? "（過）" : "（超標；貼進 AEM 頁面前需瘦身）"}`);
+    for (const l of coreExport.buildLogs(built.fileName, report)) appendLog(id, l);
   } catch (e) {
-    setExportAem(id, { stage: "error", error: /版權還在審核|沒有宣告新版型|尚未支援這款版型|這一版還不能製作 AEM 網頁檔|還沒確認版權|版權確認要重做一次|找不到，請重新上傳/.test(errText(e)) ? errText(e) : `網頁檔組裝時發生問題，已停止製作——請再試一次；連續失敗請聯絡系統管理員（技術訊息：${String(errText(e)).slice(0, 160)}）` });
+    setExportAem(id, { stage: "error", error: coreExport.friendlyBuildError(e) });
     appendLog(id, "AEM EXPORT 組裝失敗：" + errText(e)); return;
   }
   setExportAem(id, { stage: "verify" });
@@ -961,23 +952,7 @@ async function exportAem(id, runDir) {
   if (st.code !== 0) { setExportAem(id, { stage: "error", error: "做好的網頁檔顯示檢查沒有通過（瘦身後的頁面與原版不一致、或有程式錯誤），已停止製作——沒過檢查的檔不交付；請再試一次，連續失敗請聯絡系統管理員（技術訊息已保存）" }); appendLog(id, st.out.slice(-1200)); return; }
   let hosts = []; try { hosts = JSON.parse(fs.readFileSync(verifyJson, "utf8")).externalHosts || []; } catch (e) { appendLog(id, "AEM 製作：讀對板報告的外連清單失敗（README 省略該段）：" + errText(e)); }
   const bytes = fs.statSync(slimPath).size;
-  fs.writeFileSync(path.join(outDir, "README.txt"),
-`活動頁 AEM 網頁檔
-====================
-活動名稱：${(dj.page || {}).pageName || id}
-活動編號：${id}
-檔案：activity-${id}.html（${Math.round(bytes / 1024)} KB，單一檔案、圖片與樣式都在裡面）
-AEM 頁面編輯上限對照：本檔網址編碼後 ${report.aemBudget ? report.aemBudget.encoded : "—"} 字／上限 ${report.aemBudget ? report.aemBudget.cap : 131072} 字${report.aemBudget && !report.aemBudget.fits ? `（超過 ${report.aemBudget.ratio} 倍；貼進 AEM 頁面編輯器前需經瘦身）` : ""}
-製作時間：${new Date().toISOString()}
-檢查：商品狀態＋合規全檢通過；三裝置顯示檢查通過（桌機／平板／手機）
-
-怎麼用
---------
-1. 把 activity-${id}.html 上傳到 Adobe Experience Manager 的活動頁位置（整頁 HTML；頁面自帶 Yahoo 購物站頭與頁尾）。
-2. 頁面需要能連到這些網域才會完整顯示：${hosts.join("、") || "img.yec.tw（商品圖）、fonts.googleapis.com（字型）"}。
-3. 內容是製作當下的快照；商品價格或檔期有變動，回 CMS 改好後重新下載一份再上傳。
-4. 活動頁在 AEM 上最多兩週就下架，不做長期維護。
-`);
+  fs.writeFileSync(path.join(outDir, "README.txt"), coreExport.readme({ id, pageName: (dj.page || {}).pageName, bytes, budget: report.aemBudget || null, hosts, now: new Date().toISOString() }));
   setExportAem(id, { stage: "done", file: `activity-${id}.html`, bytes, budget: report.aemBudget || null, finishedAt: new Date().toISOString() });
   appendLog(id, `AEM 網頁檔製作完成：export/aem/activity-${id}.html（${Math.round(bytes / 1024)} KB）`);
 }
