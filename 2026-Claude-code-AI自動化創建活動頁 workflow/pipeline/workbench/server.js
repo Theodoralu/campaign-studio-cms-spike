@@ -937,7 +937,9 @@ async function exportAem(id, runDir) {
     const built = await coreExport.buildAem({ id, draft: dj, meta: readMeta(id), assetRoots: coreExport.defaultAssetRoots(PIPE), runDir, onWarn: (m) => appendLog(id, m) });
     layout = built.layout; report = built.report;
     fs.rmSync(outDir, { recursive: true, force: true }); fs.mkdirSync(outDir, { recursive: true });
-    slimPath = path.join(outDir, built.fileName); fullPath = path.join(outDir, "_reference-full.html");
+    slimPath = path.join(outDir, built.fileName);
+    /* 2026-11-17 使用者裁：交付資料夾只放 activity-<編號>.html＋三份報告。未瘦身參照版只給顯示檢查比對用＝放系統暫存夾、比完就刪。 */
+    fullPath = path.join(fs.mkdtempSync(path.join(require("os").tmpdir(), "cs-aem-ref-")), "_reference-full.html");
     fs.writeFileSync(slimPath, built.slimHtml); fs.writeFileSync(fullPath, built.fullHtml);
     fs.writeFileSync(path.join(outDir, "aem-build-report.json"), JSON.stringify(report, null, 1));
     for (const l of coreExport.buildLogs(built.fileName, report)) appendLog(id, l);
@@ -949,6 +951,7 @@ async function exportAem(id, runDir) {
   appendLog(id, "③ 對板檢查（三裝置含觸控：零錯誤／單檔自足／不溢出／與未瘦身版 DOM 與像素一致）");
   const verifyJson = path.join(outDir, "aem-verify.json");
   const st = await sh(id, process.execPath, [path.join(PIPE, "aem_verify.js"), slimPath, layout, "--ref", fullPath, "--out", verifyJson], PIPE);
+  fs.rmSync(path.dirname(fullPath), { recursive: true, force: true });
   if (st.code !== 0) { setExportAem(id, { stage: "error", error: "做好的網頁檔顯示檢查沒有通過（瘦身後的頁面與原版不一致、或有程式錯誤），已停止製作——沒過檢查的檔不交付；請再試一次，連續失敗請聯絡系統管理員（技術訊息已保存）" }); appendLog(id, st.out.slice(-1200)); return; }
   let hosts = []; try { hosts = JSON.parse(fs.readFileSync(verifyJson, "utf8")).externalHosts || []; } catch (e) { appendLog(id, "AEM 製作：讀對板報告的外連清單失敗（README 省略該段）：" + errText(e)); }
   const bytes = fs.statSync(slimPath).size;

@@ -5,6 +5,8 @@
  * 來源：workbench/server.js exportAem（三關：商品狀態 → 合規全檢 → 組裝＋顯示檢查）。這裡收的是不依賴單機版 run 目錄的兩段計算：
  *   buildAem({ id, draft, meta, assetRoots, runDir, onWarn }) → { fileName, layout, slimHtml, fullHtml, report }
  *       用引擎模板＋草稿組出瘦身版（交付）與未瘦身參照版（只給顯示檢查比對）。不寫檔。
+ *       交付物（2026-11-17 使用者裁）：只有 activity-<編號>.html 一個檔；README.txt、aem-build-report.json、aem-verify.json 三份當製作報告暫留；
+ *       參照版不進交付資料夾（呼叫端放暫存夾、比完就刪）。之後不上傳 AEM，改交給負責 host 活動頁的 publisher——README 的 AEM 用語到時一起改。
  *   readme({ id, pageName, bytes, budget, hosts, now }) → README.txt 內容
  *   buildLogs(fileName, report) → 組裝完成後要寫進 log 的那幾行（文字逐字沿原碼）
  *   friendlyBuildError(e) → 給使用者看的錯誤句（已知原因原文照給，其餘包成「請再試一次」）

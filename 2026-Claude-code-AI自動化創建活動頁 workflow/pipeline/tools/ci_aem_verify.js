@@ -42,12 +42,13 @@ async function main() {
   console.log(`發佈前檢查：${p.report.result}（FAIL ${p.report.counts.FAIL}／WARN ${p.report.counts.WARN}）`);
   if (!p.built) { for (const f of p.report.findings.filter((x) => x.level === "FAIL")) console.error(`  [FAIL] ${f.code} ${f.msg}`); process.exit(1); }
   fs.mkdirSync(outDir, { recursive: true });
-  const slim = path.join(outDir, p.built.fileName), full = path.join(outDir, "_reference-full.html"), verifyJson = path.join(outDir, "aem-verify.json");
+  const slim = path.join(outDir, p.built.fileName), full = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "cs-aem-ref-")), "_reference-full.html"), verifyJson = path.join(outDir, "aem-verify.json");
   fs.writeFileSync(slim, p.built.slimHtml); fs.writeFileSync(full, p.built.fullHtml);
   fs.writeFileSync(path.join(outDir, "aem-build-report.json"), JSON.stringify(p.built.report, null, 1));
   for (const l of p.exp.buildLogs(p.built.fileName, p.built.report)) console.log(l);
   if (noVerify) { console.log(`（--no-verify）已組檔、未做顯示檢查：${outDir}`); return; }
   const v = spawnSync(process.execPath, [path.join(PIPE, "aem_verify.js"), slim, p.built.layout, "--ref", full, "--out", verifyJson], { cwd: PIPE, encoding: "utf8", timeout: 240000 });
+  fs.rmSync(path.dirname(full), { recursive: true, force: true }); // 參照版只給比對用，不留在產物資料夾
   process.stdout.write(v.stdout || ""); process.stderr.write(v.stderr || "");
   let hosts = []; try { hosts = JSON.parse(fs.readFileSync(verifyJson, "utf8")).externalHosts || []; } catch (e) { /* 沒產報告＝下面照 exit code 判 */ }
   fs.writeFileSync(path.join(outDir, "README.txt"), p.exp.readme({ id: "ci-fixture", pageName: p.fin.draft.page.pageName, bytes: fs.statSync(slim).size, budget: p.built.report.aemBudget || null, hosts, now: new Date().toISOString() }));

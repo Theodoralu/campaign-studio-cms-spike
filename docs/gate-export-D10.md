@@ -32,3 +32,9 @@
 ## 驗證
 - 乾淨 clone `TZ=UTC npm run ci`：見 commit 訊息的數字。
 - `aem-verify` job 需要真 Chrome，本機沙盒沒有，第一次實跑在試車場 CI。
+
+## 2026-11-17 補：交付物的決定（使用者裁）
+- **交付物只有一個檔**：`activity-<活動編號>.html`。
+- **之後不上傳 AEM**：上線改由 CMS 交付給負責 host 活動頁的 publisher（對象與介面未定）。所以上面第 1 點「超過 AEM 頁面編輯器上限 4.79 倍」不再是阻礙；量尺先留著不擋，publisher 定了再看要不要拿掉。
+- **`_reference-full.html` 不留**：它只給顯示檢查比對用，改放系統暫存夾、比完就刪。
+- **另外三份暫留當製作報告**：`README.txt`、`aem-build-report.json`、`aem-verify.json`。README 裡「上傳到 AEM」的用語等 publisher 定了一起改。
