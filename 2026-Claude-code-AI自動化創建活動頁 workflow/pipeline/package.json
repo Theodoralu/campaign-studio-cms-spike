@@ -33,7 +33,9 @@
     "test:gate": "node --test test/unit/cp_catalog.test.js test/gate_golden.test.js test/gate_hero_gates.test.js test/unit/export_build.test.js",
     "aem:verify": "node tools/ci_aem_verify.js",
     "test:store": "node --test test/unit/run_store.test.js",
-    "store:s3check": "node tools/store_s3_check.js"
+    "store:s3check": "node tools/store_s3_check.js",
+    "test:cms": "node --test test/unit/cms_app.test.js",
+    "cms": "node cms/server.js"
   },
   "keywords": [],
   "author": "",
@@ -42,6 +44,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1171.0",
     "exceljs": "^4.4.0",
+    "express": "^5.3.0",
     "playwright-core": "^1.61.1",
     "sharp": "^0.35.3"
   },
