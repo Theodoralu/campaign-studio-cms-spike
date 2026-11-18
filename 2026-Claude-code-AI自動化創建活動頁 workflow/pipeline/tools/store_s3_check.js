@@ -9,7 +9,7 @@
  *
  * 用法（需要先 npm install @aws-sdk/client-s3）：
  *   CS_STORE=s3 CS_S3_BUCKET=<bucket> AWS_REGION=<region> node tools/store_s3_check.js
- *   MinIO：再加 CS_S3_ENDPOINT=http://localhost:9000 與 AWS_ACCESS_KEY_ID／AWS_SECRET_ACCESS_KEY
+ *   MinIO：再加 CS_S3_ENDPOINT=http://localhost:9000 與 AWS_ACCESS_KEY_ID／AWS_SECRET_ACCESS_KEY；第一次加 --create-bucket（建 bucket＋開版本控管）
  * exit 0＝全過；1＝有一步沒過；2＝環境沒設好。
  */
 const fs = require("fs");
@@ -18,7 +18,19 @@ const S = require(path.join(__dirname, "..", "core", "store"));
 const FIX = path.join(__dirname, "..", "test", "fixtures", "runs", "2026-10-27-wb-085823");
 const read = (f) => JSON.parse(fs.readFileSync(path.join(FIX, f), "utf8"));
 
+/** --create-bucket：bucket 不存在就建、並打開版本控管（本機 MinIO 用；公司的 bucket 由申請流程建立，不要用這個旗標） */
+async function ensureBucket() {
+  const sdk = require("@aws-sdk/client-s3");
+  const endpoint = process.env.CS_S3_ENDPOINT || undefined, Bucket = process.env.CS_S3_BUCKET;
+  const c = new sdk.S3Client({ region: process.env.AWS_REGION, endpoint, forcePathStyle: !!endpoint });
+  try { await c.send(new sdk.CreateBucketCommand({ Bucket })); console.log(`✔ 建立 bucket ${Bucket}`); }
+  catch (e) { if (!/BucketAlreadyOwnedByYou|BucketAlreadyExists/.test(e.name || "")) throw e; console.log(`✔ bucket ${Bucket} 已存在`); }
+  await c.send(new sdk.PutBucketVersioningCommand({ Bucket, VersioningConfiguration: { Status: "Enabled" } }));
+  console.log("✔ 版本控管已開啟");
+}
+
 async function main() {
+  if (process.argv.includes("--create-bucket")) { try { await ensureBucket(); } catch (e) { console.error(`✖ 建立 bucket 失敗：${e.name || ""} ${e.message}`); process.exit(2); } }
   let store;
   try { store = S.storeFromEnv({ ...process.env, CS_STORE: "s3", CS_S3_PREFIX: (process.env.CS_S3_PREFIX || "runs") + "/_check-" + Date.now() }); }
   catch (e) { console.error("✖ " + e.message); process.exit(2); }

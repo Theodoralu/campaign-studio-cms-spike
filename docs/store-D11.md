@@ -43,3 +43,15 @@ D11 把「放哪」和「怎麼安全地存」集中到 `core/store` 一處。
 - **AWS SDK 還沒加進相依。** `@aws-sdk/client-s3` 用到才載入，本機開發與 CI 不需要。D12 接密鑰管理時一起加。
 - 本機資料夾後端只保證同一個程序內不互蓋；多個程序同時寫同一個資料夾不保證（那是 S3 後端的工作）。
 - 刪除活動目前是直接刪；單機版的「移到回收區可還原」D13 再搬。
+
+## 2026-11-18 補：對真的 S3 協定驗過了（本機 MinIO）
+申請公司的 S3 bucket 要等 repo 搬進 Yahoo，現在做不了。改在本機裝 MinIO（相容 S3 的儲存服務）驗，計畫的完成條件本來就寫「MinIO 或 S3」。
+
+- 環境：MinIO `RELEASE.2025-10-15T17-29-55Z`（Homebrew 安裝，只綁 127.0.0.1）、`@aws-sdk/client-s3`（今天加進相依，原訂 D12）。
+- 指令：`AWS_ACCESS_KEY_ID=… AWS_SECRET_ACCESS_KEY=… AWS_REGION=us-east-1 CS_S3_ENDPOINT=http://localhost:9000 CS_S3_BUCKET=cs-dev node tools/store_s3_check.js --create-bucket`
+- 結果：八步全過——建 bucket、開版本控管、建立活動（If-None-Match）、重複建立被擋、系統寫草稿、兩人交錯存檔後者 409（If-Match）、拿回上一版、清除。
+
+這次證明了：程式對真的 S3 協定行得通、AWS SDK 接得起來、條件式寫入與版本控管照預期運作。
+還沒證明的：公司那個 bucket 的設定（版本控管有沒有開）與 IAM 權限。搬進 Yahoo、bucket 下來後，用同一支工具再跑一次（不要帶 `--create-bucket`）。
+
+備註：MinIO 社群版 2026 年已停止維護，舊版仍可用 Homebrew 安裝；它只用來做本機驗證，不進任何部署。
