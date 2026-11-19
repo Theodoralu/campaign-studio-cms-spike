@@ -35,7 +35,8 @@
     "test:store": "node --test test/unit/run_store.test.js",
     "store:s3check": "node tools/store_s3_check.js",
     "test:cms": "node --test test/unit/cms_app.test.js test/unit/cms_flow.test.js",
-    "cms": "node cms/server.js"
+    "cms": "node cms/server.js",
+    "publish:local-setup": "node tools/publish_local_setup.js"
   },
   "keywords": [],
   "author": "",

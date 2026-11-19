@@ -22,7 +22,7 @@ function liveDeps() {
   const imgProbe = require("../workbench/img_probe");
   const exp = require("../core/export");
   const { chromeVerify } = require("./pipeline");
-  return { clock, uther: createUtherClient({ log: () => {} }), fetchBrandId, pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs), verifyHtml: chromeVerify(), assetRoots: exp.defaultAssetRoots(), publisher: null };
+  return { clock, uther: createUtherClient({ log: () => {} }), fetchBrandId, pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs), verifyHtml: chromeVerify(), assetRoots: exp.defaultAssetRoots(), publisher: require("./publisher").publisherFromEnv(process.env, { clock }) };
 }
 function build(env = process.env) {
   const store = storeFromEnv(env);
@@ -33,7 +33,7 @@ function build(env = process.env) {
 if (require.main === module) {
   let b; try { b = build(); } catch (e) { console.error("✖ CMS 啟動失敗：" + e.message); process.exit(2); }
   const port = Number(process.env.PORT || 8790);
-  const srv = b.app.listen(port, () => console.log(`CMS 已啟動：http://localhost:${port}（資料＝${b.store.kind}；登入＝${b.auth.kind}；審核者 ${b.approvers.count} 位）`));
+  const srv = b.app.listen(port, () => console.log(`CMS 已啟動：http://localhost:${port}（資料＝${b.store.kind}；登入＝${b.auth.kind}；審核者 ${b.approvers.count} 位；發布＝${process.env.CS_PUBLISH ? process.env.CS_PUBLISH + " → " + process.env.CS_PUBLISH_BUCKET : "不發布"}）`));
   const stop = () => srv.close(() => process.exit(0)); // 平台送 SIGTERM 時把手上的請求做完再結束
   process.on("SIGTERM", stop); process.on("SIGINT", stop);
 }

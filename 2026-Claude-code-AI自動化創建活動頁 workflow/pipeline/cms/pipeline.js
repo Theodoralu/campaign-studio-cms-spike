@@ -58,7 +58,9 @@ async function createRun({ store, id, input, deps }) {
     const live = await utherLayer(cur.draft.products.map((p) => String(p.gdid)), { uther, clock });
     const chk = buildCheck(cur.draft, snapshot, live, { layer: "uther", clock });
     const fin = finish.finishDraft({ draft: cur.draft, snapshot, input, rows: chk.results, checkedAt: chk.checkedAt, ctx: { priceTruthMode: "uther", startedAt, finishedAt: clock.iso(), layoutOverridePaths } });
-    for (const l of fin.logs) await store.appendLog(id, l);
+    /* 收尾的訊息文字沿單機版寫「商品頁」；這條路比的是 uther，照實改字，免得看 log 的人以為開過商品頁 */
+    const utherWording = (l) => l.replace(/商品頁現價/g, "uther 現價").replace(/與商品頁一致/g, "與 uther 一致").replace(/連上商品頁/g, "從 uther 查到");
+    for (const l of fin.logs) await store.appendLog(id, /價格/.test(l) ? utherWording(l) : l);
     await store.putJson(id, "snapshot.json", fin.snapshot);
     await store.putJson(id, "product_check.json", chk);
     await store.saveDraft(id, fin.draft, { source: "system", note: "建立" });
@@ -116,10 +118,14 @@ async function exportHtml({ store, id, deps }) {
     await store.putJson(id, "export/aem/aem-build-report.json", built.report);
     await store.putJson(id, "export/aem/aem-verify.json", v.report || {});
     await store.putText(id, "export/aem/README.txt", exp.readme({ id, pageName: (cur.draft.page || {}).pageName, bytes, budget: built.report.aemBudget || null, hosts: (v.report && v.report.externalHosts) || [], now }));
-    /* 發布接口（ECSEARCH-39133 有結論後接上傳 S3＋清快取）：現在沒有 publisher＝只產檔 */
-    let published = null;
-    if (publisher) { published = await publisher.publish({ id, fileName: built.fileName, html: built.slimHtml }); await store.appendLog(id, `已發布：${published && published.url ? published.url : "（publisher 未回網址）"}`); }
-    await set({ stage: "done", file: built.fileName, bytes, budget: built.report.aemBudget || null, finishedAt: now, fingerprint: cur.fingerprint, published });
+    /* 發布（cms/publisher.js；ECSEARCH-39133 的前半段試作）：沒有 publisher＝只產檔。
+       發布失敗不算製作失敗——檔案已經做好、可以下載；狀態記下 publishError，畫面要另外提示「做好了但還沒發布」。 */
+    let published = null, publishError = null;
+    if (publisher) {
+      try { published = await publisher.publish({ id, fileName: built.fileName, html: built.slimHtml }); await store.appendLog(id, `已發布：${published.bucket}/${published.key}${published.url ? " → " + published.url : ""}`); }
+      catch (e) { publishError = "網頁檔做好了，但發布沒有成功——可以先下載，或稍後重新製作再試一次"; await store.appendLog(id, "發布失敗：" + errText(e)); }
+    }
+    await set({ stage: "done", file: built.fileName, bytes, budget: built.report.aemBudget || null, finishedAt: now, fingerprint: cur.fingerprint, published, publishError });
     await store.appendLog(id, `網頁檔製作完成：export/aem/${built.fileName}（${Math.round(bytes / 1024)} KB）`);
   } catch (e) {
     await store.appendLog(id, "網頁檔製作失敗：" + errText(e));

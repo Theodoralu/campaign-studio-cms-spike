@@ -66,6 +66,7 @@ test("建立：貼網址 → 背景工作跑完 → ready；快照、草稿、�
     const id = r.body.id, st = (await s.call("GET", `/api/runs/${id}/status`)).body;
     assert.strictEqual(st.stage, "ready", `${st.error}\n${await s.store.readLog(id)}`); assert.strictEqual(st.busy, null); assert.strictEqual(st.priceTruth.mode, "uther");
     const meta = await s.store.readMeta(id);
+    assert.match(await s.store.readLog(id), /建立期價格對真：\d+ 件與 uther 一致/, "log 照實寫比的是 uther");
     assert.strictEqual(meta.input.ownerEmail, SALES); assert.strictEqual(meta.engineUsed, "rules"); assert.strictEqual(meta.input.engine, "rules");
     const d = await s.call("GET", `/api/runs/${id}/draft.json`);
     assert.ok(d.headers.get("x-draft-version")); assert.match(d.headers.get("x-draft-fingerprint"), /^fp_/);
@@ -180,4 +181,51 @@ test("背景工作：同一檔同時只跑一件；跑完才收下一件；出�
   assert.strictEqual(jobs.start("b", "export", async () => { throw new Error("炸了"); }), true);
   await jobs.wait("b"); assert.deepStrictEqual(errs, ["炸了"]); assert.strictEqual(jobs.busy("b"), null);
   release(); await jobs.wait("a"); assert.strictEqual(jobs.busy("a"), null); assert.strictEqual(jobs.size(), 0);
+});
+
+/* ---------- 發布試作（ECSEARCH-39133 前半段）：製作完成後上傳到 S3 ---------- */
+const { createS3Publisher, publisherFromEnv, HTML_CACHE_CONTROL } = require("../../cms/publisher");
+const { createMemoryS3 } = require("../../core/store/memory_s3");
+async function approvedRun(s) {
+  const id = await created(s);
+  await s.call("POST", `/api/runs/${id}/gate`, { body: {} });
+  const fp = (await s.call("GET", `/api/runs/${id}`)).body.approval.fingerprint;
+  const ap = await s.call("POST", `/api/runs/${id}/approve`, { as: APPROVER, body: { fingerprint: fp } }); assert.strictEqual(ap.status, 200, ap.text);
+  return id;
+}
+
+test("發布：製作完成自動上傳到 pages/<活動編號>/index.html；狀態帶網址；重新製作覆蓋同一路徑並留舊版", async () => {
+  const s3 = createMemoryS3();
+  const s = await boot({ publisher: createS3Publisher({ client: s3, bucket: "cs-pages", baseUrl: "http://localhost:9000/cs-pages/", clock }) });
+  try {
+    const id = await approvedRun(s);
+    await s.call("POST", `/api/runs/${id}/export-aem`); await s.jobs.wait(id);
+    const ex = (await s.call("GET", `/api/runs/${id}/status`)).body.exportAem;
+    assert.strictEqual(ex.stage, "done", ex.error); assert.strictEqual(ex.publishError, null);
+    assert.deepStrictEqual({ url: ex.published.url, bucket: ex.published.bucket, key: ex.published.key }, { url: `http://localhost:9000/cs-pages/pages/${id}/index.html`, bucket: "cs-pages", key: `pages/${id}/index.html` });
+    const put = s3.calls.filter((c) => c.op === "put"); assert.strictEqual(put.length, 1);
+    assert.deepStrictEqual({ Key: put[0].Key, ContentType: put[0].ContentType, CacheControl: put[0].CacheControl }, { Key: `pages/${id}/index.html`, ContentType: "text/html; charset=utf-8", CacheControl: HTML_CACHE_CONTROL });
+    const stored = (await s3.getObject({ Key: `pages/${id}/index.html` })).Body;
+    assert.strictEqual(stored, (await s.call("GET", `/api/runs/${id}/export.aem.html`)).text, "上傳的就是下載拿到的那一份");
+    assert.match(await s.store.readLog(id), new RegExp(`已發布：cs-pages/pages/${id}/index\\.html → http://localhost:9000/`));
+    // 再製作一次：同一個路徑、S3 留兩版
+    await s.call("POST", `/api/runs/${id}/export-aem`); await s.jobs.wait(id);
+    assert.strictEqual(s3.objects.get(`pages/${id}/index.html`).length, 2);
+  } finally { await s.close(); }
+});
+
+test("發布失敗不算製作失敗：檔案照樣做好可下載，狀態記下 publishError；沒設 publisher＝不發布", async () => {
+  const s = await boot({ publisher: { publish: async () => { throw new Error("AccessDenied"); } } });
+  try {
+    const id = await approvedRun(s);
+    await s.call("POST", `/api/runs/${id}/export-aem`); await s.jobs.wait(id);
+    const ex = (await s.call("GET", `/api/runs/${id}/status`)).body.exportAem;
+    assert.strictEqual(ex.stage, "done"); assert.strictEqual(ex.published, null); assert.match(ex.publishError, /做好了，但發布沒有成功/);
+    assert.ok(!ex.publishError.includes("AccessDenied"), "技術細節只進 log"); assert.match(await s.store.readLog(id), /發布失敗：AccessDenied/);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/export.aem.html`)).status, 200);
+  } finally { await s.close(); }
+  assert.strictEqual(publisherFromEnv({}), null);
+  assert.throws(() => publisherFromEnv({ CS_PUBLISH: "ftp" }), /只能是 s3/); assert.throws(() => publisherFromEnv({ CS_PUBLISH: "s3" }), /CS_PUBLISH_BUCKET/);
+  const p = createS3Publisher({ client: createMemoryS3(), bucket: "b", prefix: "/pages/" });
+  assert.strictEqual(p.keyOf("abc"), "pages/abc/index.html"); assert.strictEqual(p.urlOf("abc"), null); assert.throws(() => p.keyOf("../x"), /活動編號格式不對/);
 });

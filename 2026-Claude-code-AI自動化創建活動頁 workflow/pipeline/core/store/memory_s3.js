@@ -13,8 +13,8 @@ function createMemoryS3({ versioning = true } = {}) {
   return {
     calls, objects,
     async getObject({ Key, VersionId }) { calls.push({ op: "get", Key, VersionId }); const v = VersionId ? (objects.get(Key) || []).find((x) => x.VersionId === VersionId) : latest(Key); if (!v) throw err("NoSuchKey", 404); return { Body: v.Body, ETag: v.ETag, VersionId: v.VersionId }; },
-    async putObject({ Key, Body, IfMatch, IfNoneMatch }) {
-      calls.push({ op: "put", Key, IfMatch, IfNoneMatch });
+    async putObject({ Key, Body, IfMatch, IfNoneMatch, ContentType, CacheControl }) {
+      calls.push({ op: "put", Key, IfMatch, IfNoneMatch, ContentType, CacheControl });
       const cur = latest(Key);
       if (IfNoneMatch === "*" && cur) throw err("PreconditionFailed", 412);
       if (IfMatch != null && (!cur || cur.ETag !== IfMatch)) throw err("PreconditionFailed", 412);
