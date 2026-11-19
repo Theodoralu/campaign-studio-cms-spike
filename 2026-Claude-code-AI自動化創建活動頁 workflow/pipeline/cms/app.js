@@ -15,9 +15,11 @@
  * 也在 D13 搬；這裡的核可只做「誰可以按」與「核可綁哪一版內容」。
  */
 const express = require("express");
-const { requireUser, requireApprover } = require("./auth");
+const { requireUser } = require("./auth");
+const { createJobs } = require("./jobs");
+const { mountRuns } = require("./runs");
 
-function createApp({ store, auth, approvers, version = "dev" }) {
+function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), version = "dev" }) {
   if (!store || !auth || !approvers) throw new Error("createApp 需要 store、auth、approvers");
   const app = express();
   app.disable("x-powered-by");
@@ -25,8 +27,10 @@ function createApp({ store, auth, approvers, version = "dev" }) {
   const wrap = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
   const ID_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,80}$/;
 
-  app.get("/healthz", (req, res) => res.json({ ok: true, version }));
-  app.get("/readyz", wrap(async (req, res) => { try { await store.listRuns(); res.json({ ok: true, store: store.kind }); } catch (e) { res.status(503).json({ ok: false, store: store.kind, error: "資料後端連不上" }); } }));
+  /* 健康檢查：票（ECSEARCH-39055）訂的是 /status.html 與 /readiness；/healthz、/readyz 是 D12 先做的同義網址，兩組都留 */
+  const alive = (req, res) => res.json({ ok: true, version });
+  app.get("/status.html", alive); app.get("/healthz", alive);
+  app.get(["/readiness", "/readyz"], wrap(async (req, res) => { try { await store.listRuns(); res.json({ ok: true, store: store.kind }); } catch (e) { res.status(503).json({ ok: false, store: store.kind, error: "資料後端連不上" }); } }));
 
   const api = express.Router();
   api.use(auth.middleware, requireUser);
@@ -43,14 +47,7 @@ function createApp({ store, auth, approvers, version = "dev" }) {
     if (!m) return res.status(404).json({ error: "找不到這檔活動", code: "not-found" });
     res.json({ meta: m, approval: await store.approvalState(req.params.id) });
   }));
-  api.post("/runs/:id/approve", requireApprover(approvers), wrap(async (req, res) => {
-    const id = req.params.id;
-    if (!(await store.readMeta(id))) return res.status(404).json({ error: "找不到這檔活動", code: "not-found" });
-    const fp = req.body && req.body.fingerprint;
-    if (!fp) return res.status(400).json({ error: "核可要帶你檢視的那一版（fingerprint）——請重新整理頁面後再核可", code: "missing-fingerprint" });
-    const r = await store.approve(id, { by: req.user.email, expectFingerprint: fp });
-    res.json({ ok: true, ...r });
-  }));
+  if (deps) mountRuns(api, { store, approvers, jobs, deps, wrap }); // 主流程路由（D13）；沒給 deps＝只有唯讀的列表與狀態
   app.use("/api", api);
 
   app.use((req, res) => res.status(404).json({ error: "沒有這個網址", code: "no-route" }));
@@ -61,6 +58,7 @@ function createApp({ store, auth, approvers, version = "dev" }) {
     console.error(`[cms] ${req.method} ${req.path} 失敗：`, err && err.stack ? err.stack : err);
     res.status(500).json({ error: "伺服器發生問題，請再試一次；連續失敗請聯絡系統管理員", code: "internal" });
   });
+  app.locals.jobs = jobs;
   return app;
 }
 module.exports = { createApp };

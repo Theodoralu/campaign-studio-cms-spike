@@ -34,7 +34,7 @@
     "aem:verify": "node tools/ci_aem_verify.js",
     "test:store": "node --test test/unit/run_store.test.js",
     "store:s3check": "node tools/store_s3_check.js",
-    "test:cms": "node --test test/unit/cms_app.test.js",
+    "test:cms": "node --test test/unit/cms_app.test.js test/unit/cms_flow.test.js",
     "cms": "node cms/server.js"
   },
   "keywords": [],

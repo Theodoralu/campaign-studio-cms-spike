@@ -25,7 +25,7 @@ async function boot({ store: given } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "cs-cms-"));
   const store = given || S.createFsRunStore(dir);
   if (!given) { await store.createRun(ID, { stage: "ready", input: { url: "https://tw.buy.yahoo.com/?sub=1035", theme: "法式餐廚", ownerEmail: SALES } }); await store.putJson(ID, "snapshot.json", read("snapshot.replay.json")); await store.saveDraft(ID, read("draft.golden.json"), { source: "system", note: "建立" }); }
-  const app = createApp({ store, auth: A.devAuth({ env: {} }), approvers: loadApprovers(path.join(PIPE, "config", "approvers.json")) });
+  const app = createApp({ store, auth: A.devAuth({ env: {} }), approvers: loadApprovers(path.join(PIPE, "config", "approvers.json")), deps: { clock: require("../../lib/clock"), offline: true } });
   const srv = await new Promise((r) => { const s = app.listen(0, "127.0.0.1", () => r(s)); });
   const base = `http://127.0.0.1:${srv.address().port}`;
   const call = async (method, p, { as, body } = {}) => { const r = await fetch(base + p, { method, headers: { ...(as ? { "x-dev-user": as } : {}), ...(body !== undefined ? { "content-type": "application/json" } : {}) }, body: body !== undefined ? (typeof body === "string" ? body : JSON.stringify(body)) : undefined }); let j = null; try { j = await r.json(); } catch (e) { /* 非 JSON */ } return { status: r.status, body: j }; };
@@ -70,10 +70,13 @@ test("非審核者按核可＝403，核可狀態沒變（完成條件二）；�
     assert.strictEqual((await s.call("POST", `/api/runs/${ID}/approve`, { as: APPROVER, body: {} })).body.code, "missing-fingerprint");
     const stale = await s.call("POST", `/api/runs/${ID}/approve`, { as: APPROVER, body: { fingerprint: "fp_old" } });
     assert.strictEqual(stale.status, 409); assert.strictEqual(stale.body.code, "approve-stale"); assert.strictEqual(stale.body.latest.fingerprint, fp);
+    // D13：核可前這一版要跑過發佈前檢查；核可會把草稿狀態改成「待建置」，所以鎖的是改完之後的指紋
+    assert.strictEqual((await s.call("POST", `/api/runs/${ID}/approve`, { as: APPROVER, body: { fingerprint: fp } })).body.code, "gate-stale");
+    assert.strictEqual((await s.call("POST", `/api/runs/${ID}/gate`, { as: APPROVER, body: {} })).body.result, "PASS");
     const ok = await s.call("POST", `/api/runs/${ID}/approve`, { as: APPROVER, body: { fingerprint: fp } });
-    assert.strictEqual(ok.status, 200); assert.strictEqual(ok.body.approvedBy, APPROVER); assert.strictEqual(ok.body.fingerprint, fp);
+    assert.strictEqual(ok.status, 200, JSON.stringify(ok.body)); assert.strictEqual(ok.body.approvedBy, APPROVER); assert.match(ok.body.fingerprint, /^fp_/); assert.notStrictEqual(ok.body.fingerprint, fp);
     const st = await s.store.approvalState(ID); assert.strictEqual(st.approved, true); assert.strictEqual(st.approvedBy, APPROVER);
-    assert.match(await s.store.readLog(ID), new RegExp(`核可：${APPROVER.replace(".", "\\.")} 核可內容版本 ${fp}`));
+    assert.match(await s.store.readLog(ID), new RegExp(`核可：${APPROVER.replace(".", "\\.")} 核可內容版本 fp_`));
     assert.strictEqual((await s.call("GET", "/api/runs", { as: SALES })).body.runs[0].approvedBy, APPROVER);
     assert.strictEqual((await s.call("POST", "/api/runs/no-such-run/approve", { as: APPROVER, body: { fingerprint: fp } })).status, 404);
     assert.strictEqual((await s.call("POST", `/api/runs/${ID}/approve`, { as: APPROVER, body: "{壞掉" })).body.code, "bad-json");
