@@ -208,8 +208,13 @@ test("發布：製作完成自動上傳到 pages/<活動編號>/index.html；狀
     const stored = (await s3.getObject({ Key: `pages/${id}/index.html` })).Body;
     assert.strictEqual(stored, (await s.call("GET", `/api/runs/${id}/export.aem.html`)).text, "上傳的就是下載拿到的那一份");
     assert.match(await s.store.readLog(id), new RegExp(`已發布：cs-pages/pages/${id}/index\\.html → http://localhost:9000/`));
-    // 再製作一次：同一個路徑、S3 留兩版
-    await s.call("POST", `/api/runs/${id}/export-aem`); await s.jobs.wait(id);
+    // 再製作一次：同一個路徑、S3 留兩版；製作途中的狀態不帶上一輪的結果
+    let goV; s.deps.hold.verify = new Promise((r) => (goV = r));
+    await s.call("POST", `/api/runs/${id}/export-aem`);
+    for (let i = 0; i < 2000 && (await s.store.readMeta(id)).exportAem.stage !== "verify"; i++) await new Promise((r) => setTimeout(r, 10)); // 等它走到顯示檢查那一關（最多 20 秒）
+    const mid = (await s.call("GET", `/api/runs/${id}/status`)).body.exportAem;
+    assert.deepStrictEqual({ stage: mid.stage, file: mid.file, finishedAt: mid.finishedAt, published: mid.published }, { stage: "verify", file: null, finishedAt: null, published: null });
+    goV(); s.deps.hold.verify = null; await s.jobs.wait(id);
     assert.strictEqual(s3.objects.get(`pages/${id}/index.html`).length, 2);
   } finally { await s.close(); }
 });

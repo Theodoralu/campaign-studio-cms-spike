@@ -95,7 +95,8 @@ async function runProductCheck({ store, id, deps }) {
 async function exportHtml({ store, id, deps }) {
   const { clock, verifyHtml, assetRoots, publisher = null } = deps;
   const set = (patch) => store.patchMeta(id, (m) => ({ exportAem: { ...(m.exportAem || {}), ...patch } }));
-  await set({ stage: "product_check", startedAt: clock.iso(), error: null, file: null, bytes: null });
+  /* 開新一輪＝把上一輪的結果欄清掉；不清的話製作途中看狀態，會看到上一輪的完成時間、大小、發布網址混在這一輪的進度裡 */
+  await set({ stage: "product_check", startedAt: clock.iso(), error: null, file: null, bytes: null, budget: null, finishedAt: null, fingerprint: null, published: null, publishError: null });
   try {
     await store.appendLog(id, "網頁檔製作啟動：⓪ 商品狀態檢查");
     const pc = await runProductCheck({ store, id, deps });
