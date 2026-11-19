@@ -23,4 +23,8 @@ async function main() {
   await c.send(new sdk.PutBucketPolicyCommand({ Bucket, Policy })); console.log("✔ 設成任何人可讀（只限本機試作）");
   console.log(`\n發布後的網址會是：${endpoint.replace(/\/+$/, "")}/${Bucket}/pages/<活動編號>/index.html`);
 }
-main().catch((e) => { console.error(`✖ ${e.name || ""} ${e.message}`); process.exit(1); });
+main().catch((e) => {
+  const refused = e && (e.code === "ECONNREFUSED" || e.name === "AggregateError" || (e.errors || []).some((x) => x && x.code === "ECONNREFUSED"));
+  console.error(refused ? `✖ 連不到 MinIO（${process.env.CS_PUBLISH_ENDPOINT}）——請確認它有沒有啟動` : `✖ ${e.name || ""} ${e.message}`);
+  process.exit(1);
+});

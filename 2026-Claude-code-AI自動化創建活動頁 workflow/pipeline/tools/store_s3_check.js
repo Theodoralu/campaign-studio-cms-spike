@@ -30,7 +30,7 @@ async function ensureBucket() {
 }
 
 async function main() {
-  if (process.argv.includes("--create-bucket")) { try { await ensureBucket(); } catch (e) { console.error(`✖ 建立 bucket 失敗：${e.name || ""} ${e.message}`); process.exit(2); } }
+  if (process.argv.includes("--create-bucket")) { try { await ensureBucket(); } catch (e) { console.error(e && (e.name === "AggregateError" || e.code === "ECONNREFUSED") ? `✖ 連不到 S3／MinIO（${process.env.CS_S3_ENDPOINT || "AWS"}）——請確認它有沒有啟動` : `✖ 建立 bucket 失敗：${e.name || ""} ${e.message}`); process.exit(2); } }
   let store;
   try { store = S.storeFromEnv({ ...process.env, CS_STORE: "s3", CS_S3_PREFIX: (process.env.CS_S3_PREFIX || "runs") + "/_check-" + Date.now() }); }
   catch (e) { console.error("✖ " + e.message); process.exit(2); }
