@@ -18,12 +18,14 @@ const express = require("express");
 const { requireUser } = require("./auth");
 const { createJobs } = require("./jobs");
 const { mountRuns } = require("./runs");
+const FE = require("./frontend");
 
-function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), version = "dev" }) {
+function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), version = "dev", frontend = false }) {
   if (!store || !auth || !approvers) throw new Error("createApp 需要 store、auth、approvers");
   const app = express();
   app.disable("x-powered-by");
-  app.use(express.json({ limit: "5mb" }));
+  /* 舊畫面送 JSON 不帶 Content-Type——/api 底下一律當 JSON 解析 */
+  app.use("/api", express.json({ limit: "5mb", type: () => true }));
   const wrap = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
   const ID_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,80}$/;
 
@@ -36,11 +38,11 @@ function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), v
   api.use(auth.middleware, requireUser);
   api.param("id", (req, res, next, id) => (ID_RE.test(id) ? next() : res.status(400).json({ error: "活動編號格式不對", code: "bad-id" })));
   api.get("/me", (req, res) => res.json({ ...req.user, isApprover: approvers.isApprover(req.user.email) }));
+  /* 列表：回陣列、每列的欄位照單機版（畫面的列表、首頁、狀態燈都讀這些） */
   api.get("/runs", wrap(async (req, res) => {
-    const ids = await store.listRuns();
-    const runs = [];
-    for (const id of ids) { const m = await store.readMeta(id); if (!m) continue; runs.push({ id, stage: m.stage || null, theme: (m.input && m.input.theme) || "", sourceUrl: (m.input && m.input.url) || "", owner: (m.input && m.input.ownerEmail) || null, createdAt: m.createdAt || null, updatedAt: m.updatedAt || null, approvedAt: m.approvedAt || null, approvedBy: m.approvedBy || null }); }
-    res.json({ runs });
+    const rows = [];
+    for (const id of await store.listRuns()) { const r = await FE.legacyRow(store, id); if (r) rows.push(r); }
+    res.json(rows);
   }));
   api.get("/runs/:id", wrap(async (req, res) => {
     const m = await store.readMeta(req.params.id);
@@ -48,13 +50,17 @@ function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), v
     res.json({ meta: m, approval: await store.approvalState(req.params.id) });
   }));
   if (deps) mountRuns(api, { store, approvers, jobs, deps, wrap }); // 主流程路由（D13）；沒給 deps＝只有唯讀的列表與狀態
+  FE.mountCompat(api, { version });
+  FE.mountMissing(api);
   app.use("/api", api);
+  if (frontend) FE.mountStatic(app, { auth, requireUser });
 
   app.use((req, res) => res.status(404).json({ error: "沒有這個網址", code: "no-route" }));
   // 錯誤出口：RunStore 的 409／404 照它的狀態碼回（409 附最新版的指紋，讓畫面知道要重讀）；其餘一律 500，細節只進伺服器 log 不回給畫面
   app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     if (err && err.type === "entity.parse.failed") return res.status(400).json({ error: "送來的內容不是合法 JSON", code: "bad-json" });
-    if (err && (err.status === 409 || err.status === 404 || err.status === 400) && err.code) return res.status(err.status).json({ error: err.message, code: err.code, ...(err.latest ? { latest: { fingerprint: err.latest.fingerprint, etag: err.latest.etag } } : {}) });
+    if (err && (err.status === 409 || err.status === 404 || err.status === 400) && err.code) return res.status(err.status).json({ error: err.message, code: err.code, ...(err.latest ? { latest: { fingerprint: err.latest.fingerprint, etag: err.latest.etag },
+      ...(err.code === "stale-draft" ? { draft: err.latest.draft, sysDraftWriteAt: FE.baseNum(err.latest.etag) } : {}) } : {}) }); // draft／sysDraftWriteAt＝舊畫面被擋時拿來換成最新版的欄位
     console.error(`[cms] ${req.method} ${req.path} 失敗：`, err && err.stack ? err.stack : err);
     res.status(500).json({ error: "伺服器發生問題，請再試一次；連續失敗請聯絡系統管理員", code: "internal" });
   });

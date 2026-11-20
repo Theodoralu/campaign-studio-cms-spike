@@ -22,13 +22,19 @@ function liveDeps() {
   const imgProbe = require("../workbench/img_probe");
   const exp = require("../core/export");
   const { chromeVerify } = require("./pipeline");
-  return { clock, uther: createUtherClient({ log: () => {} }), fetchBrandId, pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs), verifyHtml: chromeVerify(), assetRoots: exp.defaultAssetRoots(), publisher: require("./publisher").publisherFromEnv(process.env, { clock }) };
+  /* 商品頁層（P40）：逐件開商品頁判在售與價格。判讀＝price_qa.classifyProductLiveness（單機版同一支）；節流＝lib/fetch_pool（每秒最多約 4 件） */
+  const { fetchPage } = require("../fetch_parse");
+  const { classifyProductLiveness } = require("../price_qa.js");
+  const { probeProductLiveness, gdidOf } = require("../workbench/product_fetch");
+  const { mapPool } = require("../lib/fetch_pool");
+  const productLiveness = (args) => probeProductLiveness({ ...args, fetchPage, classifyProductLiveness });
+  return { clock, productLiveness, mapPool, gdidOf, uther: createUtherClient({ log: () => {} }), fetchBrandId, pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs), verifyHtml: chromeVerify(), assetRoots: exp.defaultAssetRoots(), publisher: require("./publisher").publisherFromEnv(process.env, { clock }) };
 }
 function build(env = process.env) {
   const store = storeFromEnv(env);
   const auth = authFromEnv(env);
   const approvers = loadApprovers(env.CS_APPROVERS_FILE || path.join(__dirname, "..", "config", "approvers.json"));
-  return { app: createApp({ store, auth, approvers, deps: liveDeps(), version: env.CS_VERSION || "dev" }), store, auth, approvers };
+  return { app: createApp({ store, auth, approvers, deps: liveDeps(), version: env.CS_VERSION || "dev", frontend: env.CS_FRONTEND !== "off" }), store, auth, approvers };
 }
 if (require.main === module) {
   let b; try { b = build(); } catch (e) { console.error("✖ CMS 啟動失敗：" + e.message); process.exit(2); }

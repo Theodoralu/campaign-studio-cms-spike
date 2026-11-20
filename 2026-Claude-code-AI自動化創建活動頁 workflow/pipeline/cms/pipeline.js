@@ -79,16 +79,58 @@ async function createRun({ store, id, input, deps }) {
 /* deps.offline＝不連外（測試用）：全檢也跳過圖片連線檢查，報告裡會留一行「已跳過」 */
 const runGate = ({ store, id, full, deps = {} }) => gateOnStored({ store, id, skipHttp: !full || !!deps.offline });
 
-async function runProductCheck({ store, id, deps }) {
+/**
+ * 商品狀態檢查。兩層（P40）：
+ *   uther 層——只比實付價與在售，快（一次查完）。建立期用這層。
+ *   商品頁層——逐件打開商品頁，比實付價、劃線價、在售；慢（幾十秒）但才是最終真值。核可前與製作時用這層。
+ * 預設：有接商品頁探測（deps.productLiveness）就走商品頁層；layer:"uther" 可指定只查 uther。
+ * 進度寫在 meta.productCheck（running → done｜error），畫面輪詢狀態。
+ */
+async function runProductCheck({ store, id, deps, layer = null }) {
   const { uther, clock, productLiveness, mapPool, gdidOf } = deps;
-  const [d, s] = [await store.getDraft(id), await store.getJson(id, "snapshot.json")];
-  if (!d) throw new Error("這檔活動還沒有草稿");
-  const layer = productLiveness ? "page" : "uther";
-  const live = productLiveness ? await pageLayer(d.draft.products, { productLiveness, mapPool, gdidOf }) : await utherLayer(d.draft.products.map((p) => String(p.gdid)), { uther, clock });
-  const chk = buildCheck(d.draft, s && s.data, live, { layer, clock });
-  await store.putJson(id, "product_check.json", chk);
-  await store.appendLog(id, `商品狀態檢查（${layer === "page" ? "商品頁" : "uther"}）：${chk.results.length} 件`);
-  return chk;
+  const use = layer || (productLiveness ? "page" : "uther");
+  if (use === "page" && !productLiveness) throw new Error("這台伺服器沒有接商品頁探測，不能做商品頁層的檢查");
+  await store.patchMeta(id, { productCheck: { stage: "running", layer: use, startedAt: clock.iso(), finishedAt: null, error: null } });
+  try {
+    const [d, s] = [await store.getDraft(id), await store.getJson(id, "snapshot.json")];
+    if (!d) throw new Error("這檔活動還沒有草稿");
+    const live = use === "page" ? await pageLayer(d.draft.products, { productLiveness, mapPool, gdidOf }) : await utherLayer(d.draft.products.map((p) => String(p.gdid)), { uther, clock });
+    const chk = buildCheck(d.draft, s && s.data, live, { layer: use, clock });
+    chk.draftFingerprint = d.fingerprint; // 這份報告查的是哪一版草稿
+    await store.putJson(id, "product_check.json", chk);
+    const sm = chk.summary || {};
+    await store.appendLog(id, `商品狀態檢查（${use === "page" ? "商品頁" : "uther"}）：${chk.results.length} 件；要處理 ${blockingCount(sm, 0)} 件`);
+    await store.patchMeta(id, { productCheck: { stage: "done", layer: use, finishedAt: clock.iso(), total: chk.results.length, blocking: blockingCount(sm, 0), error: null } });
+    return chk;
+  } catch (e) {
+    await store.appendLog(id, "商品狀態檢查失敗：" + errText(e));
+    await store.patchMeta(id, { productCheck: { stage: "error", layer: use, finishedAt: clock.iso(), error: "商品狀態檢查沒有跑完，請再試一次" } });
+    throw e;
+  }
+}
+
+/**
+ * 套用商品頁現價：把最近一份商品狀態報告裡「在售但價格不同」的商品，價格與劃線價改成商品頁的值（快照與草稿同時改）。
+ * 改了內容＝核可失效（RunStore 自動處理）。uther 沒有劃線價，所以第一次做商品頁層檢查後，劃線價要靠這一步補進草稿。
+ */
+async function applyLivePrices({ store, id, actor }) {
+  const { applyPriceTruth } = require(path.join(PIPE, "lib", "price_truth.js"));
+  const { patchSnapshotPrice, summary } = require(path.join(PIPE, "core", "product-truth", "rows"));
+  const [pc, cur, snap] = [await store.getJson(id, "product_check.json"), await store.getDraft(id), await store.getJson(id, "snapshot.json")];
+  if (!pc || !Array.isArray(pc.data.results)) throw Object.assign(new Error("找不到商品狀態報告——請先按「重新檢查」再套用"), { status: 409, code: "no-check" });
+  if (pc.data.draftFingerprint && pc.data.draftFingerprint !== cur.fingerprint) throw Object.assign(new Error("草稿在檢查之後有變更——請先重新檢查再套用"), { status: 409, code: "check-stale" });
+  const rows = pc.data.results.filter((r) => r.status === "online" && (r.drift || r.snapDrift) && r.livePrice != null);
+  if (!rows.length) return { count: 0, applied: [], approvalInvalidated: false };
+  const r = applyPriceTruth({ snap: snap.data, draft: cur.draft, rows, checkedAt: pc.data.checkedAt, patchSnapshotPrice });
+  await store.putJson(id, "snapshot.json", snap.data);
+  const saved = await store.saveDraft(id, cur.draft, { ifMatch: cur.etag, source: "system", actor, note: `套用商品頁現價 ${r.applied.length} 件` });
+  const done = new Set(r.applied.map((a) => String(a.gdid)));
+  for (const row of pc.data.results) if (done.has(String(row.gdid))) { row.draftPrice = row.livePrice; row.snapPrice = row.livePrice; row.drift = false; row.marketDrift = false; row.snapDrift = false; delete row.draftMarketPrice; }
+  pc.data.summary = summary(pc.data.results); pc.data.draftFingerprint = saved.fingerprint;
+  await store.putJson(id, "product_check.json", pc.data);
+  for (const a of r.applied.slice(0, 50)) await store.appendLog(id, `價格改用商品頁現價：gdid ${a.gdid} $${a.from.price}→$${a.to.price}${a.to.marketPrice ? `、原價 ${a.to.marketPrice}` : a.from.marketPrice ? "、原價移除" : ""}`);
+  await store.patchMeta(id, (m) => ({ productCheck: { ...(m.productCheck || {}), blocking: blockingCount(pc.data.summary, 0) } }));
+  return { count: r.applied.length, applied: r.applied, approvalInvalidated: saved.approvalInvalidated, fingerprint: saved.fingerprint };
 }
 
 /** 製作 HTML 檔。三關沿單機版：⓪商品狀態 ①全檢 ②組檔 ③顯示檢查。沒過任何一關＝不交付。 */
@@ -148,4 +190,4 @@ function chromeVerify() {
   });
 }
 
-module.exports = { createRun, runGate, runProductCheck, exportHtml, chromeVerify };
+module.exports = { createRun, runGate, runProductCheck, applyLivePrices, exportHtml, chromeVerify };

@@ -4,7 +4,7 @@
  *
  * 建立　POST /runs · GET /runs/:id/status
  * 編修　GET|PUT /runs/:id/draft.json · GET /runs/:id/snapshot.json · POST /runs/:id/rename
- * 檢查　POST /runs/:id/gate · GET /runs/:id/gate_report.json · POST /runs/:id/product-check · GET /runs/:id/product_check.json
+ * 檢查　POST /runs/:id/gate · GET /runs/:id/gate_report.json · POST /runs/:id/product-check · GET /runs/:id/product_check.json · POST /runs/:id/apply-live-price-all
  * 核可　POST /runs/:id/approve
  * 製作　POST /runs/:id/export-aem · GET /runs/:id/export.aem.html
  * 舊版　GET /runs/:id/versions · POST /runs/:id/versions/:v/rollback
@@ -19,9 +19,10 @@ const layoutLib = require(path.join(PIPE, "lib", "layout_choice.js"));
 const contentModules = require(path.join(PIPE, "lib", "content_modules.js"));
 const P = require("./pipeline");
 const { requireApprover } = require("./auth");
+const { baseNum } = require("./frontend");
 
 const errText = (e) => String((e && e.message) || e);
-const BUSY_TEXT = { create: "這個活動還在建立處理中——等它完成再操作", export: "網頁檔還在製作中——請等這一輪完成" };
+const BUSY_TEXT = { create: "這個活動還在建立處理中——等它完成再操作", export: "網頁檔還在製作中——請等這一輪完成", check: "商品狀態檢查進行中——等它完成再操作" };
 const SCENARIOS = Object.keys(layoutLib.SCENARIO_LAYOUT_MAP || {});
 
 /** 活動編號：建立當下的台灣時間（沿單機版格式 YYYY-MM-DD-wb-HHMMSS） */
@@ -52,7 +53,8 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
   }));
   api.get("/runs/:id/status", wrap(async (req, res) => {
     const m = await need(req, res); if (!m) return;
-    res.json({ id: m.id, stage: m.stage || null, error: m.error || null, busy: jobs.busy(req.params.id), exportAem: m.exportAem || null, priceTruth: m.priceTruth || null, approvedAt: m.approvedAt || null, updatedAt: m.updatedAt || null });
+    const log = await store.readLog(req.params.id); // 舊畫面的建立進度條讀 logTail 最後幾行
+    res.json({ ...m, id: m.id || req.params.id, stage: m.stage || null, error: m.error || null, busy: jobs.busy(req.params.id), exportAem: m.exportAem || null, productCheck: m.productCheck || null, priceTruth: m.priceTruth || null, logTail: log.split("\n").slice(-12).join("\n") });
   }));
 
   /* ---------- 編修 ---------- */
@@ -61,7 +63,7 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     const r = await store.getText(req.params.id, "draft.json");
     if (!r) return res.status(404).json({ error: "草稿還沒有產生（建立還沒完成？）", code: "no-doc" });
     const d = await store.getDraft(req.params.id);
-    res.set("X-Draft-Version", r.etag).set("X-Draft-Fingerprint", d.fingerprint).set("Cache-Control", "no-store").type("application/json").send(r.text);
+    res.set("X-Draft-Version", r.etag).set("X-Draft-Mtime", String(baseNum(r.etag))).set("X-Draft-Fingerprint", d.fingerprint).set("Cache-Control", "no-store").type("application/json").send(r.text);
   }));
   api.put("/runs/:id/draft.json", wrap(async (req, res) => {
     if (!(await need(req, res)) || busy(req, res)) return;
@@ -69,9 +71,18 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     if (!parsed || !parsed.page || !Array.isArray(parsed.products)) return res.status(400).json({ error: "儲存的內容不完整，這次沒有存入——請重新整理頁面後再試一次", code: "bad-draft" });
     try { contentModules.validateContentModules(parsed.page, contentModules.loadContentRegistry(), parsed.products); }
     catch (e) { return res.status(400).json({ error: "還沒儲存——" + errText(e), code: "invalid-content" }); }
-    const ifMatch = req.get("If-Match") || req.get("X-Draft-Base") || null;
+    /* 版本怎麼帶：If-Match（版本代號原樣）或 X-Draft-Base。舊畫面的 X-Draft-Base 是數字（GET 時 X-Draft-Mtime 給的那個）：
+       數字對得上現在這版＝當作帶了現在這版；對不上＝舊版；0 或沒帶＝沒帶。 */
+    let ifMatch = req.get("If-Match") || null;
+    const base = req.get("X-Draft-Base");
+    if (!ifMatch && base && base !== "0") {
+      if (/^\d+$/.test(base)) { const cur = await store.getText(req.params.id, "draft.json"); ifMatch = cur && baseNum(cur.etag) === Number(base) ? cur.etag : "stale:" + base; }
+      else ifMatch = base;
+    }
     const r = await store.saveDraft(req.params.id, parsed, { ifMatch, source: "client", actor: req.user.email });
-    res.set("X-Draft-Version", r.etag).json({ ok: true, version: r.etag, fingerprint: r.fingerprint, changed: r.changed, corrected: r.corrected, approvalInvalidated: r.approvalInvalidated });
+    const savedAt = deps.clock.iso(); await store.patchMeta(req.params.id, { draftSavedAt: savedAt });
+    res.set("X-Draft-Version", r.etag).json({ ok: true, version: r.etag, baseMs: baseNum(r.etag), fingerprint: r.fingerprint, changed: r.changed, corrected: r.corrected, approvalInvalidated: r.approvalInvalidated,
+      savedAt, backup: r.versionId ? `draft.v${r.versionId}.json` : "上一版" });
   }));
   api.get("/runs/:id/snapshot.json", sendDoc("snapshot.json"));
   api.post("/runs/:id/rename", wrap(async (req, res) => {
@@ -88,14 +99,27 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
   /* ---------- 檢查 ---------- */
   api.post("/runs/:id/gate", wrap(async (req, res) => {
     if (!(await need(req, res)) || busy(req, res)) return;
-    const report = await P.runGate({ store, id: req.params.id, full: !!(req.body && req.body.full), deps });
-    res.json({ ok: true, result: report.result, counts: report.counts });
+    const full = !!(req.body && req.body.full) || req.query.full === "1";
+    const report = await P.runGate({ store, id: req.params.id, full, deps });
+    res.json({ ok: true, result: report.result, counts: report.counts, exit: report.counts.FAIL ? 1 : 0, output: "", report, mode: full ? "全檢" : "快檢" }); // exit／output／report／mode＝舊畫面讀的欄位
   }));
   api.get("/runs/:id/gate_report.json", sendDoc("gate_report.json"));
+  /* 商品狀態檢查＝背景工作（商品頁層要逐件開頁，幾十秒）。body { layer: "uther" } 可指定只查 uther；預設走這台伺服器能做的最完整那層。 */
   api.post("/runs/:id/product-check", wrap(async (req, res) => {
     if (!(await need(req, res)) || busy(req, res)) return;
-    const chk = await P.runProductCheck({ store, id: req.params.id, deps });
-    res.json({ ok: true, layer: chk.layer, summary: chk.summary, checkedAt: chk.checkedAt });
+    const layer = req.body && req.body.layer === "uther" ? "uther" : null;
+    /* 登記成背景工作（檢查中不收別的修改），但沿單機版等它做完才回、回整份報告——舊畫面按下去是等結果的 */
+    jobs.start(req.params.id, "check", () => P.runProductCheck({ store, id: req.params.id, deps, layer }));
+    await jobs.wait(req.params.id);
+    const pc = await store.getJson(req.params.id, "product_check.json"), m2 = await store.readMeta(req.params.id);
+    if (!pc || (m2.productCheck && m2.productCheck.stage === "error")) return res.status(502).json({ error: (m2.productCheck && m2.productCheck.error) || "商品狀態檢查沒有跑完，請再試一次", code: "check-failed" });
+    res.json({ ok: true, ...pc.data });
+  }));
+  api.post("/runs/:id/apply-live-price-all", wrap(async (req, res) => {
+    if (!(await need(req, res)) || busy(req, res)) return;
+    const r = await P.applyLivePrices({ store, id: req.params.id, actor: req.user.email });
+    if (r.count) await P.runGate({ store, id: req.params.id, full: false, deps }); // 價格變了＝補跑快檢，報告對得上這一版
+    res.json({ ok: true, count: r.count, applied: r.applied.map((a) => ({ gdid: a.gdid, from: a.from, to: a.to })), approvalInvalidated: r.approvalInvalidated });
   }));
   api.get("/runs/:id/product_check.json", sendDoc("product_check.json"));
 
@@ -120,7 +144,8 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     const r = await store.approve(id, { by: req.user.email, expectFingerprint: saved.fingerprint, extra: { approvedWithFail: fails > 0 ? fails : null } });
     await P.runGate({ store, id, full: false }); // 狀態欄變了＝檔案指紋變了；補跑快檢讓報告對得上這一版
     if (fails > 0) await store.appendLog(id, `⚠ 帶 ${fails} 個 FAIL 核可（${req.user.email} 勾選知悉＝先鎖版後修）`);
-    res.json({ ok: true, ...r, approvedWithFail: fails > 0 ? fails : null });
+    const now = await store.getText(id, "draft.json");
+    res.json({ ok: true, ...r, approvedWithFail: fails > 0 ? fails : null, baseMs: baseNum(now.etag), version: now.etag, status: "待建置" });
   }));
 
   /* ---------- 製作 ---------- */
@@ -148,17 +173,19 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
   api.get("/runs/:id/versions", wrap(async (req, res) => {
     const m = await need(req, res); if (!m) return;
     const vs = await store.listDraftVersions(req.params.id);
-    res.json({ approvedAt: m.approvedAt || null, versions: vs.slice().reverse() });
+    /* file／n／mtime＝舊畫面讀的欄位（本機資料夾後端的舊版就叫 draft.vN.json） */
+    res.json({ current: m.draftSavedAt || m.updatedAt || null, approvedAt: m.approvedAt || null, deploy: null, versions: vs.slice().reverse().map((v) => ({ ...v, file: `draft.v${v.versionId}.json`, n: Number(v.versionId) || null, mtime: v.lastModified || null })) });
   }));
   api.post("/runs/:id/versions/:v/rollback", wrap(async (req, res) => {
     const id = req.params.id;
     if (!(await need(req, res)) || busy(req, res)) return;
-    const old = await store.getDraftVersion(id, req.params.v);
+    const vid = (String(req.params.v).match(/^draft\.v(\d+)\.json$/) || [])[1] || req.params.v; // 舊畫面傳檔名 draft.vN.json
+    const old = await store.getDraftVersion(id, vid);
     if (!old) return res.status(404).json({ error: "找不到這個版本——請重新整理頁面後再試一次", code: "no-version" });
     const cur = await store.getDraft(id);
     const r = await store.saveDraft(id, old.draft, { ifMatch: cur.etag, source: "system", actor: req.user.email, note: `版本還原：${req.params.v}` });
     const g = await P.runGate({ store, id, full: false }); // 還原後補跑快檢：畫面上的「檢查都過了」要是這一版的結果
-    res.json({ ok: true, version: r.etag, fingerprint: r.fingerprint, approvalInvalidated: r.approvalInvalidated, gate: g.result });
+    res.json({ ok: true, version: r.etag, baseMs: baseNum(r.etag), fingerprint: r.fingerprint, approvalInvalidated: r.approvalInvalidated, gate: g.result, rollbackRegate: g.result, draft: old.draft });
   }));
 }
 module.exports = { mountRuns, runIdAt, SCENARIOS };

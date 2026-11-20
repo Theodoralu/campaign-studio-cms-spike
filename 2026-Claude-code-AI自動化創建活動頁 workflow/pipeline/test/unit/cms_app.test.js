@@ -50,8 +50,11 @@ test("登入後看到列表與自己的身分（完成條件一）", async () =>
     assert.deepStrictEqual(me.body, { email: SALES, name: "sales", dept: "", isApprover: false });
     assert.strictEqual((await s.call("GET", "/api/me", { as: `Test Approver <${APPROVER.toUpperCase()}>` })).body.isApprover, true, "名單比對不分大小寫");
     const list = await s.call("GET", "/api/runs", { as: SALES });
-    assert.strictEqual(list.status, 200); assert.strictEqual(list.body.runs.length, 1);
-    assert.deepStrictEqual({ id: list.body.runs[0].id, stage: list.body.runs[0].stage, theme: list.body.runs[0].theme, owner: list.body.runs[0].owner, approvedAt: list.body.runs[0].approvedAt }, { id: ID, stage: "ready", theme: "法式餐廚", owner: SALES, approvedAt: null });
+    assert.strictEqual(list.status, 200); assert.ok(Array.isArray(list.body), "列表回陣列（舊畫面認這個形狀）"); assert.strictEqual(list.body.length, 1);
+    const row = list.body[0];
+    assert.deepStrictEqual({ id: row.id, stage: row.stage, theme: row.input.theme, owner: row.input.ownerEmail, approvedAt: row.approvedAt, hasDraft: row.hasDraft, hasGate: row.hasGate, gate: row.gate, prodcheck: row.prodcheck },
+      { id: ID, stage: "ready", theme: "法式餐廚", owner: SALES, approvedAt: null, hasDraft: true, hasGate: false, gate: null, prodcheck: null });
+    assert.ok(row.pageName, "列表帶活動名稱");
     const one = await s.call("GET", `/api/runs/${ID}`, { as: SALES });
     assert.strictEqual(one.body.approval.approved, false); assert.match(one.body.approval.fingerprint, /^fp_/);
     assert.strictEqual((await s.call("GET", "/api/runs/no-such-run", { as: SALES })).status, 404);
@@ -77,7 +80,7 @@ test("非審核者按核可＝403，核可狀態沒變（完成條件二）；�
     assert.strictEqual(ok.status, 200, JSON.stringify(ok.body)); assert.strictEqual(ok.body.approvedBy, APPROVER); assert.match(ok.body.fingerprint, /^fp_/); assert.notStrictEqual(ok.body.fingerprint, fp);
     const st = await s.store.approvalState(ID); assert.strictEqual(st.approved, true); assert.strictEqual(st.approvedBy, APPROVER);
     assert.match(await s.store.readLog(ID), new RegExp(`核可：${APPROVER.replace(".", "\\.")} 核可內容版本 fp_`));
-    assert.strictEqual((await s.call("GET", "/api/runs", { as: SALES })).body.runs[0].approvedBy, APPROVER);
+    { const r1 = (await s.call("GET", "/api/runs", { as: SALES })).body[0]; assert.strictEqual(r1.approvedBy, APPROVER); assert.deepStrictEqual(r1.gate, { pass: true, fail: 0, warn: r1.gate.warn }); }
     assert.strictEqual((await s.call("POST", "/api/runs/no-such-run/approve", { as: APPROVER, body: { fingerprint: fp } })).status, 404);
     assert.strictEqual((await s.call("POST", `/api/runs/${ID}/approve`, { as: APPROVER, body: "{壞掉" })).body.code, "bad-json");
   } finally { await s.close(); }

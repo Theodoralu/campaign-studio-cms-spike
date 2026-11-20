@@ -44,7 +44,7 @@ async function boot(over) {
   const srv = await new Promise((r) => { const s = app.listen(0, "127.0.0.1", () => r(s)); });
   const base = `http://127.0.0.1:${srv.address().port}`;
   const call = async (method, p, { as = SALES, body, headers = {} } = {}) => { const r = await fetch(base + p, { method, headers: { ...(as ? { "x-dev-user": as } : {}), ...(body !== undefined ? { "content-type": "application/json" } : {}), ...headers }, body: body !== undefined ? JSON.stringify(body) : undefined }); const text = await r.text(); let j = null; try { j = JSON.parse(text); } catch (e) { /* 非 JSON */ } return { status: r.status, body: j, text, headers: r.headers }; };
-  return { store, jobs, deps, call, dir, close: () => new Promise((r) => srv.close(r)) };
+  return { store, jobs, deps, call, dir, port: srv.address().port, close: () => new Promise((r) => srv.close(r)) };
 }
 async function created(s, body = { url: URL1035, scenario: "同品類-情境×優惠", theme: "" }) {
   const r = await s.call("POST", "/api/runs", { body }); assert.strictEqual(r.status, 200, r.text);
@@ -74,7 +74,7 @@ test("建立：貼網址 → 背景工作跑完 → ready；快照、草稿、�
     const snap = (await s.call("GET", `/api/runs/${id}/snapshot.json`)).body; assert.strictEqual(snap.products.length, GOLD.products.length); assert.match(snap.products[0].source, /^uther:/);
     assert.strictEqual((await s.call("GET", `/api/runs/${id}/product_check.json`)).body.layer, "uther");
     const g = (await s.call("GET", `/api/runs/${id}/gate_report.json`)).body; assert.ok(g.result && g.counts);
-    assert.strictEqual((await s.call("GET", "/api/runs")).body.runs[0].id, id);
+    assert.strictEqual((await s.call("GET", "/api/runs")).body[0].id, id);
     // 同一秒再建一檔＝讓位成 -2
     const r2 = await s.call("POST", "/api/runs", { body: { url: URL1035 } }); assert.strictEqual(r2.body.id, id + "-2"); await s.jobs.wait(r2.body.id);
   } finally { await s.close(); }
@@ -121,7 +121,8 @@ test("檢查 → 核可 → 製作 → 下載；每一步的門都有守", async
     assert.strictEqual((await s.call("POST", `/api/runs/${id}/export-aem`)).body.code, "not-approved", "沒核可不能製作");
     assert.strictEqual((await s.call("GET", `/api/runs/${id}/export.aem.html`)).body.code, "not-exported");
     const g = await s.call("POST", `/api/runs/${id}/gate`, { body: {} }); assert.strictEqual(g.status, 200);
-    const pc = await s.call("POST", `/api/runs/${id}/product-check`); assert.strictEqual(pc.body.layer, "uther");
+    const pc = await s.call("POST", `/api/runs/${id}/product-check`); assert.strictEqual(pc.body.layer, "uther"); await s.jobs.wait(id);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/status`)).body.productCheck.stage, "done");
     // 業務不能核可
     assert.strictEqual((await s.call("POST", `/api/runs/${id}/approve`, { as: SALES, body: { fingerprint: await fp() } })).status, 403);
     let ap = await s.call("POST", `/api/runs/${id}/approve`, { as: APPROVER, body: { fingerprint: await fp() } });
@@ -233,4 +234,90 @@ test("發布失敗不算製作失敗：檔案照樣做好可下載，狀態記�
   assert.throws(() => publisherFromEnv({ CS_PUBLISH: "ftp" }), /只能是 s3/); assert.throws(() => publisherFromEnv({ CS_PUBLISH: "s3" }), /CS_PUBLISH_BUCKET/);
   const p = createS3Publisher({ client: createMemoryS3(), bucket: "b", prefix: "/pages/" });
   assert.strictEqual(p.keyOf("abc"), "pages/abc/index.html"); assert.strictEqual(p.urlOf("abc"), null); assert.throws(() => p.keyOf("../x"), /活動編號格式不對/);
+});
+
+/* ---------- 商品頁層（P40）：核可前與製作時逐件開商品頁；劃線價靠「套用商品頁現價」補進草稿 ---------- */
+test("商品頁層：第一次檢查每件都缺劃線價＝要處理；套用後草稿有劃線價、核可失效要重來；之後製作用商品頁層把關", async () => {
+  // 假的商品頁：實付價同 uther，另外有劃線價（＝實付價＋100）；第一件商品頁上已經降價 5 元
+  let first = null;
+  const productLiveness = async ({ gdid }) => { const p = GOLD.products.find((x) => String(x.gdid) === String(gdid)); if (!p) return { status: "offline", prod: null, evidence: {} }; if (first == null) first = String(gdid);
+    return { status: "online", prod: { price: p.price, listPrice: p.price + 100 }, evidence: { fetchUrl: p.url } }; };
+  const s = await boot({ productLiveness, gdidOf: null, mapPool: null });
+  try {
+    const id = await created(s);
+    const before = (await s.call("GET", `/api/runs/${id}/draft.json`)).body;
+    assert.ok(before.products.every((p) => p.marketPrice == null || p.marketPrice > p.price), "uther 建立的草稿：沒有活動價的商品不帶劃線價");
+    const noList = before.products.filter((p) => p.marketPrice !== p.price + 100).length; assert.ok(noList > 0);
+    // 商品頁層檢查＝背景工作
+    const st = await s.call("POST", `/api/runs/${id}/product-check`); assert.strictEqual(st.body.layer, "page"); await s.jobs.wait(id);
+    const pc = (await s.call("GET", `/api/runs/${id}/product_check.json`)).body; assert.strictEqual(pc.layer, "page");
+    assert.strictEqual(pc.results.filter((r) => r.marketDrift).length, noList, "劃線價跟商品頁不同的每一件都標出來");
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/status`)).body.productCheck.blocking, noList);
+    // 套用：劃線價進草稿與快照
+    const ap = await s.call("POST", `/api/runs/${id}/apply-live-price-all`); assert.strictEqual(ap.status, 200, ap.text); assert.strictEqual(ap.body.count, noList);
+    const after = (await s.call("GET", `/api/runs/${id}/draft.json`)).body;
+    assert.ok(after.products.every((p) => p.marketPrice === p.price + 100), "每件都有商品頁的劃線價");
+    const snap = (await s.call("GET", `/api/runs/${id}/snapshot.json`)).body; const sp = snap.products.find((x) => String(x.gdid) === String(after.products[0].gdid)); assert.strictEqual(sp.marketPrice, after.products[0].price + 100);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/product_check.json`)).body.results.filter((r) => r.drift).length, 0, "報告同步：套完不再標要處理");
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/apply-live-price-all`)).body.count, 0, "再按一次沒有東西要套");
+    assert.match(await s.store.readLog(id), /價格改用商品頁現價：gdid \d+ .*原價 \d+/);
+    // 核可 → 製作：製作時的商品狀態關走商品頁層，這次全過
+    const fp = (await s.call("GET", `/api/runs/${id}`)).body.approval.fingerprint;
+    const ok = await s.call("POST", `/api/runs/${id}/approve`, { as: APPROVER, body: { fingerprint: fp } }); assert.strictEqual(ok.status, 200, ok.text);
+    await s.call("POST", `/api/runs/${id}/export-aem`); await s.jobs.wait(id);
+    const ex = (await s.call("GET", `/api/runs/${id}/status`)).body; assert.strictEqual(ex.exportAem.stage, "done", ex.exportAem.error); assert.strictEqual(ex.productCheck.layer, "page");
+  } finally { await s.close(); }
+});
+
+test("商品頁層：沒套用劃線價就核可並製作＝製作被商品狀態關擋下；草稿改過之後拿舊報告來套用＝擋", async () => {
+  const productLiveness = async ({ gdid }) => { const p = GOLD.products.find((x) => String(x.gdid) === String(gdid)); return { status: "online", prod: { price: p.price, listPrice: p.price + 100 }, evidence: {} }; };
+  const s = await boot({ productLiveness });
+  try {
+    const id = await approvedRun(s);
+    await s.call("POST", `/api/runs/${id}/export-aem`); await s.jobs.wait(id);
+    const ex = (await s.call("GET", `/api/runs/${id}/status`)).body.exportAem; assert.strictEqual(ex.stage, "error"); assert.match(ex.error, /商品狀態檢查未過/);
+    const d = await s.call("GET", `/api/runs/${id}/draft.json`); d.body.page.ctaText = "檢查後又改";
+    await s.call("PUT", `/api/runs/${id}/draft.json`, { body: d.body, headers: { "x-draft-base": d.headers.get("x-draft-version") } });
+    const ap = await s.call("POST", `/api/runs/${id}/apply-live-price-all`); assert.strictEqual(ap.status, 409); assert.strictEqual(ap.body.code, "check-stale");
+    // 指定只查 uther 也可以（快）
+    const u = await s.call("POST", `/api/runs/${id}/product-check`, { body: { layer: "uther" } }); assert.strictEqual(u.body.layer, "uther"); await s.jobs.wait(id);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/product_check.json`)).body.layer, "uther");
+  } finally { await s.close(); }
+});
+
+/* ---------- D14 第一段：舊畫面接上來 ---------- */
+test("舊畫面的握手與形狀：版本、能力表、狀態帶 logTail、列表欄位、沒搬的路由回 501 並被記下來", async () => {
+  const s = await boot();
+  try {
+    const v = (await s.call("GET", "/api/version")).body;
+    assert.strictEqual(v.mode, "cms"); assert.strictEqual(v.caps, null, "能力表 null＝第一版範圍外的入口全藏"); assert.strictEqual(v.staleServer, false); assert.strictEqual(v.user.email, SALES);
+    const id = await created(s);
+    const st = (await s.call("GET", `/api/runs/${id}/status`)).body; assert.match(st.logTail, /發佈前檢查（快檢/); assert.ok(st.input && st.createdAt, "狀態帶整份狀態檔");
+    const row = (await s.call("GET", "/api/runs")).body[0];
+    for (const k of ["id", "stage", "engineUsed", "input", "pageName", "hasDraft", "hasGate", "error", "approvedAt", "gate", "themeHue", "createdAt", "draftSavedAt", "prodcheck", "exportAem"]) assert.ok(k in row, `列表缺欄位 ${k}`);
+    assert.strictEqual(row.prodcheck.total, row.prodcheck.total); assert.ok(row.gate && typeof row.gate.pass === "boolean");
+    for (const [m, p] of [["POST", `/api/runs/${id}/hero-combo`], ["GET", "/api/google/config"], ["POST", `/api/runs/${id}/hero-combo`]]) { const r = await s.call(m, p, { body: m === "POST" ? {} : undefined }); assert.strictEqual(r.status, 501); assert.strictEqual(r.body.code, "not-migrated"); }
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [{ route: "POST /runs/:id/hero-combo", hits: 2 }, { route: "GET /google/config", hits: 1 }]);
+  } finally { await s.close(); }
+});
+
+test("舊畫面的存檔方式：不帶 Content-Type、版本用數字；存完拿到新數字接著存；舊數字＝409 並附最新草稿", async () => {
+  const s = await boot();
+  try {
+    const id = await created(s);
+    const raw = (p, o) => fetch(`http://127.0.0.1:${s.port}${p}`, { ...o, headers: { "x-dev-user": SALES, ...(o.headers || {}) } });
+    const g = await raw(`/api/runs/${id}/draft.json`, {}); const base0 = g.headers.get("x-draft-mtime"); assert.match(base0, /^\d+$/); assert.ok(Number.isSafeInteger(Number(base0)) && Number(base0) > 0);
+    const d = await g.json(); d.page.ctaText = "舊畫面第一次存";
+    const p1 = await (await raw(`/api/runs/${id}/draft.json`, { method: "PUT", headers: { "x-draft-base": base0 }, body: JSON.stringify(d) })).json(); // 沒有 Content-Type
+    assert.strictEqual(p1.ok, true, JSON.stringify(p1)); assert.match(p1.backup, /^draft\.v\d+\.json$/); assert.ok(p1.savedAt && p1.baseMs && String(p1.baseMs) !== base0);
+    d.page.ctaText = "接著再存";
+    const p2 = await (await raw(`/api/runs/${id}/draft.json`, { method: "PUT", headers: { "x-draft-base": String(p1.baseMs) }, body: JSON.stringify(d) })).json(); assert.strictEqual(p2.ok, true, JSON.stringify(p2));
+    const p3 = await raw(`/api/runs/${id}/draft.json`, { method: "PUT", headers: { "x-draft-base": base0 }, body: JSON.stringify(d) }); const j3 = await p3.json();
+    assert.strictEqual(p3.status, 409); assert.strictEqual(j3.code, "stale-draft"); assert.strictEqual(j3.draft.page.ctaText, "接著再存"); assert.strictEqual(j3.sysDraftWriteAt, p2.baseMs);
+    const p4 = await (await raw(`/api/runs/${id}/draft.json`, { method: "PUT", headers: { "x-draft-base": "0" }, body: JSON.stringify(d) })).json(); assert.strictEqual(p4.code, "missing-base");
+    // 舊畫面的檢查與舊版清單
+    const gt = await (await raw(`/api/runs/${id}/gate?full=1`, { method: "POST" })).json(); assert.strictEqual(gt.mode, "全檢"); assert.ok(gt.report && gt.report.findings); assert.strictEqual(gt.exit, gt.report.counts.FAIL ? 1 : 0);
+    const vs = await (await raw(`/api/runs/${id}/versions`, {})).json(); assert.match(vs.versions[0].file, /^draft\.v\d+\.json$/);
+    const rb = await (await raw(`/api/runs/${id}/versions/${vs.versions[vs.versions.length - 1].file}/rollback`, { method: "POST" })).json(); assert.strictEqual(rb.ok, true, JSON.stringify(rb)); assert.ok(rb.draft && rb.baseMs);
+  } finally { await s.close(); }
 });

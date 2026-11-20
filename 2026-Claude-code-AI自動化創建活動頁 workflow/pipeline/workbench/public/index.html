@@ -1648,6 +1648,7 @@ const ENGINE_ZH = { auto: "快速草稿", ai: "AI 智慧策展", "auto（AI 降�
 const engineZh = (e) => ENGINE_ZH[e] || e || "—";
 
 let currentId = null, draft = null, dirty = false, runsCache = [], trashCache = [], approvedAt = null;
+let draftFp = ""; // CMS（D14）：載入或存檔後伺服器給的內容指紋；核可時帶回去，證明核可的是畫面上這一版。單機版伺服器不給＝空字串、照舊
 let draftBaseMs = 0; // 載入草稿時伺服器給的檔案時刻（X-Draft-Mtime）；存回時帶回去，讓伺服器擋「舊草稿蓋掉系統剛改好的」（PRICE-TRUTH-STALE-PUT，2026-09-28）
 let deployPoll = null, publicPoll = null, savedAtTxt = "";
 let draftSavedAt = null; // 最近一次 draft 落盤時刻（ISO）＝商品狀態報告「內容已於檢查後修改」過時比對基準（F9-3 2026-07-29）
@@ -2963,6 +2964,7 @@ async function openRun(id, opts){
   if ($("#swap-modal").classList.contains("open")) closeSwap(); // 防：更替視窗還開著＝套用會寫進換入的活動
   draft = await r.json();
   draftBaseMs = Number(r.headers.get("x-draft-mtime") || 0); // 我載入的是幾點的草稿（PRICE-TRUTH-STALE-PUT）
+  draftFp = r.headers.get("x-draft-fingerprint") || "";
   fixLibUrlAll(draft);/* 圖庫網址存量治癒 2026-08-28 */
   currentId = id;
   dirty = false; savedAtTxt = ""; gateStale = false;
@@ -3454,6 +3456,7 @@ async function saveDraft(silent){
       saveUiState = ""; if (r.draft) { draft = r.draft; fixLibUrlAll(draft); dirty = false; draftBaseMs = Number(r.sysDraftWriteAt || Date.now()); renderEditor(); reloadPreview(); } renderSaveState(); toast(r.error, true); return false; }
     if (r.error) { saveUiState = "failed"; renderSaveState(); toast(r.error, true); return false; }
     saveUiState = "";
+    if (r.baseMs) draftBaseMs = r.baseMs; if (r.fingerprint) draftFp = r.fingerprint; // CMS（D14）：存完版本就換了，下一次存檔與核可要帶新的
     draftSavedAt = r.savedAt || new Date().toISOString(); // F9-3：伺服器回存時刻（舊版伺服器無此欄＝退客戶端時刻）
     savedAtTxt = fmtTpeHM(draftSavedAt);
     gateStale = true; // 內容變了＝上次合規結果過期
@@ -4597,8 +4600,9 @@ async function approveRun(){
   const ok = await dlg("核可這一版？", `${capCopy("approveLead")}<ul><li>核可時會自動備份目前這一版</li><li>之後只要再修改，核可就會失效，要重新核可</li></ul>${failN ? `<label style="display:flex;gap:8px;align-items:flex-start;background:#fff4e5;border-radius:8px;padding:10px 12px;font-weight:400;cursor:pointer"><input type="checkbox" id="ack-fail" style="margin-top:3px;width:auto"> 我知道目前有 <b>&nbsp;${failN} 個必修問題&nbsp;</b>，先核可、之後再修（交付前仍會完整檢查把關）</label>` : ""}`, "核可");
   if (!ok) return;
   if (failN && !($("#ack-fail") && $("#ack-fail").checked)) { toast("要帶著必修問題核可，請先勾選知悉確認——或先修復再核可", true); return; }
-  const r = await fetch(`/api/runs/${currentId}/approve`, { method: "POST", body: JSON.stringify({ ackFail: !!failN, failCount: failN }) }).then(r => r.json()).catch(() => ({ error: "連線問題——請再試一次" }));
+  const r = await fetch(`/api/runs/${currentId}/approve`, { method: "POST", body: JSON.stringify({ ackFail: !!failN, failCount: failN, fingerprint: draftFp }) }).then(r => r.json()).catch(() => ({ error: "連線問題——請再試一次" }));
   if (r.error) { toast(r.error, true); return; }
+  if (r.baseMs) draftBaseMs = r.baseMs; if (r.fingerprint) draftFp = r.fingerprint; if (r.status && draft && draft.page) draft.page.status = r.status; // CMS（D14）：核可會把狀態改成「待建置」＝草稿換了一版，畫面跟上
   approvedAt = r.approvedAt;
   toast(failN ? `已核可（有 ${failN} 個必修問題已記錄，交付前記得修復）` : capCopy("approvedToast"));
   await loadRuns(); refreshWorkChrome();
