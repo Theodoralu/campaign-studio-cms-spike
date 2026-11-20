@@ -291,6 +291,14 @@ test("舊畫面的握手與形狀：版本、能力表、狀態帶 logTail、列
   try {
     const v = (await s.call("GET", "/api/version")).body;
     assert.strictEqual(v.mode, "cms"); assert.strictEqual(v.caps, null, "能力表 null＝第一版範圍外的入口全藏"); assert.strictEqual(v.staleServer, false); assert.strictEqual(v.user.email, SALES);
+    // 建立前的網址檢查：問 uther 拿得到幾件（卡帶：店家 sub=1035）
+    const sc = (await s.call("POST", "/api/source-check", { body: { url: URL1035 } })).body; assert.strictEqual(sc.ok, true, JSON.stringify(sc)); assert.ok(sc.hits >= 27); assert.strictEqual(sc.promotions, 0); assert.match(sc.verdict, /^這個網址可以用（店家/);
+    assert.strictEqual((await s.call("POST", "/api/source-check", { body: { url: "https://example.com" } })).body.ok, false);
+    assert.strictEqual((await s.call("GET", "/api/flow-guide")).body.ok, true); assert.deepStrictEqual((await s.call("GET", "/api/briefs")).body, []); assert.deepStrictEqual((await s.call("GET", "/api/runs-deleted")).body, []);
+    // 建立表單的三支：版式選單、配版面預告、配色預告
+    const cat = (await s.call("GET", "/api/layout-catalog")); assert.strictEqual(cat.status, 200); assert.ok(cat.body && typeof cat.body === "object");
+    const sg = (await s.call("GET", "/api/layout-suggest?scenario=" + encodeURIComponent("同品類-新品/熱銷曝光") + "&theme=" + encodeURIComponent("神作就是神作！"))).body; assert.strictEqual(sg.ok, true, JSON.stringify(sg)); assert.match(sg.layout, /^layout-\d{3}$/); assert.ok(sg.name && sg.reasonDisplay);
+    const th = (await s.call("GET", "/api/theme-suggest?theme=" + encodeURIComponent("中秋烤肉"))).body; assert.strictEqual(th.ok, true); assert.ok(th.hue && th.hueLabel);
     const id = await created(s);
     const st = (await s.call("GET", `/api/runs/${id}/status`)).body; assert.match(st.logTail, /發佈前檢查（快檢/); assert.ok(st.input && st.createdAt, "狀態帶整份狀態檔");
     const row = (await s.call("GET", "/api/runs")).body[0];

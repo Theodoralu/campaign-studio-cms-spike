@@ -33,6 +33,32 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
   const busy = (req, res) => { const b = jobs.busy(req.params.id); if (b) { res.status(409).json({ error: BUSY_TEXT[b] || "這個活動正在處理中——請稍後再試", code: "busy", job: b }); return true; } return false; };
   const sendDoc = (name) => wrap(async (req, res) => { if (!(await need(req, res))) return; const r = await store.getText(req.params.id, name); if (!r) return res.status(404).json({ error: "這份資料還沒有產生", code: "no-doc" }); res.type("application/json").send(r.text); });
 
+  /* ---------- 建立前的網址檢查（畫面按「開始策展」會先打這支；不通過就不建）----------
+     單機版是去抓來源頁數活動檔；這裡問 uther 這個來源拿得到幾件商品。回應欄位沿單機版（畫面照這些欄位畫檢核表）：
+     promotions／hotSales 固定 0（uther 這條路不看頁面上的活動檔）、hits＝拿得到的商品數。 */
+  api.post("/source-check", wrap(async (req, res) => {
+    const url = String((req.body && req.body.url) || "").trim();
+    const plan = resolveSource(url);
+    if (["invalid", "unsupported", "product"].includes(plan.kind)) return res.json({ ok: false, verdict: plan.reason });
+    try {
+      const u = deps.uther, o = { max: 60 };
+      let r;
+      if (plan.kind === "activity") r = await u.idsByMipId(plan.actid, o);
+      else if (plan.kind === "store") r = await u.idsByStoreId(plan.storeId, o);
+      else if (plan.kind === "search") r = await u.searchByKeyword(plan.keyword, plan.extra, o);
+      else { const b = plan.brandId ? { brandIds: [plan.brandId] } : await deps.fetchBrandId(plan); r = b.brandIds && b.brandIds.length ? await u.idsByBrandIds(b.brandIds, o) : { ids: [] }; }
+      const n = (r.ids || []).length, MIN = 27;
+      const kindZh = { activity: "活動賣場", store: "店家", search: "搜尋結果", brand: "品牌頁" }[plan.kind];
+      res.json({ ok: n >= MIN, promotions: 0, hotSales: 0, hits: n, flagship: 0, listing: n, suggestUrl: "", suggestKw: "", sourceKind: plan.kind,
+        verdict: n >= MIN ? `這個網址可以用（${kindZh}，找到${n >= 60 ? " 60 件以上" : ` ${n} 件`}商品）——開始策展`
+          : n > 0 ? `這個來源只找到 ${n} 件商品，版面最少需要 ${MIN} 件——請換一個商品比較多的網址（品牌頁、活動賣場或範圍大一點的搜尋）`
+          : `這個來源目前找不到商品——可能是活動已結束、店家沒有上架商品，或關鍵字太窄；請換一個網址` });
+    } catch (e) {
+      console.warn(`[source-check] ${plan.kind} 查詢失敗：${errText(e)}`);
+      res.json({ ok: false, kind: "network", verdict: "現在查不到商品資料（商品服務沒有回應）——請等一兩分鐘再按一次「開始策展」", tech: errText(e).slice(0, 160) });
+    }
+  }));
+
   /* ---------- 建立 ---------- */
   api.post("/runs", wrap(async (req, res) => {
     const b = req.body || {};

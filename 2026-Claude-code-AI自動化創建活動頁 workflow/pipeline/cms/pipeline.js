@@ -50,7 +50,11 @@ async function createRun({ store, id, input, deps }) {
     if (tf.patch) await store.putJson(id, "feedback_patch.json", tf.patch);
     const engine = createRulesEngine({ pickCircleImg });
     /* excludeOutOfStock：uther 快照帶庫存狀態，售完／停售的不進池（D8 留的洞，CMS 打開）。不擋的話它會被排上頁面，到製作時才被商品狀態檢查擋下來。 */
-    const cur = await engine.curate(snapshot, { runId: id, scenario: input.scenario, theme: input.theme, pageName: input.pageName, themeFitRule: tf.patch ? tf.patch.themeFitRule : undefined, excludeOutOfStock: true });
+    /* 主打預留件數＝這款版式主視覺放幾件（單機版三個策展呼叫點都帶；不帶的話四件槽版式的第 4 格會吃到第 1 層的代表品） */
+    const layoutLib = require(path.join(PIPE, "lib", "layout_choice.js"));
+    const hc = input.kvVariant ? layoutLib.heroCountArgs(input.kvVariant, layoutOverridePaths || {}) : { args: [], note: null };
+    if (hc.note) await store.appendLog(id, hc.note);
+    const cur = await engine.curate(snapshot, { runId: id, scenario: input.scenario, theme: input.theme, pageName: input.pageName, heroCount: hc.args && hc.args.length ? hc.count : undefined, themeFitRule: tf.patch ? tf.patch.themeFitRule : undefined, excludeOutOfStock: true });
     for (const n of cur.notes || []) await store.appendLog(id, "策展提醒：" + n);
 
     // 收尾：版式、自訂色、主題橋接＋建立期價格對真（uther 層：只比實付價與在售；劃線價 uther 沒有）

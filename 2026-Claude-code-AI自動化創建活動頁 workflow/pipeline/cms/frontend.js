@@ -55,6 +55,25 @@ async function legacyRow(store, id) {
 
 function mountCompat(api, { version, roots = defaultStaticRoots() }) {
   const boot = new Date().toISOString();
+  const layoutLib = require(path.join(PIPE, "lib", "layout_choice.js"));
+  const rules = require(path.join(PIPE, "core", "curate", "rules.js"));
+  const errText = (e) => String((e && e.message) || e);
+  /* 建立表單的三支：版式選單、自動配版面的預告、自動配色的預告（照單機版：業務上配不出來＝200 ok:false 帶白話原因，表單退回手選） */
+  api.get("/layout-catalog", (req, res) => { try { res.json(layoutLib.catalogForForm(layoutLib.loadLayoutDeps())); } catch (e) { res.status(500).json({ error: "版式選單載入失敗（登記簿讀取問題）：" + errText(e) }); } });
+  api.get("/layout-suggest", (req, res) => {
+    try { const deps = layoutLib.loadLayoutDeps(); const s = layoutLib.suggestLayout(String(req.query.scenario || ""), deps, String(req.query.theme || "")); const rec = deps.registries.layoutRecords.get(s.layout);
+      res.json({ ok: true, layout: s.layout, name: (rec && rec.name) || s.layout, reason: s.reason, reasonDisplay: s.reasonDisplay, substitutedFrom: s.substitutedFrom, byTheme: s.byTheme || null, engineNote: layoutLib.engineNoteFor ? layoutLib.engineNoteFor(s.layout) : null }); }
+    catch (e) { res.json({ ok: false, error: errText(e) }); }
+  });
+  /* 畫面載入時會要的幾份清單：引導文案照給；策略檔（第二階段）與回收區（還沒搬）回空清單，畫面就不顯示那兩塊 */
+  api.get("/flow-guide", (req, res) => { try { res.json({ ok: true, ...JSON.parse(fs.readFileSync(path.join(PIPE, "lib", "flow_guide_copy.json"), "utf8")) }); } catch (e) { res.status(500).json({ error: "引導文案讀不到（技術：" + errText(e) + "）" }); } });
+  api.get("/briefs", (req, res) => res.json([]));
+  api.get("/runs-deleted", (req, res) => res.json([]));
+  api.get("/theme-suggest", (req, res) => {
+    try { const theme = String(req.query.theme || "").trim(), scenario = String(req.query.scenario || "").replace(/^0\d\s+/, "").trim(); const hue = rules.routeHue(theme + " " + scenario);
+      res.json({ ok: true, hue, hueLabel: rules.HUE_LABEL[hue] || hue, basedOn: theme || scenario || "" }); }
+    catch (e) { res.json({ ok: false, error: "配色預告算不出來：" + errText(e) }); }
+  });
   api.get("/version", (req, res) => { let html = 0; try { html = fs.statSync(path.join(roots.pub, "index.html")).mtimeMs; } catch (e) { /* 量不到＝0 */ }
     res.json({ boot, html, staleServer: false, mode: "cms", build: version, caps: null, capsDetail: null, capsCheckedAt: null, user: req.user }); });
 }
