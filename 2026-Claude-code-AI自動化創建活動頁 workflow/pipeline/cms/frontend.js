@@ -23,7 +23,7 @@ const baseNum = (etag) => (etag ? parseInt(crypto.createHash("sha256").update(St
 function defaultStaticRoots(pipeDir = PIPE) {
   const repo = path.join(pipeDir, "..", ".."), plan = path.join(repo, "2026-AI自動化活動頁生成規劃"), deploy = path.join(plan, "deploy-site");
   return { pub: path.join(pipeDir, "workbench", "public"), frametest: path.join(deploy, "lecreuset-frametest"), heroBg: path.join(plan, "assets", "hero-bg"),
-    designAssets: path.join(repo, "design-assets"), proposalKit: path.join(repo, "design-proposal-kit"), cutouts: path.join(deploy, "活動版型去背商品"), pendingBg: path.join(deploy, "活動版型待審背景") };
+    designAssets: path.join(repo, "design-assets"), layoutThumbs: path.join(repo, "design-assets", "layouts", "thumbs"), proposalKit: path.join(repo, "design-proposal-kit"), cutouts: path.join(deploy, "活動版型去背商品"), pendingBg: path.join(deploy, "活動版型待審背景") };
 }
 
 function mountStatic(app, { auth, requireUser, roots = defaultStaticRoots() }) {
@@ -65,6 +65,10 @@ function mountCompat(api, { version, roots = defaultStaticRoots() }) {
       res.json({ ok: true, layout: s.layout, name: (rec && rec.name) || s.layout, reason: s.reason, reasonDisplay: s.reasonDisplay, substitutedFrom: s.substitutedFrom, byTheme: s.byTheme || null, engineNote: layoutLib.engineNoteFor ? layoutLib.engineNoteFor(s.layout) : null }); }
     catch (e) { res.json({ ok: false, error: errText(e) }); }
   });
+  /* 規則表（字數上限、寬度模型、各版面欄位…）：畫面一載入就讀，編修欄每一格都靠它算；讀不到編修欄整個畫不出來（2026-11-23 實測） */
+  api.get("/rules.json", (req, res) => res.sendFile(path.join(PIPE, "rules.json")));
+  /* 版式縮圖：缺圖＝404，畫面自己會放佔位圖 */
+  api.use("/layout-thumbs", express.static(roots.layoutThumbs, { fallthrough: false, dotfiles: "deny" }), (err, req, res, next) => res.status(404).end()); // eslint-disable-line no-unused-vars
   /* 畫面載入時會要的幾份清單：引導文案照給；策略檔（第二階段）與回收區（還沒搬）回空清單，畫面就不顯示那兩塊 */
   api.get("/flow-guide", (req, res) => { try { res.json({ ok: true, ...JSON.parse(fs.readFileSync(path.join(PIPE, "lib", "flow_guide_copy.json"), "utf8")) }); } catch (e) { res.status(500).json({ error: "引導文案讀不到（技術：" + errText(e) + "）" }); } });
   api.get("/briefs", (req, res) => res.json([]));

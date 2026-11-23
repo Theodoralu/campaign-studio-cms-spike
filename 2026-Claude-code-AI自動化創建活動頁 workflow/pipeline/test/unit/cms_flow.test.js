@@ -291,6 +291,9 @@ test("舊畫面的握手與形狀：版本、能力表、狀態帶 logTail、列
   try {
     const v = (await s.call("GET", "/api/version")).body;
     assert.strictEqual(v.mode, "cms"); assert.strictEqual(v.caps, null, "能力表 null＝第一版範圍外的入口全藏"); assert.strictEqual(v.staleServer, false); assert.strictEqual(v.user.email, SALES);
+    // 規則表：畫面的編修欄靠它算字寬（少了它整個編修欄畫不出來——2026-11-23 實測）
+    const rules = (await s.call("GET", "/api/rules.json")).body; assert.ok(rules.charLimits && rules.charLimits.widthModel && rules.charLimits.mobile, "規則表要有 charLimits.widthModel");
+    assert.strictEqual((await s.call("GET", "/api/layout-thumbs/no-such.png")).status, 404, "缺縮圖＝404（畫面放佔位圖），不是 501");
     // 建立前的網址檢查：問 uther 拿得到幾件（卡帶：店家 sub=1035）
     const sc = (await s.call("POST", "/api/source-check", { body: { url: URL1035 } })).body; assert.strictEqual(sc.ok, true, JSON.stringify(sc)); assert.ok(sc.hits >= 27); assert.strictEqual(sc.promotions, 0); assert.match(sc.verdict, /^這個網址可以用（店家/);
     assert.strictEqual((await s.call("POST", "/api/source-check", { body: { url: "https://example.com" } })).body.ok, false);
