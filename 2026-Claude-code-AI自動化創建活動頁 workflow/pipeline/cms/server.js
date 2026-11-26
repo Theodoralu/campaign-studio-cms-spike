@@ -28,7 +28,8 @@ function liveDeps() {
   const { probeProductLiveness, gdidOf } = require("../workbench/product_fetch");
   const { mapPool } = require("../lib/fetch_pool");
   const productLiveness = (args) => probeProductLiveness({ ...args, fetchPage, classifyProductLiveness });
-  return { clock, productLiveness, mapPool, gdidOf, uther: createUtherClient({ log: () => {} }), fetchBrandId, pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs), verifyHtml: chromeVerify(), assetRoots: exp.defaultAssetRoots(), publisher: require("./publisher").publisherFromEnv(process.env, { clock }) };
+  const productFetch = require("../workbench/product_fetch").createProductFetch({ fetchPage, classifyProductLiveness }); // 換品：貼網址讀商品頁真值
+  return { clock, productLiveness, productFetch, mapPool, gdidOf, uther: createUtherClient({ log: () => {} }), fetchBrandId, pickCircleImg: (imgs) => imgProbe.pickCircleImg(imgs), verifyHtml: chromeVerify(), assetRoots: exp.defaultAssetRoots(), publisher: require("./publisher").publisherFromEnv(process.env, { clock }) };
 }
 function build(env = process.env) {
   const store = storeFromEnv(env);

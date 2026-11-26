@@ -703,6 +703,9 @@ fieldset.has-gate-err>legend{color:#d92d20}
 #toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;padding:9px 18px;font-size:var(--f2);opacity:0;pointer-events:none;transition:opacity .25s;z-index:150;max-width:70vw}
 #toast.show{opacity:.96}
 #toast.err{background:var(--fail)}
+/* CMS（D14，2026-11-26）：第一版不做的入口——策略檔、歷史與封存、垃圾桶、兩個內網連結、建立表單的「活動創建人」。單機版沒有 .mode-cms＝照舊顯示 */
+.mode-cms #nav-briefs, .mode-cms #nav-archive, .mode-cms #nav-trash, .mode-cms #side-foot a[href*="pages.github.io"], .mode-cms #owner-group,
+.mode-cms .vt.aux, .mode-cms [data-mm="trash"], .mode-cms [data-mm="archive"] { display: none !important; }
 </style>
 <link rel="stylesheet" href="/public/shp-tokens.css"><!-- SHP 換膚覆蓋層（2026-08-18）：這兩行是唯一的 index.html 改動；回滾＝刪這兩行；static 路由=/public/<檔名> -->
 <link rel="stylesheet" href="/public/shp-cms.css">
@@ -1648,6 +1651,24 @@ const ENGINE_ZH = { auto: "快速草稿", ai: "AI 智慧策展", "auto（AI 降�
 const engineZh = (e) => ENGINE_ZH[e] || e || "—";
 
 let currentId = null, draft = null, dirty = false, runsCache = [], trashCache = [], approvedAt = null;
+let CMS_MODE = false; // CMS（D14）：伺服器在版本握手回 mode:"cms" 時為 true——藏掉第一版不做的入口、建立者改由登入身分帶入。單機版伺服器回別的值＝一切照舊
+/* CMS（D14）：伺服器端每一支會改草稿的路由（重組本期活動、頁面組成、套用新價、還原…）都會回新的版本代號。
+   這裡統一接：只要是對目前這檔的非讀取請求、回應裡有 baseMs／fingerprint，就把畫面記的版本換成新的——
+   否則下一次存檔會被當成「拿舊版來存」而被擋。單機版伺服器不回這兩欄＝這段什麼都不做。 */
+(function () {
+  const orig = window.fetch;
+  window.fetch = async function (input, init) {
+    const res = await orig.apply(this, arguments);
+    try {
+      const u = typeof input === "string" ? input : (input && input.url) || "";
+      const m = init && init.method ? String(init.method).toUpperCase() : "GET";
+      if (m !== "GET" && currentId && u.indexOf("/api/runs/" + currentId + "/") === 0) {
+        res.clone().json().then((j) => { if (j && j.baseMs) draftBaseMs = j.baseMs; if (j && j.fingerprint) draftFp = j.fingerprint; }).catch(() => {});
+      }
+    } catch (e) { /* 攔截只是順手記版本，出錯不影響原本的請求 */ }
+    return res;
+  };
+})();
 let draftFp = ""; // CMS（D14）：載入或存檔後伺服器給的內容指紋；核可時帶回去，證明核可的是畫面上這一版。單機版伺服器不給＝空字串、照舊
 let draftBaseMs = 0; // 載入草稿時伺服器給的檔案時刻（X-Draft-Mtime）；存回時帶回去，讓伺服器擋「舊草稿蓋掉系統剛改好的」（PRICE-TRUTH-STALE-PUT，2026-09-28）
 let deployPoll = null, publicPoll = null, savedAtTxt = "";
@@ -2711,6 +2732,7 @@ $("#btn-create").onclick = async () => {
   { const rc = RECIPE_CARDS.find((c) => c.value === body.scenario);
     if (rc && rc.themeRequired && !body.theme) { toast(`還差活動主題——「${rc.title}」這張卡要填${rc.themeAsk}（${rc.themePlaceholder}）`, true); $("#in-theme").focus(); return; } }
   /* 07-29 使用者裁決（AC3）：只收 @ 前帳號、系統補公司網域——貼了別家信箱＝擋下說清楚 */
+  if (!CMS_MODE) { // CMS（D14）：建立者與部門由登入身分帶入，表單不收、不驗
   const ost = ownerEmailState($("#in-owner-email").value);
   if (ost.state) { ownerEditing = true; syncOwnerLine(); showOwnerEmailErr(ost); $("#in-owner-email").focus(); return; } // 收成一行時要先展開，錯誤列才看得到 // 舊網域／外部信箱＝行內講清楚＋給下一步（2026-10-14）
   const emailLocal = ost.acct;
@@ -2718,6 +2740,7 @@ $("#btn-create").onclick = async () => {
   body.ownerEmail = emailLocal + OWNER_DOMAIN;
   if ($("#in-owner-dept").value === DEPT_CUSTOM && !body.ownerDept) { toast("還差部門名稱——已選「其他部門」，請在下方欄位填寫（例：跨境電商TEAM）", true); $("#in-owner-dept-custom").focus(); return; } // F4：選了自填但沒填字＝擋下說清楚
   if (!body.ownerDept) { toast("請選擇創建人部門", true); $("#in-owner-dept").focus(); return; }
+  }
   if (useCustomTheme) { // 第一道把關：自訂品牌色可讀性沒過就不讓送出（一開始就不讓做出不合適選擇）
     const ok = createThemeAssess();
     if (ok !== true) { toast(ok === null ? "配色檢查還在跑，請稍候一兩秒再按「開始策展」" : "這個品牌色的文字檢查沒過關——請一鍵用建議色、換一個顏色，或改回「依主題自動配色」", true); $("#in-theme-mode-sel").focus(); return; }
@@ -9263,6 +9286,7 @@ async function checkVersion(){
   try {
     const v = await fetch("/api/version").then(r => r.json());
     applyCaps(v);
+    CMS_MODE = v.mode === "cms"; document.body.classList.toggle("mode-cms", CMS_MODE); // CMS（D14）：樣式表用 .mode-cms 藏掉第一版不做的入口
     /* 版本記號進側欄（69 號 Phase 3；2026-09-16）：同事回報問題時，右上角那行就是他手上的版本；開發樹沒有 VERSION 檔＝顯示「開發版」 */
     if (v.build) { const sb = document.querySelector("#side-brand small"); if (sb) sb.textContent = (v.build === "dev" ? "開發版" : `版本 ${v.build}`) + "｜交付前每一關都自動把關"; }
     /* 半新半舊（2026-10-08）：伺服器行程比介面檔舊＝畫面上的新功能按了會出錯（重新整理也救不了，要重啟工具）。

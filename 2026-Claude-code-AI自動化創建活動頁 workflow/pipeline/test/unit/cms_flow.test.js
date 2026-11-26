@@ -332,3 +332,68 @@ test("舊畫面的存檔方式：不帶 Content-Type、版本用數字；存完�
     const rb = await (await raw(`/api/runs/${id}/versions/${vs.versions[vs.versions.length - 1].file}/rollback`, { method: "POST" })).json(); assert.strictEqual(rb.ok, true, JSON.stringify(rb)); assert.ok(rb.draft && rb.baseMs);
   } finally { await s.close(); }
 });
+
+/* ---------- D14 第二段：編修頁的進階操作 ---------- */
+test("本期活動：三種來源各有幾個可選；換來源整批重組；組不出三則＝409 並建議別的來源", async () => {
+  const s = await boot();
+  try {
+    const id = await created(s);
+    const o0 = (await s.call("GET", `/api/runs/${id}/promo-options`)).body;
+    assert.strictEqual(o0.layers["product-fallback"].count, 0, "機械派生的詞（店名）對不到商品名＝沒得選");
+    // 主題詞組改成對得到商品名的詞 → 可選的就出現（兩張卡吃同一份詞組）
+    assert.strictEqual((await s.call("PUT", `/api/runs/${id}/feedback-patch`, { body: { keywords: ["統一"] } })).status, 200);
+    const o = (await s.call("GET", `/api/runs/${id}/promo-options`)).body;
+    assert.deepStrictEqual(Object.keys(o.layers).sort(), ["brand-recommend", "product-fallback", "promo-activity"]); assert.ok(typeof o.layers["product-fallback"].count === "number");
+    const d0 = await s.call("GET", `/api/runs/${id}/draft.json`);
+    const pick = Object.entries(o.layers).find(([, v]) => v.count >= 3);
+    assert.ok(pick, "夾具至少有一種來源湊得出三則");
+    const r = await s.call("POST", `/api/runs/${id}/promo-recompose`, { body: { mode: pick[0] } });
+    assert.strictEqual(r.status, 200, r.text); assert.ok(r.body.entries >= 3); assert.strictEqual(r.body.draft.page.promoSourceMode, pick[0]); assert.ok(r.body.baseMs && r.body.fingerprint, "回新的版本代號");
+    assert.notStrictEqual(String(r.body.baseMs), d0.headers.get("x-draft-mtime"));
+    // 畫面拿新代號接著存＝收
+    r.body.draft.page.ctaText = "重組後接著改";
+    assert.strictEqual((await s.call("PUT", `/api/runs/${id}/draft.json`, { body: r.body.draft, headers: { "x-draft-base": String(r.body.baseMs) } })).body.ok, true);
+    const thin = Object.entries(o.layers).find(([, v]) => v.count < 3);
+    if (thin) { const bad = await s.call("POST", `/api/runs/${id}/promo-recompose`, { body: { mode: thin[0] } }); assert.strictEqual(bad.status, 409); assert.match(bad.body.error, /至少要 3 則版型才能成立/); }
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/promo-recompose`, { body: { mode: "亂填" } })).status, 400);
+  } finally { await s.close(); }
+});
+
+test("主題詞組：讀得到建立時算的；人工改了之後檢查用新的；不能清空", async () => {
+  const s = await boot();
+  try {
+    const id = await created(s, { url: URL1035, theme: "韓國零食" });
+    const g = (await s.call("GET", `/api/runs/${id}/feedback-patch`)).body; assert.ok(g.themeFitRule && g.themeFitRule.keywords.includes("韓國零食"));
+    assert.strictEqual((await s.call("PUT", `/api/runs/${id}/feedback-patch`, { body: { keywords: [] } })).status, 400);
+    const p = await s.call("PUT", `/api/runs/${id}/feedback-patch`, { body: { keywords: ["點心麵", " 辣 "] } }); assert.deepStrictEqual(p.body.themeFitRule.keywords, ["點心麵", "辣"]); assert.strictEqual(p.body.themeFitRule.threshold, 0.3);
+    assert.match(await s.store.readLog(id), /CP-14 主題詞組人工編修（sales@dev\.local）：點心麵、辣/);
+  } finally { await s.close(); }
+});
+
+test("換品：貼網址讀商品 → 登記進來源快照；單件套用商品頁現價；樓層上移下移", async () => {
+  const fetched = { gdid: "99000001", name: "測試換進來的商品", price: 888, marketPrice: 999, url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=99000001", imgs: ["https://img.yec.tw/x/a.jpg", "https://img.yec.tw/x/b.jpg"] };
+  const productLiveness = async ({ gdid }) => { const p = GOLD.products.find((x) => String(x.gdid) === String(gdid)); return { status: "online", prod: { price: p.price, listPrice: p.price + 100 }, evidence: {} }; };
+  const s = await boot({ productLiveness, productFetch: async (b) => (/99000001/.test(String(b.url)) ? { code: 200, product: fetched } : { code: 400, error: "這不是商品頁的網址" }) });
+  try {
+    const id = await created(s);
+    assert.strictEqual((await s.call("POST", "/api/product-fetch", { body: { url: "https://example.com" } })).status, 400);
+    const pf = await s.call("POST", "/api/product-fetch", { body: { url: fetched.url } }); assert.strictEqual(pf.body.gdid, "99000001");
+    const r3 = await s.call("POST", `/api/runs/${id}/r3-add`, { body: { product: pf.body } }); assert.deepStrictEqual({ ok: r3.body.ok, mode: r3.body.mode }, { ok: true, mode: "add" });
+    assert.ok((await s.call("GET", `/api/runs/${id}/snapshot.json`)).body.products.some((p) => String(p.gdid) === "99000001"), "換進來的商品進了來源快照");
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/r3-add`, { body: { product: pf.body } })).body.already, true);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/r3-add`, { body: { product: { gdid: "1" } } })).status, 400);
+    // 單件套用
+    await s.call("POST", `/api/runs/${id}/product-check`); await s.jobs.wait(id);
+    const d = (await s.call("GET", `/api/runs/${id}/draft.json`)).body; const g0 = String(d.products.find((p) => p.marketPrice == null).gdid);
+    const a1 = await s.call("POST", `/api/runs/${id}/apply-live-price`, { body: { gdid: g0 } }); assert.strictEqual(a1.status, 200, a1.text); assert.ok(a1.body.marketPrice > a1.body.price && a1.body.baseMs);
+    assert.strictEqual(a1.body.draft.products.find((p) => String(p.gdid) === g0).marketPrice, a1.body.marketPrice);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/apply-live-price`, { body: { gdid: "00000" } })).body.code, "no-live-price");
+    // 樓層上移下移（頁面組成）
+    const before = a1.body.draft.page.floors.map((f) => f.title);
+    const mv = await s.call("POST", `/api/runs/${id}/content-modules`, { body: { kind: "floor", action: "move", index: 0, dir: "down" } });
+    assert.strictEqual(mv.status, 200, mv.text); assert.strictEqual(mv.body.changed, true);
+    assert.deepStrictEqual(mv.body.draft.page.floors.map((f) => f.title), [before[1], before[0], ...before.slice(2)]); assert.ok(mv.body.baseMs && mv.body.backup);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/content-modules`, { body: { kind: "不存在", action: "move" } })).status, 400);
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [], "這一輪操作沒有打到還沒搬的路由");
+  } finally { await s.close(); }
+});

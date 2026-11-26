@@ -117,13 +117,18 @@ async function runProductCheck({ store, id, deps, layer = null }) {
  * 套用商品頁現價：把最近一份商品狀態報告裡「在售但價格不同」的商品，價格與劃線價改成商品頁的值（快照與草稿同時改）。
  * 改了內容＝核可失效（RunStore 自動處理）。uther 沒有劃線價，所以第一次做商品頁層檢查後，劃線價要靠這一步補進草稿。
  */
-async function applyLivePrices({ store, id, actor }) {
+async function applyLivePrices({ store, id, actor, onlyGdid = null }) {
   const { applyPriceTruth } = require(path.join(PIPE, "lib", "price_truth.js"));
   const { patchSnapshotPrice, summary } = require(path.join(PIPE, "core", "product-truth", "rows"));
   const [pc, cur, snap] = [await store.getJson(id, "product_check.json"), await store.getDraft(id), await store.getJson(id, "snapshot.json")];
   if (!pc || !Array.isArray(pc.data.results)) throw Object.assign(new Error("找不到商品狀態報告——請先按「重新檢查」再套用"), { status: 409, code: "no-check" });
   if (pc.data.draftFingerprint && pc.data.draftFingerprint !== cur.fingerprint) throw Object.assign(new Error("草稿在檢查之後有變更——請先重新檢查再套用"), { status: 409, code: "check-stale" });
-  const rows = pc.data.results.filter((r) => r.status === "online" && (r.drift || r.snapDrift) && r.livePrice != null);
+  let rows = pc.data.results.filter((r) => r.status === "online" && (r.drift || r.snapDrift) && r.livePrice != null);
+  if (onlyGdid) { // 單件套用
+    const row = pc.data.results.find((r) => String(r.gdid) === String(onlyGdid));
+    if (!row || row.livePrice == null) throw Object.assign(new Error("還沒有這件商品的最新價格——請先到「發佈前檢查」按「重新檢查」再套用"), { status: 409, code: "no-live-price" });
+    rows = rows.filter((r) => String(r.gdid) === String(onlyGdid));
+  }
   if (!rows.length) return { count: 0, applied: [], approvalInvalidated: false };
   const r = applyPriceTruth({ snap: snap.data, draft: cur.draft, rows, checkedAt: pc.data.checkedAt, patchSnapshotPrice });
   await store.putJson(id, "snapshot.json", snap.data);

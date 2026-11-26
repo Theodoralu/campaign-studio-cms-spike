@@ -38,3 +38,34 @@ CS_RUNS_DIR=/tmp/cs-runs CS_DEV_USER=approver@dev.local npm run cms
 - 建立表單的「建立者」「部門」欄位還在，伺服器會忽略、改用登入身分。把欄位從畫面拿掉是第二段。
 - 畫面上的用語仍是 AEM（「製作 AEM 網頁檔」）。
 - 預覽 iframe 讀草稿的網址沿用 `/api/runs/<編號>/draft.json`，應該可用，未實測。
+
+## 第二段（2026-11-26）：編修頁的進階操作也接上、藏掉第一版不做的入口
+
+依據：11-23 實測的 `/api/_missing`（promo-options、feedback-patch、product-fetch、promo-recompose 被畫面叫到但還沒搬）。
+
+### 新接上的網址
+
+| 畫面上的操作 | 網址 | 說明 |
+|---|---|---|
+| 本期活動：看三種來源各有幾個可選 | `GET /api/runs/:id/promo-options` | 邏輯抽到 `core/promo`，單機版也改呼叫同一份 |
+| 本期活動：換來源、重選入口 | `POST /api/runs/:id/promo-recompose` | 湊不到 3 則回 409，並建議別的來源 |
+| 主題詞組：讀、人工改 | `GET` / `PUT /api/runs/:id/feedback-patch` | 不能清空；改完之後檢查與本期活動都用新詞 |
+| 換品：貼商品網址讀資料 | `POST /api/product-fetch` | 開商品頁讀名稱、價格、圖 |
+| 換品：把讀到的商品登記進來源 | `POST /api/runs/:id/r3-add` | 登記後才能放上頁面（真值欄照來源） |
+| 單件套用商品頁現價 | `POST /api/runs/:id/apply-live-price` | 整批版本是 `apply-live-prices` |
+| 頁面組成：樓層上移下移、增刪區塊 | `POST /api/runs/:id/content-modules` | 自動挑商品（auto）第一版不做，回 501 |
+
+會改草稿的回應都帶新的 `baseMs` 與 `fingerprint`；畫面有一個全域攔截，收到就更新手上的版本代號，接著存檔不會被當成舊版擋下。
+
+### 畫面在新伺服器上的差異（`/api/version` 回 `mode: "cms"` 時）
+
+- 建立表單不再要求填建立者、部門（建立者＝登入的人）。
+- 藏起來：提案包、封存、垃圾桶選單、內網 GitHub Pages 連結、輔助檢視分頁。單機版不受影響。
+
+### 還沒搬（第一版不做，記在 ECSEARCH-39120）
+
+Google 文件匯出（`google/status`）、提案包、封存／垃圾桶還原、內容模組自動挑商品、分享預覽。
+
+### 測試
+
+`test/unit/cms_flow.test.js` 新增三組：本期活動（含主題詞組連動）、主題詞組讀寫、換品＋單件套用＋樓層上移下移；最後確認整輪操作 `/api/_missing` 為空。乾淨 clone 全套：1016 測試、993 過、0 紅、23 跳過。

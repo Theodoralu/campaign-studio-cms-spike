@@ -975,42 +975,8 @@ function promoLayerOptions(runDir) {
     let srcUrl = ""; try { srcUrl = (JSON.parse(fs.readFileSync(path.join(runDir, "wb_meta.json"), "utf8")).input || {}).url || ""; } catch (e) {}
     kws = [...new Set([...deriveThemeKeywords(dj.page.curationTheme), ...deriveSourceKeywords(runDir, srcUrl)])];
   }
-  const fitOf = (pool) => { if (!pool.length || !kws.length) return null;
-    const hits = pool.filter((x) => { const nm = String(x.name || "").toLowerCase(); return kws.some((k) => nm.includes(String(k).toLowerCase())); }).length;
-    return hits / pool.length; };
-  // 第 1 層：在線活動（未過期＋該檔有池商品）＋CP-14 契合率
-  const acts = [];
-  for (const pr of snap.promotions || []) {
-    if (!pr || !pr.actid || !pr.url || !pr.title) continue;
-    if (typeof pr.endTs === "number" && pr.endTs * 1000 < Date.now()) continue;
-    const pool = (snap.products || []).filter((p) => p && String(p.actid || "") === String(pr.actid));
-    const first = pool.find((p) => p.imgs && p.imgs[0]);
-    if (!first) continue;
-    const fit = fitOf(pool.slice(0, 20));
-    acts.push({ actid: String(pr.actid), title: pr.title, chip: pr.short || pr.title, period: pr.period || "",
-      url: pr.url, img: first.imgs[0], fit: fit == null ? null : Math.round(fit * 100), eligible: fit == null ? true : fit >= 0.3 });
-  }
-  // 已曝光集合（CP-18：商品層選品排除）——promo 入口本身不佔 products[] 列
-  const exposed = new Set();
-  (dj.products || []).forEach((p) => p && p.gdid && exposed.add(String(p.gdid)));
-  (((dj.page || {}).kv || {}).keyProductGdids || []).forEach((g) => g && exposed.add(String(g)));
-  const prodsBy = new Map((snap.products || []).map((p) => [String(p.gdid), p]));
-  // 第 2 層：品牌頁推薦清單（hits/hotSales；項目以 url→gdid 對映回商品池）
-  const recIds = new Set();
-  for (const k of ["hits", "hotSales"]) (Array.isArray(snap[k]) ? snap[k] : []).forEach((x) => {
-    const g = (x && typeof x === "object") ? (x.gdid || gdidOf(x.url || "")) : gdidOf(String(x));
-    if (g) recIds.add(String(g));
-  });
-  const rec = [...recIds].map((g) => prodsBy.get(g)).filter((p) => p && p.imgs && p.imgs[0] && !exposed.has(String(p.gdid)));
-  // 第 3 層：主題契合的未曝光池商品
-  const fb = (snap.products || []).filter((p) => p && p.gdid && p.name && p.imgs && p.imgs[0] && !exposed.has(String(p.gdid)) &&
-    (!kws.length || kws.some((k) => String(p.name).toLowerCase().includes(String(k).toLowerCase()))));
-  const prodItem = (p) => promoProducts.promoPoolItem(p); /* 2026-09-04 復發真因：原本只留 gdid/name/img/url 四欄、價格被剝掉＝下游「收進 products[]」的守門條件永遠不成立；改用同一支純函式帶全真值欄 */
-  return { dj, layers: {
-    "promo-activity": { count: acts.filter((a) => a.eligible).length, items: acts },
-    "brand-recommend": { count: rec.length, items: rec.slice(0, 12).map(prodItem) },
-    "product-fallback": { count: fb.length, items: fb.slice(0, 12).map(prodItem) },
-  } };
+  /* D14（2026-11-26）：三層怎麼算搬到 core/promo（純函式）；這裡只剩讀檔 */
+  return { dj, layers: require("../core/promo").promoLayers({ draft: dj, snapshot: snap, keywords: kws, nowMs: Date.now() }) };
 }
 
 /* ---------- 商品替換：URL 驗證＋實抓（POST /api/product-fetch）----------
