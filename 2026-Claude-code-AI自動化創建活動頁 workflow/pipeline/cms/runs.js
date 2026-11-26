@@ -9,7 +9,7 @@
  * 製作　POST /runs/:id/export-aem · GET /runs/:id/export.aem.html
  * 舊版　GET /runs/:id/versions · POST /runs/:id/versions/:v/rollback
  * 進階　GET /runs/:id/promo-options · POST /runs/:id/promo-recompose · GET|PUT /runs/:id/feedback-patch · POST /product-fetch · POST /runs/:id/r3-add ·
- *       POST /runs/:id/apply-live-price · POST /runs/:id/content-modules
+ *       POST /runs/:id/apply-live-price · POST /runs/:id/content-modules · GET /runs/:id/theme-check · POST /runs/:id/hero-combo
  *
  * 網址形狀沿單機版（舊前端認得）。行為改走 RunStore：存草稿要帶版本（If-Match 或 X-Draft-Base＝GET 時拿到的 X-Draft-Version）。
  * 有背景工作在跑的活動（建立中、製作中）不收會改資料的請求＝409。
@@ -19,6 +19,11 @@ const PIPE = path.join(__dirname, "..");
 const { resolveSource } = require(path.join(PIPE, "core", "source", "resolve"));
 const layoutLib = require(path.join(PIPE, "lib", "layout_choice.js"));
 const contentModules = require(path.join(PIPE, "lib", "content_modules.js"));
+const heroCombo = require(path.join(PIPE, "lib", "hero_combo.js"));
+const themeDraft = require(path.join(PIPE, "lib", "theme_draft.js"));
+/* 組合面板收的欄位（沿單機版 hero-combo 路由；heroBgOwn 第一版不收） */
+const COMBO_KEYS = ["kvVariant", "backgroundId", "themeId", "customColor", "customSlot", "customSlots", "pageBg", "heroTitleScale", "heroSubtitleScale", "heroTitleWidth",
+  "heroTitleLeading", "heroSubtitleLeading", "heroTitleTracking", "titleFrame", "titleStyleThemed", "titleGroupWarp", "heroTitleHidden", "heroMarqueeHidden"];
 const P = require("./pipeline");
 const promo = require(path.join(PIPE, "core", "promo"));
 const finish = require(path.join(PIPE, "core", "finish"));
@@ -173,6 +178,7 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     if (!b.fingerprint) return res.status(400).json({ error: "核可要帶你檢視的那一版（fingerprint）——請重新整理頁面後再核可", code: "missing-fingerprint" });
     const cur = await store.getDraft(id);
     if (!cur) return res.status(404).json({ error: "草稿還沒有產生", code: "no-doc" });
+    { const mRR = await store.readMeta(id); if (mRR.heroRestoreRecheck && mRR.heroRestoreRecheck.at) return res.status(409).json({ error: `還不能核可：剛才換版式把 ${(mRR.heroRestoreRecheck.gdids || []).length} 件商品換回頁面，這批商品的狀態與價格要先重新驗過——請到「發佈前檢查」按一次商品狀態檢查，跑完再核可`, code: "restore-recheck" }); }
     if (b.fingerprint !== cur.fingerprint) return res.status(409).json({ error: "草稿在你檢視之後有變更，這次沒有核可——請重新檢查後再核可", code: "approve-stale", latest: { fingerprint: cur.fingerprint, etag: cur.etag } });
     const g = await store.getJson(id, "gate_report.json");
     const fails = g ? (g.data.counts && g.data.counts.FAIL) || 0 : null;
@@ -308,6 +314,43 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     if (!r.changed && !poolSynced) return res.json({ ok: true, changed: false, draft: x.cur.draft, info: r.info, approvalInvalidated: false, ...(await ver(x.id)) });
     const saved = await store.saveDraft(x.id, x.cur.draft, { ifMatch: x.cur.etag, source: "system", actor: req.user.email, note: `頁面組成：${b.kind || ""} ${b.action || ""}`.trim() });
     res.json({ ok: true, changed: true, draft: x.cur.draft, backup: saved.versionId ? `draft.v${saved.versionId}.json` : "上一版", info: r.info, approvalInvalidated: saved.approvalInvalidated, ...(await ver(x.id)) });
+  }));
+
+  /* 主題色把關：這一檔存的自訂色，用現在的尺重算一次（畫面不看存檔當時的結論） */
+  api.get("/runs/:id/theme-check", wrap(async (req, res) => {
+    if (!(await need(req, res))) return; const cur = await store.getDraft(req.params.id); if (!cur) return res.status(404).json({ error: "草稿還沒有產生", code: "no-doc" });
+    const colors = cur.draft.page && cur.draft.page.colors, td = colors && colors.themeDraft;
+    if (!td || typeof td !== "object") return res.json({ ok: true, applicable: false });
+    const fails = themeDraft.checkThemeDraft(td).filter((c) => !c.pass && c.blocking !== false);
+    res.json({ ok: fails.length === 0, applicable: true, source: colors.source || null,
+      fails: fails.map((c) => ({ name: c.name, msg: c.msg, ratio: c.ratio, need: c.need, slot: c.slot, suggest: c.suggest })),
+      seedSuggest: (fails.length && colors.source === "custom" && themeDraft.isHex6(colors.seed)) ? themeDraft.suggestSeed(colors.seed) : null });
+  }));
+  /* 主視覺組合面板：換版式、背景、主題色、自訂色、標題大小等。規則全在 lib/hero_combo.applyCombo（單機版同一支）。
+     第一版不收：貼提案包（第二階段）、自己上傳的背景圖（上傳還沒搬）。 */
+  api.post("/runs/:id/hero-combo", wrap(async (req, res) => {
+    if (!(await need(req, res)) || busy(req, res)) return; const id = req.params.id, b = req.body || {};
+    if (b.pack != null) return res.status(501).json({ error: "貼提案包第一版還沒接上——請直接在面板上選版式、背景和顏色", code: "not-migrated" });
+    if (b.heroBgOwn && typeof b.heroBgOwn === "object") return res.status(501).json({ error: "自己上傳背景圖第一版還沒接上——請先從內建背景裡選", code: "not-migrated" });
+    const cur = await store.getDraft(id); if (!cur) return res.status(404).json({ error: "草稿還沒有產生", code: "no-doc" });
+    let cdeps; try { cdeps = layoutLib.loadLayoutDeps(); } catch (e) { return res.status(500).json({ error: "組合面板暫時無法運作（版式登記簿讀取問題）：" + errText(e) }); }
+    const change = { by: "manual" }; for (const k of COMBO_KEYS) change[k] = b[k];
+    let r; try { r = heroCombo.applyCombo(cur.draft, change, cdeps); }
+    catch (e) { await store.appendLog(id, "組合面板變更失敗：" + errText(e)); return res.status(400).json({ error: errText(e) }); }
+    if (!r.changed) return res.json({ ok: true, changed: false, draft: cur.draft, info: r.info, approvalInvalidated: false, ...(await ver(id)) });
+    const saved = await store.saveDraft(id, cur.draft, { ifMatch: cur.etag, source: "system", actor: req.user.email, note: `組合面板：${r.info.summary}` });
+    await store.appendLog(id, `組合面板變更：${r.info.summary}｜${((cur.draft.meta || {}).layoutChoice || {}).reason || ""}`);
+    let recheck = null;
+    if ((r.info.restoredGdids || []).length) { // 換回版式把暫存的商品放回頁面＝這批要重新驗過才能核可
+      recheck = { at: deps.clock.iso(), gdids: [...new Set(r.info.restoredGdids)] };
+      await store.patchMeta(id, { heroRestoreRecheck: recheck });
+      await store.appendLog(id, `換回還原 ${recheck.gdids.length} 件商品——重新驗商品狀態（驗完之前不能核可）`);
+      jobs.start(id, "check", async () => { await P.runProductCheck({ store, id, deps, layer: null }); const m = await store.readMeta(id);
+        if (!(m.productCheck && m.productCheck.stage === "error")) { await store.patchMeta(id, { heroRestoreRecheck: null }); await store.appendLog(id, "換回還原商品的重驗已完成——核可解鎖"); } });
+    }
+    const kv = (cur.draft.page || {}).kvVariant || null;
+    res.json({ ok: true, changed: true, draft: cur.draft, backup: saved.versionId ? `draft.v${saved.versionId}.json` : "上一版", info: r.info, approvalInvalidated: saved.approvalInvalidated,
+      heroRestoreRecheck: recheck, layoutEngineNote: kv ? layoutLib.engineNoteFor(kv) : null, ...(await ver(id)) });
   }));
 
   /* ---------- 舊版 ---------- */

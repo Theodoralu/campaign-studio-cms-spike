@@ -73,6 +73,13 @@ function mountCompat(api, { version, roots = defaultStaticRoots() }) {
   api.get("/flow-guide", (req, res) => { try { res.json({ ok: true, ...JSON.parse(fs.readFileSync(path.join(PIPE, "lib", "flow_guide_copy.json"), "utf8")) }); } catch (e) { res.status(500).json({ error: "引導文案讀不到（技術：" + errText(e) + "）" }); } });
   api.get("/briefs", (req, res) => res.json([]));
   api.get("/runs-deleted", (req, res) => res.json([]));
+  /* 主題色把關（建立表單選自訂色時問的）：跟編修面板同一把尺 lib/theme_draft */
+  api.get("/theme-check", (req, res) => {
+    const T = require(path.join(PIPE, "lib", "theme_draft.js")); const raw = String(req.query.seed || "");
+    if (!T.isHex6(raw)) return res.json({ ok: false, format: false, reason: "色碼格式不正確——請用調色盤重新選一次顏色" });
+    const seed = T.normHex(raw), assess = T.assessSeedColor(seed), fails = T.checkThemeDraft(T.deriveThemeDraft(seed)).filter((c) => !c.pass && c.blocking !== false);
+    res.json({ ok: fails.length === 0, warn: assess.warn || null, fails: fails.map((c) => ({ name: c.name, msg: c.msg, ratio: c.ratio, need: c.need })), seedSuggest: fails.length ? T.suggestSeed(seed) : null });
+  });
   api.get("/theme-suggest", (req, res) => {
     try { const theme = String(req.query.theme || "").trim(), scenario = String(req.query.scenario || "").replace(/^0\d\s+/, "").trim(); const hue = rules.routeHue(theme + " " + scenario);
       res.json({ ok: true, hue, hueLabel: rules.HUE_LABEL[hue] || hue, basedOn: theme || scenario || "" }); }

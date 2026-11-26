@@ -307,8 +307,8 @@ test("舊畫面的握手與形狀：版本、能力表、狀態帶 logTail、列
     const row = (await s.call("GET", "/api/runs")).body[0];
     for (const k of ["id", "stage", "engineUsed", "input", "pageName", "hasDraft", "hasGate", "error", "approvedAt", "gate", "themeHue", "createdAt", "draftSavedAt", "prodcheck", "exportAem"]) assert.ok(k in row, `列表缺欄位 ${k}`);
     assert.strictEqual(row.prodcheck.total, row.prodcheck.total); assert.ok(row.gate && typeof row.gate.pass === "boolean");
-    for (const [m, p] of [["POST", `/api/runs/${id}/hero-combo`], ["GET", "/api/google/config"], ["POST", `/api/runs/${id}/hero-combo`]]) { const r = await s.call(m, p, { body: m === "POST" ? {} : undefined }); assert.strictEqual(r.status, 501); assert.strictEqual(r.body.code, "not-migrated"); }
-    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [{ route: "POST /runs/:id/hero-combo", hits: 2 }, { route: "GET /google/config", hits: 1 }]);
+    for (const [m, p] of [["POST", `/api/runs/${id}/explore-fix`], ["GET", "/api/google/config"], ["POST", `/api/runs/${id}/explore-fix`]]) { const r = await s.call(m, p, { body: m === "POST" ? {} : undefined }); assert.strictEqual(r.status, 501); assert.strictEqual(r.body.code, "not-migrated"); }
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [{ route: "POST /runs/:id/explore-fix", hits: 2 }, { route: "GET /google/config", hits: 1 }]);
   } finally { await s.close(); }
 });
 
@@ -395,5 +395,27 @@ test("換品：貼網址讀商品 → 登記進來源快照；單件套用商品
     assert.deepStrictEqual(mv.body.draft.page.floors.map((f) => f.title), [before[1], before[0], ...before.slice(2)]); assert.ok(mv.body.baseMs && mv.body.backup);
     assert.strictEqual((await s.call("POST", `/api/runs/${id}/content-modules`, { body: { kind: "不存在", action: "move" } })).status, 400);
     assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [], "這一輪操作沒有打到還沒搬的路由");
+  } finally { await s.close(); }
+});
+
+
+test("主視覺組合面板：換版式存得進去、回新版本代號；主題色把關兩支都回得出來；提案包與自己上傳背景第一版不收", async () => {
+  const s = await boot();
+  try {
+    const id = await created(s);
+    const d0 = (await s.call("GET", `/api/runs/${id}/draft.json`)).body;
+    const cat = (await s.call("GET", "/api/layout-catalog")).body; const other = cat.cards.map((l) => l.id).find((x) => x && x !== d0.page.kvVariant);
+    assert.ok(other, "版式目錄裡要有別款可換");
+    const r = await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { kvVariant: other } });
+    assert.strictEqual(r.status, 200, r.text); assert.strictEqual(r.body.changed, true); assert.strictEqual(r.body.draft.page.kvVariant, other); assert.ok(r.body.baseMs && r.body.fingerprint && r.body.backup);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/draft.json`)).body.page.kvVariant, other);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { kvVariant: other } })).body.changed, false);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { kvVariant: "沒有這款" } })).status, 400);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { pack: "x" } })).status, 501);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { heroBgOwn: { files: {} } } })).status, 501);
+    const tc = await s.call("GET", `/api/runs/${id}/theme-check`); assert.strictEqual(tc.status, 200); assert.strictEqual(typeof tc.body.ok, "boolean");
+    assert.strictEqual((await s.call("GET", "/api/theme-check?seed=zzz")).body.format, false);
+    assert.strictEqual(typeof (await s.call("GET", "/api/theme-check?seed=%231d5f8a")).body.ok, "boolean");
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, []);
   } finally { await s.close(); }
 });

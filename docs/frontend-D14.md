@@ -54,6 +54,8 @@ CS_RUNS_DIR=/tmp/cs-runs CS_DEV_USER=approver@dev.local npm run cms
 | 換品：把讀到的商品登記進來源 | `POST /api/runs/:id/r3-add` | 登記後才能放上頁面（真值欄照來源） |
 | 單件套用商品頁現價 | `POST /api/runs/:id/apply-live-price` | 整批版本是 `apply-live-prices` |
 | 頁面組成：樓層上移下移、增刪區塊 | `POST /api/runs/:id/content-modules` | 自動挑商品（auto）第一版不做，回 501 |
+| 主視覺組合面板：換版式、背景、主題色、標題大小 | `POST /api/runs/:id/hero-combo` | 11-26 實測後補。貼提案包、自己上傳背景圖第一版不收（501）；換回版式把商品放回頁面時，要重驗商品狀態才能核可 |
+| 主題色把關 | `GET /api/theme-check`、`GET /api/runs/:id/theme-check` | 11-26 實測後補 |
 
 會改草稿的回應都帶新的 `baseMs` 與 `fingerprint`；畫面有一個全域攔截，收到就更新手上的版本代號，接著存檔不會被當成舊版擋下。
 
