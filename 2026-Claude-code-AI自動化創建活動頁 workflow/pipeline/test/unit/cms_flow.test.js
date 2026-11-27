@@ -307,8 +307,8 @@ test("舊畫面的握手與形狀：版本、能力表、狀態帶 logTail、列
     const row = (await s.call("GET", "/api/runs")).body[0];
     for (const k of ["id", "stage", "engineUsed", "input", "pageName", "hasDraft", "hasGate", "error", "approvedAt", "gate", "themeHue", "createdAt", "draftSavedAt", "prodcheck", "exportAem"]) assert.ok(k in row, `列表缺欄位 ${k}`);
     assert.strictEqual(row.prodcheck.total, row.prodcheck.total); assert.ok(row.gate && typeof row.gate.pass === "boolean");
-    for (const [m, p] of [["POST", `/api/runs/${id}/explore-fix`], ["GET", "/api/google/config"], ["POST", `/api/runs/${id}/explore-fix`]]) { const r = await s.call(m, p, { body: m === "POST" ? {} : undefined }); assert.strictEqual(r.status, 501); assert.strictEqual(r.body.code, "not-migrated"); }
-    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [{ route: "POST /runs/:id/explore-fix", hits: 2 }, { route: "GET /google/config", hits: 1 }]);
+    for (const [m, p] of [["POST", `/api/runs/${id}/redo-draft`], ["GET", "/api/google/config"], ["POST", `/api/runs/${id}/redo-draft`]]) { const r = await s.call(m, p, { body: m === "POST" ? {} : undefined }); assert.strictEqual(r.status, 501); assert.strictEqual(r.body.code, "not-migrated"); }
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, [{ route: "POST /runs/:id/redo-draft", hits: 2 }, { route: "GET /google/config", hits: 1 }]);
   } finally { await s.close(); }
 });
 
@@ -417,5 +417,98 @@ test("主視覺組合面板：換版式存得進去、回新版本代號；主�
     assert.strictEqual((await s.call("GET", "/api/theme-check?seed=zzz")).body.format, false);
     assert.strictEqual(typeof (await s.call("GET", "/api/theme-check?seed=%231d5f8a")).body.ok, "boolean");
     assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, []);
+  } finally { await s.close(); }
+});
+
+/* ---------- D14 第三段：單機版其餘功能 ---------- */
+test("刪除進垃圾桶 → 列表看不到、垃圾桶看得到 → 還原回列表；永久刪除與清空；封存與移回", async () => {
+  const s = await boot();
+  try {
+    const id = await created(s); const ids = async () => (await s.call("GET", "/api/runs")).body.map((r) => r.id);
+    // 封存
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/archive`)).body.ok, true);
+    assert.strictEqual((await s.call("GET", "/api/runs")).body.find((r) => r.id === id).archived, true);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/unarchive`)).body.ok, true);
+    assert.strictEqual((await s.call("GET", "/api/runs")).body.find((r) => r.id === id).archived, false);
+    // 刪除 → 垃圾桶
+    const del = await s.call("DELETE", `/api/runs/${id}`); assert.strictEqual(del.status, 200, del.text); assert.match(del.body.archivedName, new RegExp(`^${id}__deleted-`));
+    assert.ok(!(await ids()).includes(id), "列表不再列出");
+    const tr = (await s.call("GET", "/api/runs-deleted")).body; assert.strictEqual(tr.length, 1);
+    assert.deepStrictEqual({ id: tr[0].id, name: tr[0].archivedName, days: tr[0].daysLeft, by: tr[0].deletedBy }, { id, name: del.body.archivedName, days: 30, by: "sales@dev.local" }); assert.ok(tr[0].pageName);
+    assert.strictEqual((await s.call("DELETE", `/api/runs/${id}`)).status, 404, "已在垃圾桶的不能再刪一次");
+    // 還原
+    assert.strictEqual((await s.call("POST", `/api/runs-deleted/${encodeURIComponent(del.body.archivedName)}/restore`)).body.id, id);
+    assert.ok((await ids()).includes(id)); assert.deepStrictEqual((await s.call("GET", "/api/runs-deleted")).body, []);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/draft.json`)).status, 200, "還原後草稿還在");
+    // 永久刪除
+    const del2 = await s.call("DELETE", `/api/runs/${id}`);
+    assert.strictEqual((await s.call("DELETE", `/api/runs-deleted/${encodeURIComponent(del2.body.archivedName)}`)).body.ok, true);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/status`)).status, 404, "永久刪除＝資料真的沒了");
+    assert.strictEqual((await s.call("POST", `/api/runs-deleted/${encodeURIComponent(del2.body.archivedName)}/restore`)).status, 404);
+    // 清空
+    const id2 = await created(s); await s.call("DELETE", `/api/runs/${id2}`);
+    assert.strictEqual((await s.call("POST", "/api/runs-deleted/purge")).body.purged, 1); assert.deepStrictEqual(await ids(), []);
+  } finally { await s.close(); }
+});
+
+test("整頁已用商品的規則：core/page/exposed 與單機版 server.js 的同名函式文字相同（兩邊要一起改）", () => {
+  const srv = fs.readFileSync(path.join(PIPE, "workbench", "server.js"), "utf8"), mine = fs.readFileSync(path.join(PIPE, "core", "page", "exposed.js"), "utf8");
+  for (const name of ["heroGdidSet", "pageExposedGdids"]) { const cut = (t) => { const a = t.indexOf(`function ${name}(dj) {`); assert.ok(a >= 0, name); return t.slice(a, t.indexOf("\n}\n", a) + 3); }; assert.strictEqual(cut(mine), cut(srv), name); }
+});
+
+test("補選活動型態、來源紀錄重建、一鍵生成編輯精選＋延伸探索、編輯精選加一件、自動補一件", async () => {
+  const live = new Map(); // 商品頁現在的樣子（假的）
+  const productFetch = async ({ url, pageGdids }) => { const key = String(url); const p = live.get(key) || live.get((key.match(/(\d{6,})(?:\.html)?$/) || [])[1]);
+    if (!p) return { code: 400, error: "這不是商品頁的網址" }; if (pageGdids && pageGdids.includes(String(p.gdid))) return { code: 409, error: "這件商品已經在頁面上了（整頁只能放一次）" }; return { code: 200, product: JSON.parse(JSON.stringify(p)) }; };
+  const s = await boot({ productFetch });
+  try {
+    const id = await created(s); const snap0 = (await s.call("GET", `/api/runs/${id}/snapshot.json`)).body;
+    for (const p of snap0.products) live.set(String(p.gdid), { gdid: String(p.gdid), name: p.name, price: p.price, url: p.url, imgs: p.imgs });
+    // 補選型態
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/scenario`, { body: { scenario: "沒有這種" } })).status, 400);
+    const sc = await s.call("POST", `/api/runs/${id}/scenario`, { body: { scenario: "同品類-情境×優惠", theme: "新主題" } }); assert.strictEqual(sc.status, 200, sc.text);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/status`)).body.input.theme, "新主題");
+    // 來源紀錄重建：商品頁價格變了 → 來源快照跟上
+    const d0 = (await s.call("GET", `/api/runs/${id}/draft.json`)).body, row = d0.products[0];
+    live.set(String(row.gdid), { ...live.get(String(row.gdid)), price: row.price - 1 });
+    const pr = await s.call("POST", `/api/runs/${id}/pool-rebuild`, { body: { gdid: row.gdid } }); assert.strictEqual(pr.status, 200, pr.text); assert.strictEqual(pr.body.mode, "sync");
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/snapshot.json`)).body.products.find((p) => String(p.gdid) === String(row.gdid)).price, row.price - 1);
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/pool-rebuild`, { body: { gdid: "000" } })).body.staleCleared, true);
+    // 一鍵生成
+    const ee = await s.call("POST", `/api/runs/${id}/enrich-ee`); assert.strictEqual(ee.status, 200, ee.text); assert.ok([4, 8, 12].includes(ee.body.wallCount)); assert.ok(ee.body.exploreCount >= 1 && ee.body.baseMs);
+    assert.strictEqual(ee.body.draft.page.editorial.circles.length, 2); assert.strictEqual(ee.body.draft.products.filter((p) => p.position === "editorial-wall").length, ee.body.wallCount);
+    // 自動補一件：挑的是還沒上頁的
+    const used = new Set(ee.body.draft.products.map((p) => String(p.gdid)));
+    const au = await s.call("POST", `/api/runs/${id}/editorial-add`, { body: { auto: true } }); assert.strictEqual(au.status, 200, au.text); assert.strictEqual(au.body.autoPicked, true); assert.strictEqual(au.body.wallCount, ee.body.wallCount + 1);
+    // 貼網址加一件；已在頁面上的擋
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/editorial-add`, { body: { url: String(au.body.gdid) } })).status, 409);
+    live.set("88000001", { gdid: "88000001", name: "外面貼進來的商品", price: 500, marketPrice: 600, url: "https://tw.buy.yahoo.com/gdsale/x-88000001.html", imgs: ["https://img.yec.tw/a.jpg", "https://img.yec.tw/b.jpg"] });
+    const ad = await s.call("POST", `/api/runs/${id}/editorial-add`, { body: { url: "88000001" } }); assert.strictEqual(ad.status, 200, ad.text);
+    assert.ok((await s.call("GET", `/api/runs/${id}/snapshot.json`)).body.products.some((p) => String(p.gdid) === "88000001"), "貼進來的商品登記進來源");
+    // 頁面組成的「補一件折數最好的」（樓層）
+    const fl = await s.call("POST", `/api/runs/${id}/content-modules`, { body: { kind: "floor", action: "pick", index: 0, auto: true } });
+    assert.ok([200, 400].includes(fl.status), fl.text); assert.notStrictEqual(fl.body.code, "not-migrated"); // 樓層滿了會回 400 白話；重點是不再回「還沒接上」
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, []);
+  } finally { await s.close(); }
+});
+
+test("延伸探索卡：移除、手動改連結（商品頁要在售、站外不收、重複不收）、新增有上限、自動找不到就請人手動", async () => {
+  const s = await boot({ productLiveness: async ({ gdid }) => ({ status: gdid === "77000002" ? "offline" : "online", prod: { price: 1 }, evidence: {} }), fetchPage: async () => ({ statusCode: 200, html: "<html></html>" }) });
+  try {
+    const id = await created(s); const ee = await s.call("POST", `/api/runs/${id}/enrich-ee`); assert.strictEqual(ee.status, 200, ee.text);
+    const n0 = ee.body.draft.page.explore.items.length; const fix = (body) => s.call("POST", `/api/runs/${id}/explore-fix`, { body });
+    assert.strictEqual((await fix({ index: 0, mode: "manual", url: "https://example.com/x" })).status, 400, "站外不收");
+    assert.strictEqual((await fix({ index: 0, mode: "manual", url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=77000002" })).status, 400, "下架商品不收");
+    const ok = await fix({ index: 0, mode: "manual", url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=77000001", label: "手動改的" }); assert.strictEqual(ok.status, 200, ok.text);
+    assert.strictEqual(ok.body.draft.page.explore.items[0].url, "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=77000001"); assert.match(ok.body.how, /人工填入/); assert.ok(ok.body.baseMs);
+    assert.strictEqual((await fix({ append: true, mode: "manual", url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=77000003" })).status, 400, "新增要給主文案");
+    assert.strictEqual((await fix({ append: true, mode: "manual", url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=77000001", label: "重複" })).status, 409, "同一個目的地整頁只放一次");
+    for (let i = n0; i < 4; i++) { const a = await fix({ append: true, mode: "manual", url: `https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=7700001${i}`, label: `新增${i}` }); assert.strictEqual(a.status, 200, a.text); assert.strictEqual(a.body.itemsCount, i + 1); }
+    assert.strictEqual((await fix({ append: true, mode: "manual", url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=77000099", label: "第五張" })).status, 400, "最多 4 張");
+    const au = await fix({ index: 1, mode: "auto" }); assert.strictEqual(au.status, 409, au.text); assert.strictEqual(au.body.needManual, true); // 假的活動頁讀不出在檔＝不自作主張
+    assert.strictEqual((await fix({ target: "more" })).body.needManual, true);
+    const rm = await fix({ action: "remove", index: 3 }); assert.strictEqual(rm.body.itemsLeft, 3);
+    assert.strictEqual((await fix({ action: "remove", index: 9 })).status, 400);
+    assert.match(await s.store.readLog(id), /探索卡 #1 連結修復：人工填入/);
   } finally { await s.close(); }
 });

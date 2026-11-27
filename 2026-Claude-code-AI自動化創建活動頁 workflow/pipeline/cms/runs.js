@@ -20,6 +20,8 @@ const { resolveSource } = require(path.join(PIPE, "core", "source", "resolve"));
 const layoutLib = require(path.join(PIPE, "lib", "layout_choice.js"));
 const contentModules = require(path.join(PIPE, "lib", "content_modules.js"));
 const heroCombo = require(path.join(PIPE, "lib", "hero_combo.js"));
+const { heroGdidSet, pageExposedGdids } = require(path.join(PIPE, "core", "page", "exposed"));
+const { autoPickFromPool } = require("./edit_more");
 const themeDraft = require(path.join(PIPE, "lib", "theme_draft.js"));
 /* 組合面板收的欄位（沿單機版 hero-combo 路由；heroBgOwn 第一版不收） */
 const COMBO_KEYS = ["kvVariant", "backgroundId", "themeId", "customColor", "customSlot", "customSlots", "pageBg", "heroTitleScale", "heroSubtitleScale", "heroTitleWidth",
@@ -294,11 +296,20 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     if (b.action === "pick") {
       const pk = contentModules.PICK_KINDS[b.kind];
       if (!pk) return res.status(400).json({ error: "這個區塊不支援貼網址帶入商品——目前開放主打選品、促銷卡、品類牆、主打樓層。" });
-      if (b.auto === true) return res.status(501).json({ error: "「補一件折數最好的」第一版還沒接上——請貼商品網址或輸入賣場編號指名商品", code: "not-migrated" });
-      if (!String(b.input || "").trim()) return res.status(400).json({ error: "請先貼上商品網址或輸入賣場編號，再按「帶入商品」。" });
-      if (!deps.productFetch) return res.status(501).json({ error: "這台伺服器沒有接商品頁讀取，不能貼網址帶入商品", code: "not-migrated" });
-      const rK = await deps.productFetch({ url: String(b.input) });
-      if (rK.code !== 200) return res.status(rK.code).json({ error: rK.error });
+      if (!deps.productFetch) return res.status(501).json({ error: "這台伺服器沒有接商品頁讀取，不能帶入商品", code: "not-migrated" });
+      let rK;
+      if (b.auto === true) { // 補一件折數最好的：只給整頁不能重複的區塊（品類牆、樓層）
+        if (!pk.exclusive) return res.status(400).json({ error: "這個區塊沒有「補一件折數最好的」——請貼商品網址或輸入賣場編號指名商品。" });
+        const ap = await autoPickFromPool({ snapshot: x.snap.data, exposed: pageExposedGdids(x.cur.draft), productFetch: deps.productFetch });
+        if (ap.error) return res.status(409).json(ap);
+        rK = { code: 200, product: ap.product };
+      } else {
+        if (!String(b.input || "").trim()) return res.status(400).json({ error: "請先貼上商品網址或輸入賣場編號，再按「帶入商品」。" });
+        let pageGdids; // 整頁不能重複的區塊：把整頁已用的商品交給讀取端先擋（主視覺不算）
+        if (pk.exclusive) { const h = heroGdidSet(x.cur.draft); pageGdids = [...pageExposedGdids(x.cur.draft)].filter((g) => !h.has(g)); }
+        rK = await deps.productFetch(pageGdids ? { url: String(b.input), pageGdids } : { url: String(b.input) });
+        if (rK.code !== 200) return res.status(rK.code).json({ error: rK.error });
+      }
       const up = upsertPoolEntry(x.snap.data, rK.product, pk.source);
       if (up.mode === "add" || up.changed.length) {
         x.snap.data.warnings = (x.snap.data.warnings || []).concat(up.mode === "add" ? `R3 入池（${pk.name}貼稿）：gdid ${rK.product.gdid}「${rK.product.name}」（${deps.clock.iso()}）` : `R3 真值同步（${pk.name}貼稿）：gdid ${rK.product.gdid} 同步 ${up.changed.join("、")}（${deps.clock.iso()}）`);

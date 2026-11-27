@@ -703,9 +703,8 @@ fieldset.has-gate-err>legend{color:#d92d20}
 #toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;padding:9px 18px;font-size:var(--f2);opacity:0;pointer-events:none;transition:opacity .25s;z-index:150;max-width:70vw}
 #toast.show{opacity:.96}
 #toast.err{background:var(--fail)}
-/* CMS（D14，2026-11-26）：第一版不做的入口——策略檔、歷史與封存、垃圾桶、兩個內網連結、建立表單的「活動創建人」。單機版沒有 .mode-cms＝照舊顯示 */
-.mode-cms #nav-briefs, .mode-cms #nav-archive, .mode-cms #nav-trash, .mode-cms #side-foot a[href*="pages.github.io"], .mode-cms #owner-group,
-.mode-cms .vt.aux, .mode-cms [data-mm="trash"], .mode-cms [data-mm="archive"] { display: none !important; }
+/* CMS（D14，2026-11-26）：第一版不做的入口——策略檔、兩個內網連結、建立表單的「活動創建人」。單機版沒有 .mode-cms＝照舊顯示 */
+.mode-cms #nav-briefs, .mode-cms #side-foot a[href*="pages.github.io"], .mode-cms #owner-group { display: none !important; } /* 11-27：歷史與封存、垃圾桶已接上，放回來 */
 </style>
 <link rel="stylesheet" href="/public/shp-tokens.css"><!-- SHP 換膚覆蓋層（2026-08-18）：這兩行是唯一的 index.html 改動；回滾＝刪這兩行；static 路由=/public/<檔名> -->
 <link rel="stylesheet" href="/public/shp-cms.css">

@@ -41,7 +41,7 @@ function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), v
   /* 列表：回陣列、每列的欄位照單機版（畫面的列表、首頁、狀態燈都讀這些） */
   api.get("/runs", wrap(async (req, res) => {
     const rows = [];
-    for (const id of await store.listRuns()) { const r = await FE.legacyRow(store, id); if (r) rows.push(r); }
+    for (const id of await store.listRuns()) { const r = await FE.legacyRow(store, id); if (r && !r.deletedAt) rows.push(r); } // 進了垃圾桶的不列
     res.json(rows);
   }));
   api.get("/runs/:id", wrap(async (req, res) => {
@@ -50,6 +50,8 @@ function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), v
     res.json({ meta: m, approval: await store.approvalState(req.params.id) });
   }));
   if (deps) mountRuns(api, { store, approvers, jobs, deps, wrap }); // 主流程路由（D13）；沒給 deps＝只有唯讀的列表與狀態
+  if (deps) require("./edit_more").mountEditMore(api, { store, jobs, deps, wrap }); // 補選型態、來源紀錄重建、編輯精選、延伸探索（D14 第三段）
+  if (deps) require("./lifecycle").mountLifecycle(api, { store, jobs, deps, wrap }); // 刪除、垃圾桶、封存（D14 第三段）
   FE.mountCompat(api, { version });
   FE.mountMissing(api);
   app.use("/api", api);

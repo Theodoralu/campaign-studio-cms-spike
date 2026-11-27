@@ -50,7 +50,8 @@ async function legacyRow(store, id) {
     gate: g ? { pass: g.data.result === "PASS", fail: (g.data.counts && g.data.counts.FAIL) || 0, warn: (g.data.counts && g.data.counts.WARN) || 0 } : null,
     themeHue: (pg.theme && pg.theme.hueFamily) || null, createdAt: meta.createdAt || "", draftSavedAt: meta.draftSavedAt || meta.updatedAt || null,
     prodcheck: pc ? { checkedAt: pc.data.checkedAt || null, ...summarizeCheck(pc.data) } : null,
-    publicUrl: null, publicAt: null, publicDeploy: null, exportZip: null, exportAem: meta.exportAem || null, kvVariant: pg.kvVariant || null, priceTruth: meta.priceTruth || null, productCheck: meta.productCheck || null };
+    publicUrl: null, publicAt: null, publicDeploy: null, exportZip: null, exportAem: meta.exportAem || null, kvVariant: pg.kvVariant || null, priceTruth: meta.priceTruth || null, productCheck: meta.productCheck || null,
+    archived: meta.archived === true, deletedAt: meta.deletedAt || null };
 }
 
 function mountCompat(api, { version, roots = defaultStaticRoots() }) {
@@ -72,7 +73,7 @@ function mountCompat(api, { version, roots = defaultStaticRoots() }) {
   /* 畫面載入時會要的幾份清單：引導文案照給；策略檔（第二階段）與回收區（還沒搬）回空清單，畫面就不顯示那兩塊 */
   api.get("/flow-guide", (req, res) => { try { res.json({ ok: true, ...JSON.parse(fs.readFileSync(path.join(PIPE, "lib", "flow_guide_copy.json"), "utf8")) }); } catch (e) { res.status(500).json({ error: "引導文案讀不到（技術：" + errText(e) + "）" }); } });
   api.get("/briefs", (req, res) => res.json([]));
-  api.get("/runs-deleted", (req, res) => res.json([]));
+  api.get("/runs-deleted", (req, res) => res.json([])); // 沒掛主流程路由（唯讀模式）時的保底；平常由 cms/lifecycle 先接走
   /* 主題色把關（建立表單選自訂色時問的）：跟編修面板同一把尺 lib/theme_draft */
   api.get("/theme-check", (req, res) => {
     const T = require(path.join(PIPE, "lib", "theme_draft.js")); const raw = String(req.query.seed || "");
