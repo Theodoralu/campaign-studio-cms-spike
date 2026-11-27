@@ -23,6 +23,9 @@ const heroCombo = require(path.join(PIPE, "lib", "hero_combo.js"));
 const { heroGdidSet, pageExposedGdids } = require(path.join(PIPE, "core", "page", "exposed"));
 const { autoPickFromPool } = require("./edit_more");
 const themeDraft = require(path.join(PIPE, "lib", "theme_draft.js"));
+const heroBgOwnLib = require(path.join(PIPE, "lib", "hero_bg_own.js"));
+const heroBgLic = require(path.join(PIPE, "lib", "hero_bg_license.js"));
+const { bgKey } = require("./uploads");
 /* 組合面板收的欄位（沿單機版 hero-combo 路由；heroBgOwn 第一版不收） */
 const COMBO_KEYS = ["kvVariant", "backgroundId", "themeId", "customColor", "customSlot", "customSlots", "pageBg", "heroTitleScale", "heroSubtitleScale", "heroTitleWidth",
   "heroTitleLeading", "heroSubtitleLeading", "heroTitleTracking", "titleFrame", "titleStyleThemed", "titleGroupWarp", "heroTitleHidden", "heroMarqueeHidden"];
@@ -203,6 +206,7 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
     const st = await store.approvalState(id);
     if (!st.fingerprint) return res.status(404).json({ error: "草稿還沒有產生", code: "no-doc" });
     if (!st.approved) return res.status(409).json({ error: "要先核可這個版本才能製作——請先按「核可這一版」，製作時會自動再跑一次合規檢查把關", code: "not-approved" });
+    { const d = await store.getDraft(id), hold = heroBgLic.exportHoldReason(d.draft.page, { confirm: (await store.readMeta(id)).heroBgLicenseConfirm || null }); if (hold) return res.status(409).json({ error: hold, code: "bg-license" }); } // 用了自己上傳的背景：要先做版權確認
     jobs.start(id, "export", () => P.exportHtml({ store, id, deps }));
     res.json({ ok: true, note: "已開始製作（合規全檢→組裝單一 HTML→三裝置顯示檢查；做好即可下載）" });
   }));
@@ -338,14 +342,20 @@ function mountRuns(api, { store, approvers, jobs, deps, wrap }) {
       seedSuggest: (fails.length && colors.source === "custom" && themeDraft.isHex6(colors.seed)) ? themeDraft.suggestSeed(colors.seed) : null });
   }));
   /* 主視覺組合面板：換版式、背景、主題色、自訂色、標題大小等。規則全在 lib/hero_combo.applyCombo（單機版同一支）。
-     第一版不收：貼提案包（第二階段）、自己上傳的背景圖（上傳還沒搬）。 */
+     第一版不收：貼提案包（第二階段）。 */
   api.post("/runs/:id/hero-combo", wrap(async (req, res) => {
     if (!(await need(req, res)) || busy(req, res)) return; const id = req.params.id, b = req.body || {};
     if (b.pack != null) return res.status(501).json({ error: "貼提案包第一版還沒接上——請直接在面板上選版式、背景和顏色", code: "not-migrated" });
-    if (b.heroBgOwn && typeof b.heroBgOwn === "object") return res.status(501).json({ error: "自己上傳背景圖第一版還沒接上——請先從內建背景裡選", code: "not-migrated" });
     const cur = await store.getDraft(id); if (!cur) return res.status(404).json({ error: "草稿還沒有產生", code: "no-doc" });
     let cdeps; try { cdeps = layoutLib.loadLayoutDeps(); } catch (e) { return res.status(500).json({ error: "組合面板暫時無法運作（版式登記簿讀取問題）：" + errText(e) }); }
     const change = { by: "manual" }; for (const k of COMBO_KEYS) change[k] = b[k];
+    /* 你上傳的背景：只認「這檔活動自己存的三張」；確認欄一律照伺服器的版權確認紀錄填，畫面送來的不算 */
+    if (b.heroBgOwn !== undefined) { change.heroBgOwn = b.heroBgOwn;
+      if (b.heroBgOwn && typeof b.heroBgOwn === "object" && b.heroBgOwn.files) {
+        for (const [slot, rel] of Object.entries(b.heroBgOwn.files)) { const pp = heroBgOwnLib.parseOwnApiPath(rel);
+          if (!pp || pp.runId !== id || !(await store.backend.get(bgKey(id, pp.file)))) return res.status(400).json({ error: `上傳的背景檔案（${({ desktop: "桌機版", "768": "平板版", "375": "手機版" })[slot] || slot}）找不到，請重新上傳。` }); }
+        const conf = (await store.readMeta(id)).heroBgLicenseConfirm || null;
+        if (heroBgLic.ownConfirmMatches({ heroBgOwn: change.heroBgOwn }, conf)) change.heroBgOwn.confirmed = { at: conf.at, by: conf.by }; else delete change.heroBgOwn.confirmed; } }
     let r; try { r = heroCombo.applyCombo(cur.draft, change, cdeps); }
     catch (e) { await store.appendLog(id, "組合面板變更失敗：" + errText(e)); return res.status(400).json({ error: errText(e) }); }
     if (!r.changed) return res.json({ ok: true, changed: false, draft: cur.draft, info: r.info, approvalInvalidated: false, ...(await ver(id)) });

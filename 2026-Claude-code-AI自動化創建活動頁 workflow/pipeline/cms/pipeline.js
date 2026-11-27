@@ -159,7 +159,9 @@ async function exportHtml({ store, id, deps }) {
     await set({ stage: "build" });
     const cur = await store.getDraft(id), meta = await store.readMeta(id);
     let built;
-    try { built = await exp.buildAem({ id, draft: cur.draft, meta, assetRoots, onWarn: (m) => store.appendLog(id, m) }); }
+    try { const build = (runDir) => exp.buildAem({ id, draft: cur.draft, meta, assetRoots, runDir, onWarn: (m) => store.appendLog(id, m) });
+      /* 用了自己上傳的背景＝把那三張圖取到暫存資料夾，組檔時內嵌進 HTML */
+      built = (cur.draft.page || {}).heroBgOwn ? await require("./uploads").withBgDir(store, id, build, { readOnly: true }) : await build(null); }
     catch (e) { await store.appendLog(id, "網頁檔組裝失敗：" + errText(e)); return void (await set({ stage: "error", error: exp.friendlyBuildError(e) })); }
     for (const l of exp.buildLogs(built.fileName, built.report)) await store.appendLog(id, l);
     await set({ stage: "verify" });

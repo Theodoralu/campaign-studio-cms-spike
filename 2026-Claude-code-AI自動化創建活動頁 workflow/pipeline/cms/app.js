@@ -25,7 +25,9 @@ function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), v
   const app = express();
   app.disable("x-powered-by");
   /* 舊畫面送 JSON 不帶 Content-Type——/api 底下一律當 JSON 解析 */
-  app.use("/api", express.json({ limit: "5mb", type: () => true }));
+  /* 一般請求上限 5MB；上傳背景圖（10MB 圖轉 base64）與 Excel 帶入（20MB）這幾條另外放寬 */
+  const jsonSmall = express.json({ limit: "5mb", type: () => true }), jsonBig = express.json({ limit: "30mb", type: () => true });
+  app.use("/api", (req, res, next) => (/\/(hero-bg|import-preview|import-apply)$/.test(req.path) && req.method === "POST" ? jsonBig : jsonSmall)(req, res, next));
   const wrap = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
   const ID_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,80}$/;
 
@@ -50,6 +52,7 @@ function createApp({ store, auth, approvers, deps = null, jobs = createJobs(), v
     res.json({ meta: m, approval: await store.approvalState(req.params.id) });
   }));
   if (deps) mountRuns(api, { store, approvers, jobs, deps, wrap }); // 主流程路由（D13）；沒給 deps＝只有唯讀的列表與狀態
+  if (deps) require("./uploads").mountUploads(api, { store, jobs, deps, wrap }); // 上傳主視覺背景、Excel 帶入（D14 第四段）
   if (deps) require("./edit_more").mountEditMore(api, { store, jobs, deps, wrap }); // 補選型態、來源紀錄重建、編輯精選、延伸探索（D14 第三段）
   if (deps) require("./lifecycle").mountLifecycle(api, { store, jobs, deps, wrap }); // 刪除、垃圾桶、封存（D14 第三段）
   FE.mountCompat(api, { version });

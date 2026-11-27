@@ -399,7 +399,7 @@ test("換品：貼網址讀商品 → 登記進來源快照；單件套用商品
 });
 
 
-test("主視覺組合面板：換版式存得進去、回新版本代號；主題色把關兩支都回得出來；提案包與自己上傳背景第一版不收", async () => {
+test("主視覺組合面板：換版式存得進去、回新版本代號；主題色把關兩支都回得出來；提案包第一版不收", async () => {
   const s = await boot();
   try {
     const id = await created(s);
@@ -412,7 +412,6 @@ test("主視覺組合面板：換版式存得進去、回新版本代號；主�
     assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { kvVariant: other } })).body.changed, false);
     assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { kvVariant: "沒有這款" } })).status, 400);
     assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { pack: "x" } })).status, 501);
-    assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { heroBgOwn: { files: {} } } })).status, 501);
     const tc = await s.call("GET", `/api/runs/${id}/theme-check`); assert.strictEqual(tc.status, 200); assert.strictEqual(typeof tc.body.ok, "boolean");
     assert.strictEqual((await s.call("GET", "/api/theme-check?seed=zzz")).body.format, false);
     assert.strictEqual(typeof (await s.call("GET", "/api/theme-check?seed=%231d5f8a")).body.ok, "boolean");
@@ -510,5 +509,86 @@ test("延伸探索卡：移除、手動改連結（商品頁要在售、站外�
     const rm = await fix({ action: "remove", index: 3 }); assert.strictEqual(rm.body.itemsLeft, 3);
     assert.strictEqual((await fix({ action: "remove", index: 9 })).status, 400);
     assert.match(await s.store.readLog(id), /探索卡 #1 連結修復：人工填入/);
+  } finally { await s.close(); }
+});
+
+/* ---------- D14 第四段：上傳檔案 ---------- */
+test("自己上傳主視覺背景：三張都要、尺寸不夠會擋 → 套用 → 版權確認前不能製作 → 確認要本人 → 製作時圖內嵌進 HTML → 移除", async () => {
+  const sharp = require("sharp"), HS = require(path.join(PIPE, "lib", "hero_stages.js"));
+  const s = await boot();
+  try {
+    const id = await created(s);
+    const cat = (await s.call("GET", "/api/layout-catalog")).body; let layout = (await s.call("GET", `/api/runs/${id}/draft.json`)).body.page.kvVariant;
+    if (!/^layout-\d{3}$/.test(String(layout))) { layout = cat.cards[0].id; assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { kvVariant: layout } })).status, 200); }
+    const png = async (w, h) => (await sharp({ create: { width: w, height: h, channels: 3, background: { r: 30, g: 90, b: 140 } } }).png().toBuffer()).toString("base64");
+    const answers = { source: (require(path.join(PIPE, "lib", "hero_bg_own.js")).SOURCE_OPTIONS.find((x) => x !== "購買的圖庫")), commercial: true, responsibility: true };
+    const up = async (slot, w, h, a = answers) => s.call("POST", `/api/runs/${id}/hero-bg`, { body: { slot, mime: "image/png", name: `${slot}.png`, dataBase64: await png(w, h), answers: a } });
+    assert.strictEqual((await up("desktop", 100, 100)).status, 400, "尺寸不夠會擋");
+    assert.strictEqual((await up("desktop", 100, 100, { ...answers, commercial: false })).status, 400, "沒勾授權不收");
+    let own = null;
+    for (const slot of ["desktop", "768", "375"]) { const need = HS.minSizeFor(layout, slot); const r = await up(slot, need.w, need.h); assert.strictEqual(r.status, 200, r.text); own = r.body.heroBgOwn; assert.strictEqual(r.body.complete, slot === "375"); }
+    assert.strictEqual(own.uploadedBy, "sales@dev.local");
+    const img = await fetch(`http://127.0.0.1:${s.port}${own.files.desktop}`, { headers: { "x-dev-user": SALES } }); assert.strictEqual(img.status, 200); assert.strictEqual(img.headers.get("content-type"), "image/webp");
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/hero-bg/..%2Fdraft.json`)).status, 404);
+    // 套用到草稿（走組合面板同一個入口）；指到別檔的圖不收
+    assert.strictEqual((await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { backgroundId: "own", heroBgOwn: { ...own, files: { ...own.files, desktop: "/api/runs/other-run/hero-bg/desktop.webp" } } } })).status, 400);
+    const ap = await s.call("POST", `/api/runs/${id}/hero-combo`, { body: { backgroundId: "own", heroBgOwn: { ...own, confirmed: { at: "x", by: "假的" } } } }); assert.strictEqual(ap.status, 200, ap.text);
+    assert.strictEqual(ap.body.draft.page.backgroundId, "own"); assert.strictEqual(ap.body.draft.page.heroBgOwn.confirmed, undefined, "畫面自己貼的「已確認」不算");
+    // 版權確認
+    const cf = (body, as) => s.call("POST", `/api/runs/${id}/hero-bg-confirm`, { body, as });
+    assert.strictEqual((await cf({ checked: false, account: "sales" })).status, 409);
+    assert.match((await cf({ checked: true, account: "someone-else" })).body.error, /登入的身分不符/);
+    const ok = await cf({ checked: true, account: "sales@dev.local" }); assert.strictEqual(ok.status, 200, ok.text); assert.strictEqual(ok.body.confirm.sha256, own.sha256);
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/status`)).body.heroBgLicenseConfirm.by, "sales@dev.local");
+    // 背景製作說明
+    const kit = await s.call("GET", `/api/runs/${id}/hero-kit`); assert.strictEqual(kit.status, 200); assert.match(kit.headers.get("content-type"), /markdown/);
+    // 組檔：圖取得到、內嵌成 data URI
+    const { withBgDir } = require(path.join(PIPE, "cms", "uploads.js")); const cur = await s.store.getDraft(id), meta = await s.store.readMeta(id);
+    const built = await withBgDir(s.store, id, (runDir) => exp.buildAem({ id, draft: cur.draft, meta, assetRoots: s.deps.assetRoots, runDir }), { readOnly: true });
+    assert.match(built.slimHtml, /data:image\/webp;base64,/, "自己上傳的背景內嵌進 HTML"); assert.ok(!built.slimHtml.includes(`/api/runs/${id}/hero-bg/`), "HTML 裡不留伺服器路徑");
+    // 移除
+    assert.ok((await s.call("DELETE", `/api/runs/${id}/hero-bg`)).body.removed >= 3);
+    assert.strictEqual((await fetch(`http://127.0.0.1:${s.port}${own.files.desktop}`, { headers: { "x-dev-user": SALES } })).status, 404);
+    assert.deepStrictEqual((await s.call("GET", "/api/_missing")).body.missing, []);
+  } finally { await s.close(); }
+});
+
+test("自己上傳的背景還沒做版權確認：核可了也不能製作", async () => {
+  const s = await boot();
+  try {
+    const id = await created(s); const cur = await s.store.getDraft(id);
+    cur.draft.page.backgroundId = "own"; cur.draft.page.heroBgOwn = { files: { desktop: `/api/runs/${id}/hero-bg/desktop.webp`, "768": `/api/runs/${id}/hero-bg/768.webp`, "375": `/api/runs/${id}/hero-bg/375.webp` }, sha256: "abc" };
+    await s.store.saveDraft(id, cur.draft, { ifMatch: cur.etag, source: "system" });
+    await s.call("POST", `/api/runs/${id}/gate`); await s.jobs.wait(id);
+    const fp = (await s.call("GET", `/api/runs/${id}`)).body.approval.fingerprint;
+    const apv = await s.call("POST", `/api/runs/${id}/approve`, { as: APPROVER, body: { fingerprint: fp, ackFail: true } }); assert.strictEqual(apv.status, 200, apv.text);
+    const ex = await s.call("POST", `/api/runs/${id}/export-aem`); assert.strictEqual(ex.status, 409); assert.strictEqual(ex.body.code, "bg-license");
+  } finally { await s.close(); }
+});
+
+test("Excel 帶入：下載範本 → 只有範例的檔不帶入 → 填了主打選品的檔先對帳再帶入，商品由伺服器讀、登記進來源", async () => {
+  const ExcelJS = require("exceljs"), SI = require(path.join(PIPE, "lib", "sheet_import.js"));
+  const P1 = { gdid: "66000001", name: "匯入的大卡商品", price: 990, url: "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=66000001", imgs: ["https://img.yec.tw/a.jpg", "https://img.yec.tw/b.jpg"] };
+  const s = await boot({ productFetch: async ({ url }) => (/66000001/.test(String(url)) ? { code: 200, product: JSON.parse(JSON.stringify(P1)) } : { code: 400, error: "找不到這件商品" }) });
+  try {
+    const id = await created(s);
+    const t = await fetch(`http://127.0.0.1:${s.port}/api/runs/${id}/import-template`, { headers: { "x-dev-user": SALES } }); assert.strictEqual(t.status, 200); assert.match(t.headers.get("content-type"), /spreadsheetml/);
+    const tpl = Buffer.from(await t.arrayBuffer());
+    const send = (route, buf, name = "活動內容.xlsx") => s.call("POST", `/api/runs/${id}/${route}`, { body: { name, fileBase64: buf.toString("base64") } });
+    assert.strictEqual((await send("import-apply", tpl, "x.xlsm")).status, 400, "含巨集的不收");
+    const empty = await send("import-apply", tpl); assert.strictEqual(empty.status, 400, empty.text); assert.match(empty.body.error, /沒有可帶入的內容|沒有任何一個模組分頁/);
+    // 填主打選品：標題＋大卡商品（欄位名對到「你填這裡」那一欄）
+    const wb = new ExcelJS.Workbook(); await wb.xlsx.load(tpl); const ws = wb.getWorksheet(SI.SHEET.spotlight);
+    const fill = (label, v) => { let done = false; ws.eachRow((row) => { if (!done && String(row.getCell(SI.FORM.label).value || "") === label) { row.getCell(SI.FORM.value).value = v; done = true; } }); assert.ok(done, "範本裡找不到欄位：" + label); };
+    fill("標題", "匯入測試標題"); fill("大卡・商品（賣場編號或商品網址）", "66000001");
+    const filled = Buffer.from(await wb.xlsx.writeBuffer());
+    const pv = await send("import-preview", filled); assert.strictEqual(pv.status, 200, pv.text); assert.ok(pv.body.report.sheets.length >= 1);
+    const before = (await s.call("GET", `/api/runs/${id}/draft.json`)).headers.get("x-draft-mtime");
+    assert.strictEqual((await s.call("GET", `/api/runs/${id}/draft.json`)).headers.get("x-draft-mtime"), before, "對帳不寫入");
+    const ap = await send("import-apply", filled);
+    assert.strictEqual(ap.status, 200, ap.text + JSON.stringify(pv.body.report).slice(0, 600));
+    assert.strictEqual(ap.body.changed, true); assert.strictEqual(ap.body.draft.page.spotlight.title, "匯入測試標題"); assert.ok(ap.body.baseMs && ap.body.backup);
+    assert.ok((await s.call("GET", `/api/runs/${id}/snapshot.json`)).body.products.some((p) => String(p.gdid) === "66000001"), "匯入的商品登記進來源");
+    assert.match(await s.store.readLog(id), /Excel 帶入：/);
   } finally { await s.close(); }
 });

@@ -100,8 +100,37 @@ Google 文件匯出（`google/status`）、提案包、封存／垃圾桶還原�
 
 ### 還沒接上的單機版功能
 
-| 功能 | 網址 | 為什麼還沒 |
-|---|---|---|
-| 自己上傳主視覺背景、授權確認、背景素材包 | `hero-bg`、`hero-bg-confirm`、`hero-kit` | 圖檔要改存進 RunStore、製作時要帶進 HTML，下一段做 |
-| Excel 匯入內文模組 | `import-template`、`import-preview`、`import-apply` | 下一段做 |
-| 照策略檔重做草稿 | `redo-draft` | 依賴策略檔（需要 AI 的那一組，第二階段） |
+見下方第四段；第三段結束時剩上傳背景與 Excel 匯入，已在第四段補上。
+
+## 第四段（2026-11-27）：上傳主視覺背景、Excel 帶入
+
+程式在 `cms/uploads.js`，規則全用單機版同一批 lib。
+
+| 畫面上的操作 | 網址 |
+|---|---|
+| 上傳背景（桌機、平板、手機三張；自動壓成 WebP） | `POST /api/runs/:id/hero-bg` |
+| 移除上傳的背景 | `DELETE /api/runs/:id/hero-bg` |
+| 預覽讀圖 | `GET /api/runs/:id/hero-bg/:file` |
+| 版權確認 | `POST /api/runs/:id/hero-bg-confirm` |
+| 下載背景製作說明 | `GET /api/runs/:id/hero-kit` |
+| 套用到草稿 | `POST /api/runs/:id/hero-combo`（帶 `heroBgOwn`） |
+| 下載 Excel 範本 | `GET /api/runs/:id/import-template` |
+| Excel 對帳（不寫入）、帶入 | `POST import-preview`、`import-apply` |
+
+### 與單機版不同的地方
+
+- **圖檔怎麼存**：RunStore 目前只存文字，圖以 base64 文字存成 `hero-bg/<檔名>.b64`。每次操作把圖取到暫存資料夾讓 lib 照常處理，做完存回、刪掉暫存。本機資料夾與 S3 同一套。圖多或量大之後應該讓 RunStore 直接存二進位檔。
+- **版權確認比的是登入身分**：單機版比「重輸的帳號」與建立時手填的信箱；新伺服器比「重輸的帳號」與登入的人，紀錄也記登入的人。
+- **製作的把關**：用了自己上傳的背景但還沒確認版權，按製作會回 409，組檔那一步也會再擋一次。
+- **請求大小**：一般 5MB；上傳背景與 Excel 這三條放寬到 30MB。
+
+### D14 仍然沒有的
+
+| 功能 | 原因 |
+|---|---|
+| 照策略檔重做草稿（`redo-draft`）、策略檔、提案包、Gemini 提示、AI 文案建議、AI 策展 | 需要 AI 或依賴策略檔，第二階段（ECSEARCH-39120 第 1～3 項） |
+| Google 文件與 Sheets、ZIP 匯出、內網上線、對外發佈 | 不搬（2026-11-19 確認） |
+
+### 測試
+
+`test/unit/cms_flow.test.js` 共 24 組。乾淨 clone 全套數字見 commit 當下的 CI。第二、三、四段的操作都還沒有人在瀏覽器點過。
